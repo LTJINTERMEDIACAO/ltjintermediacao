@@ -154,8 +154,8 @@ header {
 }
 
 .status {
-    display: inline-block;
-    margin-left: 12px;
+    display: block;
+    margin-top: 12px;
     color: #16803c;
     font-weight: bold;
 }
@@ -246,9 +246,9 @@ footer {
         </strong>
 
         <p>
-            Confira sua assinatura abaixo.
-            Em breve teremos todos os colaboradores
-            disponíveis nesta Central.
+            Clique em "Copiar assinatura" e depois
+            cole diretamente no campo de assinatura
+            do seu e-mail.
         </p>
 
     </div>
@@ -265,11 +265,14 @@ footer {
         </p>
 
 
-        <div class="assinatura-preview">
+        <div
+            class="assinatura-preview"
+            id="areaAssinatura"
+        >
 
             <img
                 src="https://ltjintermediacao.github.io/ltjintermediacao/ana-paula.jpg.jpg"
-                alt="Assinatura de Ana Paula"
+                alt=""
             >
 
         </div>
@@ -282,15 +285,18 @@ footer {
             📋 Copiar assinatura
         </button>
 
-        <span
+
+        <div
             id="status"
             class="status"
-        ></span>
+        ></div>
 
 
         <p class="instrucao">
-            Depois de copiar, cole no campo de assinatura
-            do seu e-mail corporativo.
+
+            Depois de copiar, abra o UOL e use
+            <strong>Ctrl + V</strong> no campo da assinatura.
+
         </p>
 
     </div>
@@ -311,69 +317,82 @@ footer {
 
 <script>
 
-function copiarAssinatura() {
+async function copiarAssinatura() {
 
     const imagem =
         document.querySelector(
-            ".assinatura-preview img"
+            "#areaAssinatura img"
         );
 
-    if (!imagem) {
-        return;
-    }
-
-    const area =
-        document.createElement("div");
-
-    area.style.position = "fixed";
-    area.style.left = "-9999px";
-
-    area.innerHTML =
-        imagem.outerHTML;
-
-    document.body.appendChild(area);
-
-
-    const selecao =
-        window.getSelection();
-
-    const range =
-        document.createRange();
-
-    range.selectNodeContents(area);
-
-    selecao.removeAllRanges();
-
-    selecao.addRange(range);
+    const status =
+        document.getElementById("status");
 
 
     try {
 
-        document.execCommand("copy");
+        const resposta =
+            await fetch(imagem.src);
 
-        document.getElementById("status").textContent =
-            "✓ Copiado!";
+        const blob =
+            await resposta.blob();
+
+
+        const html =
+            '<img src="' +
+            imagem.src +
+            '" style="display:block;max-width:100%;">';
+
+
+        if (
+            navigator.clipboard &&
+            window.ClipboardItem
+        ) {
+
+            const item =
+                new ClipboardItem({
+
+                    "text/html":
+                        new Blob(
+                            [html],
+                            {
+                                type: "text/html"
+                            }
+                        ),
+
+                    "image/jpeg":
+                        blob
+
+                });
+
+
+            await navigator.clipboard.write([item]);
+
+
+            status.textContent =
+                "✓ Assinatura copiada! Agora use Ctrl + V no UOL.";
+
+        } else {
+
+            throw new Error(
+                "Clipboard não disponível"
+            );
+
+        }
+
+
+    } catch (erro) {
+
+        status.textContent =
+            "Não foi possível copiar automaticamente. Clique na imagem, copie e cole no UOL.";
 
     }
-
-    catch (erro) {
-
-        document.getElementById("status").textContent =
-            "Selecione e copie manualmente.";
-
-    }
-
-
-    selecao.removeAllRanges();
-
-    document.body.removeChild(area);
 
 
     setTimeout(function() {
 
-        document.getElementById("status").textContent = "";
+        status.textContent = "";
 
-    }, 3000);
+    }, 6000);
 
 }
 
