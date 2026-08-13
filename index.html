@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LTJ Intermediação</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fa;
+            color: #1d2940;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: 800;
+            color: #173b70;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #f58220;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #173b70;
+            margin-left: 25px;
+            font-weight: 600;
+        }
+
+        .hero {
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            padding: 70px 8%;
+            background: linear-gradient(135deg, #173b70, #245da0);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #f58220;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #eef4ff;
+        }
+
+        .botao {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: #f58220;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .titulo h2 {
+            font-size: 36px;
+            color: #173b70;
+            margin-bottom: 12px;
+        }
+
+        .titulo p {
+            color: #667085;
+            font-size: 17px;
+        }
+
+        .servicos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 35px 25px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            text-align: center;
+        }
+
+        .card h3 {
+            color: #173b70;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #667085;
+            line-height: 1.6;
+        }
+
+        .endereco {
+            background: #173b70;
+            color: white;
+            text-align: center;
+        }
+
+        .endereco h2 {
+            font-size: 34px;
+            margin-bottom: 18px;
+        }
+
+        .endereco p {
+            font-size: 19px;
+            color: #e9eff8;
+        }
+
+        footer {
+            background: #10294d;
+            color: #cdd7e6;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 800px) {
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero {
+                min-height: 450px;
+                padding: 55px 7%;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .servicos {
+                grid-template-columns: 1fr;
+            }
+
+            .titulo h2 {
+                font-size: 29px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            LTJ<span>.</span>
+        </div>
+
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+
+            <h1>
+                Soluções que aproximam
+                <span>você dos seus objetivos.</span>
+            </h1>
+
+            <p>
+                A LTJ Intermediação trabalha para oferecer
+                soluções financeiras com atendimento próximo,
+                profissional e transparente.
+            </p>
+
+            <a href="#servicos" class="botao">
+                Conheça nossos serviços
+            </a>
+
+        </div>
+    </section>
+
+
+    <section id="servicos">
+
+        <div class="titulo">
+            <h2>Nossos Serviços</h2>
+
+            <p>
+                Soluções pensadas para atender diferentes necessidades.
+            </p>
+        </div>
+
+
+        <div class="servicos">
+
+            <div class="card">
+                <h3>Financiamento</h3>
+
+                <p>
+                    Encontre alternativas de financiamento
+                    adequadas ao seu objetivo.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>Refinanciamento</h3>
+
+                <p>
+                    Conte com nossa equipe para buscar
+                    soluções de refinanciamento.
+                </p>
+            </div>
+
+
+            <div class="card">
+                <h3>Intermediação</h3>
+
+                <p>
+                    Atendimento profissional para facilitar
+                    o processo e aproximar você das melhores
+                    possibilidades.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="endereco" id="contato">
+
+        <h2>Onde estamos</h2>
+
+        <p>
+            Rua Duque de Caxias, 50 – Vila Leão
+        </p>
+
+    </section>
+
+
+    <footer>
+
+        © 2026 LTJ Intermediação. Todos os direitos reservados.
+
+    </footer>
+
+</body>
+</html>
