@@ -2,463 +2,241 @@
 <html lang="pt-BR">
 
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Central de Assinaturas | LTJ</title>
-
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f6f8fb;
-            color: #123c70;
-        }
-
-
-        /* =========================
-           CABEÇALHO
-        ========================== */
-
-        header {
-            background: white;
-
-            padding: 18px 7%;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            box-shadow:
-                0 2px 12px rgba(0,0,0,0.06);
-        }
-
-
-        .logo {
-            font-size: 27px;
-
-            font-weight: bold;
-
-            color: #123c70;
-        }
-
-
-        .logo span {
-            color: #f58220;
-        }
-
-
-        .voltar {
-            text-decoration: none;
-
-            color: #123c70;
-
-            font-weight: bold;
-
-            font-size: 14px;
-        }
-
-
-        .voltar:hover {
-            color: #f58220;
-        }
-
-
-        /* =========================
-           CABEÇALHO DA PÁGINA
-        ========================== */
-
-        .hero {
-
-            text-align: center;
-
-            padding: 65px 20px 45px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #f7faff,
-                    #e9f2fb
-                );
-        }
-
-
-        .icone {
-
-            font-size: 42px;
-
-            margin-bottom: 15px;
-        }
-
-
-        .hero h1 {
-
-            font-size: 40px;
-
-            margin-bottom: 15px;
-
-            color: #0b2b52;
-        }
-
-
-        .hero h1 span {
-
-            color: #f58220;
-        }
-
-
-        .hero p {
-
-            color: #667085;
-
-            font-size: 17px;
-
-            line-height: 1.6;
-
-            max-width: 650px;
-
-            margin: auto;
-        }
-
-
-        /* =========================
-           CONTEÚDO
-        ========================== */
-
-        .conteudo {
-
-            max-width: 1000px;
-
-            margin: 0 auto;
-
-            padding: 55px 20px 80px;
-        }
-
-
-        .aviso {
-
-            background: white;
-
-            border-left:
-                5px solid #f58220;
-
-            border-radius: 10px;
-
-            padding: 20px 22px;
-
-            margin-bottom: 35px;
-
-            box-shadow:
-                0 4px 15px rgba(0,0,0,0.05);
-        }
-
-
-        .aviso strong {
-
-            display: block;
-
-            color: #123c70;
-
-            margin-bottom: 7px;
-        }
-
-
-        .aviso p {
-
-            color: #667085;
-
-            line-height: 1.5;
-
-            font-size: 14px;
-        }
-
-
-        /* =========================
-           CARD DA ASSINATURA
-        ========================== */
-
-        .assinatura-card {
-
-            background: white;
-
-            border-radius: 16px;
-
-            padding: 30px;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.07);
-        }
-
-
-        .assinatura-card h2 {
-
-            font-size: 22px;
-
-            margin-bottom: 8px;
-
-            color: #123c70;
-        }
-
-
-        .assinatura-card .descricao {
-
-            color: #667085;
-
-            font-size: 14px;
-
-            margin-bottom: 25px;
-        }
-
-
-        .assinatura-preview {
-
-            background: white;
-
-            border:
-                1px solid #e5e7eb;
-
-            border-radius: 10px;
-
-            padding: 35px;
-
-            margin-bottom: 25px;
-
-            overflow-x: auto;
-        }
-
-
-        .assinatura-preview img {
-
-            display: block;
-
-            max-width: 100%;
-
-            height: auto;
-
-            margin: auto;
-        }
-
-
-        /* =========================
-           BOTÃO
-        ========================== */
-
-        .botao {
-
-            border: none;
-
-            background: #f58220;
-
-            color: white;
-
-            padding: 14px 24px;
-
-            border-radius: 8px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-            font-size: 14px;
-
-            transition: 0.2s;
-        }
-
-
-        .botao:hover {
-
-            background: #dc6e13;
-
-            transform: translateY(-1px);
-        }
-
-
-        .status {
-
-            display: inline-block;
-
-            margin-left: 12px;
-
-            color: #16803c;
-
-            font-size: 13px;
-
-            font-weight: bold;
-        }
-
-
-        .instrucao {
-
-            margin-top: 15px;
-
-            color: #98a2b3;
-
-            font-size: 12px;
-
-            line-height: 1.5;
-        }
-
-
-        /* =========================
-           RODAPÉ
-        ========================== */
-
-        footer {
-
-            background: #0b2b52;
-
-            color: #dce5f0;
-
-            text-align: center;
-
-            padding: 30px;
-
-            font-size: 13px;
-
-            line-height: 1.7;
-        }
-
-
-        footer strong {
-
-            color: white;
-        }
-
-
-        /* =========================
-           CELULAR
-        ========================== */
-
-        @media (max-width: 650px) {
-
-            header {
-
-                flex-direction: column;
-
-                gap: 15px;
-            }
-
-
-            .hero h1 {
-
-                font-size: 32px;
-            }
-
-
-            .assinatura-card {
-
-                padding: 22px;
-            }
-
-
-            .assinatura-preview {
-
-                padding: 15px;
-            }
-
-
-            .botao {
-
-                width: 100%;
-            }
-
-
-            .status {
-
-                display: block;
-
-                margin-left: 0;
-
-                margin-top: 10px;
-            }
-
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Central de Assinaturas | LTJ</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f6f8fb;
+    color: #123c70;
+}
+
+header {
+    background: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    color: #123c70;
+}
+
+.logo span {
+    color: #f58220;
+}
+
+.voltar {
+    text-decoration: none;
+    color: #123c70;
+    font-weight: bold;
+}
+
+.voltar:hover {
+    color: #f58220;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 20px 45px;
+    background: linear-gradient(135deg, #f7faff, #e9f2fb);
+}
+
+.hero .icone {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    color: #0b2b52;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #f58220;
+}
+
+.hero p {
+    color: #667085;
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 650px;
+    margin: auto;
+}
+
+.conteudo {
+    max-width: 1000px;
+    margin: auto;
+    padding: 55px 20px 80px;
+}
+
+.aviso {
+    background: white;
+    border-left: 5px solid #f58220;
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 35px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.aviso strong {
+    display: block;
+    margin-bottom: 7px;
+    color: #123c70;
+}
+
+.aviso p {
+    color: #667085;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.assinatura-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+}
+
+.assinatura-card h2 {
+    color: #123c70;
+    margin-bottom: 8px;
+}
+
+.descricao {
+    color: #667085;
+    margin-bottom: 25px;
+}
+
+.assinatura-preview {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 35px;
+    margin-bottom: 25px;
+    text-align: center;
+    overflow-x: auto;
+}
+
+.assinatura-preview img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+.botao {
+    border: none;
+    background: #f58220;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.botao:hover {
+    background: #dc6e13;
+}
+
+.status {
+    display: inline-block;
+    margin-left: 12px;
+    color: #16803c;
+    font-weight: bold;
+}
+
+.instrucao {
+    margin-top: 15px;
+    color: #98a2b3;
+    font-size: 12px;
+}
+
+footer {
+    background: #0b2b52;
+    color: #dce5f0;
+    text-align: center;
+    padding: 30px;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+@media (max-width: 650px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .assinatura-card {
+        padding: 22px;
+    }
+
+    .assinatura-preview {
+        padding: 15px;
+    }
+
+    .botao {
+        width: 100%;
+    }
+
+}
+
+</style>
 
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     CABEÇALHO
-========================== -->
-
 
 <header>
 
-
     <div class="logo">
-
         LTJ<span>.</span>
-
     </div>
 
-
-    <a
-        href="index.html"
-        class="voltar"
-    >
-
+    <a href="index.html" class="voltar">
         ← Voltar ao portal
-
     </a>
-
 
 </header>
 
 
-<!-- =========================
-     HERO
-========================== -->
-
-
 <section class="hero">
 
-
     <div class="icone">
-
         📧
-
     </div>
 
-
     <h1>
-
-        Central de
-        <span>Assinaturas</span>
-
+        Central de <span>Assinaturas</span>
     </h1>
 
-
     <p>
-
-        Encontre aqui a assinatura oficial da LTJ
+        Encontre aqui as assinaturas oficiais da LTJ
         para utilizar no seu e-mail corporativo.
-
     </p>
 
-
 </section>
-
-
-<!-- =========================
-     CONTEÚDO
-========================== -->
 
 
 <main class="conteudo">
@@ -466,51 +244,35 @@
 
     <div class="aviso">
 
-
         <strong>
-
             Como utilizar sua assinatura
-
         </strong>
 
-
         <p>
-
             Confira a prévia abaixo e utilize o botão
-            para copiar a assinatura. Em seguida,
-            você poderá inseri-la no seu e-mail corporativo.
-
+            para copiar sua assinatura.
         </p>
-
 
     </div>
 
 
     <div class="assinatura-card">
 
-
         <h2>
-
             Ana Paula
-
         </h2>
 
-
         <p class="descricao">
-
             Assinatura oficial
-
         </p>
 
 
         <div class="assinatura-preview">
 
-
             <img
-                src="assinaturas/ana-paula.jpg.jpg"
+                src="https://ltjintermediacao.github.io/ltjintermediacao/assinaturas/ana-paula.jpg.jpg"
                 alt="Assinatura de Ana Paula"
             >
-
 
         </div>
 
@@ -519,11 +281,8 @@
             class="botao"
             onclick="copiarAssinatura()"
         >
-
             📋 Copiar assinatura
-
         </button>
-
 
         <span
             id="status"
@@ -532,162 +291,84 @@
 
 
         <p class="instrucao">
-
-            Depois de copiar, cole a assinatura
-            no campo de assinatura do seu e-mail.
-
+            Depois de copiar, cole no campo de assinatura
+            do seu e-mail corporativo.
         </p>
 
-
     </div>
-
 
 </main>
 
 
-<!-- =========================
-     RODAPÉ
-========================== -->
-
-
 <footer>
 
-
-    <strong>
-
-        LTJ
-
-    </strong>
-
-    — Portal do Colaborador
-
+    <strong>LTJ</strong> — Portal do Colaborador
 
     <br><br>
 
-
     Rua Duque de Caxias, 50 – Vila Leão
-
 
 </footer>
 
 
 <script>
 
-
 function copiarAssinatura() {
-
 
     const imagem =
         document.querySelector(
             ".assinatura-preview img"
         );
 
-
     const html =
         imagem.outerHTML;
-
-
-    const texto =
-        "Ana Paula — Assinatura LTJ";
-
 
     if (
         navigator.clipboard &&
         window.ClipboardItem
     ) {
 
-
-        const blobHTML =
-            new Blob(
-                [html],
-                {
-                    type: "text/html"
-                }
-            );
-
-
-        const blobTexto =
-            new Blob(
-                [texto],
-                {
-                    type: "text/plain"
-                }
-            );
-
-
         const item =
             new ClipboardItem({
 
-                "text/html": blobHTML,
+                "text/html":
+                    new Blob(
+                        [html],
+                        {type: "text/html"}
+                    ),
 
-                "text/plain": blobTexto
-
-            });
-
-
-        navigator.clipboard
-            .write([item])
-            .then(function() {
-
-                mostrarStatus();
-
-            })
-            .catch(function() {
-
-                copiarTexto();
+                "text/plain":
+                    new Blob(
+                        ["Assinatura LTJ"],
+                        {type: "text/plain"}
+                    )
 
             });
 
+        navigator.clipboard.write([item])
+        .then(function() {
+
+            document.getElementById("status").textContent =
+                "✓ Copiado!";
+
+        })
+        .catch(function() {
+
+            alert(
+                "Não foi possível copiar automaticamente."
+            );
+
+        });
 
     } else {
 
-        copiarTexto();
+        alert(
+            "Seu navegador não permite copiar a assinatura automaticamente."
+        );
 
     }
 
 }
-
-
-function copiarTexto() {
-
-
-    navigator.clipboard
-        .writeText(
-            "Ana Paula — Assinatura LTJ"
-        )
-        .then(function() {
-
-            mostrarStatus();
-
-        });
-
-}
-
-
-function mostrarStatus() {
-
-
-    const status =
-        document.getElementById(
-            "status"
-        );
-
-
-    status.textContent =
-        "✓ Copiado!";
-
-
-    setTimeout(
-        function() {
-
-            status.textContent = "";
-
-        },
-        3000
-    );
-
-}
-
 
 </script>
 
