@@ -2,7 +2,9 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Central de Assinaturas | LTJ</title>
@@ -44,10 +46,6 @@ header {
     text-decoration: none;
     color: #123c70;
     font-weight: bold;
-}
-
-.voltar:hover {
-    color: #f58220;
 }
 
 .hero {
@@ -241,7 +239,6 @@ footer {
 
 <main class="conteudo">
 
-
     <div class="aviso">
 
         <strong>
@@ -249,8 +246,9 @@ footer {
         </strong>
 
         <p>
-            Confira a prévia abaixo e utilize o botão
-            para copiar sua assinatura.
+            Confira sua assinatura abaixo.
+            Em breve teremos todos os colaboradores
+            disponíveis nesta Central.
         </p>
 
     </div>
@@ -270,7 +268,7 @@ footer {
         <div class="assinatura-preview">
 
             <img
-                src="https://ltjintermediacao.github.io/ltjintermediacao/assinaturas/ana-paula.jpg.jpg"
+                src="https://ltjintermediacao.github.io/ltjintermediacao/ana-paula.jpg.jpg"
                 alt="Assinatura de Ana Paula"
             >
 
@@ -320,53 +318,62 @@ function copiarAssinatura() {
             ".assinatura-preview img"
         );
 
-    const html =
+    if (!imagem) {
+        return;
+    }
+
+    const area =
+        document.createElement("div");
+
+    area.style.position = "fixed";
+    area.style.left = "-9999px";
+
+    area.innerHTML =
         imagem.outerHTML;
 
-    if (
-        navigator.clipboard &&
-        window.ClipboardItem
-    ) {
+    document.body.appendChild(area);
 
-        const item =
-            new ClipboardItem({
 
-                "text/html":
-                    new Blob(
-                        [html],
-                        {type: "text/html"}
-                    ),
+    const selecao =
+        window.getSelection();
 
-                "text/plain":
-                    new Blob(
-                        ["Assinatura LTJ"],
-                        {type: "text/plain"}
-                    )
+    const range =
+        document.createRange();
 
-            });
+    range.selectNodeContents(area);
 
-        navigator.clipboard.write([item])
-        .then(function() {
+    selecao.removeAllRanges();
 
-            document.getElementById("status").textContent =
-                "✓ Copiado!";
+    selecao.addRange(range);
 
-        })
-        .catch(function() {
 
-            alert(
-                "Não foi possível copiar automaticamente."
-            );
+    try {
 
-        });
+        document.execCommand("copy");
 
-    } else {
-
-        alert(
-            "Seu navegador não permite copiar a assinatura automaticamente."
-        );
+        document.getElementById("status").textContent =
+            "✓ Copiado!";
 
     }
+
+    catch (erro) {
+
+        document.getElementById("status").textContent =
+            "Selecione e copie manualmente.";
+
+    }
+
+
+    selecao.removeAllRanges();
+
+    document.body.removeChild(area);
+
+
+    setTimeout(function() {
+
+        document.getElementById("status").textContent = "";
+
+    }, 3000);
 
 }
 
