@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LTJ Intermediação</title>
+    <title>Portal do Colaborador | LTJ</title>
 
     <style>
         * {
@@ -13,174 +13,407 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --azul: #123c70;
+            --azul-escuro: #0b2b52;
+            --azul-claro: #eaf2fa;
+            --laranja: #f58220;
+            --branco: #ffffff;
+            --cinza: #667085;
+            --fundo: #f6f8fb;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #f5f7fa;
-            color: #1d2940;
+            background: var(--fundo);
+            color: var(--azul-escuro);
         }
+
+        /* =========================
+           CABEÇALHO
+        ========================== */
 
         header {
-            background: #ffffff;
-            padding: 22px 8%;
+            width: 100%;
+            background: var(--branco);
+            padding: 18px 7%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            justify-content: space-between;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .logo {
-            font-size: 30px;
-            font-weight: 800;
-            color: #173b70;
-            letter-spacing: 1px;
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .logo span {
-            color: #f58220;
+        /*
+        ESPAÇO TEMPORÁRIO PARA O LOGO
+
+        Quando você enviar o logo original da LTJ,
+        vamos substituir esta área pela imagem.
+        */
+
+        .logo-placeholder {
+            width: 145px;
+            height: 52px;
+            border: 2px dashed #d5dce5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #98a2b3;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
         }
 
         nav a {
             text-decoration: none;
-            color: #173b70;
-            margin-left: 25px;
+            color: var(--azul);
+            font-size: 15px;
             font-weight: 600;
+            transition: 0.2s;
         }
 
+        nav a:hover {
+            color: var(--laranja);
+        }
+
+        /* =========================
+           BANNER PRINCIPAL
+        ========================== */
+
         .hero {
-            min-height: 520px;
+            padding: 75px 7% 80px;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(245, 130, 32, 0.18), transparent 30%),
+                linear-gradient(135deg, #f7faff 0%, #e9f2fb 100%);
+            min-height: 470px;
             display: flex;
             align-items: center;
-            padding: 70px 8%;
-            background: linear-gradient(135deg, #173b70, #245da0);
-            color: white;
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 780px;
+        }
+
+        .etiqueta {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 30px;
+            background: rgba(245, 130, 32, 0.12);
+            color: var(--laranja);
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
         .hero h1 {
-            font-size: 52px;
-            line-height: 1.1;
+            font-size: clamp(38px, 6vw, 64px);
+            line-height: 1.05;
+            color: var(--azul-escuro);
             margin-bottom: 22px;
         }
 
         .hero h1 span {
-            color: #f58220;
+            color: var(--laranja);
         }
 
         .hero p {
-            font-size: 20px;
-            line-height: 1.6;
-            color: #eef4ff;
+            max-width: 650px;
+            font-size: 19px;
+            line-height: 1.7;
+            color: #526071;
         }
 
-        .botao {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 15px 30px;
-            background: #f58220;
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
+        .hero-frase {
+            margin-top: 26px;
+            font-size: 16px !important;
+            font-weight: 600;
+            color: var(--azul) !important;
         }
+
+        /* =========================
+           SEÇÕES
+        ========================== */
 
         section {
-            padding: 70px 8%;
+            padding: 70px 7%;
         }
 
         .titulo {
-            text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 38px;
+        }
+
+        .titulo-pequeno {
+            color: var(--laranja);
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
         }
 
         .titulo h2 {
-            font-size: 36px;
-            color: #173b70;
-            margin-bottom: 12px;
+            font-size: 34px;
+            color: var(--azul-escuro);
+            margin-bottom: 10px;
         }
 
         .titulo p {
-            color: #667085;
-            font-size: 17px;
+            color: var(--cinza);
+            font-size: 16px;
         }
 
-        .servicos {
+        /* =========================
+           ACESSOS
+        ========================== */
+
+        .acessos {
+            background: var(--branco);
+        }
+
+        .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            gap: 22px;
         }
 
         .card {
-            background: white;
-            padding: 35px 25px;
-            border-radius: 14px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-            text-align: center;
+            background: #ffffff;
+            border: 1px solid #e7ebf0;
+            border-radius: 16px;
+            padding: 28px;
+            min-height: 190px;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(18, 60, 112, 0.10);
+            border-color: rgba(245, 130, 32, 0.45);
+        }
+
+        .icone {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--azul-claro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+
+        .card:nth-child(2) .icone,
+        .card:nth-child(5) .icone {
+            background: rgba(245, 130, 32, 0.12);
         }
 
         .card h3 {
-            color: #173b70;
-            font-size: 22px;
-            margin-bottom: 15px;
+            color: var(--azul);
+            font-size: 19px;
+            margin-bottom: 9px;
         }
 
         .card p {
-            color: #667085;
-            line-height: 1.6;
-        }
-
-        .endereco {
-            background: #173b70;
-            color: white;
-            text-align: center;
-        }
-
-        .endereco h2 {
-            font-size: 34px;
-            margin-bottom: 18px;
-        }
-
-        .endereco p {
-            font-size: 19px;
-            color: #e9eff8;
-        }
-
-        footer {
-            background: #10294d;
-            color: #cdd7e6;
-            text-align: center;
-            padding: 25px;
+            color: var(--cinza);
+            line-height: 1.5;
             font-size: 14px;
         }
 
-        @media (max-width: 800px) {
+        /* =========================
+           DESTAQUE
+        ========================== */
+
+        .destaque-area {
+            background: var(--fundo);
+        }
+
+        .destaque {
+            background: linear-gradient(135deg, var(--azul), #1c548f);
+            color: white;
+            border-radius: 22px;
+            padding: 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 35px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .destaque::after {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: rgba(245, 130, 32, 0.18);
+            right: -70px;
+            top: -80px;
+        }
+
+        .destaque-texto {
+            position: relative;
+            z-index: 2;
+        }
+
+        .destaque h2 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .destaque p {
+            color: #e6eef8;
+            line-height: 1.6;
+            max-width: 650px;
+        }
+
+        .destaque-laranja {
+            color: var(--laranja);
+        }
+
+        /* =========================
+           ANIVERSARIANTES
+        ========================== */
+
+        .aniversariantes {
+            background: white;
+        }
+
+        .aniversariante-box {
+            border: 2px dashed #d9e1ea;
+            border-radius: 18px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+            color: var(--cinza);
+        }
+
+        .aniversariante-box strong {
+            display: block;
+            color: var(--azul);
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        /* =========================
+           RODAPÉ
+        ========================== */
+
+        footer {
+            background: var(--azul-escuro);
+            color: #dce5f0;
+            text-align: center;
+            padding: 35px 7%;
+        }
+
+        footer .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        footer .footer-logo span {
+            color: var(--laranja);
+        }
+
+        footer p {
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            header {
+                padding: 16px 5%;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .destaque {
+                padding: 35px;
+            }
+        }
+
+        @media (max-width: 650px) {
 
             header {
                 flex-direction: column;
                 gap: 15px;
             }
 
-            nav a {
-                margin: 0 8px;
+            .logo-placeholder {
+                width: 135px;
+                height: 45px;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
             }
 
             .hero {
-                min-height: 450px;
-                padding: 55px 7%;
+                padding: 55px 6%;
             }
 
             .hero h1 {
-                font-size: 38px;
+                font-size: 40px;
             }
 
             .hero p {
                 font-size: 17px;
             }
 
-            .servicos {
+            section {
+                padding: 55px 6%;
+            }
+
+            .cards {
                 grid-template-columns: 1fr;
+            }
+
+            .destaque {
+                padding: 30px 25px;
+            }
+
+            .destaque h2 {
+                font-size: 25px;
             }
 
             .titulo h2 {
@@ -192,82 +425,164 @@
 
 <body>
 
+    <!-- =========================
+         CABEÇALHO
+    ========================== -->
+
     <header>
-        <div class="logo">
-            LTJ<span>.</span>
+
+        <div class="logo-area">
+
+            <div class="logo-placeholder">
+                LOGO LTJ
+            </div>
+
         </div>
 
         <nav>
             <a href="#inicio">Início</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#contato">Contato</a>
+            <a href="#acessos">Acessos</a>
+            <a href="#destaques">Destaques</a>
+            <a href="#aniversariantes">Aniversariantes</a>
         </nav>
+
     </header>
 
 
+    <!-- =========================
+         INÍCIO
+    ========================== -->
+
     <section class="hero" id="inicio">
+
         <div class="hero-content">
 
+            <div class="etiqueta">
+                PORTAL DO COLABORADOR
+            </div>
+
             <h1>
-                Soluções que aproximam
-                <span>você dos seus objetivos.</span>
+                Bem-vindo à <span>LTJ!</span>
             </h1>
 
             <p>
-                A LTJ Intermediação trabalha para oferecer
-                soluções financeiras com atendimento próximo,
-                profissional e transparente.
+                Um espaço criado para conectar, informar
+                e aproximar ainda mais o nosso time.
             </p>
 
-            <a href="#servicos" class="botao">
-                Conheça nossos serviços
-            </a>
+            <p class="hero-frase">
+                Aqui, cada pessoa faz parte da nossa história.
+            </p>
 
         </div>
+
     </section>
 
 
-    <section id="servicos">
+    <!-- =========================
+         ACESSOS RÁPIDOS
+    ========================== -->
+
+    <section class="acessos" id="acessos">
 
         <div class="titulo">
-            <h2>Nossos Serviços</h2>
+
+            <div class="titulo-pequeno">
+                Para você
+            </div>
+
+            <h2>Acessos rápidos</h2>
 
             <p>
-                Soluções pensadas para atender diferentes necessidades.
+                Tudo o que você precisa encontrar no dia a dia.
             </p>
+
         </div>
 
 
-        <div class="servicos">
+        <div class="cards">
 
             <div class="card">
-                <h3>Financiamento</h3>
+
+                <div class="icone">📢</div>
+
+                <h3>Comunicados</h3>
 
                 <p>
-                    Encontre alternativas de financiamento
-                    adequadas ao seu objetivo.
+                    Informações e avisos importantes
+                    para o nosso time.
                 </p>
+
             </div>
 
 
             <div class="card">
-                <h3>Refinanciamento</h3>
+
+                <div class="icone">📅</div>
+
+                <h3>Calendário</h3>
 
                 <p>
-                    Conte com nossa equipe para buscar
-                    soluções de refinanciamento.
+                    Consulte datas, compromissos,
+                    ações e acontecimentos da LTJ.
                 </p>
+
             </div>
 
 
             <div class="card">
-                <h3>Intermediação</h3>
+
+                <div class="icone">🎉</div>
+
+                <h3>Eventos & Ações</h3>
 
                 <p>
-                    Atendimento profissional para facilitar
-                    o processo e aproximar você das melhores
-                    possibilidades.
+                    Confira os momentos especiais,
+                    campanhas e ações internas.
                 </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icone">👥</div>
+
+                <h3>Nosso Time</h3>
+
+                <p>
+                    Conheça as pessoas que fazem
+                    parte da nossa equipe.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icone">📚</div>
+
+                <h3>Materiais</h3>
+
+                <p>
+                    Acesse conteúdos e materiais
+                    úteis para sua rotina.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icone">💡</div>
+
+                <h3>Sugestões</h3>
+
+                <p>
+                    Um espaço para compartilhar
+                    ideias e contribuir com a LTJ.
+                </p>
+
             </div>
 
         </div>
@@ -275,22 +590,99 @@
     </section>
 
 
-    <section class="endereco" id="contato">
+    <!-- =========================
+         DESTAQUE
+    ========================== -->
 
-        <h2>Onde estamos</h2>
+    <section class="destaque-area" id="destaques">
+
+        <div class="destaque">
+
+            <div class="destaque-texto">
+
+                <h2>
+                    Juntos fazemos a <span class="destaque-laranja">diferença.</span>
+                </h2>
+
+                <p>
+                    Este espaço será atualizado com novidades,
+                    campanhas, comunicados e conteúdos importantes
+                    para todos os colaboradores.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ANIVERSARIANTES
+    ========================== -->
+
+    <section class="aniversariantes" id="aniversariantes">
+
+        <div class="titulo">
+
+            <div class="titulo-pequeno">
+                Nosso time
+            </div>
+
+            <h2>Aniversariantes do mês 🎂</h2>
+
+            <p>
+                Vamos celebrar juntos os momentos especiais
+                das pessoas que fazem parte da nossa história.
+            </p>
+
+        </div>
+
+
+        <div class="aniversariante-box">
+
+            <div>
+
+                <strong>
+                    Em breve
+                </strong>
+
+                <p>
+                    Aqui aparecerão os aniversariantes
+                    de cada mês.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            LTJ<span>.</span>
+        </div>
+
+        <p>
+            Portal do Colaborador
+        </p>
 
         <p>
             Rua Duque de Caxias, 50 – Vila Leão
         </p>
 
-    </section>
-
-
-    <footer>
-
-        © 2026 LTJ Intermediação. Todos os direitos reservados.
+        <p style="margin-top: 15px;">
+            © 2026 LTJ Intermediação. Todos os direitos reservados.
+        </p>
 
     </footer>
+
 
 </body>
 </html>
