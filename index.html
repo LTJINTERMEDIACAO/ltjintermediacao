@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Portal do Colaborador | LTJ</title>
 
+
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
 
         :root {
             --azul: #123c70;
@@ -23,9 +29,11 @@
             --fundo: #f6f8fb;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -33,13 +41,14 @@
             color: var(--azul-escuro);
         }
 
+
         /* =========================
            CABEÇALHO
         ========================== */
 
         header {
             width: 100%;
-            background: var(--branco);
+            background: white;
             padding: 18px 7%;
             display: flex;
             align-items: center;
@@ -50,21 +59,15 @@
             z-index: 100;
         }
 
+
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
         }
 
-        /*
-        ESPAÇO TEMPORÁRIO PARA O LOGO
-
-        Quando você enviar o logo original da LTJ,
-        vamos substituir esta área pela imagem.
-        */
 
         .logo-placeholder {
-            width: 145px;
+            width: 150px;
             height: 52px;
             border: 2px dashed #d5dce5;
             border-radius: 8px;
@@ -76,76 +79,129 @@
             text-align: center;
         }
 
+
         nav {
             display: flex;
-            gap: 28px;
+            gap: 25px;
+            align-items: center;
         }
+
 
         nav a {
             text-decoration: none;
             color: var(--azul);
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             transition: 0.2s;
         }
+
 
         nav a:hover {
             color: var(--laranja);
         }
 
+
+        .menu-assinaturas {
+            background: var(--laranja);
+            color: white !important;
+            padding: 11px 17px;
+            border-radius: 8px;
+        }
+
+
+        .menu-assinaturas:hover {
+            color: white !important;
+            background: #dc6e13;
+        }
+
+
         /* =========================
-           BANNER PRINCIPAL
+           HERO
         ========================== */
 
         .hero {
-            padding: 75px 7% 80px;
-            background:
-                radial-gradient(circle at 85% 20%, rgba(245, 130, 32, 0.18), transparent 30%),
-                linear-gradient(135deg, #f7faff 0%, #e9f2fb 100%);
             min-height: 470px;
+            padding: 75px 7% 80px;
+
             display: flex;
             align-items: center;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(245, 130, 32, 0.18),
+                    transparent 30%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #f7faff 0%,
+                    #e9f2fb 100%
+                );
         }
 
+
         .hero-content {
-            max-width: 780px;
+            max-width: 800px;
         }
+
 
         .etiqueta {
             display: inline-block;
+
             padding: 8px 15px;
+
             border-radius: 30px;
+
             background: rgba(245, 130, 32, 0.12);
+
             color: var(--laranja);
+
             font-size: 13px;
+
             font-weight: bold;
+
             margin-bottom: 20px;
         }
 
+
         .hero h1 {
-            font-size: clamp(38px, 6vw, 64px);
+            font-size: clamp(40px, 6vw, 64px);
+
             line-height: 1.05;
+
             color: var(--azul-escuro);
+
             margin-bottom: 22px;
         }
+
 
         .hero h1 span {
             color: var(--laranja);
         }
 
+
         .hero p {
-            max-width: 650px;
+            max-width: 680px;
+
             font-size: 19px;
+
             line-height: 1.7;
+
             color: #526071;
         }
 
+
         .hero-frase {
-            margin-top: 26px;
+            margin-top: 25px;
+
             font-size: 16px !important;
-            font-weight: 600;
+
+            font-weight: bold;
+
             color: var(--azul) !important;
         }
+
 
         /* =========================
            SEÇÕES
@@ -155,88 +211,138 @@
             padding: 70px 7%;
         }
 
+
         .titulo {
             margin-bottom: 38px;
         }
 
+
         .titulo-pequeno {
             color: var(--laranja);
+
             font-size: 13px;
+
             font-weight: bold;
+
             text-transform: uppercase;
+
             letter-spacing: 1px;
+
             margin-bottom: 8px;
         }
 
+
         .titulo h2 {
             font-size: 34px;
+
             color: var(--azul-escuro);
+
             margin-bottom: 10px;
         }
 
+
         .titulo p {
             color: var(--cinza);
+
             font-size: 16px;
         }
+
 
         /* =========================
            ACESSOS
         ========================== */
 
         .acessos {
-            background: var(--branco);
+            background: white;
         }
+
 
         .cards {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 22px;
         }
 
+
         .card {
-            background: #ffffff;
+            background: white;
+
             border: 1px solid #e7ebf0;
+
             border-radius: 16px;
+
             padding: 28px;
+
             min-height: 190px;
+
             transition: 0.25s;
+
             cursor: pointer;
+
+            text-decoration: none;
+
+            display: block;
         }
+
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(18, 60, 112, 0.10);
-            border-color: rgba(245, 130, 32, 0.45);
+
+            box-shadow:
+                0 12px 30px rgba(18, 60, 112, 0.10);
+
+            border-color:
+                rgba(245, 130, 32, 0.45);
         }
+
 
         .icone {
             width: 48px;
+
             height: 48px;
+
             border-radius: 12px;
+
             background: var(--azul-claro);
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             font-size: 23px;
+
             margin-bottom: 20px;
         }
 
+
         .card:nth-child(2) .icone,
         .card:nth-child(5) .icone {
-            background: rgba(245, 130, 32, 0.12);
+            background:
+                rgba(245, 130, 32, 0.12);
         }
+
 
         .card h3 {
             color: var(--azul);
+
             font-size: 19px;
+
             margin-bottom: 9px;
         }
 
+
         .card p {
             color: var(--cinza);
+
             line-height: 1.5;
+
             font-size: 14px;
         }
+
 
         /* =========================
            DESTAQUE
@@ -246,49 +352,82 @@
             background: var(--fundo);
         }
 
+
         .destaque {
-            background: linear-gradient(135deg, var(--azul), #1c548f);
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--azul),
+                    #1c548f
+                );
+
             color: white;
+
             border-radius: 22px;
+
             padding: 45px;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
+
             gap: 35px;
+
             overflow: hidden;
+
             position: relative;
         }
+
 
         .destaque::after {
             content: "";
+
             position: absolute;
+
             width: 220px;
+
             height: 220px;
+
             border-radius: 50%;
-            background: rgba(245, 130, 32, 0.18);
+
+            background:
+                rgba(245, 130, 32, 0.18);
+
             right: -70px;
+
             top: -80px;
         }
 
+
         .destaque-texto {
             position: relative;
+
             z-index: 2;
         }
 
+
         .destaque h2 {
             font-size: 30px;
+
             margin-bottom: 12px;
         }
 
+
         .destaque p {
             color: #e6eef8;
+
             line-height: 1.6;
+
             max-width: 650px;
         }
+
 
         .destaque-laranja {
             color: var(--laranja);
         }
+
 
         /* =========================
            ANIVERSARIANTES
@@ -298,24 +437,38 @@
             background: white;
         }
 
+
         .aniversariante-box {
             border: 2px dashed #d9e1ea;
+
             border-radius: 18px;
+
             min-height: 180px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: center;
+
             text-align: center;
+
             padding: 30px;
+
             color: var(--cinza);
         }
 
+
         .aniversariante-box strong {
             display: block;
+
             color: var(--azul);
+
             font-size: 20px;
+
             margin-bottom: 8px;
         }
+
 
         /* =========================
            RODAPÉ
@@ -323,28 +476,35 @@
 
         footer {
             background: var(--azul-escuro);
+
             color: #dce5f0;
+
             text-align: center;
+
             padding: 35px 7%;
+
+            font-size: 13px;
+
+            line-height: 1.7;
         }
 
+
         footer .footer-logo {
-            font-size: 24px;
+            font-size: 25px;
+
             font-weight: bold;
-            margin-bottom: 12px;
+
+            margin-bottom: 10px;
         }
+
 
         footer .footer-logo span {
             color: var(--laranja);
         }
 
-        footer p {
-            font-size: 13px;
-            line-height: 1.6;
-        }
 
         /* =========================
-           RESPONSIVO
+           CELULAR
         ========================== */
 
         @media (max-width: 900px) {
@@ -353,336 +513,857 @@
                 padding: 16px 5%;
             }
 
+
             nav {
-                gap: 15px;
+                gap: 12px;
             }
 
+
             nav a {
-                font-size: 13px;
+                font-size: 12px;
             }
+
 
             .cards {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .destaque {
-                padding: 35px;
-            }
         }
+
 
         @media (max-width: 650px) {
 
             header {
                 flex-direction: column;
+
                 gap: 15px;
             }
 
+
             .logo-placeholder {
-                width: 135px;
+                width: 140px;
+
                 height: 45px;
             }
 
+
             nav {
                 width: 100%;
+
                 justify-content: center;
+
                 flex-wrap: wrap;
             }
+
 
             .hero {
                 padding: 55px 6%;
             }
 
+
             .hero h1 {
                 font-size: 40px;
             }
+
 
             .hero p {
                 font-size: 17px;
             }
 
+
             section {
                 padding: 55px 6%;
             }
+
 
             .cards {
                 grid-template-columns: 1fr;
             }
 
+
             .destaque {
                 padding: 30px 25px;
             }
+
 
             .destaque h2 {
                 font-size: 25px;
             }
 
+
             .titulo h2 {
                 font-size: 29px;
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- =========================
-         CABEÇALHO
-    ========================== -->
 
-    <header>
+<!-- =========================
+     CABEÇALHO
+========================== -->
 
-        <div class="logo-area">
 
-            <div class="logo-placeholder">
-                LOGO LTJ
-            </div>
+<header>
+
+
+    <div class="logo-area">
+
+        <div class="logo-placeholder">
+
+            LOGO LTJ
 
         </div>
 
-        <nav>
-            <a href="#inicio">Início</a>
-            <a href="#acessos">Acessos</a>
-            <a href="#destaques">Destaques</a>
-            <a href="#aniversariantes">Aniversariantes</a>
-        </nav>
-
-    </header>
+    </div>
 
 
-    <!-- =========================
-         INÍCIO
-    ========================== -->
+    <nav>
 
-    <section class="hero" id="inicio">
+        <a href="#inicio">
+            Início
+        </a>
 
-        <div class="hero-content">
 
-            <div class="etiqueta">
-                PORTAL DO COLABORADOR
+        <a href="#acessos">
+            Acessos
+        </a>
+
+
+        <a href="#destaques">
+            Destaques
+        </a>
+
+
+        <a href="#aniversariantes">
+            Aniversariantes
+        </a>
+
+
+        <a
+            href="assinaturas.html"
+            class="menu-assinaturas"
+        >
+            📧 Assinaturas
+        </a>
+
+    </nav>
+
+
+</header>
+
+
+<!-- =========================
+     INÍCIO
+========================== -->
+
+
+<section
+    class="hero"
+    id="inicio"
+>
+
+
+    <div class="hero-content">
+
+
+        <div class="etiqueta">
+
+            PORTAL DO COLABORADOR
+
+        </div>
+
+
+        <h1>
+
+            Bem-vindo à
+            <span>LTJ!</span>
+
+        </h1>
+
+
+        <p>
+
+            Um espaço criado para conectar,
+            informar e aproximar ainda mais
+            o nosso time.
+
+        </p>
+
+
+        <p class="hero-frase">
+
+            Aqui, cada pessoa faz parte da nossa história.
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================
+     ACESSOS
+========================== -->
+
+
+<section
+    class="acessos"
+    id="acessos"
+>
+
+
+    <div class="titulo">
+
+
+        <div class="titulo-pequeno">
+
+            PARA VOCÊ
+
+        </div>
+
+
+        <h2>
+
+            Acessos rápidos
+
+        </h2>
+
+
+        <p>
+
+            Tudo o que você precisa encontrar
+            no dia a dia.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <!-- ASSINATURAS -->
+
+
+        <a
+            href="assinaturas.html"
+            class="card"
+        >
+
+            <div class="icone">
+                📧
             </div>
 
-            <h1>
-                Bem-vindo à <span>LTJ!</span>
-            </h1>
+
+            <h3>
+
+                Assinaturas de E-mail
+
+            </h3>
+
 
             <p>
-                Um espaço criado para conectar, informar
-                e aproximar ainda mais o nosso time.
+
+                Acesse sua assinatura oficial
+                da LTJ para utilizar no
+                e-mail corporativo.
+
             </p>
 
-            <p class="hero-frase">
-                Aqui, cada pessoa faz parte da nossa história.
-            </p>
-
-        </div>
-
-    </section>
+        </a>
 
 
-    <!-- =========================
-         ACESSOS RÁPIDOS
-    ========================== -->
+        <!-- COMUNICADOS -->
 
-    <section class="acessos" id="acessos">
 
-        <div class="titulo">
+        <a
+            href="#comunicados"
+            class="card"
+        >
 
-            <div class="titulo-pequeno">
-                Para você
+            <div class="icone">
+                📢
             </div>
 
-            <h2>Acessos rápidos</h2>
+
+            <h3>
+
+                Comunicados
+
+            </h3>
+
 
             <p>
-                Tudo o que você precisa encontrar no dia a dia.
+
+                Informações e avisos importantes
+                para o nosso time.
+
             </p>
 
+        </a>
+
+
+        <!-- CALENDÁRIO -->
+
+
+        <a
+            href="#calendario"
+            class="card"
+        >
+
+            <div class="icone">
+                📅
+            </div>
+
+
+            <h3>
+
+                Calendário
+
+            </h3>
+
+
+            <p>
+
+                Consulte datas, compromissos,
+                ações e acontecimentos da LTJ.
+
+            </p>
+
+        </a>
+
+
+        <!-- EVENTOS -->
+
+
+        <a
+            href="#eventos"
+            class="card"
+        >
+
+            <div class="icone">
+                🎉
+            </div>
+
+
+            <h3>
+
+                Eventos & Ações
+
+            </h3>
+
+
+            <p>
+
+                Confira momentos especiais,
+                campanhas e ações internas.
+
+            </p>
+
+        </a>
+
+
+        <!-- NOSSO TIME -->
+
+
+        <a
+            href="#time"
+            class="card"
+        >
+
+            <div class="icone">
+                👥
+            </div>
+
+
+            <h3>
+
+                Nosso Time
+
+            </h3>
+
+
+            <p>
+
+                Conheça as pessoas que fazem
+                parte da nossa equipe.
+
+            </p>
+
+        </a>
+
+
+        <!-- MATERIAIS -->
+
+
+        <a
+            href="#materiais"
+            class="card"
+        >
+
+            <div class="icone">
+                📚
+            </div>
+
+
+            <h3>
+
+                Materiais
+
+            </h3>
+
+
+            <p>
+
+                Acesse conteúdos e materiais
+                úteis para sua rotina.
+
+            </p>
+
+        </a>
+
+
+        <!-- SUGESTÕES -->
+
+
+        <a
+            href="#sugestoes"
+            class="card"
+        >
+
+            <div class="icone">
+                💡
+            </div>
+
+
+            <h3>
+
+                Sugestões
+
+            </h3>
+
+
+            <p>
+
+                Um espaço para compartilhar
+                ideias e contribuir com a LTJ.
+
+            </p>
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================
+     COMUNICADOS
+========================== -->
+
+
+<section
+    class="destaque-area"
+    id="comunicados"
+>
+
+
+    <div class="destaque">
+
+
+        <div class="destaque-texto">
+
+
+            <h2>
+
+                📢 Comunicados
+
+            </h2>
+
+
+            <p>
+
+                Este espaço será utilizado para
+                divulgar informações importantes,
+                avisos e novidades para todos
+                os colaboradores.
+
+            </p>
+
+
         </div>
 
 
-        <div class="cards">
-
-            <div class="card">
-
-                <div class="icone">📢</div>
-
-                <h3>Comunicados</h3>
-
-                <p>
-                    Informações e avisos importantes
-                    para o nosso time.
-                </p>
-
-            </div>
+    </div>
 
 
-            <div class="card">
-
-                <div class="icone">📅</div>
-
-                <h3>Calendário</h3>
-
-                <p>
-                    Consulte datas, compromissos,
-                    ações e acontecimentos da LTJ.
-                </p>
-
-            </div>
+</section>
 
 
-            <div class="card">
-
-                <div class="icone">🎉</div>
-
-                <h3>Eventos & Ações</h3>
-
-                <p>
-                    Confira os momentos especiais,
-                    campanhas e ações internas.
-                </p>
-
-            </div>
+<!-- =========================
+     CALENDÁRIO
+========================== -->
 
 
-            <div class="card">
-
-                <div class="icone">👥</div>
-
-                <h3>Nosso Time</h3>
-
-                <p>
-                    Conheça as pessoas que fazem
-                    parte da nossa equipe.
-                </p>
-
-            </div>
+<section
+    class="destaque-area"
+    id="calendario"
+>
 
 
-            <div class="card">
-
-                <div class="icone">📚</div>
-
-                <h3>Materiais</h3>
-
-                <p>
-                    Acesse conteúdos e materiais
-                    úteis para sua rotina.
-                </p>
-
-            </div>
+    <div class="destaque">
 
 
-            <div class="card">
+        <div class="destaque-texto">
 
-                <div class="icone">💡</div>
 
-                <h3>Sugestões</h3>
+            <h2>
 
-                <p>
-                    Um espaço para compartilhar
-                    ideias e contribuir com a LTJ.
-                </p>
+                📅 Calendário LTJ
 
-            </div>
+            </h2>
+
+
+            <p>
+
+                Aqui poderemos reunir datas
+                importantes, reuniões, campanhas,
+                eventos e outras atividades
+                do nosso calendário interno.
+
+            </p>
+
 
         </div>
 
-    </section>
+
+    </div>
 
 
-    <!-- =========================
-         DESTAQUE
-    ========================== -->
+</section>
 
-    <section class="destaque-area" id="destaques">
 
-        <div class="destaque">
+<!-- =========================
+     EVENTOS
+========================== -->
 
-            <div class="destaque-texto">
 
-                <h2>
-                    Juntos fazemos a <span class="destaque-laranja">diferença.</span>
-                </h2>
+<section
+    class="destaque-area"
+    id="eventos"
+>
 
-                <p>
-                    Este espaço será atualizado com novidades,
-                    campanhas, comunicados e conteúdos importantes
-                    para todos os colaboradores.
-                </p>
 
-            </div>
+    <div class="destaque">
+
+
+        <div class="destaque-texto">
+
+
+            <h2>
+
+                🎉 Eventos & Ações
+
+            </h2>
+
+
+            <p>
+
+                Um espaço para registrar e divulgar
+                nossas campanhas, comemorações,
+                ações internas e momentos especiais.
+
+            </p>
+
 
         </div>
 
-    </section>
+
+    </div>
 
 
-    <!-- =========================
-         ANIVERSARIANTES
-    ========================== -->
+</section>
 
-    <section class="aniversariantes" id="aniversariantes">
 
-        <div class="titulo">
+<!-- =========================
+     NOSSO TIME
+========================== -->
 
-            <div class="titulo-pequeno">
+
+<section
+    class="aniversariantes"
+    id="time"
+>
+
+
+    <div class="titulo">
+
+
+        <div class="titulo-pequeno">
+
+            NOSSO TIME
+
+        </div>
+
+
+        <h2>
+
+            👥 Pessoas que fazem a LTJ
+
+        </h2>
+
+
+        <p>
+
+            Em breve poderemos apresentar
+            aqui todos os colaboradores,
+            suas áreas e funções.
+
+        </p>
+
+
+    </div>
+
+
+    <div class="aniversariante-box">
+
+
+        <div>
+
+
+            <strong>
+
                 Nosso time
-            </div>
 
-            <h2>Aniversariantes do mês 🎂</h2>
+            </strong>
+
 
             <p>
-                Vamos celebrar juntos os momentos especiais
-                das pessoas que fazem parte da nossa história.
+
+                Em breve teremos uma área
+                especial para apresentar
+                nossos colaboradores.
+
             </p>
 
-        </div>
-
-
-        <div class="aniversariante-box">
-
-            <div>
-
-                <strong>
-                    Em breve
-                </strong>
-
-                <p>
-                    Aqui aparecerão os aniversariantes
-                    de cada mês.
-                </p>
-
-            </div>
 
         </div>
 
-    </section>
+
+    </div>
 
 
-    <!-- =========================
-         RODAPÉ
-    ========================== -->
+</section>
 
-    <footer>
 
-        <div class="footer-logo">
-            LTJ<span>.</span>
+<!-- =========================
+     MATERIAIS
+========================== -->
+
+
+<section
+    class="destaque-area"
+    id="materiais"
+>
+
+
+    <div class="destaque">
+
+
+        <div class="destaque-texto">
+
+
+            <h2>
+
+                📚 Materiais
+
+            </h2>
+
+
+            <p>
+
+                Aqui poderemos disponibilizar
+                documentos, materiais de apoio,
+                modelos e conteúdos úteis
+                para o dia a dia.
+
+            </p>
+
+
         </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================
+     SUGESTÕES
+========================== -->
+
+
+<section
+    class="destaque-area"
+    id="sugestoes"
+>
+
+
+    <div class="destaque">
+
+
+        <div class="destaque-texto">
+
+
+            <h2>
+
+                💡 Sugestões
+
+            </h2>
+
+
+            <p>
+
+                Queremos ouvir você.
+                Futuramente este espaço poderá
+                receber sugestões e ideias
+                dos nossos colaboradores.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================
+     ANIVERSARIANTES
+========================== -->
+
+
+<section
+    class="aniversariantes"
+    id="aniversariantes"
+>
+
+
+    <div class="titulo">
+
+
+        <div class="titulo-pequeno">
+
+            NOSSO TIME
+
+        </div>
+
+
+        <h2>
+
+            🎂 Aniversariantes do mês
+
+        </h2>
+
 
         <p>
-            Portal do Colaborador
+
+            Vamos celebrar juntos os momentos
+            especiais das pessoas que fazem
+            parte da nossa história.
+
         </p>
 
-        <p>
-            Rua Duque de Caxias, 50 – Vila Leão
-        </p>
 
-        <p style="margin-top: 15px;">
-            © 2026 LTJ Intermediação. Todos os direitos reservados.
-        </p>
+    </div>
 
-    </footer>
+
+    <div class="aniversariante-box">
+
+
+        <div>
+
+
+            <strong>
+
+                Em breve
+
+            </strong>
+
+
+            <p>
+
+                Aqui aparecerão os aniversariantes
+                de cada mês.
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================
+     RODAPÉ
+========================== -->
+
+
+<footer>
+
+
+    <div class="footer-logo">
+
+        LTJ<span>.</span>
+
+    </div>
+
+
+    <p>
+
+        Portal do Colaborador
+
+    </p>
+
+
+    <p>
+
+        Rua Duque de Caxias, 50 – Vila Leão
+
+    </p>
+
+
+    <p style="margin-top: 15px;">
+
+        © 2026 LTJ Intermediação.
+        Todos os direitos reservados.
+
+    </p>
+
+
+</footer>
 
 
 </body>
+
 </html>
