@@ -43,23 +43,21 @@
 
         .app {
             display: grid;
-            grid-template-columns: 210px 1fr;
+            grid-template-columns: 220px 1fr;
             min-height: 100vh;
         }
 
-        /* =========================
-           MENU LATERAL
-        ========================== */
+        /* MENU LATERAL */
 
         .sidebar {
             background:
-                radial-gradient(circle at top left, #124fb3, transparent 34%),
+                radial-gradient(circle at top left, #154eb3, transparent 32%),
                 linear-gradient(180deg, var(--azul-profundo), #06398d);
             min-height: 100vh;
             height: 100vh;
             position: sticky;
             top: 0;
-            padding: 24px 15px;
+            padding: 24px 16px;
             color: white;
             overflow-y: auto;
         }
@@ -70,12 +68,11 @@
         }
 
         .sidebar-logo img {
-            width: 120px;
-            height: 120px;
+            width: 118px;
+            height: 118px;
             object-fit: contain;
             display: block;
             margin: auto;
-            filter: drop-shadow(0 6px 12px rgba(0,0,0,.12));
         }
 
         .menu {
@@ -104,24 +101,23 @@
 
         .quote-box {
             margin-top: 28px;
-            background: rgba(13, 71, 161, .45);
-            border: 1px solid rgba(255,255,255,.06);
+            background: rgba(255,255,255,.06);
+            border: 1px solid rgba(255,255,255,.08);
             border-radius: 18px;
             padding: 22px 16px;
             text-align: center;
             line-height: 1.6;
-            font-size: 14px;
+            font-size: 13px;
         }
 
-        .quote-icon {
-            font-size: 34px;
+        .quote-box strong {
+            display: block;
+            font-size: 24px;
             color: var(--laranja);
-            margin-bottom: 8px;
+            margin-bottom: 7px;
         }
 
-        /* =========================
-           TOPO
-        ========================== */
+        /* CONTEÚDO */
 
         .conteudo {
             min-width: 0;
@@ -163,77 +159,88 @@
             align-items: center;
             justify-content: center;
             font-size: 18px;
-            color: var(--azul);
         }
 
-        /* =========================
-           BANNER
-        ========================== */
+        /* HERO SEM FOTO */
 
         .hero-wrap {
             padding: 24px 30px 0;
         }
 
         .hero {
-            min-height: 350px;
-            border-radius: 22px;
-            overflow: hidden;
+            min-height: 360px;
+            border-radius: 24px;
             position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
 
             background:
-                linear-gradient(
-                    90deg,
-                    rgba(3,31,80,.97) 0%,
-                    rgba(3,31,80,.91) 31%,
-                    rgba(3,31,80,.58) 47%,
-                    rgba(3,31,80,.20) 68%,
-                    rgba(3,31,80,.05) 100%
+                radial-gradient(
+                    circle at 83% 30%,
+                    rgba(255,122,23,.32),
+                    transparent 22%
                 ),
-                url('fachada-ltj.jpeg') center 42% / cover no-repeat;
+                radial-gradient(
+                    circle at 74% 78%,
+                    rgba(255,255,255,.12),
+                    transparent 28%
+                ),
+                linear-gradient(
+                    135deg,
+                    #031f50 0%,
+                    #0b3ca3 58%,
+                    #0f55c8 100%
+                );
 
-            box-shadow: 0 16px 36px rgba(6,40,95,.12);
+            box-shadow: 0 16px 36px rgba(6,40,95,.13);
         }
 
         .hero::before {
             content: "";
             position: absolute;
-            right: -60px;
-            bottom: -62px;
-            width: 330px;
-            height: 105px;
-            background: var(--azul);
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
-            transform: rotate(-8deg);
-            z-index: 2;
+            right: -80px;
+            top: -90px;
+            border: 45px solid rgba(255,255,255,.07);
         }
 
         .hero::after {
             content: "";
             position: absolute;
-            right: -45px;
-            bottom: -35px;
-            width: 330px;
-            height: 75px;
-            background: var(--laranja);
+            width: 210px;
+            height: 210px;
             border-radius: 50%;
-            transform: rotate(-8deg);
-            z-index: 1;
+            right: 75px;
+            bottom: -95px;
+            background: rgba(255,122,23,.18);
         }
 
         .hero-content {
             position: relative;
             z-index: 3;
-            padding: 48px;
-            max-width: 560px;
+            padding: 50px;
+            max-width: 650px;
             color: white;
         }
 
-        .hero-content h1 {
-            font-size: clamp(38px, 4vw, 56px);
-            line-height: 1.02;
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255,255,255,.12);
+            border: 1px solid rgba(255,255,255,.18);
+            padding: 8px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: bold;
             margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(40px, 4.4vw, 60px);
+            line-height: 1.04;
+            margin-bottom: 18px;
         }
 
         .hero-content h1 span {
@@ -243,21 +250,36 @@
         .hero-content p {
             font-size: 17px;
             line-height: 1.6;
-            max-width: 470px;
+            max-width: 540px;
+            color: #edf5ff;
         }
 
         .hero-frase {
             margin-top: 22px;
-            font-weight: 700;
+            font-weight: bold;
         }
 
         .hero-frase span {
             color: var(--laranja);
         }
 
-        /* =========================
-           PRINCIPAL
-        ========================== */
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 26px;
+        }
+
+        .hero-badge {
+            background: rgba(255,255,255,.10);
+            border: 1px solid rgba(255,255,255,.16);
+            color: white;
+            padding: 9px 13px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        /* PRINCIPAL */
 
         main {
             padding: 26px 30px 40px;
@@ -278,24 +300,22 @@
             font-size: 14px;
         }
 
-        /* =========================
-           ACESSOS
-        ========================== */
+        /* ACESSOS */
 
         .atalhos {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 16px;
-            margin-bottom: 26px;
+            margin-bottom: 28px;
         }
 
         .atalho {
             background: white;
             border: 1px solid var(--borda);
-            border-radius: 17px;
+            border-radius: 18px;
             padding: 22px 17px;
             text-align: center;
-            min-height: 170px;
+            min-height: 172px;
             color: var(--texto);
             transition: .22s;
             box-shadow: 0 5px 18px rgba(8,42,92,.025);
@@ -316,14 +336,12 @@
             align-items: center;
             justify-content: center;
             font-size: 31px;
-            background:
-                linear-gradient(145deg, #edf4ff, #ffffff);
+            background: linear-gradient(145deg, #edf4ff, #ffffff);
             border: 1px solid var(--borda);
         }
 
         .atalho:nth-child(even) .atalho-icon {
-            background:
-                linear-gradient(145deg, #fff1e6, #ffffff);
+            background: linear-gradient(145deg, #fff1e6, #ffffff);
         }
 
         .atalho h3 {
@@ -338,9 +356,7 @@
             line-height: 1.45;
         }
 
-        /* =========================
-           DASHBOARD
-        ========================== */
+        /* DASHBOARD */
 
         .dashboard {
             display: grid;
@@ -375,8 +391,6 @@
             font-weight: bold;
         }
 
-        /* aniversários */
-
         .pessoa {
             display: flex;
             align-items: center;
@@ -409,8 +423,6 @@
             margin-top: 3px;
             font-size: 11px;
         }
-
-        /* eventos */
 
         .evento {
             display: grid;
@@ -454,8 +466,6 @@
             margin-top: 3px;
         }
 
-        /* comunicados */
-
         .comunicado {
             padding: 12px 0;
             border-bottom: 1px solid #edf1f6;
@@ -484,9 +494,7 @@
             line-height: 1.45;
         }
 
-        /* =========================
-           VIDA E EMPRESA
-        ========================== */
+        /* VIDA E EMPRESA */
 
         .vida-empresa {
             background: white;
@@ -519,18 +527,11 @@
             line-height: 1.5;
         }
 
-        .vida-destaque h3 {
-            font-size: 18px;
-        }
-
-        /* =========================
-           FRASE FINAL
-        ========================== */
+        /* FAIXA FINAL */
 
         .faixa-final {
             margin-top: 26px;
-            background:
-                linear-gradient(90deg, #eef4fb, #ffffff);
+            background: linear-gradient(90deg, #eef4fb, #ffffff);
             border: 1px solid var(--borda);
             border-radius: 18px;
             padding: 20px 24px;
@@ -561,13 +562,10 @@
             white-space: nowrap;
         }
 
-        /* =========================
-           RODAPÉ
-        ========================== */
+        /* RODAPÉ */
 
         footer {
-            background:
-                linear-gradient(90deg, var(--azul-profundo), #0642a2);
+            background: linear-gradient(90deg, var(--azul-profundo), #0642a2);
             color: white;
             padding: 23px 30px;
             display: flex;
@@ -606,9 +604,7 @@
             text-align: center;
         }
 
-        /* =========================
-           RESPONSIVO
-        ========================== */
+        /* RESPONSIVO */
 
         @media (max-width: 1100px) {
             .atalhos {
@@ -630,7 +626,6 @@
         }
 
         @media (max-width: 780px) {
-
             .app {
                 display: block;
             }
@@ -669,19 +664,11 @@
             }
 
             .hero {
-                min-height: 420px;
-
-                background:
-                    linear-gradient(
-                        180deg,
-                        rgba(3,31,80,.91),
-                        rgba(3,31,80,.58)
-                    ),
-                    url('fachada-ltj.jpeg') center 45% / cover no-repeat;
+                min-height: 410px;
             }
 
             .hero-content {
-                padding: 30px 24px;
+                padding: 34px 25px;
             }
 
             main {
@@ -704,7 +691,6 @@
         }
 
         @media (max-width: 500px) {
-
             .atalhos {
                 grid-template-columns: 1fr;
             }
@@ -721,15 +707,12 @@
                 font-size: 38px;
             }
         }
-
     </style>
 </head>
 
 <body>
 
 <div class="app">
-
-    <!-- MENU LATERAL -->
 
     <aside class="sidebar">
 
@@ -738,101 +721,42 @@
         </div>
 
         <nav class="menu">
-
-            <a href="#inicio" class="ativo">
-                🏠 Início
-            </a>
-
-            <a href="assinaturas.html">
-                ✍️ Assinaturas
-            </a>
-
-            <a href="#nosso-time">
-                👥 Nosso Time
-            </a>
-
-            <a href="#comunicados">
-                📢 Comunicados
-            </a>
-
-            <a href="#calendario">
-                📅 Calendário
-            </a>
-
-            <a href="#materiais">
-                📁 Materiais
-            </a>
-
-            <a href="#sugestoes">
-                💬 Sugestões
-            </a>
-
-            <a href="#aniversariantes">
-                🎂 Aniversariantes
-            </a>
-
-            <a href="#vida-empresa">
-                ♡ Vida e Empresa
-            </a>
-
+            <a href="#inicio" class="ativo">🏠 Início</a>
+            <a href="assinaturas.html">✍️ Assinaturas</a>
+            <a href="#nosso-time">👥 Nosso Time</a>
+            <a href="#comunicados">📢 Comunicados</a>
+            <a href="#calendario">📅 Calendário</a>
+            <a href="#materiais">📁 Materiais</a>
+            <a href="#sugestoes">💬 Sugestões</a>
+            <a href="#aniversariantes">🎂 Aniversariantes</a>
+            <a href="#vida-empresa">♡ Vida e Empresa</a>
         </nav>
 
         <div class="quote-box">
-
-            <div class="quote-icon">
-                ★
-            </div>
-
-            Aqui, cada pessoa importa
-            e cada conquista conta!
-
+            <strong>LTJ</strong>
+            Aqui, cada pessoa importa e cada conquista conta!
         </div>
 
     </aside>
 
 
-    <!-- CONTEÚDO -->
-
     <div class="conteudo">
-
-
-        <!-- TOPO -->
 
         <header class="topbar">
 
             <div class="saudacao">
-
-                <h2>
-                    Olá, Colaborador! 👋
-                </h2>
-
-                <p>
-                    Seja bem-vindo(a) ao Portal do Colaborador LTJ.
-                </p>
-
+                <h2>Olá, Colaborador! 👋</h2>
+                <p>Seja bem-vindo(a) ao Portal do Colaborador LTJ.</p>
             </div>
 
-
             <div class="top-icons">
-
-                <div class="top-icon">
-                    🔔
-                </div>
-
-                <div class="top-icon">
-                    📅
-                </div>
-
-                <div class="top-icon">
-                    🔍
-                </div>
-
+                <div class="top-icon">🔔</div>
+                <div class="top-icon">📅</div>
+                <div class="top-icon">🔍</div>
             </div>
 
         </header>
 
-
-        <!-- BANNER -->
 
         <div class="hero-wrap" id="inicio">
 
@@ -840,32 +764,30 @@
 
                 <div class="hero-content">
 
+                    <div class="hero-tag">
+                        PORTAL DO COLABORADOR
+                    </div>
+
                     <h1>
-
-                        Bem-vindo ao<br>
-
-                        Portal do
-                        <span>Colaborador</span>
-                        LTJ!
-
+                        Bem-vindo à <span>LTJ!</span>
                     </h1>
 
-
                     <p>
-
-                        Informações, ferramentas e recursos
-                        para facilitar o seu dia a dia.
-
+                        Um espaço criado especialmente para conectar,
+                        informar e facilitar o dia a dia de quem faz
+                        parte da nossa história.
                     </p>
-
 
                     <p class="hero-frase">
-
-                        Juntos,
-                        conectamos pessoas e geramos
-                        <span>resultados!</span>
-
+                        Juntos, conectamos pessoas e geramos
+                        <span>resultados.</span>
                     </p>
+
+                    <div class="hero-badges">
+                        <div class="hero-badge">📢 Informação</div>
+                        <div class="hero-badge">🤝 Conexão</div>
+                        <div class="hero-badge">⭐ Reconhecimento</div>
+                    </div>
 
                 </div>
 
@@ -876,546 +798,207 @@
 
         <main>
 
-
-            <!-- TÍTULO -->
-
             <div class="section-title">
-
-                <h2>
-                    Acessos rápidos
-                </h2>
-
-                <p>
-                    Encontre rapidamente os principais recursos do portal.
-                </p>
-
+                <h2>Acessos rápidos</h2>
+                <p>Encontre rapidamente os principais recursos do portal.</p>
             </div>
 
 
-            <!-- CARDS -->
-
             <section class="atalhos">
 
-
                 <a href="assinaturas.html" class="atalho">
-
-                    <div class="atalho-icon">
-                        ✍️
-                    </div>
-
-                    <h3>
-                        Assinaturas
-                    </h3>
-
-                    <p>
-                        Acesse sua assinatura oficial de e-mail.
-                    </p>
-
+                    <div class="atalho-icon">✍️</div>
+                    <h3>Assinaturas</h3>
+                    <p>Acesse sua assinatura oficial de e-mail.</p>
                 </a>
-
 
                 <a href="#nosso-time" class="atalho">
-
-                    <div class="atalho-icon">
-                        👥
-                    </div>
-
-                    <h3>
-                        Nosso Time
-                    </h3>
-
-                    <p>
-                        Conheça nossa equipe e departamentos.
-                    </p>
-
+                    <div class="atalho-icon">👥</div>
+                    <h3>Nosso Time</h3>
+                    <p>Conheça nossa equipe e departamentos.</p>
                 </a>
-
 
                 <a href="#comunicados" class="atalho">
-
-                    <div class="atalho-icon">
-                        📢
-                    </div>
-
-                    <h3>
-                        Comunicados
-                    </h3>
-
-                    <p>
-                        Fique por dentro das novidades e avisos.
-                    </p>
-
+                    <div class="atalho-icon">📢</div>
+                    <h3>Comunicados</h3>
+                    <p>Fique por dentro das novidades e avisos.</p>
                 </a>
-
 
                 <a href="#calendario" class="atalho">
-
-                    <div class="atalho-icon">
-                        📅
-                    </div>
-
-                    <h3>
-                        Calendário
-                    </h3>
-
-                    <p>
-                        Consulte eventos, reuniões e datas importantes.
-                    </p>
-
+                    <div class="atalho-icon">📅</div>
+                    <h3>Calendário</h3>
+                    <p>Consulte eventos, reuniões e datas importantes.</p>
                 </a>
-
 
                 <a href="#materiais" class="atalho">
-
-                    <div class="atalho-icon">
-                        📁
-                    </div>
-
-                    <h3>
-                        Materiais
-                    </h3>
-
-                    <p>
-                        Documentos, manuais e conteúdos importantes.
-                    </p>
-
+                    <div class="atalho-icon">📁</div>
+                    <h3>Materiais</h3>
+                    <p>Documentos, manuais e conteúdos importantes.</p>
                 </a>
-
 
                 <a href="#sugestoes" class="atalho">
-
-                    <div class="atalho-icon">
-                        💬
-                    </div>
-
-                    <h3>
-                        Sugestões
-                    </h3>
-
-                    <p>
-                        Envie suas sugestões de forma anônima.
-                    </p>
-
+                    <div class="atalho-icon">💬</div>
+                    <h3>Sugestões</h3>
+                    <p>Envie suas sugestões de forma anônima.</p>
                 </a>
-
 
                 <a href="#aniversariantes" class="atalho">
-
-                    <div class="atalho-icon">
-                        🎂
-                    </div>
-
-                    <h3>
-                        Aniversariantes
-                    </h3>
-
-                    <p>
-                        Vamos celebrar os aniversariantes do mês!
-                    </p>
-
+                    <div class="atalho-icon">🎂</div>
+                    <h3>Aniversariantes</h3>
+                    <p>Vamos celebrar os aniversariantes do mês!</p>
                 </a>
-
 
                 <a href="#vida-empresa" class="atalho">
-
-                    <div class="atalho-icon">
-                        ♡
-                    </div>
-
-                    <h3>
-                        Vida e Empresa
-                    </h3>
-
-                    <p>
-                        Saúde, bem-estar e qualidade de vida.
-                    </p>
-
+                    <div class="atalho-icon">♡</div>
+                    <h3>Vida e Empresa</h3>
+                    <p>Saúde, bem-estar e qualidade de vida.</p>
                 </a>
-
 
             </section>
 
 
-            <!-- DASHBOARD -->
-
             <section class="dashboard">
-
-
-                <!-- ANIVERSARIANTES -->
 
                 <div class="painel" id="aniversariantes">
 
                     <div class="painel-topo">
-
-                        <h3>
-                            🎁 Aniversariantes do Mês
-                        </h3>
-
-                        <a href="#">
-                            Ver todos
-                        </a>
-
+                        <h3>🎁 Aniversariantes do Mês</h3>
+                        <a href="#">Ver todos</a>
                     </div>
 
-
                     <div class="pessoa">
-
-                        <div class="avatar">
-                            🎂
-                        </div>
-
+                        <div class="avatar">🎂</div>
                         <div>
-
-                            <strong>
-                                Ana Paula
-                            </strong>
-
-                            <small>
-                                05 de Maio
-                            </small>
-
+                            <strong>Ana Paula</strong>
+                            <small>05 de Maio</small>
                         </div>
-
                     </div>
 
-
                     <div class="pessoa">
-
-                        <div class="avatar">
-                            🎈
-                        </div>
-
+                        <div class="avatar">🎈</div>
                         <div>
-
-                            <strong>
-                                Paulo Rodrigues
-                            </strong>
-
-                            <small>
-                                14 de Maio
-                            </small>
-
+                            <strong>Paulo Rodrigues</strong>
+                            <small>14 de Maio</small>
                         </div>
-
                     </div>
 
-
                     <div class="pessoa">
-
-                        <div class="avatar">
-                            🎉
-                        </div>
-
+                        <div class="avatar">🎉</div>
                         <div>
-
-                            <strong>
-                                Melissa Amaral
-                            </strong>
-
-                            <small>
-                                21 de Maio
-                            </small>
-
+                            <strong>Melissa Amaral</strong>
+                            <small>21 de Maio</small>
                         </div>
-
-                    </div>
-
-
-                    <div class="pessoa">
-
-                        <div class="avatar">
-                            🎁
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Karin Romano
-                            </strong>
-
-                            <small>
-                                28 de Maio
-                            </small>
-
-                        </div>
-
                     </div>
 
                 </div>
 
-
-                <!-- EVENTOS -->
 
                 <div class="painel" id="calendario">
 
                     <div class="painel-topo">
-
-                        <h3>
-                            📅 Próximos Eventos
-                        </h3>
-
-                        <a href="#">
-                            Ver calendário
-                        </a>
-
+                        <h3>📅 Próximos Eventos</h3>
+                        <a href="#">Ver calendário</a>
                     </div>
 
-
                     <div class="evento">
-
                         <div class="data-box">
-
-                            <strong>
-                                15
-                            </strong>
-
-                            <small>
-                                MAI
-                            </small>
-
+                            <strong>15</strong>
+                            <small>MAI</small>
                         </div>
-
 
                         <div class="evento-info">
-
-                            <strong>
-                                Reunião Geral
-                            </strong>
-
-                            <small>
-                                ⏰ 14h00
-                            </small>
-
-                            <small>
-                                📍 Sala de Reuniões
-                            </small>
-
+                            <strong>Reunião Geral</strong>
+                            <small>⏰ 14h00</small>
+                            <small>📍 Sala de Reuniões</small>
                         </div>
-
                     </div>
 
-
                     <div class="evento">
-
                         <div class="data-box">
-
-                            <strong>
-                                20
-                            </strong>
-
-                            <small>
-                                MAI
-                            </small>
-
+                            <strong>20</strong>
+                            <small>MAI</small>
                         </div>
-
 
                         <div class="evento-info">
-
-                            <strong>
-                                Treinamento
-                            </strong>
-
-                            <small>
-                                ⏰ 09h00
-                            </small>
-
-                            <small>
-                                📍 Sala de Treinamento
-                            </small>
-
+                            <strong>Treinamento</strong>
+                            <small>⏰ 09h00</small>
+                            <small>📍 Sala de Treinamento</small>
                         </div>
-
-                    </div>
-
-
-                    <div class="evento">
-
-                        <div class="data-box">
-
-                            <strong>
-                                30
-                            </strong>
-
-                            <small>
-                                MAI
-                            </small>
-
-                        </div>
-
-
-                        <div class="evento-info">
-
-                            <strong>
-                                Café com a Direção
-                            </strong>
-
-                            <small>
-                                ⏰ 08h30
-                            </small>
-
-                            <small>
-                                📍 LTJ
-                            </small>
-
-                        </div>
-
                     </div>
 
                 </div>
 
-
-                <!-- COMUNICADOS -->
 
                 <div class="painel" id="comunicados">
 
                     <div class="painel-topo">
-
-                        <h3>
-                            📢 Últimos Comunicados
-                        </h3>
-
-                        <a href="#">
-                            Ver todos
-                        </a>
-
+                        <h3>📢 Últimos Comunicados</h3>
+                        <a href="#">Ver todos</a>
                     </div>
 
-
                     <div class="comunicado">
-
-                        <span class="tag">
-                            Importante
-                        </span>
-
-                        <h4>
-                            Novo comunicado
-                        </h4>
-
+                        <span class="tag">Importante</span>
+                        <h4>Novo comunicado</h4>
                         <p>
                             Utilize esta área para avisos importantes
                             destinados aos colaboradores.
                         </p>
-
                     </div>
 
-
                     <div class="comunicado">
-
-                        <span class="tag">
-                            Aviso
-                        </span>
-
-                        <h4>
-                            Atualização de procedimentos
-                        </h4>
-
+                        <span class="tag">Aviso</span>
+                        <h4>Atualização interna</h4>
                         <p>
                             Informações e atualizações internas podem
                             ficar disponíveis neste espaço.
                         </p>
-
-                    </div>
-
-
-                    <div class="comunicado">
-
-                        <span class="tag">
-                            Evento
-                        </span>
-
-                        <h4>
-                            Próxima ação LTJ
-                        </h4>
-
-                        <p>
-                            Campanhas, eventos e atividades internas
-                            também podem aparecer aqui.
-                        </p>
-
                     </div>
 
                 </div>
 
-
             </section>
 
-
-            <!-- VIDA E EMPRESA -->
 
             <section class="vida-empresa" id="vida-empresa">
 
-                <div class="vida-box vida-destaque">
-
-                    <h3>
-                        ♡ Vida e Empresa
-                    </h3>
-
+                <div class="vida-box">
+                    <h3>♡ Vida e Empresa</h3>
                     <p>
-                        Cuidamos de pessoas e construímos
-                        um ambiente melhor todos os dias.
+                        Cuidamos de pessoas e construímos um ambiente
+                        melhor todos os dias.
                     </p>
-
                 </div>
 
-
                 <div class="vida-box">
-
-                    <h3>
-                        🪷 Bem-estar
-                    </h3>
-
+                    <h3>🪷 Bem-estar</h3>
                     <p>
                         Dicas e ações para sua saúde física e mental.
                     </p>
-
                 </div>
 
-
                 <div class="vida-box">
-
-                    <h3>
-                        ♡ Qualidade de Vida
-                    </h3>
-
+                    <h3>♡ Qualidade de Vida</h3>
                     <p>
                         Informações e benefícios para mais qualidade.
                     </p>
-
                 </div>
 
-
                 <div class="vida-box">
-
-                    <h3>
-                        ⭐ Reconhecimento
-                    </h3>
-
+                    <h3>⭐ Reconhecimento</h3>
                     <p>
                         Valorizamos quem faz a diferença todos os dias.
                     </p>
-
                 </div>
 
             </section>
 
-
-            <!-- FRASE FINAL -->
 
             <section class="faixa-final">
 
                 <div>
-
-                    <h3>
-                        🏆 Aqui, cada pessoa importa e cada conquista conta!
-                    </h3>
-
-                    <p>
-                        Seguimos juntos, construindo uma LTJ cada vez melhor.
-                    </p>
-
+                    <h3>🏆 Aqui, cada pessoa importa e cada conquista conta!</h3>
+                    <p>Seguimos juntos, construindo uma LTJ cada vez melhor.</p>
                 </div>
-
 
                 <div class="faixa-botao">
                     LTJ SOMOS TODOS NÓS
@@ -1424,56 +1007,33 @@
             </section>
 
 
-            <!-- ÂNCORAS -->
-
             <div id="nosso-time"></div>
             <div id="materiais"></div>
             <div id="sugestoes"></div>
 
-
         </main>
 
-
-        <!-- RODAPÉ -->
 
         <footer>
 
             <div class="footer-left">
 
-                <img
-                    src="logo-ltj.jpeg"
-                    alt="Logo LTJ"
-                >
+                <img src="logo-ltj.jpeg" alt="Logo LTJ">
 
                 <div>
-
-                    <strong>
-                        LTJ Intermediação de Negócios
-                    </strong>
-
-                    <span>
-                        Portal do Colaborador
-                    </span>
-
+                    <strong>LTJ Intermediação de Negócios</strong>
+                    <span>Portal do Colaborador</span>
                 </div>
 
             </div>
 
-
             <div class="valores">
-
-                Ética • Compromisso • Respeito •
-                Excelência • Trabalho em Equipe
-
+                Ética • Compromisso • Respeito • Excelência • Trabalho em Equipe
             </div>
 
-
-            <div>
-                ♡
-            </div>
+            <div>♡</div>
 
         </footer>
-
 
     </div>
 
