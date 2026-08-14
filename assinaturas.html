@@ -1,201 +1,380 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Central de Assinaturas | LTJ</title>
 
 <style>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f6f8fb;
-    color: #123c70;
+:root{
+    --azul:#0640a1;
+    --azul2:#0b54c7;
+    --azul-escuro:#03275f;
+    --laranja:#ff7417;
+    --laranja-claro:#fff0e3;
+    --branco:#ffffff;
+    --fundo:#f5f7fb;
+    --cinza:#667085;
+    --texto:#0c285a;
+    --borda:#e4eaf2;
 }
 
-header {
-    background: white;
-    padding: 18px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--fundo);
+    color:var(--texto);
 }
 
-.logo {
-    font-size: 27px;
-    font-weight: bold;
-    color: #123c70;
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
-.logo span {
-    color: #f58220;
+/* =========================
+   CABEÇALHO
+========================= */
+
+header{
+    background:white;
+    padding:16px 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid var(--borda);
 }
 
-.voltar {
-    text-decoration: none;
-    color: #123c70;
-    font-weight: bold;
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
-.hero {
-    text-align: center;
-    padding: 65px 20px 45px;
-    background: linear-gradient(135deg, #f7faff, #e9f2fb);
+.logo-area img{
+    width:95px;
+    height:70px;
+    object-fit:contain;
 }
 
-.hero .icone {
-    font-size: 42px;
-    margin-bottom: 15px;
+.logo-texto strong{
+    display:block;
+    color:var(--azul-escuro);
+    font-size:16px;
 }
 
-.hero h1 {
-    font-size: 40px;
-    color: #0b2b52;
-    margin-bottom: 15px;
+.logo-texto span{
+    display:block;
+    color:var(--cinza);
+    font-size:11px;
+    margin-top:3px;
 }
 
-.hero h1 span {
-    color: #f58220;
+.voltar{
+    color:var(--azul-escuro);
+    font-size:13px;
+    font-weight:bold;
 }
 
-.hero p {
-    color: #667085;
-    font-size: 17px;
-    line-height: 1.6;
-    max-width: 650px;
-    margin: auto;
+.voltar:hover{
+    color:var(--laranja);
 }
 
-.conteudo {
-    max-width: 1000px;
-    margin: auto;
-    padding: 55px 20px 80px;
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    margin:22px 5% 0;
+    padding:42px;
+    border-radius:20px;
+    background:
+        radial-gradient(circle at 80% 20%,rgba(255,116,23,.25),transparent 26%),
+        linear-gradient(135deg,#03275f,#0b54c7);
+    color:white;
+    text-align:center;
 }
 
-.aviso {
-    background: white;
-    border-left: 5px solid #f58220;
-    border-radius: 10px;
-    padding: 20px 22px;
-    margin-bottom: 35px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+.hero h1{
+    font-size:38px;
+    margin-bottom:12px;
 }
 
-.aviso strong {
-    display: block;
-    margin-bottom: 7px;
-    color: #123c70;
+.hero h1 span{
+    color:var(--laranja);
 }
 
-.aviso p {
-    color: #667085;
-    line-height: 1.5;
-    font-size: 14px;
+.hero p{
+    max-width:650px;
+    margin:auto;
+    color:#eef4ff;
+    font-size:15px;
+    line-height:1.6;
 }
 
-.assinatura-card {
-    background: white;
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+/* =========================
+   PASSO A PASSO
+========================= */
+
+.passos{
+    max-width:1050px;
+    margin:24px auto 0;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
 }
 
-.assinatura-card h2 {
-    color: #123c70;
-    margin-bottom: 8px;
+.passo{
+    background:white;
+    border:1px solid var(--borda);
+    border-radius:14px;
+    padding:16px;
+    text-align:center;
+    font-size:12px;
+    color:var(--cinza);
 }
 
-.descricao {
-    color: #667085;
-    margin-bottom: 25px;
+.passo strong{
+    display:block;
+    color:var(--azul-escuro);
+    margin-bottom:5px;
 }
 
-.assinatura-preview {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
-    padding: 35px;
-    margin-bottom: 25px;
-    text-align: center;
-    overflow-x: auto;
+/* =========================
+   CONTEÚDO
+========================= */
+
+.conteudo{
+    max-width:1050px;
+    margin:28px auto;
+    padding:0 20px 60px;
 }
 
-.assinatura-preview img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: auto;
+/* =========================
+   BUSCA
+========================= */
+
+.busca-box{
+    background:white;
+    border:1px solid var(--borda);
+    border-radius:18px;
+    padding:24px;
+    box-shadow:0 6px 18px rgba(6,40,95,.05);
 }
 
-.botao {
-    border: none;
-    background: #f58220;
-    color: white;
-    padding: 14px 24px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 14px;
+.busca-box h2{
+    color:var(--azul-escuro);
+    font-size:20px;
+    margin-bottom:6px;
 }
 
-.botao:hover {
-    background: #dc6e13;
+.busca-box p{
+    color:var(--cinza);
+    font-size:12px;
+    margin-bottom:18px;
 }
 
-.status {
-    display: block;
-    margin-top: 12px;
-    color: #16803c;
-    font-weight: bold;
+.campo-busca{
+    position:relative;
 }
 
-.instrucao {
-    margin-top: 15px;
-    color: #98a2b3;
-    font-size: 12px;
+.campo-busca span{
+    position:absolute;
+    left:16px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:18px;
 }
 
-footer {
-    background: #0b2b52;
-    color: #dce5f0;
-    text-align: center;
-    padding: 30px;
-    font-size: 13px;
-    line-height: 1.7;
+.campo-busca input{
+    width:100%;
+    height:52px;
+    padding:0 18px 0 48px;
+    border:1px solid #dfe5ee;
+    border-radius:12px;
+    outline:none;
+    font-size:15px;
 }
 
-@media (max-width: 650px) {
+.campo-busca input:focus{
+    border-color:var(--azul2);
+    box-shadow:0 0 0 3px rgba(11,84,199,.08);
+}
 
-    header {
-        flex-direction: column;
-        gap: 15px;
+/* =========================
+   RESULTADOS
+========================= */
+
+#resultados{
+    margin-top:20px;
+}
+
+.mensagem{
+    text-align:center;
+    padding:35px 20px;
+    color:var(--cinza);
+    font-size:13px;
+}
+
+.resultado-card{
+    background:white;
+    border:1px solid var(--borda);
+    border-radius:18px;
+    padding:24px;
+    margin-bottom:18px;
+    box-shadow:0 6px 18px rgba(6,40,95,.05);
+}
+
+.resultado-topo{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+    margin-bottom:20px;
+}
+
+.resultado-nome h3{
+    color:var(--azul-escuro);
+    font-size:20px;
+    margin-bottom:4px;
+}
+
+.resultado-nome span{
+    color:var(--cinza);
+    font-size:12px;
+}
+
+.status{
+    background:var(--laranja-claro);
+    color:var(--laranja);
+    padding:7px 10px;
+    border-radius:30px;
+    font-size:10px;
+    font-weight:bold;
+}
+
+.preview{
+    background:#fafbfd;
+    border:1px solid #e8ecf2;
+    border-radius:12px;
+    padding:24px;
+    text-align:center;
+    overflow-x:auto;
+}
+
+.preview img{
+    display:block;
+    max-width:100%;
+    height:auto;
+    margin:auto;
+}
+
+.acoes{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+}
+
+.botao{
+    border:none;
+    border-radius:9px;
+    padding:12px 18px;
+    font-size:12px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.botao-copiar{
+    background:var(--laranja);
+    color:white;
+}
+
+.botao-abrir{
+    background:var(--azul2);
+    color:white;
+}
+
+.botao:hover{
+    opacity:.92;
+}
+
+.ajuda{
+    margin-top:15px;
+    color:var(--cinza);
+    font-size:11px;
+    line-height:1.5;
+}
+
+.feedback{
+    margin-top:10px;
+    color:#17803d;
+    font-size:11px;
+    font-weight:bold;
+}
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer{
+    background:linear-gradient(90deg,#02245b,#0645a3);
+    color:white;
+    padding:20px 5%;
+    text-align:center;
+    font-size:11px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:760px){
+
+    header{
+        flex-direction:column;
+        gap:12px;
+        text-align:center;
     }
 
-    .hero h1 {
-        font-size: 32px;
+    .passos{
+        grid-template-columns:1fr 1fr;
     }
 
-    .assinatura-card {
-        padding: 22px;
+    .resultado-topo{
+        flex-direction:column;
+        align-items:flex-start;
     }
 
-    .assinatura-preview {
-        padding: 15px;
+    .acoes{
+        flex-direction:column;
     }
 
-    .botao {
-        width: 100%;
+    .botao{
+        width:100%;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .passos{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:30px 20px;
+    }
+
+    .hero h1{
+        font-size:30px;
     }
 
 }
@@ -208,12 +387,19 @@ footer {
 
 <header>
 
-    <div class="logo">
-        LTJ<span>.</span>
+    <div class="logo-area">
+
+        <img src="logo-ltj.jpeg" alt="Logo LTJ">
+
+        <div class="logo-texto">
+            <strong>LTJ Intermediação de Negócios</strong>
+            <span>Central de Assinaturas</span>
+        </div>
+
     </div>
 
     <a href="index.html" class="voltar">
-        ← Voltar ao portal
+        ← Voltar ao Portal
     </a>
 
 </header>
@@ -221,83 +407,73 @@ footer {
 
 <section class="hero">
 
-    <div class="icone">
-        📧
-    </div>
-
     <h1>
         Central de <span>Assinaturas</span>
     </h1>
 
     <p>
-        Encontre aqui as assinaturas oficiais da LTJ
-        para utilizar no seu e-mail corporativo.
+        Encontre sua assinatura oficial de e-mail de forma rápida.
+        Digite seu nome, confira a prévia e utilize no UOL Mail Pro.
     </p>
+
+</section>
+
+
+<section class="passos">
+
+    <div class="passo">
+        <strong>1. Busque</strong>
+        Digite seu nome.
+    </div>
+
+    <div class="passo">
+        <strong>2. Confira</strong>
+        Veja a prévia da assinatura.
+    </div>
+
+    <div class="passo">
+        <strong>3. Copie</strong>
+        Copie ou abra a imagem.
+    </div>
+
+    <div class="passo">
+        <strong>4. Cole</strong>
+        Insira no UOL Mail Pro.
+    </div>
 
 </section>
 
 
 <main class="conteudo">
 
-    <div class="aviso">
+    <div class="busca-box">
 
-        <strong>
-            Como utilizar sua assinatura
-        </strong>
+        <h2>Encontre sua assinatura</h2>
 
         <p>
-            Clique em "Copiar assinatura" e depois
-            cole diretamente no campo de assinatura
-            do seu e-mail.
+            Comece digitando seu nome abaixo.
         </p>
 
-    </div>
+        <div class="campo-busca">
 
+            <span>🔎</span>
 
-    <div class="assinatura-card">
-
-        <h2>
-            Ana Paula
-        </h2>
-
-        <p class="descricao">
-            Assinatura oficial
-        </p>
-
-
-        <div
-            class="assinatura-preview"
-            id="areaAssinatura"
-        >
-
-            <img
-                src="https://ltjintermediacao.github.io/ltjintermediacao/ana-paula.jpg.jpg"
-                alt=""
+            <input
+                type="text"
+                id="busca"
+                placeholder="Ex.: Ana Paula"
+                autocomplete="off"
             >
 
         </div>
 
+        <div id="resultados">
 
-        <button
-            class="botao"
-            onclick="copiarAssinatura()"
-        >
-            📋 Copiar assinatura
-        </button>
+            <div class="mensagem">
+                Digite seu nome para localizar sua assinatura.
+            </div>
 
-
-        <div
-            id="status"
-            class="status"
-        ></div>
-
-
-        <p class="instrucao">
-
-            Depois de copiar, abra o UOL e use
-            <strong>Ctrl + V</strong> no campo da assinatura.
-
-        </p>
+        </div>
 
     </div>
 
@@ -305,100 +481,287 @@ footer {
 
 
 <footer>
-
-    <strong>LTJ</strong> — Portal do Colaborador
-
-    <br><br>
-
-    Rua Duque de Caxias, 50 – Vila Leão
-
+    LTJ Intermediação de Negócios • Portal do Colaborador
 </footer>
 
 
 <script>
 
-async function copiarAssinatura() {
+/* =========================================================
+   CADASTRO DE ASSINATURAS
+=========================================================
 
-    const imagem =
-        document.querySelector(
-            "#areaAssinatura img"
-        );
+   PARA ADICIONAR OUTRO COLABORADOR,
+   DUPLIQUE UM BLOCO DESTA LISTA.
 
-    const status =
-        document.getElementById("status");
+   Exemplo:
 
+   {
+       nome: "Amanda Pessoa",
+       setor: "Comercial",
+       imagem: "amanda-pessoa.jpg"
+   }
 
-    try {
+========================================================= */
 
-        const resposta =
-            await fetch(imagem.src);
+const colaboradores = [
 
-        const blob =
-            await resposta.blob();
+    {
+        nome: "Ana Paula",
+        setor: "Assinatura oficial",
+        imagem: "ana-paula.jpg.jpg"
+    }
 
-
-        const html =
-            '<img src="' +
-            imagem.src +
-            '" style="display:block;max-width:100%;">';
-
-
-        if (
-            navigator.clipboard &&
-            window.ClipboardItem
-        ) {
-
-            const item =
-                new ClipboardItem({
-
-                    "text/html":
-                        new Blob(
-                            [html],
-                            {
-                                type: "text/html"
-                            }
-                        ),
-
-                    "image/jpeg":
-                        blob
-
-                });
+];
 
 
-            await navigator.clipboard.write([item]);
+/* =========================================================
+   BUSCA
+========================================================= */
+
+const campoBusca = document.getElementById("busca");
+const areaResultados = document.getElementById("resultados");
 
 
-            status.textContent =
-                "✓ Assinatura copiada! Agora use Ctrl + V no UOL.";
+campoBusca.addEventListener("input", function(){
 
-        } else {
+    const termo = normalizarTexto(this.value.trim());
 
-            throw new Error(
-                "Clipboard não disponível"
-            );
+    if(termo.length < 2){
 
-        }
+        areaResultados.innerHTML = `
+            <div class="mensagem">
+                Digite pelo menos 2 letras do seu nome.
+            </div>
+        `;
 
-
-    } catch (erro) {
-
-        status.textContent =
-            "Não foi possível copiar automaticamente. Clique na imagem, copie e cole no UOL.";
-
+        return;
     }
 
 
-    setTimeout(function() {
+    const encontrados = colaboradores
+        .filter(function(colaborador){
 
-        status.textContent = "";
+            return normalizarTexto(colaborador.nome)
+                .includes(termo);
 
-    }, 6000);
+        })
+        .sort(function(a,b){
+
+            return a.nome.localeCompare(b.nome);
+
+        });
+
+
+    mostrarResultados(encontrados);
+
+});
+
+
+/* =========================================================
+   REMOVE ACENTOS E DIFERENÇA DE MAIÚSCULA/MINÚSCULA
+========================================================= */
+
+function normalizarTexto(texto){
+
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+}
+
+
+/* =========================================================
+   EXIBE RESULTADOS
+========================================================= */
+
+function mostrarResultados(lista){
+
+    if(lista.length === 0){
+
+        areaResultados.innerHTML = `
+            <div class="mensagem">
+                Nenhuma assinatura encontrada.
+                Confira se o nome foi digitado corretamente.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    areaResultados.innerHTML = "";
+
+
+    lista.forEach(function(colaborador){
+
+        const card = document.createElement("div");
+
+        card.className = "resultado-card";
+
+
+        const enderecoImagem =
+            "https://ltjintermediacao.github.io/ltjintermediacao/" +
+            colaborador.imagem;
+
+
+        card.innerHTML = `
+
+            <div class="resultado-topo">
+
+                <div class="resultado-nome">
+
+                    <h3>
+                        ${colaborador.nome}
+                    </h3>
+
+                    <span>
+                        ${colaborador.setor}
+                    </span>
+
+                </div>
+
+                <div class="status">
+                    ASSINATURA OFICIAL
+                </div>
+
+            </div>
+
+
+            <div class="preview">
+
+                <img
+                    src="${enderecoImagem}"
+                    alt="Assinatura de ${colaborador.nome}"
+                >
+
+            </div>
+
+
+            <div class="acoes">
+
+                <button
+                    class="botao botao-copiar"
+                    onclick="copiarImagem('${enderecoImagem}', this)"
+                >
+                    📋 Copiar assinatura
+                </button>
+
+
+                <button
+                    class="botao botao-abrir"
+                    onclick="window.open('${enderecoImagem}', '_blank')"
+                >
+                    🖼 Abrir imagem
+                </button>
+
+            </div>
+
+
+            <div class="feedback"></div>
+
+
+            <p class="ajuda">
+
+                Se o botão “Copiar assinatura” não funcionar no seu navegador,
+                clique em “Abrir imagem”, copie a imagem manualmente e cole no
+                campo de assinatura do UOL Mail Pro.
+
+            </p>
+
+        `;
+
+
+        areaResultados.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
+   COPIAR IMAGEM
+========================================================= */
+
+async function copiarImagem(url, botao){
+
+    const card =
+        botao.closest(".resultado-card");
+
+    const feedback =
+        card.querySelector(".feedback");
+
+
+    try{
+
+        const resposta =
+            await fetch(url);
+
+        const blobOriginal =
+            await resposta.blob();
+
+
+        const bitmap =
+            await createImageBitmap(blobOriginal);
+
+
+        const canvas =
+            document.createElement("canvas");
+
+        canvas.width =
+            bitmap.width;
+
+        canvas.height =
+            bitmap.height;
+
+
+        const ctx =
+            canvas.getContext("2d");
+
+        ctx.drawImage(
+            bitmap,
+            0,
+            0
+        );
+
+
+        canvas.toBlob(
+            async function(blobPNG){
+
+                try{
+
+                    await navigator.clipboard.write([
+                        new ClipboardItem({
+                            "image/png": blobPNG
+                        })
+                    ]);
+
+                    feedback.textContent =
+                        "✓ Imagem copiada! Agora cole no UOL Mail Pro.";
+
+                }catch(erro){
+
+                    feedback.textContent =
+                        "Não foi possível copiar automaticamente. Use o botão Abrir imagem.";
+
+                }
+
+            },
+            "image/png"
+        );
+
+
+    }catch(erro){
+
+        feedback.textContent =
+            "Não foi possível copiar automaticamente. Use o botão Abrir imagem.";
+
+    }
 
 }
 
 </script>
 
-
 </body>
-
 </html>
