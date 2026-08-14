@@ -6,13 +6,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Portal do Colaborador | LTJ</title>
+<title>Nosso Time | LTJ</title>
 
 <style>
-
-/* =========================================================
-   CONFIGURAÇÕES GERAIS
-========================================================= */
 
 *{
     margin:0;
@@ -24,7 +20,6 @@
     --azul:#0640a1;
     --azul2:#0b54c7;
     --azul-escuro:#03275f;
-    --azul-profundo:#021d4b;
     --laranja:#ff7417;
     --laranja-claro:#fff0e3;
     --branco:#ffffff;
@@ -50,249 +45,19 @@ a{
 }
 
 /* =========================================================
-   TELA DE LOGIN
-========================================================= */
-
-#tela-login{
-    position:fixed;
-    inset:0;
-    z-index:99999;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-
-    background:
-        radial-gradient(
-            circle at 75% 20%,
-            rgba(20,100,220,.75),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #021d4b,
-            #073b91
-        );
-}
-
-#tela-login::before{
-    content:"";
-
-    position:absolute;
-
-    width:700px;
-    height:190px;
-
-    right:-150px;
-    bottom:-120px;
-
-    border-radius:50%;
-
-    background:#ff7417;
-
-    transform:rotate(-8deg);
-}
-
-#tela-login::after{
-    content:"";
-
-    position:absolute;
-
-    width:750px;
-    height:160px;
-
-    right:-160px;
-    bottom:-88px;
-
-    border-radius:50%;
-
-    background:#0b56c7;
-
-    transform:rotate(-8deg);
-}
-
-.login-box{
-    position:relative;
-    z-index:2;
-
-    width:100%;
-    max-width:430px;
-
-    background:white;
-
-    padding:38px 40px;
-
-    border-radius:22px;
-
-    box-shadow:0 30px 70px rgba(0,0,0,.25);
-
-    text-align:center;
-}
-
-.login-logo{
-    width:130px;
-    height:95px;
-
-    object-fit:contain;
-
-    margin-bottom:12px;
-}
-
-.login-tag{
-    display:inline-block;
-
-    background:#edf4ff;
-
-    color:var(--azul2);
-
-    padding:6px 12px;
-
-    border-radius:30px;
-
-    font-size:9px;
-    font-weight:bold;
-
-    margin-bottom:12px;
-}
-
-.login-box h1{
-    color:var(--azul-escuro);
-
-    font-size:26px;
-
-    margin-bottom:8px;
-}
-
-.login-subtitulo{
-    color:#667085;
-
-    font-size:13px;
-
-    line-height:1.5;
-}
-
-.login-linha{
-    width:42px;
-    height:3px;
-
-    background:#ff7417;
-
-    border-radius:5px;
-
-    margin:18px auto 24px;
-}
-
-.login-box label{
-    display:block;
-
-    text-align:left;
-
-    color:var(--azul-escuro);
-
-    font-size:12px;
-    font-weight:bold;
-
-    margin-bottom:7px;
-}
-
-.login-box input{
-    width:100%;
-    height:48px;
-
-    padding:0 15px;
-
-    border:1px solid #dfe5ee;
-
-    border-radius:9px;
-
-    outline:none;
-
-    font-size:14px;
-
-    margin-bottom:12px;
-
-    transition:.2s;
-}
-
-.login-box input:focus{
-    border-color:var(--azul2);
-
-    box-shadow:0 0 0 3px rgba(11,84,199,.08);
-}
-
-.login-box button{
-    width:100%;
-    height:48px;
-
-    border:none;
-    border-radius:9px;
-
-    background:var(--laranja);
-
-    color:white;
-
-    font-size:14px;
-    font-weight:bold;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-.login-box button:hover{
-    background:#e9650a;
-
-    transform:translateY(-1px);
-}
-
-#erro-login{
-    display:none;
-
-    background:#fff0f0;
-
-    color:#c62828;
-
-    border-radius:7px;
-
-    padding:9px;
-
-    margin-top:12px;
-
-    font-size:11px;
-}
-
-.login-rodape{
-    margin-top:22px;
-
-    padding-top:17px;
-
-    border-top:1px solid #edf0f5;
-
-    color:#7a8495;
-
-    font-size:10px;
-}
-
-body.portal-bloqueado{
-    overflow:hidden;
-}
-
-
-/* =========================================================
    CABEÇALHO
 ========================================================= */
 
 .header{
     background:white;
-    min-height:108px;
+
+    min-height:100px;
+
+    padding:14px 5%;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
-
-    padding:14px 4.5%;
 
     border-bottom:1px solid var(--borda);
 
@@ -304,12 +69,12 @@ body.portal-bloqueado{
 .brand{
     display:flex;
     align-items:center;
-    gap:18px;
+    gap:16px;
 }
 
 .brand img{
-    width:105px;
-    height:75px;
+    width:100px;
+    height:72px;
     object-fit:contain;
 }
 
@@ -318,179 +83,77 @@ body.portal-bloqueado{
 
     color:var(--azul-escuro);
 
-    font-size:18px;
+    font-size:17px;
 
     margin-bottom:4px;
 }
 
 .brand-text span{
-    color:#58677d;
-    font-size:13px;
+    display:block;
+
+    color:var(--cinza);
+
+    font-size:11px;
 }
 
-
-/* MENU */
-
-.menu{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    gap:27px;
-}
-
-.menu a{
-    color:var(--azul-escuro);
-
-    font-size:13px;
-    font-weight:600;
-
-    padding:10px 0;
-
-    transition:.2s;
-}
-
-.menu a:hover{
-    color:var(--laranja);
-}
-
-.menu a.ativo{
-    background:var(--laranja);
+.voltar{
+    background:var(--azul2);
 
     color:white;
 
-    padding:11px 18px;
+    padding:11px 16px;
 
     border-radius:9px;
-}
 
-.menu a.ativo:hover{
-    color:white;
-}
+    font-size:12px;
 
-
-/* BOTÕES SUPERIORES */
-
-.header-actions{
-    display:flex;
-    align-items:center;
-
-    gap:10px;
-}
-
-.action-circle{
-    position:relative;
-
-    width:43px;
-    height:43px;
-
-    border:1px solid var(--borda);
-
-    border-radius:50%;
-
-    background:white;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:19px;
-
-    cursor:pointer;
+    font-weight:bold;
 
     transition:.2s;
 }
 
-.action-circle:hover{
-    background:#f7f9fc;
-
-    transform:translateY(-2px);
+.voltar:hover{
+    background:var(--azul-escuro);
 }
-
-.notification-number{
-    position:absolute;
-
-    width:18px;
-    height:18px;
-
-    top:-3px;
-    right:-2px;
-
-    background:var(--laranja);
-
-    color:white;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:9px;
-    font-weight:bold;
-}
-
 
 /* =========================================================
-   BANNER
+   HERO
 ========================================================= */
 
-.hero-wrapper{
-    padding:18px 4.5% 0;
+.hero-wrap{
+    padding:22px 5% 0;
 }
 
 .hero{
-    min-height:360px;
-
-    position:relative;
-    overflow:hidden;
+    min-height:245px;
 
     border-radius:20px;
 
-    display:grid;
+    padding:40px;
 
-    grid-template-columns:1.05fr 1fr .85fr;
-
+    display:flex;
     align-items:center;
+    justify-content:space-between;
 
-    gap:25px;
+    gap:30px;
 
-    padding:32px 48px;
+    overflow:hidden;
+
+    position:relative;
 
     background:
         radial-gradient(
-            circle at 55% 48%,
-            rgba(15,99,225,.35),
-            transparent 30%
+            circle at 85% 20%,
+            rgba(255,116,23,.25),
+            transparent 28%
         ),
         linear-gradient(
-            115deg,
-            #03265f 0%,
-            #073b91 55%,
-            #0845a7 100%
+            135deg,
+            #03275f,
+            #0b54c7
         );
 
-    box-shadow:0 15px 36px rgba(3,39,95,.14);
-}
-
-.hero::before{
-    content:"";
-
-    position:absolute;
-
-    width:600px;
-    height:155px;
-
-    border-radius:50%;
-
-    right:-80px;
-    bottom:-105px;
-
-    background:var(--laranja);
-
-    transform:rotate(-6deg);
-
-    z-index:1;
+    box-shadow:0 15px 35px rgba(3,39,95,.12);
 }
 
 .hero::after{
@@ -498,856 +161,437 @@ body.portal-bloqueado{
 
     position:absolute;
 
-    width:650px;
-    height:130px;
+    width:520px;
+    height:135px;
+
+    right:-100px;
+    bottom:-90px;
+
+    background:var(--laranja);
 
     border-radius:50%;
 
-    right:-90px;
-    bottom:-76px;
-
-    background:#0b56c7;
-
-    transform:rotate(-6deg);
-
-    z-index:2;
+    transform:rotate(-7deg);
 }
-
-
-/* TEXTO DO BANNER */
 
 .hero-text{
     position:relative;
-
-    z-index:5;
-
-    color:white;
+    z-index:2;
 }
 
-.hero-label{
+.hero-tag{
     display:inline-block;
 
-    background:#0b54c7;
+    background:rgba(255,255,255,.12);
 
-    border:1px solid rgba(255,255,255,.12);
+    color:white;
 
     border-radius:30px;
 
-    padding:8px 15px;
+    padding:7px 13px;
 
-    margin-bottom:22px;
+    font-size:10px;
 
+    font-weight:bold;
+
+    margin-bottom:15px;
+}
+
+.hero h1{
     color:white;
 
-    font-size:11px;
-    font-weight:bold;
+    font-size:40px;
+
+    margin-bottom:10px;
 }
 
-.hero-text h1{
-    font-size:43px;
-    line-height:1.08;
-
-    max-width:520px;
-
-    margin-bottom:20px;
-}
-
-.hero-text h1 span{
+.hero h1 span{
     color:var(--laranja);
 }
 
-.orange-line{
-    width:45px;
-    height:3px;
+.hero p{
+    max-width:600px;
 
-    background:var(--laranja);
+    color:#edf4ff;
 
-    border-radius:3px;
+    font-size:14px;
 
-    margin:4px 0 22px;
+    line-height:1.6;
 }
 
-.hero-description{
-    color:#f3f6fb;
-
-    font-size:16px;
-    line-height:1.55;
-
-    max-width:420px;
-}
-
-.hero-phrase{
-    margin-top:20px;
-
-    color:white;
-
-    font-size:16px;
-    line-height:1.5;
-
-    font-weight:bold;
-}
-
-.hero-phrase span{
-    color:var(--laranja);
-}
-
-
-/* =========================================================
-   CENTRO DO BANNER
-========================================================= */
-
-.hero-center{
+.hero-icon{
     position:relative;
+    z-index:2;
 
-    z-index:5;
-
-    height:280px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.orbit-big{
-    position:absolute;
-
-    width:220px;
-    height:220px;
-
-    border:2px solid rgba(255,255,255,.85);
+    width:140px;
+    height:140px;
 
     border-radius:50%;
-}
 
-.orbit-middle{
-    position:absolute;
-
-    width:175px;
-    height:175px;
-
-    border:1px solid rgba(255,255,255,.55);
-
-    border-radius:50%;
-}
-
-.orbit-small{
-    position:absolute;
-
-    width:130px;
-    height:130px;
-
-    border:1px solid rgba(255,255,255,.25);
-
-    border-radius:50%;
-}
-
-.center-message{
-    position:relative;
-
-    z-index:5;
-
-    text-align:center;
-
-    color:white;
-
-    font-size:17px;
-    font-weight:bold;
-
-    line-height:1.5;
-}
-
-.orbit-icon{
-    position:absolute;
-
-    width:68px;
-    height:68px;
-
-    border-radius:50%;
+    border:2px solid rgba(255,255,255,.45);
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:29px;
-
-    border:2px solid white;
+    font-size:65px;
 
     color:white;
 
-    z-index:7;
-
-    box-shadow:0 7px 18px rgba(0,0,0,.12);
+    flex-shrink:0;
 }
-
-.orbit-icon.top{
-    top:8px;
-
-    background:var(--laranja);
-}
-
-.orbit-icon.left{
-    left:38px;
-    bottom:44px;
-
-    background:#0a3f98;
-}
-
-.orbit-icon.right{
-    right:34px;
-    bottom:44px;
-
-    background:#0a3f98;
-}
-
-
-/* =========================================================
-   VALORES
-========================================================= */
-
-.hero-values{
-    position:relative;
-
-    z-index:5;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:13px;
-}
-
-.hero-value{
-    background:white;
-
-    min-height:78px;
-
-    border-radius:14px;
-
-    padding:12px 16px;
-
-    display:grid;
-
-    grid-template-columns:58px 1fr;
-
-    align-items:center;
-
-    gap:13px;
-
-    box-shadow:0 7px 19px rgba(0,0,0,.09);
-}
-
-.value-icon{
-    width:52px;
-    height:52px;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:25px;
-
-    background:var(--laranja);
-
-    color:white;
-}
-
-.hero-value:nth-child(2) .value-icon{
-    background:var(--azul2);
-}
-
-.hero-value h3{
-    color:var(--azul-escuro);
-
-    font-size:16px;
-
-    margin-bottom:4px;
-}
-
-.hero-value p{
-    color:#475469;
-
-    font-size:11px;
-
-    line-height:1.35;
-}
-
 
 /* =========================================================
    CONTEÚDO
 ========================================================= */
 
 main{
-    padding:25px 4.5% 0;
+    max-width:1280px;
+
+    margin:28px auto 0;
+
+    padding:0 22px 70px;
 }
 
-.section-title{
-    margin-bottom:16px;
+.section-header{
+    margin-bottom:18px;
 }
 
-.section-title h2{
+.section-header h2{
     color:var(--azul-escuro);
 
-    font-size:22px;
+    font-size:24px;
+
+    margin-bottom:5px;
 }
 
-.section-line{
-    width:40px;
-    height:3px;
+.section-header p{
+    color:var(--cinza);
 
-    background:var(--laranja);
+    font-size:12px;
 
-    border-radius:2px;
-
-    margin-top:10px;
+    line-height:1.5;
 }
-
 
 /* =========================================================
-   ACESSOS RÁPIDOS
+   BUSCA
 ========================================================= */
 
-.shortcuts{
-    display:grid;
-
-    grid-template-columns:repeat(7,1fr);
-
-    gap:12px;
-
-    margin-bottom:20px;
-}
-
-.shortcut{
-    min-height:145px;
-
-    background:white;
-
-    border:1px solid var(--borda);
-
-    border-radius:13px;
-
-    padding:16px 10px;
-
-    text-align:center;
-
-    box-shadow:0 7px 18px rgba(6,40,95,.05);
-
-    transition:.22s;
-}
-
-.shortcut:hover{
-    transform:translateY(-5px);
-
-    box-shadow:0 14px 28px rgba(6,40,95,.11);
-
-    border-color:rgba(255,116,23,.45);
-}
-
-.shortcut-icon{
-    height:54px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:34px;
-
-    color:var(--azul2);
-
-    margin-bottom:7px;
-}
-
-.shortcut h3{
-    color:var(--azul-escuro);
-
-    font-size:13px;
-
-    margin-bottom:7px;
-}
-
-.shortcut p{
-    color:#526074;
-
-    font-size:10px;
-
-    line-height:1.4;
-}
-
-
-/* =========================================================
-   PAINÉIS
-========================================================= */
-
-.dashboard{
-    display:grid;
-
-    grid-template-columns:1.15fr 1fr 1.35fr;
-
-    gap:14px;
-
-    margin-bottom:20px;
-}
-
-.panel{
+.busca-box{
     background:white;
 
     border:1px solid var(--borda);
 
     border-radius:16px;
 
-    padding:16px;
+    padding:20px;
+
+    margin-bottom:22px;
 
     box-shadow:0 6px 18px rgba(6,40,95,.04);
 }
 
-.panel-header{
+.busca-info{
     display:flex;
+
     align-items:center;
     justify-content:space-between;
 
-    margin-bottom:12px;
+    gap:20px;
+
+    margin-bottom:13px;
 }
 
-.panel-title{
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-}
-
-.panel-title-icon{
-    width:28px;
-    height:28px;
-
-    border-radius:50%;
-
-    background:var(--azul2);
-
-    color:white;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.busca-info strong{
+    color:var(--azul-escuro);
 
     font-size:13px;
 }
 
-.panel-header h3{
-    color:var(--azul-escuro);
+.contador{
+    background:var(--laranja-claro);
 
-    font-size:14px;
-}
+    color:var(--laranja);
 
-.panel-header a{
-    color:var(--azul2);
+    padding:6px 10px;
 
-    font-size:10px;
-}
-
-
-/* =========================================================
-   ANIVERSARIANTES
-========================================================= */
-
-.birthday-columns{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:14px;
-}
-
-.birthday-category{
-    padding:7px 10px;
-
-    border-radius:8px;
+    border-radius:30px;
 
     font-size:10px;
 
     font-weight:bold;
-
-    margin-bottom:8px;
-
-    text-align:center;
 }
 
-.category-life{
-    background:var(--laranja-claro);
-
-    color:var(--laranja);
+.campo-busca{
+    position:relative;
 }
 
-.category-company{
-    background:#edf4ff;
+.campo-busca span{
+    position:absolute;
 
-    color:var(--azul2);
+    left:16px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:18px;
 }
 
-.birthday-person{
-    display:flex;
+.campo-busca input{
+    width:100%;
 
-    align-items:center;
+    height:52px;
 
-    gap:9px;
+    padding:0 18px 0 48px;
 
-    padding:7px 4px;
+    border:1px solid #dce3ed;
+
+    border-radius:11px;
+
+    outline:none;
+
+    font-size:14px;
+
+    transition:.2s;
 }
 
-.person-circle{
-    width:34px;
-    height:34px;
+.campo-busca input:focus{
+    border-color:var(--azul2);
 
-    min-width:34px;
+    box-shadow:0 0 0 3px rgba(11,84,199,.08);
+}
 
-    border-radius:50%;
+/* =========================================================
+   GRID
+========================================================= */
+
+#lista-time{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card{
+    background:white;
+
+    border:1px solid var(--borda);
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 6px 18px rgba(6,40,95,.05);
+
+    transition:.22s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:0 14px 28px rgba(6,40,95,.11);
+
+    border-color:rgba(255,116,23,.35);
+}
+
+.foto{
+    width:100%;
+
+    aspect-ratio:1 / 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf3fb,
+            #f8faff
+        );
+
+    overflow:hidden;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:15px;
+    position:relative;
 }
 
-.life-circle{
-    background:var(--laranja-claro);
-}
+.foto img{
+    width:100%;
+    height:100%;
 
-.company-circle{
-    background:#e8f0ff;
-}
+    object-fit:cover;
 
-.birthday-person strong{
     display:block;
+}
 
+.sem-foto{
+    width:85px;
+    height:85px;
+
+    border-radius:50%;
+
+    background:#e7eef8;
+
+    color:var(--azul2);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:40px;
+}
+
+.card-info{
+    padding:17px 16px 19px;
+
+    text-align:center;
+}
+
+.card-info h3{
     color:var(--azul-escuro);
 
-    font-size:11px;
+    font-size:16px;
+
+    margin-bottom:10px;
+
+    line-height:1.3;
 }
 
-.birthday-person small{
-    display:block;
-
-    color:#536075;
-
-    font-size:9px;
-
-    margin-top:3px;
-}
-
-.birthday-footer{
-    margin-top:10px;
-
-    background:#f0f5ff;
-
-    border-radius:9px;
-
-    padding:10px 14px;
-
+.email{
     display:flex;
 
     align-items:center;
+    justify-content:center;
 
-    gap:12px;
+    gap:6px;
 
-    color:var(--azul-escuro);
+    color:var(--azul2);
 
     font-size:10px;
-}
 
-.birthday-footer strong{
-    display:block;
+    line-height:1.4;
 
-    color:var(--laranja);
+    word-break:break-word;
 
-    margin-top:3px;
+    background:#f4f7ff;
 
-    font-size:12px;
-}
-
-
-/* =========================================================
-   EVENTOS
-========================================================= */
-
-.event{
-    display:grid;
-
-    grid-template-columns:58px 1fr;
-
-    gap:12px;
-
-    padding:9px 0;
-
-    border-bottom:1px solid #edf0f5;
-}
-
-.event-date{
-    border:1px solid #e0e5ed;
+    padding:9px;
 
     border-radius:8px;
-
-    text-align:center;
-
-    padding:6px;
 }
 
-.event-date strong{
-    display:block;
-
-    color:var(--laranja);
-
-    font-size:23px;
+.email:hover{
+    background:#eaf1ff;
 }
 
-.event-date span{
-    color:var(--azul-escuro);
+.sem-email{
+    color:#9aa4b3;
 
     font-size:10px;
 
-    font-weight:bold;
-}
-
-.event-info strong{
-    color:var(--azul-escuro);
-
-    font-size:12px;
-}
-
-.event-info small{
-    display:block;
-
-    color:#526075;
-
-    font-size:9px;
-
-    margin-top:4px;
-}
-
-.event-footer{
-    margin-top:10px;
-
-    background:var(--laranja);
-
-    color:white;
+    background:#f7f8fa;
 
     padding:9px;
 
-    text-align:center;
-
-    border-radius:7px;
-
-    font-size:10px;
-
-    font-weight:bold;
+    border-radius:8px;
 }
-
 
 /* =========================================================
-   COMUNICADOS
+   STATUS
 ========================================================= */
 
-.notice{
-    display:grid;
+.mensagem{
+    grid-column:1 / -1;
 
-    grid-template-columns:75px 1fr 60px;
+    background:white;
 
-    gap:11px;
+    border:1px solid var(--borda);
 
-    padding:10px 0;
+    border-radius:16px;
 
-    border-bottom:1px solid #edf0f5;
-}
-
-.notice-label{
-    background:var(--laranja);
-
-    color:white;
-
-    border-radius:5px;
-
-    padding:5px 7px;
-
-    font-size:8px;
-
-    font-weight:bold;
-
-    text-align:center;
-}
-
-.notice-content strong{
-    display:block;
-
-    color:var(--azul-escuro);
-
-    font-size:11px;
-
-    margin-bottom:3px;
-}
-
-.notice-content p{
-    color:#536075;
-
-    font-size:9px;
-
-    line-height:1.35;
-}
-
-.notice-time{
-    text-align:right;
-
-    color:#667085;
-
-    font-size:9px;
-}
-
-.notice-footer{
-    margin-top:10px;
-
-    background:var(--azul2);
-
-    color:white;
-
-    padding:9px;
-
-    border-radius:7px;
+    padding:45px 20px;
 
     text-align:center;
 
-    font-size:10px;
+    color:var(--cinza);
+
+    font-size:13px;
+
+    line-height:1.6;
 }
 
+.erro{
+    grid-column:1 / -1;
+
+    background:#fff2f2;
+
+    border:1px solid #ffd1d1;
+
+    border-radius:16px;
+
+    padding:22px;
+
+    color:#a92a2a;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
 
 /* =========================================================
    RODAPÉ
 ========================================================= */
 
 footer{
-    margin-top:16px;
-
-    background:linear-gradient(
-        90deg,
-        #02245b,
-        #0645a3
-    );
+    background:
+        linear-gradient(
+            90deg,
+            #02245b,
+            #0645a3
+        );
 
     color:white;
 
-    min-height:95px;
+    padding:20px 5%;
 
-    padding:14px 4.5%;
+    display:flex;
 
-    display:grid;
-
-    grid-template-columns:1.1fr 2fr 1fr;
-
+    justify-content:space-between;
     align-items:center;
 
     gap:20px;
-}
-
-.footer-brand{
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-}
-
-.footer-brand img{
-    width:78px;
-    height:65px;
-
-    object-fit:contain;
-
-    background:white;
-
-    border-radius:8px;
-
-    padding:3px;
-}
-
-.footer-brand strong{
-    display:block;
-
-    font-size:13px;
-}
-
-.footer-brand span{
-    display:block;
-
-    font-size:10px;
-
-    margin-top:4px;
-
-    opacity:.85;
-}
-
-.footer-values{
-    display:flex;
-
-    justify-content:center;
-
-    gap:22px;
-
-    flex-wrap:wrap;
 
     font-size:11px;
 }
 
-.footer-phrase{
-    color:var(--laranja);
+footer strong{
+    display:block;
 
-    text-align:right;
-
-    font-size:27px;
-
-    font-family:"Brush Script MT",cursive;
+    margin-bottom:3px;
 }
 
+.footer-frase{
+    color:var(--laranja);
+
+    font-size:21px;
+
+    font-family:"Brush Script MT", cursive;
+}
 
 /* =========================================================
    RESPONSIVO
 ========================================================= */
 
-@media(max-width:1280px){
-
-    .menu{
-        gap:16px;
-    }
-
-    .shortcuts{
-        grid-template-columns:repeat(4,1fr);
-    }
-
-}
-
 @media(max-width:1050px){
 
-    .header{
-        flex-wrap:wrap;
-
-        gap:14px;
-    }
-
-    .menu{
-        order:3;
-
-        width:100%;
-
-        flex-wrap:wrap;
-    }
-
-    .hero{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .hero-values{
-        display:none;
-    }
-
-    .dashboard{
-        grid-template-columns:1fr;
+    #lista-time{
+        grid-template-columns:repeat(3,1fr);
     }
 
 }
@@ -1355,9 +599,9 @@ footer{
 @media(max-width:760px){
 
     .header{
-        position:relative;
-
         flex-direction:column;
+
+        gap:12px;
 
         text-align:center;
     }
@@ -1366,49 +610,21 @@ footer{
         flex-direction:column;
     }
 
-    .header-actions{
-        display:none;
-    }
-
-    .hero-wrapper{
-        padding:12px 14px 0;
-    }
-
     .hero{
-        grid-template-columns:1fr;
-
-        min-height:410px;
-
         padding:30px 24px;
     }
 
-    .hero-center{
+    .hero-icon{
         display:none;
     }
 
-    main{
-        padding:20px 14px 0;
-    }
-
-    .shortcuts{
+    #lista-time{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .birthday-columns{
-        grid-template-columns:1fr;
-    }
-
     footer{
-        grid-template-columns:1fr;
+        flex-direction:column;
 
-        text-align:center;
-    }
-
-    .footer-brand{
-        justify-content:center;
-    }
-
-    .footer-phrase{
         text-align:center;
     }
 
@@ -1416,16 +632,18 @@ footer{
 
 @media(max-width:480px){
 
-    .shortcuts{
+    #lista-time{
         grid-template-columns:1fr;
     }
 
-    .hero-text h1{
-        font-size:34px;
+    .hero h1{
+        font-size:31px;
     }
 
-    .login-box{
-        padding:30px 24px;
+    .busca-info{
+        flex-direction:column;
+
+        align-items:flex-start;
     }
 
 }
@@ -1435,64 +653,7 @@ footer{
 </head>
 
 
-<body class="portal-bloqueado">
-
-
-<!-- =========================================================
-     LOGIN
-========================================================= -->
-
-<div id="tela-login">
-
-    <div class="login-box">
-
-        <img
-        src="logo-ltj.jpeg"
-        alt="Logo LTJ"
-        class="login-logo">
-
-        <br>
-
-        <div class="login-tag">
-            ACESSO INTERNO
-        </div>
-
-        <h1>
-            Portal do Colaborador
-        </h1>
-
-        <p class="login-subtitulo">
-            Acesso exclusivo para colaboradores LTJ
-        </p>
-
-        <div class="login-linha"></div>
-
-        <label for="senha">
-            Senha de acesso
-        </label>
-
-        <input
-        type="password"
-        id="senha"
-        placeholder="Digite sua senha"
-        autocomplete="off"
-        onkeydown="if(event.key === 'Enter') entrarPortal()">
-
-        <button onclick="entrarPortal()">
-            Entrar no Portal
-        </button>
-
-        <p id="erro-login">
-            ⚠ Senha incorreta. Tente novamente.
-        </p>
-
-        <div class="login-rodape">
-            🔒 Ambiente interno LTJ
-        </div>
-
-    </div>
-
-</div>
+<body>
 
 
 <!-- =========================================================
@@ -1514,7 +675,7 @@ footer{
             </strong>
 
             <span>
-                Portal do Colaborador
+                Nosso Time
             </span>
 
         </div>
@@ -1522,179 +683,47 @@ footer{
     </div>
 
 
-    <nav class="menu">
+    <a
+    href="index.html"
+    class="voltar">
 
-        <a href="#inicio" class="ativo">
-            Início
-        </a>
+        ← Voltar ao Portal
 
-        <a href="assinaturas.html">
-            Assinaturas
-        </a>
-
-        <a href="nosso-time.html">
-            Nosso Time
-        </a>
-
-        <a href="#comunicados">
-            Comunicados
-        </a>
-
-        <a href="#calendario">
-            Calendário
-        </a>
-
-        <a href="#materiais">
-            Materiais
-        </a>
-
-        <a href="#sugestoes">
-            Sugestões
-        </a>
-
-        <a href="#aniversariantes">
-            Aniversariantes
-        </a>
-
-    </nav>
-
-
-    <div class="header-actions">
-
-        <div class="action-circle">
-            🔔
-            <span class="notification-number">
-                3
-            </span>
-        </div>
-
-        <a href="#calendario" class="action-circle">
-            📅
-        </a>
-
-        <div class="action-circle">
-            🔍
-        </div>
-
-    </div>
+    </a>
 
 </header>
 
 
 <!-- =========================================================
-     BANNER
+     HERO
 ========================================================= -->
 
-<div class="hero-wrapper" id="inicio">
+<div class="hero-wrap">
 
 <section class="hero">
 
     <div class="hero-text">
 
-        <div class="hero-label">
+        <div class="hero-tag">
             PORTAL DO COLABORADOR
         </div>
 
         <h1>
-            Bem-vindo ao Portal do
-            <span>Colaborador</span> LTJ!
+            Nosso <span>Time</span>
         </h1>
 
-        <div class="orange-line"></div>
-
-        <p class="hero-description">
-            Informações, ferramentas e recursos
-            para facilitar o seu dia a dia.
-        </p>
-
-        <p class="hero-phrase">
-            Juntos, conectamos pessoas
-            <br>
-            e geramos
-            <span>resultados!</span>
+        <p>
+            Conheça as pessoas que fazem parte da LTJ.
+            Todos os colaboradores aparecem abaixo e,
+            caso queira encontrar alguém rapidamente,
+            utilize a barra de pesquisa.
         </p>
 
     </div>
 
 
-    <div class="hero-center">
-
-        <div class="orbit-big"></div>
-        <div class="orbit-middle"></div>
-        <div class="orbit-small"></div>
-
-        <div class="orbit-icon top">
-            👥
-        </div>
-
-        <div class="orbit-icon left">
-            🤝
-        </div>
-
-        <div class="orbit-icon right">
-            📈
-        </div>
-
-        <div class="center-message">
-            PESSOAS
-            <br>
-            CONEXÃO
-            <br>
-            RESULTADOS
-        </div>
-
-    </div>
-
-
-    <div class="hero-values">
-
-        <div class="hero-value">
-
-            <div class="value-icon">
-                👥
-            </div>
-
-            <div>
-                <h3>Conexão</h3>
-                <p>
-                    Mais união e colaboração entre todos nós.
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="hero-value">
-
-            <div class="value-icon">
-                🎯
-            </div>
-
-            <div>
-                <h3>Foco</h3>
-                <p>
-                    Trabalhamos com foco em resultados.
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="hero-value">
-
-            <div class="value-icon">
-                ☆
-            </div>
-
-            <div>
-                <h3>Excelência</h3>
-                <p>
-                    Compromisso com a qualidade todos os dias.
-                </p>
-            </div>
-
-        </div>
-
+    <div class="hero-icon">
+        👥
     </div>
 
 </section>
@@ -1708,627 +737,867 @@ footer{
 
 <main>
 
-<div class="section-title">
+    <div class="section-header">
 
-    <h2>
-        Acessos rápidos
-    </h2>
-
-    <div class="section-line"></div>
-
-</div>
-
-
-<section class="shortcuts">
-
-    <a href="assinaturas.html" class="shortcut">
-
-        <div class="shortcut-icon">✎</div>
-
-        <h3>Assinaturas</h3>
+        <h2>
+            Colaboradores LTJ
+        </h2>
 
         <p>
-            Acesse sua assinatura oficial de e-mail.
+            Consulte nome, foto e e-mail corporativo.
         </p>
 
-    </a>
-
-
-    <a href="nosso-time.html" class="shortcut">
-
-        <div class="shortcut-icon">👥</div>
-
-        <h3>Nosso Time</h3>
-
-        <p>
-            Conheça nossa equipe e departamentos.
-        </p>
-
-    </a>
-
-
-    <a href="#comunicados" class="shortcut">
-
-        <div class="shortcut-icon">📢</div>
-
-        <h3>Comunicados</h3>
-
-        <p>
-            Fique por dentro das novidades e avisos.
-        </p>
-
-    </a>
-
-
-    <a href="#calendario" class="shortcut">
-
-        <div class="shortcut-icon">📅</div>
-
-        <h3>Calendário</h3>
-
-        <p>
-            Consulte eventos, reuniões e datas.
-        </p>
-
-    </a>
-
-
-    <a href="#materiais" class="shortcut">
-
-        <div class="shortcut-icon">📁</div>
-
-        <h3>Materiais</h3>
-
-        <p>
-            Documentos, manuais e arquivos importantes.
-        </p>
-
-    </a>
-
-
-    <a href="#sugestoes" class="shortcut">
-
-        <div class="shortcut-icon">💬</div>
-
-        <h3>Sugestões</h3>
-
-        <p>
-            Envie suas sugestões de forma anônima.
-        </p>
-
-    </a>
-
-
-    <a href="#aniversariantes" class="shortcut">
-
-        <div class="shortcut-icon">🎂</div>
-
-        <h3>Aniversariantes</h3>
-
-        <p>
-            Aniversários de vida e de empresa.
-        </p>
-
-    </a>
-
-</section>
-
-
-<!-- =========================================================
-     PAINÉIS
-========================================================= -->
-
-<section class="dashboard">
-
-
-<!-- ANIVERSARIANTES -->
-
-<div class="panel" id="aniversariantes">
-
-    <div class="panel-header">
-
-        <div class="panel-title">
-
-            <div class="panel-title-icon">
-                🎁
-            </div>
-
-            <h3>
-                Aniversariantes do Mês
-            </h3>
-
-        </div>
-
-        <a href="#">
-            Ver todos
-        </a>
-
     </div>
 
 
-    <div class="birthday-columns">
+    <div class="busca-box">
 
-
-        <div>
-
-            <div class="birthday-category category-life">
-                🎂 ANIVERSÁRIOS DE VIDA
-            </div>
-
-
-            <div class="birthday-person">
-
-                <div class="person-circle life-circle">
-                    🎂
-                </div>
-
-                <div>
-                    <strong>Ana Paula</strong>
-                    <small>05 de Maio</small>
-                </div>
-
-            </div>
-
-
-            <div class="birthday-person">
-
-                <div class="person-circle life-circle">
-                    🎈
-                </div>
-
-                <div>
-                    <strong>Paulo Rodrigues</strong>
-                    <small>14 de Maio</small>
-                </div>
-
-            </div>
-
-
-            <div class="birthday-person">
-
-                <div class="person-circle life-circle">
-                    🎁
-                </div>
-
-                <div>
-                    <strong>Melissa Amaral</strong>
-                    <small>21 de Maio</small>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div>
-
-            <div class="birthday-category category-company">
-                🏆 ANIVERSÁRIOS DE EMPRESA
-            </div>
-
-
-            <div class="birthday-person">
-
-                <div class="person-circle company-circle">
-                    ⭐
-                </div>
-
-                <div>
-                    <strong>Helen</strong>
-                    <small>18 anos de LTJ</small>
-                </div>
-
-            </div>
-
-
-            <div class="birthday-person">
-
-                <div class="person-circle company-circle">
-                    🏅
-                </div>
-
-                <div>
-                    <strong>Melissa Amaral</strong>
-                    <small>15 anos de LTJ</small>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="birthday-footer">
-
-        🎉
-
-        <div>
-
-            Celebramos quem faz parte da nossa história!
+        <div class="busca-info">
 
             <strong>
-                Parabéns! 🧡💙
+                🔎 Encontre um colaborador
             </strong>
 
-        </div>
+            <div
+            class="contador"
+            id="contador">
 
-    </div>
+                Carregando...
 
-</div>
-
-
-<!-- EVENTOS -->
-
-<div class="panel" id="calendario">
-
-    <div class="panel-header">
-
-        <div class="panel-title">
-
-            <div class="panel-title-icon">
-                📅
             </div>
 
-            <h3>
-                Próximos Eventos
-            </h3>
-
         </div>
 
-        <a href="#">
-            Ver calendário
-        </a>
 
-    </div>
+        <div class="campo-busca">
 
+            <span>
+                🔎
+            </span>
 
-    <div class="event">
-
-        <div class="event-date">
-            <strong>15</strong>
-            <span>MAI</span>
-        </div>
-
-        <div class="event-info">
-
-            <strong>
-                Reunião Geral
-            </strong>
-
-            <small>
-                🕘 14h00
-            </small>
-
-            <small>
-                📍 Sala de Reuniões
-            </small>
+            <input
+            type="text"
+            id="busca"
+            placeholder="Pesquisar pelo nome..."
+            autocomplete="off"
+            disabled>
 
         </div>
 
     </div>
 
 
-    <div class="event">
+    <div id="lista-time">
 
-        <div class="event-date">
-            <strong>20</strong>
-            <span>MAI</span>
-        </div>
-
-        <div class="event-info">
-
-            <strong>
-                Treinamento Comercial
-            </strong>
-
-            <small>
-                🕘 09h00
-            </small>
-
-            <small>
-                📍 Auditório
-            </small>
-
+        <div class="mensagem">
+            Carregando colaboradores...
         </div>
 
     </div>
-
-
-    <div class="event">
-
-        <div class="event-date">
-            <strong>30</strong>
-            <span>MAI</span>
-        </div>
-
-        <div class="event-info">
-
-            <strong>
-                Café com a Direção
-            </strong>
-
-            <small>
-                🕘 08h30
-            </small>
-
-            <small>
-                📍 Refeitório
-            </small>
-
-        </div>
-
-    </div>
-
-
-    <div class="event-footer">
-        ☆ Participe e faça a diferença!
-    </div>
-
-</div>
-
-
-<!-- COMUNICADOS -->
-
-<div class="panel" id="comunicados">
-
-    <div class="panel-header">
-
-        <div class="panel-title">
-
-            <div class="panel-title-icon">
-                📢
-            </div>
-
-            <h3>
-                Últimos Comunicados
-            </h3>
-
-        </div>
-
-        <a href="#">
-            Ver todos
-        </a>
-
-    </div>
-
-
-    <div class="notice">
-
-        <div class="notice-label">
-            Importante
-        </div>
-
-        <div class="notice-content">
-
-            <strong>
-                Novo comunicado
-            </strong>
-
-            <p>
-                Utilize esta área para avisos e informações
-                importantes destinadas aos colaboradores.
-            </p>
-
-        </div>
-
-        <div class="notice-time">
-            Hoje
-        </div>
-
-    </div>
-
-
-    <div class="notice">
-
-        <div class="notice-label">
-            Aviso
-        </div>
-
-        <div class="notice-content">
-
-            <strong>
-                Atualização de Procedimentos
-            </strong>
-
-            <p>
-                Confira as atualizações nos procedimentos
-                internos do setor.
-            </p>
-
-        </div>
-
-        <div class="notice-time">
-            Ontem
-        </div>
-
-    </div>
-
-
-    <div class="notice">
-
-        <div class="notice-label">
-            Evento
-        </div>
-
-        <div class="notice-content">
-
-            <strong>
-                Próxima ação LTJ
-            </strong>
-
-            <p>
-                Campanhas, ações e eventos internos também
-                podem aparecer aqui.
-            </p>
-
-        </div>
-
-        <div class="notice-time">
-            2 dias atrás
-        </div>
-
-    </div>
-
-
-    <div class="notice-footer">
-        Acompanhar todos os comunicados
-    </div>
-
-</div>
-
-</section>
-
-
-<div id="materiais"></div>
-<div id="sugestoes"></div>
 
 </main>
 
 
-<!-- =========================================================
-     RODAPÉ
-========================================================= -->
-
 <footer>
 
-    <div class="footer-brand">
+    <div>
 
-        <img
-        src="logo-ltj.jpeg"
-        alt="Logo LTJ">
+        <strong>
+            LTJ Intermediação de Negócios
+        </strong>
 
-        <div>
-
-            <strong>
-                LTJ Intermediação de Negócios
-            </strong>
-
-            <span>
-                Portal do Colaborador
-            </span>
-
-        </div>
+        Portal do Colaborador
 
     </div>
 
 
-    <div class="footer-values">
-
-        <span>◇ Ética</span>
-
-        <span>🤝 Compromisso</span>
-
-        <span>♡ Respeito</span>
-
-        <span>☆ Excelência</span>
-
-        <span>👥 Trabalho em Equipe</span>
-
-    </div>
-
-
-    <div class="footer-phrase">
+    <div class="footer-frase">
         Somos todos LTJ!
     </div>
 
 </footer>
 
 
-<!-- =========================================================
-     SISTEMA DE SENHA
-========================================================= -->
-
 <script>
 
-/* =============================================
-   SENHA DO PORTAL
+/* =========================================================
+   IMPORTANTE
+=========================================================
 
-   PARA TROCAR A SENHA:
-   altere apenas LTJ2026 abaixo.
-============================================= */
+COLE AQUI O LINK CSV DA PLANILHA
+"NOSSO TIME" PUBLICADA NO GOOGLE.
 
-const SENHA_PORTAL = "LTJ2026";
+Ela precisa ter as colunas:
 
+Nome | Email | Foto | Ativo
 
-function entrarPortal(){
+Exemplo:
 
-    const campoSenha =
-        document.getElementById("senha");
+Amanda Prado
+amanda@empresa.com.br
+https://raw.githubusercontent.com/...
+SIM
 
-    const senhaDigitada =
-        campoSenha.value;
-
-    const erro =
-        document.getElementById("erro-login");
+========================================================= */
 
 
-    if(senhaDigitada === SENHA_PORTAL){
+const URL_PLANILHA =
+"COLE_AQUI_O_LINK_CSV_DA_PLANILHA";
 
-        sessionStorage.setItem(
-            "portalLTJ",
-            "liberado"
+
+let colaboradores = [];
+
+
+/* =========================================================
+   PROTEÇÃO SIMPLES DO PORTAL
+========================================================= */
+
+if(
+    sessionStorage.getItem("portalLTJ")
+    !== "liberado"
+){
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+/* =========================================================
+   NORMALIZAR TEXTO
+========================================================= */
+
+function normalizar(texto){
+
+    return String(texto || "")
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(
+            /[\u0300-\u036f]/g,
+            ""
         );
 
+}
+
+
+/* =========================================================
+   ESCAPAR HTML
+========================================================= */
+
+function escaparHTML(texto){
+
+    return String(texto || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   LER CSV
+========================================================= */
+
+function lerCSV(texto){
+
+    const linhas = [];
+
+    let linha = [];
+
+    let campo = "";
+
+    let dentroAspas = false;
+
+
+    for(
+        let i = 0;
+        i < texto.length;
+        i++
+    ){
+
+        const caractere =
+            texto[i];
+
+        const proximo =
+            texto[i + 1];
+
+
+        if(
+            caractere === '"'
+        ){
+
+            if(
+                dentroAspas
+                &&
+                proximo === '"'
+            ){
+
+                campo += '"';
+
+                i++;
+
+            }else{
+
+                dentroAspas =
+                    !dentroAspas;
+
+            }
+
+        }
+
+        else if(
+            caractere === ","
+            &&
+            !dentroAspas
+        ){
+
+            linha.push(campo);
+
+            campo = "";
+
+        }
+
+        else if(
+            (
+                caractere === "\n"
+                ||
+                caractere === "\r"
+            )
+            &&
+            !dentroAspas
+        ){
+
+            if(
+                caractere === "\r"
+                &&
+                proximo === "\n"
+            ){
+
+                i++;
+
+            }
+
+
+            linha.push(campo);
+
+            campo = "";
+
+
+            if(
+                linha.some(
+                    function(valor){
+
+                        return String(valor)
+                            .trim() !== "";
+
+                    }
+                )
+            ){
+
+                linhas.push(linha);
+
+            }
+
+
+            linha = [];
+
+        }
+
+        else{
+
+            campo += caractere;
+
+        }
+
+    }
+
+
+    linha.push(campo);
+
+
+    if(
+        linha.some(
+            function(valor){
+
+                return String(valor)
+                    .trim() !== "";
+
+            }
+        )
+    ){
+
+        linhas.push(linha);
+
+    }
+
+
+    return linhas;
+
+}
+
+
+/* =========================================================
+   CARREGAR COLABORADORES
+========================================================= */
+
+async function carregarTime(){
+
+    const area =
         document.getElementById(
-            "tela-login"
-        ).style.display = "none";
-
-        document.body.classList.remove(
-            "portal-bloqueado"
+            "lista-time"
         );
 
-    }else{
 
-        erro.style.display = "block";
+    const campoBusca =
+        document.getElementById(
+            "busca"
+        );
 
-        campoSenha.value = "";
 
-        campoSenha.focus();
+    const contador =
+        document.getElementById(
+            "contador"
+        );
+
+
+    try{
+
+
+        if(
+            !URL_PLANILHA
+            ||
+            URL_PLANILHA.includes(
+                "COLE_AQUI"
+            )
+        ){
+
+            throw new Error(
+                "O link da planilha ainda não foi colocado no código."
+            );
+
+        }
+
+
+        const separador =
+            URL_PLANILHA.includes("?")
+            ? "&"
+            : "?";
+
+
+        const resposta =
+            await fetch(
+
+                URL_PLANILHA
+                +
+                separador
+                +
+                "cache="
+                +
+                Date.now()
+
+            );
+
+
+        if(
+            !resposta.ok
+        ){
+
+            throw new Error(
+                "Não foi possível acessar a planilha."
+            );
+
+        }
+
+
+        const csv =
+            await resposta.text();
+
+
+        const linhas =
+            lerCSV(csv);
+
+
+        if(
+            linhas.length < 2
+        ){
+
+            throw new Error(
+                "A planilha não possui colaboradores."
+            );
+
+        }
+
+
+        const cabecalho =
+            linhas[0].map(
+                normalizar
+            );
+
+
+        const colunaNome =
+            cabecalho.indexOf(
+                "nome"
+            );
+
+
+        const colunaEmail =
+            cabecalho.indexOf(
+                "email"
+            );
+
+
+        const colunaFoto =
+            cabecalho.indexOf(
+                "foto"
+            );
+
+
+        const colunaAtivo =
+            cabecalho.indexOf(
+                "ativo"
+            );
+
+
+        if(
+            colunaNome === -1
+            ||
+            colunaFoto === -1
+        ){
+
+            throw new Error(
+                'A planilha precisa ter as colunas "Nome" e "Foto".'
+            );
+
+        }
+
+
+        colaboradores = [];
+
+
+        for(
+            let i = 1;
+            i < linhas.length;
+            i++
+        ){
+
+            const linha =
+                linhas[i];
+
+
+            const nome =
+                String(
+                    linha[colunaNome]
+                    ||
+                    ""
+                ).trim();
+
+
+            const email =
+                colunaEmail >= 0
+                ?
+                String(
+                    linha[colunaEmail]
+                    ||
+                    ""
+                ).trim()
+                :
+                "";
+
+
+            const foto =
+                String(
+                    linha[colunaFoto]
+                    ||
+                    ""
+                ).trim();
+
+
+            const ativo =
+                colunaAtivo >= 0
+                ?
+                normalizar(
+                    linha[colunaAtivo]
+                )
+                :
+                "sim";
+
+
+            if(
+                !nome
+            ){
+
+                continue;
+
+            }
+
+
+            const estaAtivo =
+
+                ativo === ""
+                ||
+                ativo === "sim"
+                ||
+                ativo === "ativo"
+                ||
+                ativo === "true"
+                ||
+                ativo === "1";
+
+
+            if(
+                !estaAtivo
+            ){
+
+                continue;
+
+            }
+
+
+            colaboradores.push({
+
+                nome:nome,
+
+                email:email,
+
+                foto:foto
+
+            });
+
+        }
+
+
+        colaboradores.sort(
+
+            function(a,b){
+
+                return a.nome.localeCompare(
+                    b.nome,
+                    "pt-BR"
+                );
+
+            }
+
+        );
+
+
+        campoBusca.disabled =
+            false;
+
+
+        mostrarTime(
+            colaboradores
+        );
+
+
+    }
+
+    catch(erro){
+
+        console.error(
+            erro
+        );
+
+
+        contador.textContent =
+            "Erro ao carregar";
+
+
+        area.innerHTML = `
+
+            <div class="erro">
+
+                <strong>
+                    Não foi possível carregar o Nosso Time.
+                </strong>
+
+                <br><br>
+
+                ${escaparHTML(
+                    erro.message
+                )}
+
+                <br><br>
+
+                A planilha deve possuir:
+
+                <br><br>
+
+                <strong>
+                    Nome | Email | Foto | Ativo
+                </strong>
+
+            </div>
+
+        `;
 
     }
 
 }
 
 
-/* =============================================
-   VERIFICA SE O COLABORADOR JÁ ENTROU
-============================================= */
+/* =========================================================
+   MOSTRAR CARDS
+========================================================= */
 
-window.addEventListener(
-    "DOMContentLoaded",
-    function(){
+function mostrarTime(lista){
 
-        if(
-            sessionStorage.getItem("portalLTJ")
-            === "liberado"
-        ){
+    const area =
+        document.getElementById(
+            "lista-time"
+        );
 
-            document.getElementById(
-                "tela-login"
-            ).style.display = "none";
 
-            document.body.classList.remove(
-                "portal-bloqueado"
+    const contador =
+        document.getElementById(
+            "contador"
+        );
+
+
+    contador.textContent =
+
+        lista.length
+        +
+        (
+            lista.length === 1
+            ? " colaborador"
+            : " colaboradores"
+        );
+
+
+    if(
+        lista.length === 0
+    ){
+
+        area.innerHTML = `
+
+            <div class="mensagem">
+
+                😕 Nenhum colaborador encontrado.
+
+                <br><br>
+
+                Tente pesquisar outro nome.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    area.innerHTML =
+        "";
+
+
+    lista.forEach(
+
+        function(pessoa){
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "card";
+
+
+            const fotoHTML =
+
+                pessoa.foto
+
+                ?
+
+                `
+
+                <img
+                src="${escaparHTML(
+                    pessoa.foto
+                )}"
+                alt="${escaparHTML(
+                    pessoa.nome
+                )}"
+                loading="lazy"
+                onerror="
+                    this.style.display='none';
+                    this.nextElementSibling.style.display='flex';
+                ">
+
+                <div
+                class="sem-foto"
+                style="display:none;">
+
+                    👤
+
+                </div>
+
+                `
+
+                :
+
+                `
+
+                <div class="sem-foto">
+                    👤
+                </div>
+
+                `;
+
+
+            const emailHTML =
+
+                pessoa.email
+
+                ?
+
+                `
+
+                <a
+                href="mailto:${escaparHTML(
+                    pessoa.email
+                )}"
+                class="email">
+
+                    ✉
+                    ${escaparHTML(
+                        pessoa.email
+                    )}
+
+                </a>
+
+                `
+
+                :
+
+                `
+
+                <div class="sem-email">
+
+                    E-mail ainda não cadastrado
+
+                </div>
+
+                `;
+
+
+            card.innerHTML = `
+
+                <div class="foto">
+
+                    ${fotoHTML}
+
+                </div>
+
+
+                <div class="card-info">
+
+                    <h3>
+
+                        ${escaparHTML(
+                            pessoa.nome
+                        )}
+
+                    </h3>
+
+
+                    ${emailHTML}
+
+                </div>
+
+            `;
+
+
+            area.appendChild(
+                card
             );
-
-        }else{
-
-            document.body.classList.add(
-                "portal-bloqueado"
-            );
-
-            document.getElementById(
-                "senha"
-            ).focus();
 
         }
 
+    );
+
+}
+
+
+/* =========================================================
+   PESQUISA
+========================================================= */
+
+document
+.getElementById(
+    "busca"
+)
+.addEventListener(
+
+    "input",
+
+    function(){
+
+        const termo =
+            normalizar(
+                this.value
+            );
+
+
+        /*
+        CAMPO VAZIO:
+        MOSTRA TODOS NOVAMENTE
+        */
+
+        if(
+            termo === ""
+        ){
+
+            mostrarTime(
+                colaboradores
+            );
+
+            return;
+
+        }
+
+
+        const encontrados =
+
+            colaboradores.filter(
+
+                function(pessoa){
+
+                    return normalizar(
+                        pessoa.nome
+                    )
+                    .includes(
+                        termo
+                    );
+
+                }
+
+            );
+
+
+        mostrarTime(
+            encontrados
+        );
+
     }
+
 );
+
+
+/* =========================================================
+   INICIAR
+========================================================= */
+
+carregarTime();
 
 </script>
 
 
 </body>
+
 </html>
