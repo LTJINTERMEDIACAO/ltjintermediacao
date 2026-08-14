@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -39,20 +37,14 @@ a{
     text-decoration:none;
 }
 
-
-/* =========================
-   CABEÇALHO
-========================= */
+/* CABEÇALHO */
 
 header{
     background:white;
-
     padding:15px 5%;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     border-bottom:1px solid var(--borda);
 }
 
@@ -91,20 +83,13 @@ header{
     color:var(--laranja);
 }
 
-
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
     margin:22px 5% 0;
-
     border-radius:20px;
-
     padding:45px 30px;
-
     text-align:center;
-
     color:white;
 
     background:
@@ -124,16 +109,11 @@ header{
 
 .hero-tag{
     display:inline-block;
-
     padding:7px 13px;
-
     border-radius:30px;
-
     background:rgba(255,255,255,.12);
-
     font-size:10px;
     font-weight:bold;
-
     margin-bottom:15px;
 }
 
@@ -148,69 +128,43 @@ header{
 
 .hero p{
     max-width:650px;
-
     margin:auto;
-
     color:#edf4ff;
-
     font-size:14px;
-
     line-height:1.6;
 }
 
-
-/* =========================
-   PASSOS
-========================= */
+/* PASSOS */
 
 .passos{
     max-width:1100px;
-
     margin:22px auto 0;
-
     padding:0 20px;
-
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:12px;
 }
 
 .passo{
     background:white;
-
     border:1px solid var(--borda);
-
     border-radius:14px;
-
     padding:17px;
-
     text-align:center;
-
     color:var(--cinza);
-
     font-size:11px;
-
-    box-shadow:0 5px 15px rgba(6,40,95,.03);
 }
 
 .numero{
     width:30px;
     height:30px;
-
     border-radius:50%;
-
     background:var(--laranja);
-
     color:white;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     margin:0 auto 9px;
-
     font-weight:bold;
 }
 
@@ -220,57 +174,36 @@ header{
 
 .passo strong{
     display:block;
-
     color:var(--azul-escuro);
-
     font-size:12px;
-
     margin-bottom:4px;
 }
 
-
-/* =========================
-   CONTEÚDO
-========================= */
+/* CONTEÚDO */
 
 .conteudo{
     max-width:1100px;
-
     margin:28px auto;
-
     padding:0 20px 70px;
 }
 
-
-/* =========================
-   BUSCA
-========================= */
-
 .busca-box{
     background:white;
-
     border:1px solid var(--borda);
-
     border-radius:18px;
-
     padding:26px;
-
     box-shadow:0 7px 20px rgba(6,40,95,.05);
 }
 
 .busca-box h2{
     color:var(--azul-escuro);
-
     font-size:21px;
-
     margin-bottom:5px;
 }
 
 .busca-box > p{
     color:var(--cinza);
-
     font-size:12px;
-
     margin-bottom:18px;
 }
 
@@ -280,82 +213,34 @@ header{
 
 .campo-busca span{
     position:absolute;
-
     left:16px;
-
     top:50%;
-
     transform:translateY(-50%);
-
     font-size:19px;
 }
 
 .campo-busca input{
     width:100%;
-
     height:54px;
-
     padding:0 18px 0 49px;
-
     border:1px solid #dce3ed;
-
     border-radius:12px;
-
     outline:none;
-
     font-size:15px;
-
-    transition:.2s;
 }
 
 .campo-busca input:focus{
     border-color:var(--azul2);
-
     box-shadow:0 0 0 3px rgba(11,84,199,.08);
 }
 
+/* STATUS */
 
-/* =========================
-   STATUS CARREGANDO
-========================= */
-
-.carregando{
-    padding:35px 20px;
-
-    text-align:center;
-
+#status-planilha{
+    margin-top:12px;
+    font-size:11px;
     color:var(--cinza);
-
-    font-size:13px;
 }
-
-.spinner{
-    width:30px;
-    height:30px;
-
-    border:3px solid #e6ebf2;
-
-    border-top-color:var(--laranja);
-
-    border-radius:50%;
-
-    margin:0 auto 12px;
-
-    animation:girar .8s linear infinite;
-}
-
-@keyframes girar{
-
-    to{
-        transform:rotate(360deg);
-    }
-
-}
-
-
-/* =========================
-   RESULTADOS
-========================= */
 
 #resultados{
     margin-top:20px;
@@ -363,165 +248,118 @@ header{
 
 .mensagem{
     padding:35px 20px;
-
     text-align:center;
-
     color:var(--cinza);
-
     font-size:13px;
+    line-height:1.6;
 }
+
+.erro{
+    background:#fff3f3;
+    border:1px solid #ffd2d2;
+    color:#a92a2a;
+    border-radius:12px;
+    padding:18px;
+    margin-top:18px;
+    font-size:12px;
+    line-height:1.6;
+}
+
+/* RESULTADO */
 
 .resultado-card{
     background:white;
-
     border:1px solid var(--borda);
-
     border-radius:18px;
-
     padding:26px;
-
     margin-bottom:18px;
-
     box-shadow:0 7px 20px rgba(6,40,95,.05);
 }
 
 .resultado-topo{
     display:flex;
-
     align-items:center;
     justify-content:space-between;
-
     gap:20px;
-
     margin-bottom:20px;
 }
 
 .nome-area{
     display:flex;
-
     align-items:center;
-
     gap:13px;
 }
 
 .avatar{
     width:46px;
     height:46px;
-
     border-radius:50%;
-
     background:var(--laranja-claro);
-
-    color:var(--laranja);
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     font-size:20px;
 }
 
 .nome-area h3{
     color:var(--azul-escuro);
-
     font-size:20px;
-
     margin-bottom:4px;
 }
 
 .nome-area span{
     color:var(--cinza);
-
     font-size:11px;
 }
 
 .status{
     background:#edf4ff;
-
     color:var(--azul2);
-
     padding:7px 11px;
-
     border-radius:30px;
-
     font-size:9px;
-
     font-weight:bold;
 }
 
-
-/* =========================
-   PRÉVIA
-========================= */
-
 .preview-titulo{
     color:var(--azul-escuro);
-
     font-size:11px;
-
     font-weight:bold;
-
     margin-bottom:9px;
 }
 
 .preview{
     background:#fafbfd;
-
     border:1px solid #e7ebf1;
-
     border-radius:12px;
-
     padding:25px;
-
     text-align:center;
-
-    overflow-x:auto;
+    min-height:120px;
 }
 
 .preview img{
     display:block;
-
     max-width:100%;
-
     height:auto;
-
     margin:auto;
 }
 
-
-/* =========================
-   BOTÕES
-========================= */
+/* BOTÕES */
 
 .acoes{
     display:flex;
-
     flex-wrap:wrap;
-
     gap:10px;
-
     margin-top:18px;
 }
 
 .botao{
     border:none;
-
     border-radius:9px;
-
     padding:13px 19px;
-
     font-size:12px;
-
     font-weight:bold;
-
     cursor:pointer;
-
-    transition:.2s;
-}
-
-.botao:hover{
-    transform:translateY(-2px);
 }
 
 .botao-copiar{
@@ -536,56 +374,30 @@ header{
 
 .feedback{
     margin-top:12px;
-
     color:#17803d;
-
     font-size:11px;
-
     font-weight:bold;
 }
 
 .ajuda{
     margin-top:14px;
-
     padding:12px;
-
     background:#f5f8fc;
-
     border-radius:8px;
-
     color:var(--cinza);
-
     font-size:10px;
-
     line-height:1.5;
 }
 
-
-/* =========================
-   RODAPÉ
-========================= */
+/* FOOTER */
 
 footer{
-    background:
-        linear-gradient(
-            90deg,
-            #02245b,
-            #0645a3
-        );
-
+    background:linear-gradient(90deg,#02245b,#0645a3);
     color:white;
-
     text-align:center;
-
     padding:21px;
-
     font-size:11px;
 }
-
-
-/* =========================
-   RESPONSIVO
-========================= */
 
 @media(max-width:760px){
 
@@ -604,24 +416,12 @@ footer{
         align-items:flex-start;
     }
 
-    .acoes{
-        flex-direction:column;
-    }
-
-    .botao{
-        width:100%;
-    }
-
 }
 
 @media(max-width:480px){
 
     .passos{
         grid-template-columns:1fr;
-    }
-
-    .hero{
-        padding:32px 20px;
     }
 
     .hero h1{
@@ -631,7 +431,6 @@ footer{
 }
 
 </style>
-
 </head>
 
 
@@ -642,9 +441,7 @@ footer{
 
     <div class="logo-area">
 
-        <img
-        src="logo-ltj.jpeg"
-        alt="Logo LTJ">
+        <img src="logo-ltj.jpeg" alt="Logo LTJ">
 
         <div class="logo-texto">
 
@@ -661,12 +458,8 @@ footer{
     </div>
 
 
-    <a
-    href="index.html"
-    class="voltar">
-
+    <a href="index.html" class="voltar">
         ← Voltar ao Portal
-
     </a>
 
 </header>
@@ -679,18 +472,12 @@ footer{
     </div>
 
     <h1>
-
-        Central de
-        <span>Assinaturas</span>
-
+        Central de <span>Assinaturas</span>
     </h1>
 
     <p>
-
-        Localize sua assinatura oficial LTJ,
-        confira a prévia e utilize no seu
-        e-mail corporativo.
-
+        Digite seu nome para localizar sua assinatura
+        oficial e utilizar no UOL Mail Pro.
     </p>
 
 </section>
@@ -699,62 +486,27 @@ footer{
 <section class="passos">
 
     <div class="passo">
-
-        <div class="numero">
-            1
-        </div>
-
-        <strong>
-            Busque
-        </strong>
-
+        <div class="numero">1</div>
+        <strong>Busque</strong>
         Digite seu nome.
-
     </div>
 
-
     <div class="passo">
-
-        <div class="numero">
-            2
-        </div>
-
-        <strong>
-            Confira
-        </strong>
-
+        <div class="numero">2</div>
+        <strong>Confira</strong>
         Veja sua assinatura.
-
     </div>
 
-
     <div class="passo">
-
-        <div class="numero">
-            3
-        </div>
-
-        <strong>
-            Copie
-        </strong>
-
-        Copie ou abra a imagem.
-
+        <div class="numero">3</div>
+        <strong>Abra</strong>
+        Abra ou copie a imagem.
     </div>
 
-
     <div class="passo">
-
-        <div class="numero">
-            4
-        </div>
-
-        <strong>
-            Cole
-        </strong>
-
+        <div class="numero">4</div>
+        <strong>Cole</strong>
         Utilize no UOL Mail Pro.
-
     </div>
 
 </section>
@@ -769,34 +521,31 @@ footer{
         </h2>
 
         <p>
-            Comece digitando seu nome abaixo.
+            Digite pelo menos duas letras do seu nome.
         </p>
-
 
         <div class="campo-busca">
 
-            <span>
-                🔎
-            </span>
+            <span>🔎</span>
 
             <input
-            type="text"
-            id="busca"
-            placeholder="Ex.: Ana Paula"
-            autocomplete="off"
-            disabled>
+                type="text"
+                id="busca"
+                placeholder="Ex.: Amanda"
+                autocomplete="off"
+                disabled
+            >
 
         </div>
 
+        <div id="status-planilha">
+            Carregando lista de colaboradores...
+        </div>
 
         <div id="resultados">
 
-            <div class="carregando">
-
-                <div class="spinner"></div>
-
-                Carregando colaboradores...
-
+            <div class="mensagem">
+                Aguarde um instante...
             </div>
 
         </div>
@@ -807,11 +556,7 @@ footer{
 
 
 <footer>
-
-    LTJ Intermediação de Negócios
-    •
-    Portal do Colaborador
-
+    LTJ Intermediação de Negócios • Portal do Colaborador
 </footer>
 
 
@@ -821,40 +566,119 @@ footer{
    CONFIGURAÇÕES
 ========================================================= */
 
-
-/*
-PLANILHA PUBLICADA DA LTJ
-*/
-
 const URL_PLANILHA =
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vTEYNnaE5zaSxkEFt798aQ3kF4EhcuZXjUeVOaqpdO6pbwtp8XruNwe10X1AsJsaBOvjNdGz3HKc-SD/pub?gid=0&single=true&output=csv";
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vTEYNnaE5zaSxkEFt798aQ3kF4EhcuZXjUeVOaqpdO6pbwtp8XruNwe10X1AsJsaBOvjNdGz3HKc-SD/pub?output=csv&gid=0";
 
-
-/*
-LOCAL ONDE AS IMAGENS ESTÃO HOSPEDADAS
-*/
-
-const URL_IMAGENS =
+const BASE_IMAGENS =
 "https://ltjintermediacao.github.io/ltjintermediacao/";
-
 
 let colaboradores = [];
 
 
 /* =========================================================
    PROTEÇÃO SIMPLES
-
-   Se a pessoa tentar abrir assinaturas.html diretamente
-   sem passar pelo login do portal, ela volta ao index.
 ========================================================= */
 
 if(
-    sessionStorage.getItem("portalLTJ")
-    !== "liberado"
+    sessionStorage.getItem("portalLTJ") !== "liberado"
 ){
 
-    window.location.href =
-        "index.html";
+    window.location.href = "index.html";
+
+}
+
+
+/* =========================================================
+   NORMALIZA TEXTO
+========================================================= */
+
+function normalizar(texto){
+
+    return String(texto || "")
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"");
+
+}
+
+
+/* =========================================================
+   CSV
+========================================================= */
+
+function lerCSV(texto){
+
+    const linhas = [];
+
+    let linha = [];
+    let campo = "";
+    let dentroAspas = false;
+
+    for(let i = 0; i < texto.length; i++){
+
+        const c = texto[i];
+        const prox = texto[i + 1];
+
+        if(c === '"'){
+
+            if(dentroAspas && prox === '"'){
+
+                campo += '"';
+                i++;
+
+            }else{
+
+                dentroAspas = !dentroAspas;
+
+            }
+
+        }else if(c === "," && !dentroAspas){
+
+            linha.push(campo);
+            campo = "";
+
+        }else if(
+            (c === "\n" || c === "\r")
+            && !dentroAspas
+        ){
+
+            if(c === "\r" && prox === "\n"){
+                i++;
+            }
+
+            linha.push(campo);
+            campo = "";
+
+            if(
+                linha.some(function(v){
+                    return String(v).trim() !== "";
+                })
+            ){
+                linhas.push(linha);
+            }
+
+            linha = [];
+
+        }else{
+
+            campo += c;
+
+        }
+
+    }
+
+    linha.push(campo);
+
+    if(
+        linha.some(function(v){
+            return String(v).trim() !== "";
+        })
+    ){
+        linhas.push(linha);
+    }
+
+    return linhas;
 
 }
 
@@ -863,7 +687,10 @@ if(
    CARREGA PLANILHA
 ========================================================= */
 
-async function carregarPlanilha(){
+async function carregarColaboradores(){
+
+    const status =
+        document.getElementById("status-planilha");
 
     const resultados =
         document.getElementById("resultados");
@@ -871,142 +698,126 @@ async function carregarPlanilha(){
     const busca =
         document.getElementById("busca");
 
-
     try{
 
         const resposta =
             await fetch(
                 URL_PLANILHA +
-                "&t=" +
-                new Date().getTime()
+                "&cache=" +
+                Date.now()
             );
-
 
         if(!resposta.ok){
 
             throw new Error(
-                "Não foi possível acessar a planilha."
+                "Erro HTTP " + resposta.status
             );
 
         }
 
-
-        const csv =
+        const texto =
             await resposta.text();
 
+        if(!texto || texto.length < 5){
+
+            throw new Error(
+                "A planilha retornou vazia."
+            );
+
+        }
 
         const linhas =
-            parseCSV(csv);
-
+            lerCSV(texto);
 
         if(linhas.length < 2){
 
             throw new Error(
-                "A planilha está vazia."
+                "Nenhum colaborador encontrado."
             );
 
         }
-
 
         const cabecalho =
-            linhas[0].map(function(item){
+            linhas[0].map(normalizar);
 
-                return normalizarCabecalho(item);
-
-            });
-
-
-        const indiceNome =
+        const iNome =
             cabecalho.indexOf("nome");
 
-        const indiceSetor =
+        const iSetor =
             cabecalho.indexOf("setor");
 
-        const indiceImagem =
+        const iImagem =
             cabecalho.indexOf("imagem");
 
-        const indiceAtivo =
+        const iAtivo =
             cabecalho.indexOf("ativo");
 
-
-        if(
-            indiceNome === -1 ||
-            indiceImagem === -1
-        ){
+        if(iNome === -1){
 
             throw new Error(
-                "As colunas Nome e Imagem não foram encontradas."
+                'Não encontrei a coluna "Nome".'
             );
 
         }
-
 
         colaboradores = [];
 
-
-        for(
-            let i = 1;
-            i < linhas.length;
-            i++
-        ){
+        for(let i = 1; i < linhas.length; i++){
 
             const linha =
                 linhas[i];
 
-
             const nome =
-                (linha[indiceNome] || "")
-                .trim();
+                String(
+                    linha[iNome] || ""
+                ).trim();
 
+            if(!nome){
+                continue;
+            }
 
             const setor =
-                indiceSetor >= 0
-                ? (linha[indiceSetor] || "").trim()
+                iSetor >= 0
+                ? String(linha[iSetor] || "").trim()
                 : "";
 
-
             const imagem =
-                (linha[indiceImagem] || "")
-                .trim();
-
+                iImagem >= 0
+                ? String(linha[iImagem] || "").trim()
+                : "";
 
             const ativo =
-                indiceAtivo >= 0
-                ? (linha[indiceAtivo] || "").trim()
-                : "SIM";
+                iAtivo >= 0
+                ? normalizar(linha[iAtivo])
+                : "sim";
 
+            /*
+            Se Ativo estiver vazio,
+            SIM, ATIVO, YES, TRUE ou 1,
+            o colaborador aparece.
+            */
 
-            if(
-                !nome ||
-                !imagem
-            ){
+            const estaAtivo =
+                ativo === "" ||
+                ativo === "sim" ||
+                ativo === "ativo" ||
+                ativo === "yes" ||
+                ativo === "true" ||
+                ativo === "1";
 
+            if(!estaAtivo){
                 continue;
-
             }
-
-
-            if(
-                !estaAtivo(ativo)
-            ){
-
-                continue;
-
-            }
-
 
             colaboradores.push({
 
                 nome:nome,
-
                 setor:setor,
-
                 imagem:imagem
 
             });
 
         }
-
 
         colaboradores.sort(function(a,b){
 
@@ -1017,49 +828,41 @@ async function carregarPlanilha(){
 
         });
 
-
         busca.disabled = false;
 
+        status.innerHTML =
+            "✅ " +
+            colaboradores.length +
+            " colaborador(es) carregado(s).";
 
         resultados.innerHTML = `
-
             <div class="mensagem">
-
-                Digite pelo menos
-                <strong>2 letras</strong>
-                do seu nome para localizar
+                Digite seu nome acima para localizar
                 sua assinatura.
-
-                <br><br>
-
-                ${colaboradores.length}
-                assinatura(s) disponível(is).
-
             </div>
-
         `;
-
-
-        busca.focus();
-
 
     }catch(erro){
 
-        console.error(erro);
+        console.error(
+            "Erro ao carregar planilha:",
+            erro
+        );
 
+        status.innerHTML =
+            "❌ Não foi possível carregar a planilha.";
 
         resultados.innerHTML = `
 
-            <div class="mensagem">
+            <div class="erro">
 
-                ⚠️ Não foi possível carregar
-                a lista de assinaturas.
+                <strong>
+                    Não consegui carregar os colaboradores.
+                </strong>
 
                 <br><br>
 
-                Verifique se a planilha está
-                publicada corretamente e se
-                as colunas estão como:
+                Confira se sua planilha possui a primeira linha assim:
 
                 <br><br>
 
@@ -1067,185 +870,28 @@ async function carregarPlanilha(){
                     Nome | Setor | Imagem | Ativo
                 </strong>
 
+                <br><br>
+
+                Exemplo:
+
+                <br>
+
+                Amanda Prado |
+                Comercial |
+                amanda.prado.jpg |
+                SIM
+
+                <br><br>
+
+                Detalhe técnico:
+
+                ${erro.message}
+
             </div>
 
         `;
 
     }
-
-}
-
-
-/* =========================================================
-   LÊ CSV CORRETAMENTE
-========================================================= */
-
-function parseCSV(texto){
-
-    const resultado = [];
-
-    let linha = [];
-
-    let campo = "";
-
-    let dentroAspas = false;
-
-
-    for(
-        let i = 0;
-        i < texto.length;
-        i++
-    ){
-
-        const caractere =
-            texto[i];
-
-
-        const proximo =
-            texto[i + 1];
-
-
-        if(
-            caractere === '"'
-        ){
-
-            if(
-                dentroAspas &&
-                proximo === '"'
-            ){
-
-                campo += '"';
-
-                i++;
-
-            }else{
-
-                dentroAspas =
-                    !dentroAspas;
-
-            }
-
-        }
-
-        else if(
-            caractere === "," &&
-            !dentroAspas
-        ){
-
-            linha.push(campo);
-
-            campo = "";
-
-        }
-
-        else if(
-            (
-                caractere === "\n" ||
-                caractere === "\r"
-            )
-            &&
-            !dentroAspas
-        ){
-
-            if(
-                caractere === "\r" &&
-                proximo === "\n"
-            ){
-
-                i++;
-
-            }
-
-
-            linha.push(campo);
-
-            campo = "";
-
-
-            if(
-                linha.some(function(valor){
-
-                    return valor.trim() !== "";
-
-                })
-            ){
-
-                resultado.push(linha);
-
-            }
-
-
-            linha = [];
-
-        }
-
-        else{
-
-            campo += caractere;
-
-        }
-
-    }
-
-
-    linha.push(campo);
-
-
-    if(
-        linha.some(function(valor){
-
-            return valor.trim() !== "";
-
-        })
-    ){
-
-        resultado.push(linha);
-
-    }
-
-
-    return resultado;
-
-}
-
-
-/* =========================================================
-   NORMALIZA CABEÇALHO
-========================================================= */
-
-function normalizarCabecalho(texto){
-
-    return texto
-        .trim()
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(
-            /[\u0300-\u036f]/g,
-            ""
-        );
-
-}
-
-
-/* =========================================================
-   DEFINE QUEM ESTÁ ATIVO
-========================================================= */
-
-function estaAtivo(valor){
-
-    const status =
-        normalizarTexto(valor);
-
-
-    return [
-
-        "sim",
-        "ativo",
-        "yes",
-        "true",
-        "1"
-
-    ].includes(status);
 
 }
 
@@ -1254,33 +900,23 @@ function estaAtivo(valor){
    BUSCA
 ========================================================= */
 
-const campoBusca =
-    document.getElementById("busca");
-
-
-campoBusca.addEventListener(
+document
+.getElementById("busca")
+.addEventListener(
     "input",
     function(){
 
         const termo =
-            normalizarTexto(
-                this.value.trim()
-            );
+            normalizar(this.value);
 
-
-        if(
-            termo.length < 2
-        ){
+        if(termo.length < 2){
 
             document.getElementById(
                 "resultados"
             ).innerHTML = `
 
                 <div class="mensagem">
-
-                    Digite pelo menos
-                    2 letras do seu nome.
-
+                    Digite pelo menos 2 letras.
                 </div>
 
             `;
@@ -1289,18 +925,16 @@ campoBusca.addEventListener(
 
         }
 
-
         const encontrados =
             colaboradores.filter(
-                function(colaborador){
+                function(pessoa){
 
-                    return normalizarTexto(
-                        colaborador.nome
+                    return normalizar(
+                        pessoa.nome
                     ).includes(termo);
 
                 }
             );
-
 
         mostrarResultados(
             encontrados
@@ -1311,45 +945,84 @@ campoBusca.addEventListener(
 
 
 /* =========================================================
-   NORMALIZA TEXTO
+   POSSÍVEIS NOMES DA IMAGEM
 ========================================================= */
 
-function normalizarTexto(texto){
+function montarOpcoesImagem(colaborador){
 
-    return String(texto)
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(
-            /[\u0300-\u036f]/g,
-            ""
-        );
+    const opcoes = [];
 
-}
+    /*
+    1. Nome informado na planilha
+    */
 
+    if(colaborador.imagem){
 
-/* =========================================================
-   URL DA IMAGEM
-========================================================= */
+        if(
+            colaborador.imagem.startsWith("http://")
+            ||
+            colaborador.imagem.startsWith("https://")
+        ){
 
-function obterURLImagem(imagem){
+            opcoes.push(
+                colaborador.imagem
+            );
 
-    if(
-        imagem.startsWith(
-            "http://"
-        )
-        ||
-        imagem.startsWith(
-            "https://"
-        )
-    ){
+        }else{
 
-        return imagem;
+            opcoes.push(
+                BASE_IMAGENS +
+                encodeURIComponent(
+                    colaborador.imagem
+                )
+            );
+
+        }
 
     }
 
 
-    return URL_IMAGENS +
-        encodeURI(imagem);
+    /*
+    2. Se a coluna Imagem estiver vazia
+       ou errada, tenta nomes comuns.
+    */
+
+    const nomeNormal =
+        normalizar(colaborador.nome)
+        .replace(/[^a-z0-9 ]/g,"")
+        .replace(/\s+/g," ")
+        .trim();
+
+    const comPonto =
+        nomeNormal.replace(/\s+/g,".");
+
+    const comHifen =
+        nomeNormal.replace(/\s+/g,"-");
+
+
+    [
+        comPonto + ".jpg",
+        comHifen + ".jpg",
+        comPonto + ".jpeg",
+        comHifen + ".jpeg"
+    ]
+    .forEach(function(nomeArquivo){
+
+        const url =
+            BASE_IMAGENS +
+            encodeURIComponent(
+                nomeArquivo
+            );
+
+        if(!opcoes.includes(url)){
+
+            opcoes.push(url);
+
+        }
+
+    });
+
+    return opcoes;
 
 }
 
@@ -1365,10 +1038,7 @@ function mostrarResultados(lista){
             "resultados"
         );
 
-
-    if(
-        lista.length === 0
-    ){
+    if(lista.length === 0){
 
         area.innerHTML = `
 
@@ -1376,10 +1046,9 @@ function mostrarResultados(lista){
 
                 😕 Nenhuma assinatura encontrada.
 
-                <br><br>
+                <br>
 
-                Confira se o nome foi
-                digitado corretamente.
+                Confira se o nome foi digitado corretamente.
 
             </div>
 
@@ -1389,158 +1058,333 @@ function mostrarResultados(lista){
 
     }
 
-
     area.innerHTML = "";
 
+    lista.forEach(function(colaborador){
 
-    lista.forEach(
-        function(colaborador){
+        const opcoes =
+            montarOpcoesImagem(
+                colaborador
+            );
 
-            const enderecoImagem =
-                obterURLImagem(
-                    colaborador.imagem
-                );
+        const card =
+            document.createElement(
+                "div"
+            );
 
+        card.className =
+            "resultado-card";
 
-            const card =
-                document.createElement(
-                    "div"
-                );
+        card.innerHTML = `
 
+            <div class="resultado-topo">
 
-            card.className =
-                "resultado-card";
+                <div class="nome-area">
 
-
-            card.innerHTML = `
-
-                <div class="resultado-topo">
-
-                    <div class="nome-area">
-
-                        <div class="avatar">
-                            👤
-                        </div>
-
-                        <div>
-
-                            <h3>
-                                ${escaparHTML(
-                                    colaborador.nome
-                                )}
-                            </h3>
-
-                            <span>
-                                ${escaparHTML(
-                                    colaborador.setor
-                                    ||
-                                    "Colaborador LTJ"
-                                )}
-                            </span>
-
-                        </div>
-
+                    <div class="avatar">
+                        👤
                     </div>
 
+                    <div>
 
-                    <div class="status">
+                        <h3>
+                            ${escaparHTML(
+                                colaborador.nome
+                            )}
+                        </h3>
 
-                        ASSINATURA OFICIAL
+                        <span>
+                            ${escaparHTML(
+                                colaborador.setor
+                                ||
+                                "Colaborador LTJ"
+                            )}
+                        </span>
 
                     </div>
 
                 </div>
 
+                <div class="status">
+                    ASSINATURA OFICIAL
+                </div>
 
-                <div class="preview-titulo">
+            </div>
 
-                    Prévia da assinatura
+
+            <div class="preview-titulo">
+                Prévia da assinatura
+            </div>
+
+
+            <div class="preview">
+
+                <div
+                    class="imagem-area"
+                    data-opcoes='${JSON.stringify(
+                        opcoes
+                    ).replace(/'/g,"&#39;")}'
+                >
+
+                    Procurando imagem...
 
                 </div>
 
-
-                <div class="preview">
-
-                    <img
-                    src="${enderecoImagem}"
-                    alt="Assinatura de ${escaparHTML(
-                        colaborador.nome
-                    )}"
-
-                    onerror="
-                    this.style.display='none';
-                    this.parentElement.innerHTML=
-                    '⚠️ Não foi possível carregar esta imagem.';
-                    ">
-
-                </div>
+            </div>
 
 
-                <div class="acoes">
+            <div class="acoes">
 
-
-                    <button
+                <button
                     class="botao botao-copiar"
+                    disabled
+                >
+                    📋 Copiar assinatura
+                </button>
 
-                    onclick="
-                    copiarImagem(
-                        '${enderecoImagem}',
-                        this
-                    )
-                    ">
-
-                        📋 Copiar assinatura
-
-                    </button>
-
-
-                    <button
+                <button
                     class="botao botao-abrir"
+                    disabled
+                >
+                    🖼 Abrir imagem
+                </button>
 
-                    onclick="
-                    window.open(
-                        '${enderecoImagem}',
-                        '_blank'
-                    )
-                    ">
-
-                        🖼 Abrir imagem
-
-                    </button>
+            </div>
 
 
-                </div>
+            <div class="feedback"></div>
 
 
-                <div class="feedback">
-                </div>
+            <div class="ajuda">
 
+                Se o botão de copiar não funcionar,
+                clique em
+                <strong>Abrir imagem</strong>,
+                copie a imagem e cole no UOL Mail Pro.
 
-                <div class="ajuda">
+            </div>
 
-                    💡 Se o botão
-                    <strong>Copiar assinatura</strong>
-                    não funcionar no seu navegador,
-                    clique em
-                    <strong>Abrir imagem</strong>,
-                    copie a imagem e cole no
-                    UOL Mail Pro.
+        `;
 
-                </div>
+        area.appendChild(card);
 
-            `;
+        testarImagens(card);
 
-
-            area.appendChild(card);
-
-        }
-    );
+    });
 
 }
 
 
 /* =========================================================
-   EVITA HTML INDESEJADO
+   TESTA OS NOMES DE IMAGEM
+========================================================= */
+
+function testarImagens(card){
+
+    const areaImagem =
+        card.querySelector(
+            ".imagem-area"
+        );
+
+    const opcoes =
+        JSON.parse(
+            areaImagem.dataset.opcoes
+        );
+
+    let indice = 0;
+
+    function tentar(){
+
+        if(indice >= opcoes.length){
+
+            areaImagem.innerHTML = `
+
+                <div style="
+                    color:#a92a2a;
+                    padding:20px;
+                ">
+
+                    ⚠️ A imagem da assinatura
+                    não foi encontrada.
+
+                    <br><br>
+
+                    Confira o nome do arquivo
+                    na coluna
+                    <strong>Imagem</strong>
+                    da planilha.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+        const url =
+            opcoes[indice];
+
+        indice++;
+
+        const imagem =
+            new Image();
+
+        imagem.onload =
+            function(){
+
+                areaImagem.innerHTML = "";
+
+                imagem.style.maxWidth =
+                    "100%";
+
+                imagem.style.height =
+                    "auto";
+
+                areaImagem.appendChild(
+                    imagem
+                );
+
+                const botaoCopiar =
+                    card.querySelector(
+                        ".botao-copiar"
+                    );
+
+                const botaoAbrir =
+                    card.querySelector(
+                        ".botao-abrir"
+                    );
+
+                botaoCopiar.disabled =
+                    false;
+
+                botaoAbrir.disabled =
+                    false;
+
+
+                botaoAbrir.onclick =
+                    function(){
+
+                        window.open(
+                            url,
+                            "_blank"
+                        );
+
+                    };
+
+
+                botaoCopiar.onclick =
+                    function(){
+
+                        copiarImagem(
+                            url,
+                            card
+                        );
+
+                    };
+
+            };
+
+        imagem.onerror =
+            tentar;
+
+        imagem.src =
+            url;
+
+    }
+
+    tentar();
+
+}
+
+
+/* =========================================================
+   COPIAR
+========================================================= */
+
+async function copiarImagem(
+    url,
+    card
+){
+
+    const feedback =
+        card.querySelector(
+            ".feedback"
+        );
+
+    feedback.textContent =
+        "Copiando...";
+
+    try{
+
+        const resposta =
+            await fetch(url);
+
+        const blob =
+            await resposta.blob();
+
+        const bitmap =
+            await createImageBitmap(blob);
+
+        const canvas =
+            document.createElement(
+                "canvas"
+            );
+
+        canvas.width =
+            bitmap.width;
+
+        canvas.height =
+            bitmap.height;
+
+        const ctx =
+            canvas.getContext("2d");
+
+        ctx.drawImage(
+            bitmap,
+            0,
+            0
+        );
+
+        canvas.toBlob(
+            async function(png){
+
+                try{
+
+                    await navigator.clipboard.write([
+
+                        new ClipboardItem({
+                            "image/png":png
+                        })
+
+                    ]);
+
+                    feedback.textContent =
+                        "✓ Copiada! Agora cole no UOL Mail Pro.";
+
+                }catch(e){
+
+                    feedback.textContent =
+                        "Não foi possível copiar automaticamente. Use Abrir imagem.";
+
+                }
+
+            },
+            "image/png"
+        );
+
+    }catch(e){
+
+        feedback.textContent =
+            "Não foi possível copiar automaticamente. Use Abrir imagem.";
+
+    }
+
+}
+
+
+/* =========================================================
+   SEGURANÇA DO TEXTO
 ========================================================= */
 
 function escaparHTML(texto){
@@ -1556,137 +1400,12 @@ function escaparHTML(texto){
 
 
 /* =========================================================
-   COPIAR IMAGEM
+   INICIAR
 ========================================================= */
 
-async function copiarImagem(
-    url,
-    botao
-){
-
-    const card =
-        botao.closest(
-            ".resultado-card"
-        );
-
-
-    const feedback =
-        card.querySelector(
-            ".feedback"
-        );
-
-
-    feedback.textContent =
-        "Copiando...";
-
-
-    try{
-
-        const resposta =
-            await fetch(url);
-
-
-        if(
-            !resposta.ok
-        ){
-
-            throw new Error(
-                "Imagem indisponível"
-            );
-
-        }
-
-
-        const blobOriginal =
-            await resposta.blob();
-
-
-        const imagemBitmap =
-            await createImageBitmap(
-                blobOriginal
-            );
-
-
-        const canvas =
-            document.createElement(
-                "canvas"
-            );
-
-
-        canvas.width =
-            imagemBitmap.width;
-
-        canvas.height =
-            imagemBitmap.height;
-
-
-        const contexto =
-            canvas.getContext(
-                "2d"
-            );
-
-
-        contexto.drawImage(
-            imagemBitmap,
-            0,
-            0
-        );
-
-
-        canvas.toBlob(
-            async function(blobPNG){
-
-                try{
-
-                    await navigator.clipboard.write([
-
-                        new ClipboardItem({
-
-                            "image/png":
-                                blobPNG
-
-                        })
-
-                    ]);
-
-
-                    feedback.textContent =
-                        "✓ Assinatura copiada! Agora cole no UOL Mail Pro.";
-
-
-                }catch(erro){
-
-                    feedback.textContent =
-                        "Não foi possível copiar automaticamente. Utilize Abrir imagem.";
-
-                }
-
-            },
-
-            "image/png"
-
-        );
-
-
-    }catch(erro){
-
-        feedback.textContent =
-            "Não foi possível copiar automaticamente. Utilize Abrir imagem.";
-
-    }
-
-}
-
-
-/* =========================================================
-   INICIA
-========================================================= */
-
-carregarPlanilha();
+carregarColaboradores();
 
 </script>
 
-
 </body>
-
 </html>
