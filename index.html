@@ -506,7 +506,7 @@ main{
 
 .atalhos{
     display:grid;
-    grid-template-columns:repeat(8,1fr);
+    grid-template-columns:repeat(7,1fr);
     gap:10px;
     margin-bottom:18px;
 }
@@ -568,7 +568,7 @@ main{
 
 .dashboard{
     display:grid;
-    grid-template-columns:1fr 1fr 1.35fr;
+    grid-template-columns:1.2fr 1fr 1.35fr;
     gap:12px;
 }
 
@@ -603,6 +603,26 @@ main{
 
 /* aniversariantes */
 
+.bloco-titulo{
+    padding:8px 10px;
+    border-radius:8px;
+    font-size:10px;
+    font-weight:bold;
+    margin-top:7px;
+    margin-bottom:5px;
+}
+
+.bloco-vida{
+    background:var(--laranja-claro);
+    color:var(--laranja);
+}
+
+.bloco-empresa{
+    background:#edf4ff;
+    color:var(--azul-2);
+    margin-top:13px;
+}
+
 .aniversariante{
     display:flex;
     align-items:center;
@@ -613,12 +633,25 @@ main{
 .avatar{
     width:36px;
     height:36px;
+    min-width:36px;
+
     border-radius:50%;
+
     background:#edf2f8;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     font-size:17px;
+}
+
+.avatar-vida{
+    background:var(--laranja-claro);
+}
+
+.avatar-empresa{
+    background:#edf4ff;
 }
 
 .aniversariante strong{
@@ -1011,11 +1044,6 @@ footer{
             Aniversariantes
         </a>
 
-        <a href="#vida-empresa">
-            <span class="menu-icone">♡</span>
-            Vida e Empresa
-        </a>
-
     </nav>
 
     <div class="frase-menu">
@@ -1218,13 +1246,7 @@ footer{
     <a href="#aniversariantes" class="atalho">
         <div class="atalho-icone">🎂</div>
         <h3>Aniversariantes</h3>
-        <p>Vamos celebrar quem faz aniversário!</p>
-    </a>
-
-    <a href="#vida-empresa" class="atalho">
-        <div class="atalho-icone">🧡</div>
-        <h3>Vida e Empresa</h3>
-        <p>Saúde, bem-estar e qualidade de vida.</p>
+        <p>Aniversários de vida e de empresa.</p>
     </a>
 
 </section>
@@ -1236,7 +1258,7 @@ footer{
     <div class="painel-topo">
 
         <h3>
-            🎁 Aniversariantes do Mês
+            🎉 Aniversariantes do Mês
         </h3>
 
         <a href="#">
@@ -1245,10 +1267,16 @@ footer{
 
     </div>
 
+
+    <div class="bloco-titulo bloco-vida">
+        🎂 ANIVERSÁRIOS DE VIDA
+    </div>
+
+
     <div class="aniversariante">
 
-        <div class="avatar">
-            👤
+        <div class="avatar avatar-vida">
+            🎂
         </div>
 
         <div>
@@ -1258,10 +1286,11 @@ footer{
 
     </div>
 
+
     <div class="aniversariante">
 
-        <div class="avatar">
-            👤
+        <div class="avatar avatar-vida">
+            🎈
         </div>
 
         <div>
@@ -1271,10 +1300,11 @@ footer{
 
     </div>
 
+
     <div class="aniversariante">
 
-        <div class="avatar">
-            👤
+        <div class="avatar avatar-vida">
+            🎁
         </div>
 
         <div>
@@ -1284,27 +1314,48 @@ footer{
 
     </div>
 
+
+    <div class="bloco-titulo bloco-empresa">
+        🏆 ANIVERSÁRIOS DE EMPRESA
+    </div>
+
+
     <div class="aniversariante">
 
-        <div class="avatar">
-            👤
+        <div class="avatar avatar-empresa">
+            ⭐
         </div>
 
         <div>
-            <strong>Karin Romano</strong>
-            <small>28 de Maio</small>
+            <strong>Helen</strong>
+            <small>18 anos de LTJ</small>
         </div>
 
     </div>
 
-    <div class="parabens">
 
-        🎁
+    <div class="aniversariante">
+
+        <div class="avatar avatar-empresa">
+            🏅
+        </div>
 
         <div>
-            Parabéns a todos!
+            <strong>Melissa Amaral</strong>
+            <small>15 anos de LTJ</small>
+        </div>
+
+    </div>
+
+
+    <div class="parabens">
+
+        🎉
+
+        <div>
+            Celebramos quem faz parte da nossa história!
             <br>
-            <strong>Feliz aniversário!</strong>
+            <strong>Parabéns! 🧡💙</strong>
         </div>
 
     </div>
@@ -1423,12 +1474,12 @@ footer{
         </div>
 
         <h4>
-            Novo benefício: Plano de Saúde
+            Novo comunicado
         </h4>
 
         <p>
-            Informamos que a partir de junho teremos
-            novidades no plano de saúde.
+            Utilize esta área para avisos e informações
+            importantes destinadas aos colaboradores.
         </p>
 
     </div>
@@ -1473,12 +1524,12 @@ footer{
         </div>
 
         <h4>
-            Festa Junina LTJ
+            Próxima ação LTJ
         </h4>
 
         <p>
-            Nossa festa será realizada em breve.
-            Participe!
+            Campanhas, ações e eventos internos
+            também podem aparecer aqui.
         </p>
 
     </div>
@@ -1494,7 +1545,6 @@ footer{
 <div id="nosso-time"></div>
 <div id="materiais"></div>
 <div id="sugestoes"></div>
-<div id="vida-empresa"></div>
 
 </main>
 
