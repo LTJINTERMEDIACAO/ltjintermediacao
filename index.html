@@ -15,17 +15,16 @@
 }
 
 :root{
-    --azul:#063a91;
-    --azul2:#0748ae;
-    --azulEscuro:#03265f;
-    --azulProfundo:#021d4c;
-    --laranja:#ff7517;
-    --laranjaClaro:#fff1e6;
+    --azul-1:#06285f;
+    --azul-2:#0c3e94;
+    --azul-3:#0e4fb2;
+    --laranja:#ff7417;
+    --laranja-claro:#fff1e5;
     --branco:#ffffff;
     --fundo:#f5f7fb;
-    --cinza:#667085;
-    --borda:#e4e9f1;
-    --texto:#0b2554;
+    --texto:#0b2655;
+    --cinza:#647084;
+    --borda:#e6ebf2;
 }
 
 html{
@@ -40,21 +39,18 @@ body{
 
 a{
     text-decoration:none;
+    color:inherit;
 }
 
-/* ================================
-   ESTRUTURA
-================================ */
-
-.app{
-    display:grid;
-    grid-template-columns:228px 1fr;
+.portal{
     min-height:100vh;
+    display:grid;
+    grid-template-columns:230px 1fr;
 }
 
-/* ================================
-   MENU LATERAL
-================================ */
+/* ========================
+   SIDEBAR
+======================== */
 
 .sidebar{
     position:sticky;
@@ -63,27 +59,26 @@ a{
     overflow-y:auto;
 
     background:
-        radial-gradient(circle at 10% 0%, #0d53bd 0%, transparent 32%),
-        linear-gradient(180deg,#02265f,#06449c);
+        radial-gradient(circle at top left, #0d56c2 0, transparent 33%),
+        linear-gradient(180deg,#03235a 0%,#063889 100%);
+
+    padding:28px 16px 22px;
 
     color:white;
-    padding:24px 15px 20px;
 }
 
-.logo-area{
-    text-align:center;
-    margin-bottom:27px;
+.logo-sidebar{
+    display:flex;
+    justify-content:center;
+    margin-bottom:26px;
 }
 
-.logo-area img{
-    width:132px;
-    height:132px;
+.logo-sidebar img{
+    width:135px;
+    height:135px;
     object-fit:contain;
     display:block;
-    margin:auto;
-
-    filter:
-        drop-shadow(0 7px 15px rgba(0,0,0,.15));
+    filter:drop-shadow(0 5px 15px rgba(0,0,0,.15));
 }
 
 .menu{
@@ -95,14 +90,16 @@ a{
 .menu a{
     display:flex;
     align-items:center;
-    gap:13px;
+    gap:12px;
 
     color:white;
-    font-size:15px;
-    font-weight:500;
 
     padding:13px 14px;
+
     border-radius:10px;
+
+    font-size:15px;
+    font-weight:500;
 
     transition:.2s;
 }
@@ -113,64 +110,64 @@ a{
 
 .menu a.ativo{
     background:var(--laranja);
-    box-shadow:0 8px 22px rgba(255,117,23,.22);
+    box-shadow:0 10px 24px rgba(255,116,23,.22);
 }
 
-.menu-icon{
-    width:22px;
-    text-align:center;
-    font-size:18px;
+.menu-icone{
+    width:23px;
+    display:flex;
+    justify-content:center;
+    font-size:19px;
 }
 
-.frase-lateral{
-    margin-top:32px;
-
-    min-height:240px;
+.frase-menu{
+    margin-top:35px;
 
     background:
         linear-gradient(
             180deg,
-            rgba(13,82,187,.34),
-            rgba(0,31,86,.28)
+            rgba(20,90,190,.42),
+            rgba(0,35,90,.42)
         );
 
-    border-radius:22px;
+    border-radius:24px;
+
+    padding:28px 18px;
+
+    text-align:center;
+
+    font-size:16px;
+    line-height:1.65;
+
+    min-height:245px;
 
     display:flex;
     flex-direction:column;
     justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    padding:25px 18px;
-
-    font-size:17px;
-    line-height:1.65;
 }
 
-.asp{
-    font-size:47px;
+.frase-menu .aspas{
+    font-size:48px;
+    line-height:.7;
     color:var(--laranja);
     font-family:Georgia,serif;
-    line-height:.8;
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
-/* ================================
+/* ========================
    CONTEÚDO
-================================ */
+======================== */
 
-.content{
+.area{
     min-width:0;
 }
 
-/* ================================
-   TOPO
-================================ */
+/* ========================
+   TOPBAR
+======================== */
 
 .topbar{
-    min-height:90px;
+    min-height:88px;
 
     background:white;
 
@@ -178,18 +175,18 @@ a{
     align-items:center;
     justify-content:space-between;
 
-    padding:15px 34px;
+    padding:14px 34px;
 
     border-bottom:1px solid var(--borda);
 }
 
-.welcome h2{
-    color:var(--azulEscuro);
+.saudacao h2{
+    color:var(--azul-1);
     font-size:21px;
     margin-bottom:5px;
 }
 
-.welcome p{
+.saudacao p{
     color:var(--cinza);
     font-size:13px;
 }
@@ -197,184 +194,178 @@ a{
 .top-actions{
     display:flex;
     align-items:center;
-    gap:22px;
+    gap:19px;
 }
 
-.action{
+.top-action{
     position:relative;
-
-    width:42px;
-    height:42px;
+    width:40px;
+    height:40px;
 
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
     font-size:22px;
-    color:var(--azulEscuro);
+    color:var(--azul-1);
 }
 
-.badge{
+.bolinha{
     position:absolute;
-    right:-1px;
-    top:-3px;
 
     width:18px;
     height:18px;
 
     border-radius:50%;
+
     background:var(--laranja);
 
-    color:white;
+    top:-1px;
+    right:-2px;
 
-    font-size:10px;
-    font-weight:bold;
+    color:white;
 
     display:flex;
     align-items:center;
     justify-content:center;
+
+    font-size:9px;
+    font-weight:bold;
 }
 
-.profile{
+.usuario{
     display:flex;
     align-items:center;
     gap:10px;
 
-    color:var(--azulEscuro);
+    color:var(--azul-1);
+    font-size:12px;
     font-weight:bold;
-    font-size:13px;
 }
 
-.profile-avatar{
-    width:42px;
-    height:42px;
+.usuario-icone{
+    width:40px;
+    height:40px;
 
     border-radius:50%;
 
-    background:#edf2f7;
+    background:#eef2f7;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:20px;
+    font-size:19px;
 }
 
-/* ================================
-   BANNER PRINCIPAL
-================================ */
+/* ========================
+   BANNER
+======================== */
 
-.hero-wrap{
+.banner-wrap{
     padding:24px 34px 0;
 }
 
-.hero{
-    min-height:292px;
+.banner{
+    min-height:300px;
 
-    position:relative;
+    border-radius:20px;
+
     overflow:hidden;
 
-    border-radius:19px;
-
-    background:
-        radial-gradient(
-            circle at 55% 45%,
-            rgba(0,97,220,.23),
-            transparent 30%
-        ),
-        linear-gradient(
-            110deg,
-            #052767 0%,
-            #07388c 58%,
-            #033078 100%
-        );
+    position:relative;
 
     display:grid;
-    grid-template-columns:1.2fr 1fr .72fr;
+    grid-template-columns:1.12fr .95fr .78fr;
 
     gap:20px;
 
     align-items:center;
 
-    padding:34px 34px 34px 38px;
+    padding:34px 34px 34px 42px;
 
-    box-shadow:0 12px 27px rgba(5,42,102,.12);
+    background:
+        radial-gradient(circle at 59% 44%,rgba(32,108,220,.28),transparent 28%),
+        radial-gradient(circle at 76% 70%,rgba(255,255,255,.06),transparent 25%),
+        linear-gradient(110deg,#04235c 0%,#073886 55%,#052d73 100%);
+
+    box-shadow:0 13px 30px rgba(4,40,95,.12);
 }
 
-.hero::before{
+.banner:before{
     content:"";
 
     position:absolute;
 
-    width:440px;
-    height:115px;
+    right:-85px;
+    bottom:-95px;
 
-    right:-80px;
-    bottom:-74px;
+    width:470px;
+    height:140px;
+
+    border-radius:50%;
 
     background:var(--laranja);
 
-    border-radius:50%;
-
-    transform:rotate(-10deg);
+    transform:rotate(-8deg);
 }
 
-.hero::after{
+.banner:after{
     content:"";
 
     position:absolute;
 
-    width:500px;
-    height:90px;
-
     right:-80px;
-    bottom:-63px;
+    bottom:-68px;
 
-    background:#0751c4;
+    width:510px;
+    height:115px;
 
     border-radius:50%;
 
-    transform:rotate(-10deg);
+    background:#0751c3;
+
+    transform:rotate(-8deg);
 }
 
-.hero-text{
+.banner-texto{
     color:white;
-    position:relative;
     z-index:3;
 }
 
-.hero-text h1{
-    font-size:42px;
-    line-height:1.05;
+.banner-texto h1{
+    font-size:44px;
+    line-height:1.04;
     margin-bottom:20px;
 }
 
-.hero-text h1 span{
+.banner-texto h1 span{
     color:var(--laranja);
 }
 
-.hero-text p{
-    max-width:410px;
-
+.banner-texto p{
+    color:#f3f6fb;
     font-size:16px;
     line-height:1.55;
-
-    color:#f1f6ff;
+    max-width:405px;
 }
 
-.hero-text .frase{
-    margin-top:21px;
+.banner-texto .frase{
+    margin-top:20px;
 }
 
-.hero-text .frase strong{
+.banner-texto .frase strong{
     color:var(--laranja);
 }
 
-/* ILUSTRAÇÃO CENTRAL */
+/* ========================
+   GRÁFICO CENTRAL
+======================== */
 
-.hero-graphic{
+.banner-centro{
+    height:225px;
+
     position:relative;
-    height:235px;
 
     display:flex;
     align-items:center;
@@ -383,33 +374,35 @@ a{
     z-index:3;
 }
 
-.circle-main{
-    width:160px;
-    height:160px;
+.circulo-central{
+    width:154px;
+    height:154px;
 
-    border:3px solid rgba(255,255,255,.9);
+    border:3px solid rgba(255,255,255,.88);
+
     border-radius:50%;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:72px;
     color:white;
+    font-size:70px;
 
     position:relative;
 }
 
-.circle-small{
+.orbita{
     position:absolute;
 
-    width:54px;
-    height:54px;
+    border:2px solid rgba(255,255,255,.85);
 
-    border:2px solid white;
     border-radius:50%;
 
-    background:#07327c;
+    width:55px;
+    height:55px;
+
+    background:#07357f;
 
     color:white;
 
@@ -418,39 +411,44 @@ a{
     justify-content:center;
 
     font-size:23px;
+
+    box-shadow:0 5px 12px rgba(0,0,0,.12);
 }
 
-.circle-one{
-    top:13px;
-    left:63px;
+.orbita-1{
+    top:12px;
+    left:52px;
 }
 
-.circle-two{
-    right:45px;
-    top:65px;
+.orbita-2{
+    right:42px;
+    top:69px;
 }
 
-.circle-three{
-    bottom:14px;
-    left:94px;
+.orbita-3{
+    left:90px;
+    bottom:7px;
 }
 
-/* VALORES DO BANNER */
+/* ========================
+   VALORES NO BANNER
+======================== */
 
-.hero-values{
+.banner-valores{
+    z-index:4;
+
     display:flex;
     flex-direction:column;
-    gap:11px;
 
-    z-index:4;
+    gap:12px;
 }
 
-.value-card{
+.valor-banner{
     background:white;
 
     border-radius:12px;
 
-    padding:12px 14px;
+    padding:12px 13px;
 
     display:grid;
     grid-template-columns:42px 1fr;
@@ -462,61 +460,58 @@ a{
     box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
-.value-card-icon{
-    font-size:27px;
+.valor-banner .icone{
+    font-size:28px;
     text-align:center;
 }
 
-.value-card h4{
-    color:var(--azulEscuro);
+.valor-banner h4{
+    color:var(--azul-1);
     font-size:13px;
     margin-bottom:3px;
 }
 
-.value-card p{
-    color:#404b61;
+.valor-banner p{
+    color:#465267;
     font-size:10px;
     line-height:1.35;
 }
 
-/* ================================
-   PRINCIPAL
-================================ */
+/* ========================
+   MAIN
+======================== */
 
 main{
     padding:18px 34px 32px;
 }
 
-.title-section{
+.titulo-secao{
     margin-bottom:13px;
 }
 
-.title-section h2{
+.titulo-secao h2{
+    color:var(--azul-1);
     font-size:21px;
-    color:var(--azulEscuro);
 }
 
-.title-section p{
+.titulo-secao p{
     color:var(--cinza);
     font-size:12px;
     margin-top:4px;
 }
 
-/* ================================
-   ACESSOS RÁPIDOS
-================================ */
+/* ========================
+   ATALHOS
+======================== */
 
-.shortcuts{
+.atalhos{
     display:grid;
-
     grid-template-columns:repeat(8,1fr);
-
     gap:10px;
-
     margin-bottom:18px;
 }
 
-.shortcut{
+.atalho{
     min-height:145px;
 
     background:white;
@@ -529,61 +524,55 @@ main{
 
     text-align:center;
 
+    box-shadow:0 5px 16px rgba(10,42,90,.035);
+
     transition:.2s;
-
-    box-shadow:0 5px 16px rgba(9,42,90,.035);
-
-    color:var(--texto);
 }
 
-.shortcut:hover{
+.atalho:hover{
     transform:translateY(-4px);
     box-shadow:0 12px 25px rgba(5,42,100,.10);
 }
 
-.shortcut-icon{
-    height:49px;
+.atalho-icone{
+    height:51px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:35px;
+    font-size:34px;
 
     margin-bottom:7px;
 }
 
-.shortcut:nth-child(even) .shortcut-icon{
+.atalho:nth-child(even) .atalho-icone{
     color:var(--laranja);
 }
 
-.shortcut h3{
+.atalho h3{
+    color:var(--azul-1);
     font-size:13px;
-    color:var(--azulEscuro);
     margin-bottom:6px;
 }
 
-.shortcut p{
-    color:#4f596a;
-
+.atalho p{
+    color:#4e596c;
     font-size:10px;
-
     line-height:1.35;
 }
 
-/* ================================
-   DASHBOARD
-================================ */
+/* ========================
+   PAINÉIS
+======================== */
 
 .dashboard{
     display:grid;
-
     grid-template-columns:1fr 1fr 1.35fr;
-
     gap:12px;
 }
 
-.panel{
+.painel{
     background:white;
 
     border:1px solid var(--borda);
@@ -595,65 +584,56 @@ main{
     box-shadow:0 5px 16px rgba(9,42,90,.035);
 }
 
-.panel-header{
+.painel-topo{
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     margin-bottom:11px;
 }
 
-.panel-header h3{
+.painel-topo h3{
+    color:var(--azul-1);
     font-size:14px;
-    color:var(--azulEscuro);
 }
 
-.panel-header a{
+.painel-topo a{
+    color:var(--azul-2);
     font-size:10px;
-    color:var(--azul);
 }
 
-/* ANIVERSARIANTES */
+/* aniversariantes */
 
-.person{
+.aniversariante{
     display:flex;
     align-items:center;
-
     gap:10px;
-
     padding:7px 0;
 }
 
-.person-avatar{
+.avatar{
     width:36px;
     height:36px;
-
     border-radius:50%;
-
     background:#edf2f8;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     font-size:17px;
 }
 
-.person strong{
+.aniversariante strong{
+    color:var(--azul-1);
     font-size:12px;
-    color:var(--azulEscuro);
 }
 
-.person small{
+.aniversariante small{
     display:block;
-
-    margin-top:2px;
-
     font-size:10px;
+    margin-top:2px;
     color:#46546c;
 }
 
-.birthday-message{
+.parabens{
     margin-top:9px;
 
     background:#f4f7ff;
@@ -666,22 +646,20 @@ main{
     align-items:center;
     gap:10px;
 
-    color:var(--azulEscuro);
+    color:var(--azul-1);
 
     font-size:11px;
 }
 
-.birthday-message strong{
+.parabens strong{
     color:var(--laranja);
 }
 
-/* EVENTOS */
+/* eventos */
 
-.event{
+.evento{
     display:grid;
-
     grid-template-columns:57px 1fr;
-
     gap:10px;
 
     padding:8px 0;
@@ -689,80 +667,66 @@ main{
     border-bottom:1px solid #edf0f4;
 }
 
-.date-card{
+.data{
     border:1px solid #d9e0eb;
-
     border-radius:8px;
 
     text-align:center;
 
     padding:6px 3px;
 
-    color:var(--azulEscuro);
+    color:var(--azul-1);
 }
 
-.date-card strong{
+.data strong{
     display:block;
-
     color:var(--laranja);
-
     font-size:23px;
 }
 
-.date-card small{
+.data small{
     font-size:11px;
     font-weight:bold;
 }
 
-.event-info strong{
+.evento-texto strong{
+    color:var(--azul-1);
     font-size:11px;
-    color:var(--azulEscuro);
 }
 
-.event-info small{
+.evento-texto small{
     display:block;
-
-    font-size:9.5px;
-
     color:#39475d;
-
+    font-size:9.5px;
     margin-top:3px;
 }
 
-.event-button{
+.botao-evento{
     margin-top:10px;
-
-    background:var(--laranjaClaro);
-
+    background:var(--laranja-claro);
     color:var(--laranja);
-
     border-radius:7px;
-
     padding:9px;
-
     text-align:center;
-
     font-size:10px;
-
     font-weight:bold;
 }
 
-/* COMUNICADOS */
+/* comunicados */
 
-.notice{
+.comunicado{
     padding:9px 0;
     border-bottom:1px solid #edf0f4;
 }
 
-.notice-top{
+.comunicado-topo{
     display:flex;
     align-items:center;
     justify-content:space-between;
 }
 
-.notice-tag{
-    background:var(--laranjaClaro);
-
+.tag{
+    background:var(--laranja-claro);
     color:var(--laranja);
 
     padding:3px 6px;
@@ -770,35 +734,30 @@ main{
     border-radius:5px;
 
     font-size:8px;
-
     font-weight:bold;
 }
 
-.notice-date{
-    font-size:9px;
+.data-noticia{
     color:var(--cinza);
+    font-size:9px;
 }
 
-.notice h4{
-    color:var(--azulEscuro);
-
+.comunicado h4{
+    color:var(--azul-1);
     font-size:11.5px;
-
     margin:5px 0 3px;
 }
 
-.notice p{
+.comunicado p{
     color:#3f4b60;
-
     font-size:9.5px;
-
     line-height:1.35;
 }
 
-.notice-button{
+.botao-comunicados{
     margin-top:9px;
 
-    background:var(--azul);
+    background:var(--azul-2);
 
     color:white;
 
@@ -811,9 +770,9 @@ main{
     font-size:10px;
 }
 
-/* ================================
+/* ========================
    RODAPÉ
-================================ */
+======================== */
 
 footer{
     min-height:82px;
@@ -838,58 +797,52 @@ footer{
     padding:15px 34px;
 }
 
-.footer-brand{
+.rodape-logo{
     display:flex;
     align-items:center;
     gap:13px;
 }
 
-.footer-brand img{
+.rodape-logo img{
     width:58px;
     height:58px;
     object-fit:contain;
 }
 
-.footer-brand strong{
+.rodape-logo strong{
     display:block;
     font-size:12px;
 }
 
-.footer-brand span{
+.rodape-logo span{
     display:block;
     margin-top:3px;
     font-size:10px;
     opacity:.85;
 }
 
-.footer-values{
+.valores{
     display:flex;
-
-    align-items:center;
     justify-content:center;
-
+    align-items:center;
     gap:15px;
-
     font-size:10px;
 }
 
-.footer-phrase{
-    color:var(--laranja);
-
-    font-size:22px;
-
-    font-family:"Brush Script MT", cursive;
-
+.frase-final{
     text-align:right;
+    color:var(--laranja);
+    font-size:22px;
+    font-family:"Brush Script MT",cursive;
 }
 
-/* ================================
+/* ========================
    RESPONSIVO
-================================ */
+======================== */
 
 @media(max-width:1250px){
 
-    .shortcuts{
+    .atalhos{
         grid-template-columns:repeat(4,1fr);
     }
 
@@ -897,11 +850,11 @@ footer{
 
 @media(max-width:1000px){
 
-    .hero{
+    .banner{
         grid-template-columns:1fr 1fr;
     }
 
-    .hero-values{
+    .banner-valores{
         display:none;
     }
 
@@ -913,7 +866,7 @@ footer{
 
 @media(max-width:780px){
 
-    .app{
+    .portal{
         display:block;
     }
 
@@ -923,7 +876,7 @@ footer{
         min-height:auto;
     }
 
-    .logo-area img{
+    .logo-sidebar img{
         width:95px;
         height:95px;
     }
@@ -933,7 +886,7 @@ footer{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .frase-lateral{
+    .frase-menu{
         display:none;
     }
 
@@ -945,19 +898,17 @@ footer{
         display:none;
     }
 
-    .hero-wrap{
+    .banner-wrap{
         padding:15px 14px 0;
     }
 
-    .hero{
+    .banner{
         grid-template-columns:1fr;
-
-        padding:28px;
-
-        min-height:380px;
+        padding:30px;
+        min-height:390px;
     }
 
-    .hero-graphic{
+    .banner-centro{
         display:none;
     }
 
@@ -965,25 +916,24 @@ footer{
         padding:18px 14px 30px;
     }
 
-    .shortcuts{
+    .atalhos{
         grid-template-columns:repeat(2,1fr);
     }
 
     footer{
         grid-template-columns:1fr;
-
         text-align:center;
     }
 
-    .footer-brand{
+    .rodape-logo{
         justify-content:center;
     }
 
-    .footer-values{
+    .valores{
         flex-wrap:wrap;
     }
 
-    .footer-phrase{
+    .frase-final{
         text-align:center;
     }
 
@@ -995,94 +945,82 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .shortcuts{
+    .atalhos{
         grid-template-columns:1fr;
     }
 
-    .hero-text h1{
+    .banner-texto h1{
         font-size:35px;
     }
 
 }
 
 </style>
-</head>
 
+</head>
 
 <body>
 
-<div class="app">
-
-<!-- ==================================================
-     MENU LATERAL
-================================================== -->
+<div class="portal">
 
 <aside class="sidebar">
 
-    <div class="logo-area">
-
-        <img
-        src="logo-ltj.jpeg"
-        alt="Logo LTJ">
-
+    <div class="logo-sidebar">
+        <img src="logo-ltj.jpeg" alt="Logo LTJ">
     </div>
-
 
     <nav class="menu">
 
         <a href="#inicio" class="ativo">
-            <span class="menu-icon">⌂</span>
+            <span class="menu-icone">⌂</span>
             Início
         </a>
 
         <a href="assinaturas.html">
-            <span class="menu-icon">✎</span>
+            <span class="menu-icone">✎</span>
             Assinaturas
         </a>
 
         <a href="#nosso-time">
-            <span class="menu-icon">♧</span>
+            <span class="menu-icone">♧</span>
             Nosso Time
         </a>
 
         <a href="#comunicados">
-            <span class="menu-icon">♢</span>
+            <span class="menu-icone">♢</span>
             Comunicados
         </a>
 
         <a href="#calendario">
-            <span class="menu-icon">▣</span>
+            <span class="menu-icone">▣</span>
             Calendário
         </a>
 
         <a href="#materiais">
-            <span class="menu-icon">□</span>
+            <span class="menu-icone">□</span>
             Materiais
         </a>
 
         <a href="#sugestoes">
-            <span class="menu-icon">◇</span>
+            <span class="menu-icone">◇</span>
             Sugestões
         </a>
 
         <a href="#aniversariantes">
-            <span class="menu-icon">♨</span>
+            <span class="menu-icone">♨</span>
             Aniversariantes
         </a>
 
         <a href="#vida-empresa">
-            <span class="menu-icon">♡</span>
+            <span class="menu-icone">♡</span>
             Vida e Empresa
         </a>
 
     </nav>
 
+    <div class="frase-menu">
 
-    <div class="frase-lateral">
-
-        <div class="asp">
-            “
-        </div>
+        <div class="aspas">“</div>
 
         Aqui, cada pessoa importa
         e cada conquista conta!
@@ -1091,23 +1029,13 @@ footer{
 
 </aside>
 
-
-<!-- ==================================================
-     CONTEÚDO
-================================================== -->
-
-<div class="content">
-
-
-<!-- TOPO -->
+<div class="area">
 
 <header class="topbar">
 
-    <div class="welcome">
+    <div class="saudacao">
 
-        <h2>
-            Olá, Colaborador! 👋
-        </h2>
+        <h2>Olá, Colaborador! 👋</h2>
 
         <p>
             Seja bem-vindo(a) ao Portal do Colaborador LTJ.
@@ -1115,36 +1043,30 @@ footer{
 
     </div>
 
-
     <div class="top-actions">
 
-        <div class="action">
+        <div class="top-action">
             🔔
-            <div class="badge">
-                3
-            </div>
+            <span class="bolinha">3</span>
         </div>
 
-        <div class="action">
+        <div class="top-action">
             🗓
         </div>
 
-        <div class="action">
+        <div class="top-action">
             ⌕
         </div>
 
+        <div class="usuario">
 
-        <div class="profile">
-
-            <div class="profile-avatar">
+            <div class="usuario-icone">
                 👤
             </div>
 
             Olá, Colaborador!
 
-            <span>
-               ⌄
-            </span>
+            <span>⌄</span>
 
         </div>
 
@@ -1152,169 +1074,102 @@ footer{
 
 </header>
 
+<div class="banner-wrap" id="inicio">
 
-<!-- ==================================================
-     BANNER PRINCIPAL
-================================================== -->
+<section class="banner">
 
-<div class="hero-wrap" id="inicio">
-
-<section class="hero">
-
-
-    <div class="hero-text">
+    <div class="banner-texto">
 
         <h1>
-
             Bem-vindo ao<br>
-
             Portal do<br>
-
-            <span>
-                Colaborador
-            </span>
-
-            LTJ!
-
+            <span>Colaborador</span> LTJ!
         </h1>
 
-
         <p>
-
             Informações, ferramentas e recursos
             para facilitar o seu dia a dia.
-
         </p>
 
-
         <p class="frase">
-
             Juntos, conectamos pessoas e geramos
-            <strong>
-                resultados!
-            </strong>
-
+            <strong>resultados!</strong>
         </p>
 
     </div>
 
+    <div class="banner-centro">
 
-    <!-- ILUSTRAÇÃO -->
-
-    <div class="hero-graphic">
-
-        <div class="circle-main">
-
+        <div class="circulo-central">
             👥
-
         </div>
 
-
-        <div class="circle-small circle-one">
+        <div class="orbita orbita-1">
             📈
         </div>
 
-
-        <div class="circle-small circle-two">
+        <div class="orbita orbita-2">
             💬
         </div>
 
-
-        <div class="circle-small circle-three">
+        <div class="orbita orbita-3">
             🤝
         </div>
 
     </div>
 
+    <div class="banner-valores">
 
-    <!-- VALORES -->
+        <div class="valor-banner">
 
-    <div class="hero-values">
-
-
-        <div class="value-card">
-
-            <div class="value-card-icon">
+            <div class="icone">
                 👥
             </div>
 
             <div>
-
-                <h4>
-                    Conexão
-                </h4>
-
-                <p>
-                    Mais união e colaboração entre todos nós.
-                </p>
-
+                <h4>Conexão</h4>
+                <p>Mais união e colaboração entre todos nós.</p>
             </div>
 
         </div>
 
+        <div class="valor-banner">
 
-        <div class="value-card">
-
-            <div class="value-card-icon">
+            <div class="icone">
                 🎯
             </div>
 
             <div>
-
-                <h4>
-                    Foco
-                </h4>
-
-                <p>
-                    Trabalhamos com foco em resultados.
-                </p>
-
+                <h4>Foco</h4>
+                <p>Trabalhamos com foco em resultados.</p>
             </div>
 
         </div>
 
+        <div class="valor-banner">
 
-        <div class="value-card">
-
-            <div class="value-card-icon">
+            <div class="icone">
                 🏅
             </div>
 
             <div>
-
-                <h4>
-                    Excelência
-                </h4>
-
-                <p>
-                    Compromisso com a qualidade todos os dias.
-                </p>
-
+                <h4>Excelência</h4>
+                <p>Compromisso com a qualidade todos os dias.</p>
             </div>
 
         </div>
 
-
     </div>
-
 
 </section>
 
 </div>
 
-
-<!-- ==================================================
-     PRINCIPAL
-================================================== -->
-
 <main>
 
+<div class="titulo-secao">
 
-<div class="title-section">
-
-    <h2>
-        Acessos rápidos
-    </h2>
+    <h2>Acessos rápidos</h2>
 
     <p>
         Encontre rapidamente os principais recursos do portal.
@@ -1322,179 +1177,63 @@ footer{
 
 </div>
 
+<section class="atalhos">
 
-<!-- ACESSOS -->
+    <a href="assinaturas.html" class="atalho">
+        <div class="atalho-icone">✎</div>
+        <h3>Assinaturas</h3>
+        <p>Acesse sua assinatura oficial de e-mail.</p>
+    </a>
 
-<section class="shortcuts">
+    <a href="#nosso-time" class="atalho">
+        <div class="atalho-icone">👥</div>
+        <h3>Nosso Time</h3>
+        <p>Conheça nossa equipe e departamentos.</p>
+    </a>
 
+    <a href="#comunicados" class="atalho">
+        <div class="atalho-icone">📢</div>
+        <h3>Comunicados</h3>
+        <p>Fique por dentro das novidades e avisos.</p>
+    </a>
 
-<a
-href="assinaturas.html"
-class="shortcut">
+    <a href="#calendario" class="atalho">
+        <div class="atalho-icone">📅</div>
+        <h3>Calendário</h3>
+        <p>Consulte eventos, reuniões e datas.</p>
+    </a>
 
-    <div class="shortcut-icon">
-        ✎
-    </div>
+    <a href="#materiais" class="atalho">
+        <div class="atalho-icone">📁</div>
+        <h3>Materiais</h3>
+        <p>Documentos, manuais e arquivos importantes.</p>
+    </a>
 
-    <h3>
-        Assinaturas
-    </h3>
+    <a href="#sugestoes" class="atalho">
+        <div class="atalho-icone">💬</div>
+        <h3>Sugestões</h3>
+        <p>Envie suas sugestões de forma anônima.</p>
+    </a>
 
-    <p>
-        Acesse sua assinatura oficial de e-mail.
-    </p>
+    <a href="#aniversariantes" class="atalho">
+        <div class="atalho-icone">🎂</div>
+        <h3>Aniversariantes</h3>
+        <p>Vamos celebrar quem faz aniversário!</p>
+    </a>
 
-</a>
-
-
-<a
-href="#nosso-time"
-class="shortcut">
-
-    <div class="shortcut-icon">
-        👥
-    </div>
-
-    <h3>
-        Nosso Time
-    </h3>
-
-    <p>
-        Conheça nossa equipe e departamentos.
-    </p>
-
-</a>
-
-
-<a
-href="#comunicados"
-class="shortcut">
-
-    <div class="shortcut-icon">
-        📢
-    </div>
-
-    <h3>
-        Comunicados
-    </h3>
-
-    <p>
-        Fique por dentro das novidades e avisos.
-    </p>
-
-</a>
-
-
-<a
-href="#calendario"
-class="shortcut">
-
-    <div class="shortcut-icon">
-        📅
-    </div>
-
-    <h3>
-        Calendário
-    </h3>
-
-    <p>
-        Consulte eventos, reuniões e datas.
-    </p>
-
-</a>
-
-
-<a
-href="#materiais"
-class="shortcut">
-
-    <div class="shortcut-icon">
-        📁
-    </div>
-
-    <h3>
-        Materiais
-    </h3>
-
-    <p>
-        Documentos, manuais e arquivos importantes.
-    </p>
-
-</a>
-
-
-<a
-href="#sugestoes"
-class="shortcut">
-
-    <div class="shortcut-icon">
-        💬
-    </div>
-
-    <h3>
-        Sugestões
-    </h3>
-
-    <p>
-        Envie suas sugestões de forma anônima.
-    </p>
-
-</a>
-
-
-<a
-href="#aniversariantes"
-class="shortcut">
-
-    <div class="shortcut-icon">
-        🎂
-    </div>
-
-    <h3>
-        Aniversariantes
-    </h3>
-
-    <p>
-        Vamos celebrar quem faz aniversário!
-    </p>
-
-</a>
-
-
-<a
-href="#vida-empresa"
-class="shortcut">
-
-    <div class="shortcut-icon">
-        🧡
-    </div>
-
-    <h3>
-        Vida e Empresa
-    </h3>
-
-    <p>
-        Saúde, bem-estar e qualidade de vida.
-    </p>
-
-</a>
-
+    <a href="#vida-empresa" class="atalho">
+        <div class="atalho-icone">🧡</div>
+        <h3>Vida e Empresa</h3>
+        <p>Saúde, bem-estar e qualidade de vida.</p>
+    </a>
 
 </section>
 
-
-<!-- ==================================================
-     PAINÉIS
-================================================== -->
-
 <section class="dashboard">
 
+<div class="painel" id="aniversariantes">
 
-<!-- ANIVERSARIANTES -->
-
-<div class="panel" id="aniversariantes">
-
-    <div class="panel-header">
+    <div class="painel-topo">
 
         <h3>
             🎁 Aniversariantes do Mês
@@ -1506,118 +1245,75 @@ class="shortcut">
 
     </div>
 
+    <div class="aniversariante">
 
-    <div class="person">
-
-        <div class="person-avatar">
+        <div class="avatar">
             👤
         </div>
 
         <div>
-
-            <strong>
-                Ana Paula
-            </strong>
-
-            <small>
-                05 de Maio
-            </small>
-
+            <strong>Ana Paula</strong>
+            <small>05 de Maio</small>
         </div>
 
     </div>
 
+    <div class="aniversariante">
 
-    <div class="person">
-
-        <div class="person-avatar">
+        <div class="avatar">
             👤
         </div>
 
         <div>
-
-            <strong>
-                Paulo Rodrigues
-            </strong>
-
-            <small>
-                14 de Maio
-            </small>
-
+            <strong>Paulo Rodrigues</strong>
+            <small>14 de Maio</small>
         </div>
 
     </div>
 
+    <div class="aniversariante">
 
-    <div class="person">
-
-        <div class="person-avatar">
+        <div class="avatar">
             👤
         </div>
 
         <div>
-
-            <strong>
-                Melissa Amaral
-            </strong>
-
-            <small>
-                21 de Maio
-            </small>
-
+            <strong>Melissa Amaral</strong>
+            <small>21 de Maio</small>
         </div>
 
     </div>
 
+    <div class="aniversariante">
 
-    <div class="person">
-
-        <div class="person-avatar">
+        <div class="avatar">
             👤
         </div>
 
         <div>
-
-            <strong>
-                Karin Romano
-            </strong>
-
-            <small>
-                28 de Maio
-            </small>
-
+            <strong>Karin Romano</strong>
+            <small>28 de Maio</small>
         </div>
 
     </div>
 
-
-    <div class="birthday-message">
+    <div class="parabens">
 
         🎁
 
         <div>
-
             Parabéns a todos!
-
             <br>
-
-            <strong>
-                Feliz aniversário!
-            </strong>
-
+            <strong>Feliz aniversário!</strong>
         </div>
 
     </div>
 
-
 </div>
 
+<div class="painel" id="calendario">
 
-<!-- EVENTOS -->
-
-<div class="panel" id="calendario">
-
-    <div class="panel-header">
+    <div class="painel-topo">
 
         <h3>
             📅 Próximos Eventos
@@ -1629,124 +1325,78 @@ class="shortcut">
 
     </div>
 
+    <div class="evento">
 
-    <div class="event">
+        <div class="data">
 
-        <div class="date-card">
-
-            <strong>
-                15
-            </strong>
-
-            <small>
-                MAI
-            </small>
+            <strong>15</strong>
+            <small>MAI</small>
 
         </div>
 
+        <div class="evento-texto">
 
-        <div class="event-info">
+            <strong>Reunião Geral</strong>
 
-            <strong>
-                Reunião Geral
-            </strong>
+            <small>◷ 14h00</small>
 
-            <small>
-                ◷ 14h00
-            </small>
-
-            <small>
-                ⌖ Sala de Reuniões
-            </small>
+            <small>⌖ Sala de Reuniões</small>
 
         </div>
 
     </div>
 
+    <div class="evento">
 
-    <div class="event">
+        <div class="data">
 
-        <div class="date-card">
-
-            <strong>
-                20
-            </strong>
-
-            <small>
-                MAI
-            </small>
+            <strong>20</strong>
+            <small>MAI</small>
 
         </div>
 
+        <div class="evento-texto">
 
-        <div class="event-info">
+            <strong>Treinamento Comercial</strong>
 
-            <strong>
-                Treinamento Comercial
-            </strong>
+            <small>◷ 09h00</small>
 
-            <small>
-                ◷ 09h00
-            </small>
-
-            <small>
-                ⌖ Auditório
-            </small>
+            <small>⌖ Auditório</small>
 
         </div>
 
     </div>
 
+    <div class="evento">
 
-    <div class="event">
+        <div class="data">
 
-        <div class="date-card">
-
-            <strong>
-                30
-            </strong>
-
-            <small>
-                MAI
-            </small>
+            <strong>30</strong>
+            <small>MAI</small>
 
         </div>
 
+        <div class="evento-texto">
 
-        <div class="event-info">
+            <strong>Café com a Direção</strong>
 
-            <strong>
-                Café com a Direção
-            </strong>
+            <small>◷ 08h30</small>
 
-            <small>
-                ◷ 08h30
-            </small>
-
-            <small>
-                ⌖ Refeitório
-            </small>
+            <small>⌖ Refeitório</small>
 
         </div>
 
     </div>
 
-
-    <div class="event-button">
-
+    <div class="botao-evento">
         ☆ Participe e faça a diferença!
-
     </div>
-
 
 </div>
 
+<div class="painel" id="comunicados">
 
-<!-- COMUNICADOS -->
-
-<div class="panel" id="comunicados">
-
-    <div class="panel-header">
+    <div class="painel-topo">
 
         <h3>
             📢 Últimos Comunicados
@@ -1758,26 +1408,23 @@ class="shortcut">
 
     </div>
 
+    <div class="comunicado">
 
-    <div class="notice">
+        <div class="comunicado-topo">
 
-        <div class="notice-top">
-
-            <span class="notice-tag">
+            <span class="tag">
                 Importante
             </span>
 
-            <span class="notice-date">
+            <span class="data-noticia">
                 Hoje
             </span>
 
         </div>
 
-
         <h4>
             Novo benefício: Plano de Saúde
         </h4>
-
 
         <p>
             Informamos que a partir de junho teremos
@@ -1786,26 +1433,23 @@ class="shortcut">
 
     </div>
 
+    <div class="comunicado">
 
-    <div class="notice">
+        <div class="comunicado-topo">
 
-        <div class="notice-top">
-
-            <span class="notice-tag">
+            <span class="tag">
                 Aviso
             </span>
 
-            <span class="notice-date">
+            <span class="data-noticia">
                 Ontem
             </span>
 
         </div>
 
-
         <h4>
             Atualização de Procedimentos
         </h4>
-
 
         <p>
             Confira as atualizações nos procedimentos
@@ -1814,26 +1458,23 @@ class="shortcut">
 
     </div>
 
+    <div class="comunicado">
 
-    <div class="notice">
+        <div class="comunicado-topo">
 
-        <div class="notice-top">
-
-            <span class="notice-tag">
+            <span class="tag">
                 Evento
             </span>
 
-            <span class="notice-date">
+            <span class="data-noticia">
                 2 dias atrás
             </span>
 
         </div>
 
-
         <h4>
             Festa Junina LTJ
         </h4>
-
 
         <p>
             Nossa festa será realizada em breve.
@@ -1842,92 +1483,51 @@ class="shortcut">
 
     </div>
 
-
-    <div class="notice-button">
-
+    <div class="botao-comunicados">
         Acompanhar todos os comunicados
-
     </div>
 
-
 </div>
-
 
 </section>
 
-
-<div
-id="nosso-time">
-</div>
-
-<div
-id="materiais">
-</div>
-
-<div
-id="sugestoes">
-</div>
-
-<div
-id="vida-empresa">
-</div>
-
+<div id="nosso-time"></div>
+<div id="materiais"></div>
+<div id="sugestoes"></div>
+<div id="vida-empresa"></div>
 
 </main>
 
-
-<!-- ==================================================
-     RODAPÉ
-================================================== -->
-
 <footer>
 
+    <div class="rodape-logo">
 
-<div class="footer-brand">
+        <img
+        src="logo-ltj.jpeg"
+        alt="Logo LTJ">
 
-    <img
-    src="logo-ltj.jpeg"
-    alt="Logo LTJ">
-
-    <div>
-
-        <strong>
-            LTJ Intermediação de Negócios
-        </strong>
-
-        <span>
-            Portal do Colaborador
-        </span>
+        <div>
+            <strong>LTJ Intermediação de Negócios</strong>
+            <span>Portal do Colaborador</span>
+        </div>
 
     </div>
 
-</div>
+    <div class="valores">
 
+        <span>♢ Ética</span>
+        <span>🤝 Compromisso</span>
+        <span>♡ Respeito</span>
+        <span>☆ Excelência</span>
+        <span>👥 Trabalho em Equipe</span>
 
-<div class="footer-values">
+    </div>
 
-    <span>♢ Ética</span>
-
-    <span>🤝 Compromisso</span>
-
-    <span>♡ Respeito</span>
-
-    <span>☆ Excelência</span>
-
-    <span>👥 Trabalho em Equipe</span>
-
-</div>
-
-
-<div class="footer-phrase">
-
-    Somos todos LTJ!
-
-</div>
-
+    <div class="frase-final">
+        Somos todos LTJ!
+    </div>
 
 </footer>
-
 
 </div>
 
