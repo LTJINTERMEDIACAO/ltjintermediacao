@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nosso Time | LTJ</title>
 
 <style>
@@ -18,15 +21,22 @@
     --azul2:#0b54c7;
     --azul-escuro:#03275f;
     --laranja:#ff7417;
+    --laranja-claro:#fff0e3;
+    --branco:#ffffff;
     --fundo:#f5f7fb;
     --cinza:#667085;
+    --texto:#0c285a;
     --borda:#e4eaf2;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
     font-family:Arial, Helvetica, sans-serif;
     background:var(--fundo);
-    color:var(--azul-escuro);
+    color:var(--texto);
 }
 
 a{
@@ -34,66 +44,166 @@ a{
     color:inherit;
 }
 
-/* CABEÇALHO */
 
-header{
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.header{
     background:white;
-    padding:15px 5%;
+
+    min-height:100px;
+
+    padding:14px 5%;
+
     display:flex;
+    align-items:center;
     justify-content:space-between;
-    align-items:center;
+
     border-bottom:1px solid var(--borda);
+
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
-.logo-area{
+.brand{
     display:flex;
     align-items:center;
-    gap:14px;
+    gap:16px;
 }
 
-.logo-area img{
-    width:95px;
-    height:70px;
+.brand img{
+    width:100px;
+    height:72px;
     object-fit:contain;
 }
 
-.logo-area strong{
+.brand-text strong{
     display:block;
-    font-size:16px;
+
+    color:var(--azul-escuro);
+
+    font-size:17px;
+
+    margin-bottom:4px;
 }
 
-.logo-area span{
+.brand-text span{
     display:block;
+
     color:var(--cinza);
+
     font-size:11px;
-    margin-top:3px;
 }
 
 .voltar{
-    font-size:13px;
+    background:var(--azul2);
+
+    color:white;
+
+    padding:11px 16px;
+
+    border-radius:9px;
+
+    font-size:12px;
+
     font-weight:bold;
-    color:var(--azul-escuro);
+
+    transition:.2s;
 }
 
 .voltar:hover{
-    color:var(--laranja);
+    background:var(--azul-escuro);
 }
 
-/* HERO */
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero-wrap{
+    padding:22px 5% 0;
+}
 
 .hero{
-    margin:22px 5% 0;
-    padding:42px 30px;
+    min-height:245px;
+
     border-radius:20px;
-    text-align:center;
-    color:white;
+
+    padding:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:30px;
+
+    overflow:hidden;
+
+    position:relative;
+
     background:
-        radial-gradient(circle at 80% 20%,rgba(255,116,23,.25),transparent 25%),
-        linear-gradient(135deg,#03275f,#0b54c7);
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,116,23,.25),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #03275f,
+            #0b54c7
+        );
+
+    box-shadow:0 15px 35px rgba(3,39,95,.12);
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:520px;
+    height:135px;
+
+    right:-100px;
+    bottom:-90px;
+
+    background:var(--laranja);
+
+    border-radius:50%;
+
+    transform:rotate(-7deg);
+}
+
+.hero-text{
+    position:relative;
+    z-index:2;
+}
+
+.hero-tag{
+    display:inline-block;
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+    border-radius:30px;
+
+    padding:7px 13px;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
 }
 
 .hero h1{
-    font-size:38px;
+    color:white;
+
+    font-size:40px;
+
     margin-bottom:10px;
 }
 
@@ -102,24 +212,118 @@ header{
 }
 
 .hero p{
+    max-width:600px;
+
     color:#edf4ff;
+
     font-size:14px;
+
+    line-height:1.6;
 }
 
-/* CONTEÚDO */
+.hero-icon{
+    position:relative;
+    z-index:2;
+
+    width:140px;
+    height:140px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(255,255,255,.45);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:65px;
+
+    color:white;
+
+    flex-shrink:0;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
 
 main{
-    max-width:1200px;
-    margin:28px auto;
-    padding:0 20px 60px;
+    max-width:1280px;
+
+    margin:28px auto 0;
+
+    padding:0 22px 70px;
 }
+
+.section-header{
+    margin-bottom:18px;
+}
+
+.section-header h2{
+    color:var(--azul-escuro);
+
+    font-size:24px;
+
+    margin-bottom:5px;
+}
+
+.section-header p{
+    color:var(--cinza);
+
+    font-size:12px;
+
+    line-height:1.5;
+}
+
+
+/* =========================================================
+   BUSCA
+========================================================= */
 
 .busca-box{
     background:white;
+
     border:1px solid var(--borda);
+
     border-radius:16px;
+
     padding:20px;
+
     margin-bottom:22px;
+
+    box-shadow:0 6px 18px rgba(6,40,95,.04);
+}
+
+.busca-info{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:13px;
+}
+
+.busca-info strong{
+    color:var(--azul-escuro);
+
+    font-size:13px;
+}
+
+.contador{
+    background:var(--laranja-claro);
+
+    color:var(--laranja);
+
+    padding:6px 10px;
+
+    border-radius:30px;
+
+    font-size:10px;
+
+    font-weight:bold;
 }
 
 .campo-busca{
@@ -128,188 +332,469 @@ main{
 
 .campo-busca span{
     position:absolute;
-    left:15px;
+
+    left:16px;
+
     top:50%;
+
     transform:translateY(-50%);
+
+    font-size:18px;
 }
 
 .campo-busca input{
     width:100%;
-    height:50px;
-    padding:0 15px 0 45px;
+
+    height:52px;
+
+    padding:0 18px 0 48px;
+
     border:1px solid #dce3ed;
-    border-radius:10px;
+
+    border-radius:11px;
+
     outline:none;
+
     font-size:14px;
+
+    transition:.2s;
 }
 
 .campo-busca input:focus{
     border-color:var(--azul2);
+
     box-shadow:0 0 0 3px rgba(11,84,199,.08);
 }
 
-/* GRID */
+
+/* =========================================================
+   GRID
+========================================================= */
 
 #lista-time{
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:18px;
 }
 
-/* CARD */
+
+/* =========================================================
+   CARD
+========================================================= */
 
 .card{
     background:white;
+
     border:1px solid var(--borda);
+
     border-radius:18px;
+
     overflow:hidden;
+
     box-shadow:0 6px 18px rgba(6,40,95,.05);
-    transition:.2s;
+
+    transition:.22s;
 }
 
 .card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 14px 28px rgba(6,40,95,.10);
+    transform:translateY(-5px);
+
+    box-shadow:0 14px 28px rgba(6,40,95,.11);
+
+    border-color:rgba(255,116,23,.35);
 }
 
 .foto{
     width:100%;
+
     aspect-ratio:1 / 1;
-    background:#edf2f8;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf3fb,
+            #f8faff
+        );
+
     overflow:hidden;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
 }
 
 .foto img{
     width:100%;
     height:100%;
+
     object-fit:cover;
+
+    display:block;
+}
+
+.sem-foto{
+    width:85px;
+    height:85px;
+
+    border-radius:50%;
+
+    background:#e7eef8;
+
+    color:var(--azul2);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:40px;
 }
 
 .card-info{
-    padding:18px;
+    padding:17px 16px 19px;
+
     text-align:center;
 }
 
 .card-info h3{
-    font-size:17px;
-    margin-bottom:5px;
     color:var(--azul-escuro);
-}
 
-.setor{
-    color:var(--laranja);
-    font-size:11px;
-    font-weight:bold;
-    margin-bottom:13px;
+    font-size:16px;
+
+    margin-bottom:10px;
+
+    line-height:1.3;
 }
 
 .email{
-    display:inline-block;
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:6px;
+
     color:var(--azul2);
-    font-size:11px;
+
+    font-size:10px;
+
+    line-height:1.4;
+
     word-break:break-word;
+
+    background:#f4f7ff;
+
+    padding:9px;
+
+    border-radius:8px;
 }
+
+.email:hover{
+    background:#eaf1ff;
+}
+
+.sem-email{
+    color:#9aa4b3;
+
+    font-size:10px;
+
+    background:#f7f8fa;
+
+    padding:9px;
+
+    border-radius:8px;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
 
 .mensagem{
-    grid-column:1/-1;
+    grid-column:1 / -1;
+
+    background:white;
+
+    border:1px solid var(--borda);
+
+    border-radius:16px;
+
+    padding:45px 20px;
+
     text-align:center;
-    padding:40px 20px;
+
     color:var(--cinza);
+
+    font-size:13px;
+
+    line-height:1.6;
 }
 
-/* FOOTER */
+.erro{
+    grid-column:1 / -1;
+
+    background:#fff2f2;
+
+    border:1px solid #ffd1d1;
+
+    border-radius:16px;
+
+    padding:22px;
+
+    color:#a92a2a;
+
+    font-size:12px;
+
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
 
 footer{
-    background:linear-gradient(90deg,#02245b,#0645a3);
+    background:
+        linear-gradient(
+            90deg,
+            #02245b,
+            #0645a3
+        );
+
     color:white;
-    text-align:center;
-    padding:20px;
+
+    padding:20px 5%;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+
     font-size:11px;
 }
 
-/* RESPONSIVO */
+footer strong{
+    display:block;
 
-@media(max-width:1000px){
+    margin-bottom:3px;
+}
+
+.footer-frase{
+    color:var(--laranja);
+
+    font-size:21px;
+
+    font-family:"Brush Script MT", cursive;
+}
+
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:1050px){
+
     #lista-time{
         grid-template-columns:repeat(3,1fr);
     }
+
 }
 
 @media(max-width:760px){
-    header{
+
+    .header{
         flex-direction:column;
+
         gap:12px;
+
+        text-align:center;
+    }
+
+    .brand{
+        flex-direction:column;
+    }
+
+    .hero{
+        padding:30px 24px;
+    }
+
+    .hero-icon{
+        display:none;
     }
 
     #lista-time{
         grid-template-columns:repeat(2,1fr);
     }
+
+    footer{
+        flex-direction:column;
+
+        text-align:center;
+    }
+
 }
 
 @media(max-width:480px){
+
     #lista-time{
         grid-template-columns:1fr;
     }
 
     .hero h1{
-        font-size:30px;
+        font-size:31px;
     }
+
+    .busca-info{
+        flex-direction:column;
+
+        align-items:flex-start;
+    }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<header>
 
-    <div class="logo-area">
+<!-- =========================================================
+     CABEÇALHO
+========================================================= -->
 
-        <img src="logo-ltj.jpeg" alt="Logo LTJ">
+<header class="header">
 
-        <div>
-            <strong>LTJ Intermediação de Negócios</strong>
-            <span>Nosso Time</span>
+    <div class="brand">
+
+        <img
+        src="logo-ltj.jpeg"
+        alt="Logo LTJ">
+
+        <div class="brand-text">
+
+            <strong>
+                LTJ Intermediação de Negócios
+            </strong>
+
+            <span>
+                Nosso Time
+            </span>
+
         </div>
 
     </div>
 
-    <a href="index.html" class="voltar">
+
+    <a
+    href="index.html"
+    class="voltar">
+
         ← Voltar ao Portal
+
     </a>
 
 </header>
 
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<div class="hero-wrap">
+
 <section class="hero">
 
-    <h1>
-        Nosso <span>Time</span>
-    </h1>
+    <div class="hero-text">
 
-    <p>
-        Conheça as pessoas que fazem parte da LTJ.
-    </p>
+        <div class="hero-tag">
+            PORTAL DO COLABORADOR
+        </div>
+
+        <h1>
+            Nosso <span>Time</span>
+        </h1>
+
+        <p>
+            Conheça as pessoas que fazem parte da LTJ.
+            Todos os colaboradores aparecem abaixo e,
+            caso queira encontrar alguém rapidamente,
+            utilize a barra de pesquisa.
+        </p>
+
+    </div>
+
+
+    <div class="hero-icon">
+        👥
+    </div>
 
 </section>
 
+</div>
+
+
+<!-- =========================================================
+     CONTEÚDO
+========================================================= -->
+
 <main>
+
+    <div class="section-header">
+
+        <h2>
+            Colaboradores LTJ
+        </h2>
+
+        <p>
+            Consulte nome, foto e e-mail corporativo.
+        </p>
+
+    </div>
+
 
     <div class="busca-box">
 
+        <div class="busca-info">
+
+            <strong>
+                🔎 Encontre um colaborador
+            </strong>
+
+            <div
+            class="contador"
+            id="contador">
+
+                Carregando...
+
+            </div>
+
+        </div>
+
+
         <div class="campo-busca">
 
-            <span>🔎</span>
+            <span>
+                🔎
+            </span>
 
             <input
-                type="text"
-                id="busca"
-                placeholder="Busque por nome..."
-                autocomplete="off"
-            >
+            type="text"
+            id="busca"
+            placeholder="Pesquisar pelo nome..."
+            autocomplete="off"
+            disabled>
 
         </div>
 
     </div>
+
 
     <div id="lista-time">
 
@@ -321,252 +806,766 @@ footer{
 
 </main>
 
+
 <footer>
-    LTJ Intermediação de Negócios • Portal do Colaborador
+
+    <div>
+
+        <strong>
+            LTJ Intermediação de Negócios
+        </strong>
+
+        Portal do Colaborador
+
+    </div>
+
+
+    <div class="footer-frase">
+        Somos todos LTJ!
+    </div>
+
 </footer>
+
 
 <script>
 
-/* COLE AQUI O LINK CSV DA SUA PLANILHA PUBLICADA */
+/* =========================================================
+   PLANILHA NOSSO TIME
+========================================================= */
 
 const URL_PLANILHA =
-"COLE_AQUI_O_LINK_CSV_DA_PLANILHA";
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vTEYNnaE5zaSxkEFt798aQ3kF4EhcuZXjUeVOaqpdO6pbwtp8XruNwe10X1AsJsaBOvjNdGz3HKc-SD/pub?gid=777001&single=true&output=csv";
+
 
 let colaboradores = [];
 
+
+/* =========================================================
+   PROTEÇÃO SIMPLES
+========================================================= */
+
+if(
+    sessionStorage.getItem("portalLTJ")
+    !== "liberado"
+){
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+/* =========================================================
+   NORMALIZAR
+========================================================= */
+
 function normalizar(texto){
+
     return String(texto || "")
         .trim()
         .toLowerCase()
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g,"");
+        .replace(
+            /[\u0300-\u036f]/g,
+            ""
+        );
+
 }
+
+
+/* =========================================================
+   ESCAPAR HTML
+========================================================= */
+
+function escaparHTML(texto){
+
+    return String(texto || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================================================
+   LER CSV
+========================================================= */
 
 function lerCSV(texto){
 
     const linhas = [];
+
     let linha = [];
+
     let campo = "";
+
     let dentroAspas = false;
 
-    for(let i=0;i<texto.length;i++){
 
-        const c = texto[i];
-        const prox = texto[i+1];
+    for(
+        let i = 0;
+        i < texto.length;
+        i++
+    ){
 
-        if(c === '"'){
+        const caractere =
+            texto[i];
 
-            if(dentroAspas && prox === '"'){
+        const proximo =
+            texto[i + 1];
+
+
+        if(
+            caractere === '"'
+        ){
+
+            if(
+                dentroAspas
+                &&
+                proximo === '"'
+            ){
+
                 campo += '"';
+
                 i++;
+
             }else{
-                dentroAspas = !dentroAspas;
+
+                dentroAspas =
+                    !dentroAspas;
+
             }
 
-        }else if(c === "," && !dentroAspas){
+        }
+
+        else if(
+            caractere === ","
+            &&
+            !dentroAspas
+        ){
 
             linha.push(campo);
+
             campo = "";
 
-        }else if((c === "\n" || c === "\r") && !dentroAspas){
+        }
 
-            if(c === "\r" && prox === "\n"){
+        else if(
+            (
+                caractere === "\n"
+                ||
+                caractere === "\r"
+            )
+            &&
+            !dentroAspas
+        ){
+
+            if(
+                caractere === "\r"
+                &&
+                proximo === "\n"
+            ){
+
                 i++;
+
             }
+
 
             linha.push(campo);
+
             campo = "";
 
-            if(linha.some(v => String(v).trim() !== "")){
+
+            if(
+                linha.some(
+                    function(valor){
+
+                        return String(valor)
+                            .trim() !== "";
+
+                    }
+                )
+            ){
+
                 linhas.push(linha);
+
             }
+
 
             linha = [];
 
-        }else{
+        }
 
-            campo += c;
+        else{
+
+            campo += caractere;
 
         }
+
     }
+
 
     linha.push(campo);
 
-    if(linha.some(v => String(v).trim() !== "")){
+
+    if(
+        linha.some(
+            function(valor){
+
+                return String(valor)
+                    .trim() !== "";
+
+            }
+        )
+    ){
+
         linhas.push(linha);
+
     }
 
+
     return linhas;
+
 }
+
+
+/* =========================================================
+   CARREGAR TIME
+========================================================= */
 
 async function carregarTime(){
 
-    const area = document.getElementById("lista-time");
+    const area =
+        document.getElementById(
+            "lista-time"
+        );
+
+
+    const campoBusca =
+        document.getElementById(
+            "busca"
+        );
+
+
+    const contador =
+        document.getElementById(
+            "contador"
+        );
+
 
     try{
 
         const resposta =
-            await fetch(URL_PLANILHA + "&cache=" + Date.now());
+            await fetch(
 
-        if(!resposta.ok){
-            throw new Error("Erro ao acessar a planilha");
+                URL_PLANILHA
+                +
+                "&cache="
+                +
+                Date.now()
+
+            );
+
+
+        if(
+            !resposta.ok
+        ){
+
+            throw new Error(
+                "Não foi possível acessar a planilha."
+            );
+
         }
 
-        const csv = await resposta.text();
-        const linhas = lerCSV(csv);
 
-        const cabecalho = linhas[0].map(normalizar);
+        const csv =
+            await resposta.text();
 
-        const iNome = cabecalho.indexOf("nome");
-        const iSetor = cabecalho.indexOf("setor");
-        const iEmail = cabecalho.indexOf("email");
-        const iFoto = cabecalho.indexOf("foto");
-        const iAtivo = cabecalho.indexOf("ativo");
+
+        const linhas =
+            lerCSV(csv);
+
+
+        if(
+            linhas.length < 2
+        ){
+
+            throw new Error(
+                "A planilha não possui colaboradores."
+            );
+
+        }
+
+
+        const cabecalho =
+            linhas[0].map(
+                normalizar
+            );
+
+
+        const colunaNome =
+            cabecalho.indexOf(
+                "nome"
+            );
+
+
+        const colunaEmail =
+            cabecalho.indexOf(
+                "email"
+            );
+
+
+        const colunaFoto =
+            cabecalho.indexOf(
+                "foto"
+            );
+
+
+        const colunaAtivo =
+            cabecalho.indexOf(
+                "ativo"
+            );
+
+
+        if(
+            colunaNome === -1
+            ||
+            colunaFoto === -1
+        ){
+
+            throw new Error(
+                'A planilha precisa ter as colunas "Nome" e "Foto".'
+            );
+
+        }
+
 
         colaboradores = [];
 
-        for(let i=1;i<linhas.length;i++){
 
-            const linha = linhas[i];
+        for(
+            let i = 1;
+            i < linhas.length;
+            i++
+        ){
 
-            const nome = String(linha[iNome] || "").trim();
-            const setor = String(linha[iSetor] || "").trim();
-            const email = String(linha[iEmail] || "").trim();
-            const foto = String(linha[iFoto] || "").trim();
+            const linha =
+                linhas[i];
+
+
+            const nome =
+                String(
+                    linha[colunaNome]
+                    ||
+                    ""
+                ).trim();
+
+
+            const email =
+                colunaEmail >= 0
+                ?
+                String(
+                    linha[colunaEmail]
+                    ||
+                    ""
+                ).trim()
+                :
+                "";
+
+
+            const foto =
+                String(
+                    linha[colunaFoto]
+                    ||
+                    ""
+                ).trim();
+
 
             const ativo =
-                iAtivo >= 0
-                ? normalizar(linha[iAtivo])
-                : "sim";
+                colunaAtivo >= 0
+                ?
+                normalizar(
+                    linha[colunaAtivo]
+                )
+                :
+                "sim";
 
-            if(!nome){
+
+            if(
+                !nome
+            ){
+
                 continue;
+
             }
+
 
             const estaAtivo =
-                ativo === "" ||
-                ativo === "sim" ||
-                ativo === "ativo" ||
-                ativo === "true" ||
+
+                ativo === ""
+                ||
+                ativo === "sim"
+                ||
+                ativo === "ativo"
+                ||
+                ativo === "true"
+                ||
                 ativo === "1";
 
-            if(!estaAtivo){
+
+            if(
+                !estaAtivo
+            ){
+
                 continue;
+
             }
 
+
             colaboradores.push({
-                nome,
-                setor,
-                email,
-                foto
+
+                nome:nome,
+
+                email:email,
+
+                foto:foto
+
             });
+
         }
 
-        colaboradores.sort((a,b) =>
-            a.nome.localeCompare(b.nome,"pt-BR")
+
+        colaboradores.sort(
+
+            function(a,b){
+
+                return a.nome.localeCompare(
+                    b.nome,
+                    "pt-BR"
+                );
+
+            }
+
         );
 
-        mostrarTime(colaboradores);
 
-    }catch(erro){
+        campoBusca.disabled =
+            false;
+
+
+        mostrarTime(
+            colaboradores
+        );
+
+
+    }
+
+    catch(erro){
+
+        console.error(
+            erro
+        );
+
+
+        contador.textContent =
+            "Erro ao carregar";
+
 
         area.innerHTML = `
-            <div class="mensagem">
-                Não foi possível carregar os colaboradores.
+
+            <div class="erro">
+
+                <strong>
+                    ⚠️ Não foi possível carregar o Nosso Time.
+                </strong>
+
+                <br><br>
+
+                ${escaparHTML(
+                    erro.message
+                )}
+
+                <br><br>
+
+                Confira se a planilha possui as colunas:
+
+                <br><br>
+
+                <strong>
+                    Nome | Email | Foto | Ativo
+                </strong>
+
             </div>
+
         `;
+
     }
+
 }
+
+
+/* =========================================================
+   MOSTRAR TODOS OS COLABORADORES
+========================================================= */
 
 function mostrarTime(lista){
 
     const area =
-        document.getElementById("lista-time");
+        document.getElementById(
+            "lista-time"
+        );
 
-    if(lista.length === 0){
+
+    const contador =
+        document.getElementById(
+            "contador"
+        );
+
+
+    contador.textContent =
+
+        lista.length
+        +
+        (
+            lista.length === 1
+            ? " colaborador"
+            : " colaboradores"
+        );
+
+
+    if(
+        lista.length === 0
+    ){
 
         area.innerHTML = `
+
             <div class="mensagem">
-                Nenhum colaborador encontrado.
+
+                😕 Nenhum colaborador encontrado.
+
+                <br><br>
+
+                Tente pesquisar outro nome.
+
             </div>
+
         `;
 
         return;
+
     }
 
-    area.innerHTML = "";
 
-    lista.forEach(function(pessoa){
+    area.innerHTML =
+        "";
 
-        const card =
-            document.createElement("div");
 
-        card.className = "card";
+    lista.forEach(
 
-        card.innerHTML = `
+        function(pessoa){
 
-            <div class="foto">
+            const card =
+                document.createElement(
+                    "article"
+                );
 
-                ${
+
+            card.className =
+                "card";
+
+
+            const fotoHTML =
+
+                pessoa.foto
+
+                ?
+
+                `
+
+                <img
+                src="${escaparHTML(
                     pessoa.foto
-                    ? `<img src="${pessoa.foto}" alt="${pessoa.nome}">`
-                    : ""
-                }
+                )}"
+                alt="${escaparHTML(
+                    pessoa.nome
+                )}"
+                loading="lazy"
+                onerror="
+                    this.style.display='none';
+                    this.nextElementSibling.style.display='flex';
+                ">
 
-            </div>
+                <div
+                class="sem-foto"
+                style="display:none;">
 
-            <div class="card-info">
+                    👤
 
-                <h3>
-                    ${pessoa.nome}
-                </h3>
-
-                <div class="setor">
-                    ${pessoa.setor || ""}
                 </div>
 
-                ${
+                `
+
+                :
+
+                `
+
+                <div class="sem-foto">
+                    👤
+                </div>
+
+                `;
+
+
+            const emailHTML =
+
+                pessoa.email
+
+                ?
+
+                `
+
+                <a
+                href="mailto:${escaparHTML(
                     pessoa.email
-                    ? `
-                    <a
-                    href="mailto:${pessoa.email}"
-                    class="email">
-                        ✉ ${pessoa.email}
-                    </a>
-                    `
-                    : ""
-                }
+                )}"
+                class="email">
 
-            </div>
+                    ✉
+                    ${escaparHTML(
+                        pessoa.email
+                    )}
 
-        `;
+                </a>
 
-        area.appendChild(card);
+                `
 
-    });
+                :
+
+                `
+
+                <div class="sem-email">
+
+                    E-mail ainda não cadastrado
+
+                </div>
+
+                `;
+
+
+            card.innerHTML = `
+
+                <div class="foto">
+
+                    ${fotoHTML}
+
+                </div>
+
+
+                <div class="card-info">
+
+                    <h3>
+
+                        ${escaparHTML(
+                            pessoa.nome
+                        )}
+
+                    </h3>
+
+
+                    ${emailHTML}
+
+                </div>
+
+            `;
+
+
+            area.appendChild(
+                card
+            );
+
+        }
+
+    );
+
 }
 
+
+/* =========================================================
+   PESQUISA
+========================================================= */
+
 document
-.getElementById("busca")
-.addEventListener("input",function(){
+.getElementById(
+    "busca"
+)
+.addEventListener(
 
-    const termo = normalizar(this.value);
+    "input",
 
-    const filtrados =
-        colaboradores.filter(function(pessoa){
+    function(){
 
-            return normalizar(pessoa.nome)
-                .includes(termo);
+        const termo =
+            normalizar(
+                this.value
+            );
 
-        });
 
-    mostrarTime(filtrados);
+        /*
+        SE APAGAR A PESQUISA,
+        TODOS APARECEM NOVAMENTE
+        */
 
-});
+        if(
+            termo === ""
+        ){
+
+            mostrarTime(
+                colaboradores
+            );
+
+            return;
+
+        }
+
+
+        const encontrados =
+
+            colaboradores.filter(
+
+                function(pessoa){
+
+                    return normalizar(
+                        pessoa.nome
+                    )
+                    .includes(
+                        termo
+                    );
+
+                }
+
+            );
+
+
+        mostrarTime(
+            encontrados
+        );
+
+    }
+
+);
+
+
+/* =========================================================
+   INICIAR
+========================================================= */
 
 carregarTime();
 
 </script>
 
+
 </body>
+
 </html>
