@@ -1,1369 +1,991 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Portal do Colaborador | LTJ</title>
 
-
     <style>
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-
         :root {
-            --azul: #123c70;
-            --azul-escuro: #0b2b52;
-            --azul-claro: #eaf2fa;
-            --laranja: #f58220;
+            --azul: #0c3ca3;
+            --azul-escuro: #06275f;
+            --azul-medio: #1250b8;
+            --laranja: #ff7a17;
+            --laranja-claro: #fff1e5;
             --branco: #ffffff;
-            --cinza: #667085;
-            --fundo: #f6f8fb;
+            --fundo: #f4f7fb;
+            --cinza: #6b7280;
+            --texto: #12213f;
+            --borda: #e5eaf2;
         }
-
 
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: var(--fundo);
-            color: var(--azul-escuro);
+            color: var(--texto);
         }
 
+        a {
+            text-decoration: none;
+        }
 
-        /* =========================
-           CABEÇALHO
-        ========================== */
+        .app {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 230px 1fr;
+        }
 
-        header {
-            width: 100%;
-            background: white;
-            padding: 18px 7%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        /* SIDEBAR */
+
+        .sidebar {
+            background: linear-gradient(180deg, var(--azul-escuro), #083988);
+            min-height: 100vh;
+            padding: 22px 16px;
+            color: white;
             position: sticky;
             top: 0;
-            z-index: 100;
+            height: 100vh;
+            overflow-y: auto;
         }
 
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-        }
-
-
-        .logo-placeholder {
-            width: 150px;
-            height: 52px;
-            border: 2px dashed #d5dce5;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #98a2b3;
-            font-size: 12px;
+        .sidebar-logo {
+            background: white;
+            border-radius: 16px;
+            padding: 12px;
+            margin-bottom: 26px;
             text-align: center;
         }
 
-
-        nav {
-            display: flex;
-            gap: 25px;
-            align-items: center;
+        .sidebar-logo img {
+            width: 100%;
+            max-width: 145px;
+            height: auto;
+            display: block;
+            margin: auto;
         }
 
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
 
-        nav a {
-            text-decoration: none;
-            color: var(--azul);
+        .menu a {
+            color: white;
+            padding: 13px 14px;
+            border-radius: 10px;
             font-size: 14px;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             transition: 0.2s;
         }
 
-
-        nav a:hover {
-            color: var(--laranja);
-        }
-
-
-        .menu-assinaturas {
+        .menu a:hover,
+        .menu a.ativo {
             background: var(--laranja);
-            color: white !important;
-            padding: 11px 17px;
-            border-radius: 8px;
         }
 
-
-        .menu-assinaturas:hover {
-            color: white !important;
-            background: #dc6e13;
-        }
-
-
-        /* =========================
-           HERO
-        ========================== */
-
-        .hero {
-            min-height: 470px;
-            padding: 75px 7% 80px;
-
-            display: flex;
-            align-items: center;
-
-            background:
-                radial-gradient(
-                    circle at 85% 20%,
-                    rgba(245, 130, 32, 0.18),
-                    transparent 30%
-                ),
-
-                linear-gradient(
-                    135deg,
-                    #f7faff 0%,
-                    #e9f2fb 100%
-                );
-        }
-
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-
-        .etiqueta {
-            display: inline-block;
-
-            padding: 8px 15px;
-
-            border-radius: 30px;
-
-            background: rgba(245, 130, 32, 0.12);
-
-            color: var(--laranja);
-
+        .quote-box {
+            margin-top: 28px;
+            padding: 20px 16px;
+            background: rgba(0,0,0,.16);
+            border-radius: 16px;
+            line-height: 1.6;
             font-size: 13px;
-
-            font-weight: bold;
-
-            margin-bottom: 20px;
         }
 
-
-        .hero h1 {
-            font-size: clamp(40px, 6vw, 64px);
-
-            line-height: 1.05;
-
-            color: var(--azul-escuro);
-
-            margin-bottom: 22px;
-        }
-
-
-        .hero h1 span {
+        .quote-box strong {
+            display: block;
+            font-size: 32px;
             color: var(--laranja);
-        }
-
-
-        .hero p {
-            max-width: 680px;
-
-            font-size: 19px;
-
-            line-height: 1.7;
-
-            color: #526071;
-        }
-
-
-        .hero-frase {
-            margin-top: 25px;
-
-            font-size: 16px !important;
-
-            font-weight: bold;
-
-            color: var(--azul) !important;
-        }
-
-
-        /* =========================
-           SEÇÕES
-        ========================== */
-
-        section {
-            padding: 70px 7%;
-        }
-
-
-        .titulo {
-            margin-bottom: 38px;
-        }
-
-
-        .titulo-pequeno {
-            color: var(--laranja);
-
-            font-size: 13px;
-
-            font-weight: bold;
-
-            text-transform: uppercase;
-
-            letter-spacing: 1px;
-
+            line-height: 1;
             margin-bottom: 8px;
         }
 
+        /* CONTEÚDO */
 
-        .titulo h2 {
-            font-size: 34px;
-
-            color: var(--azul-escuro);
-
-            margin-bottom: 10px;
+        .conteudo {
+            min-width: 0;
         }
 
+        /* TOPO */
 
-        .titulo p {
-            color: var(--cinza);
-
-            font-size: 16px;
-        }
-
-
-        /* =========================
-           ACESSOS
-        ========================== */
-
-        .acessos {
+        .topbar {
+            height: 82px;
             background: white;
-        }
-
-
-        .cards {
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 22px;
-        }
-
-
-        .card {
-            background: white;
-
-            border: 1px solid #e7ebf0;
-
-            border-radius: 16px;
-
-            padding: 28px;
-
-            min-height: 190px;
-
-            transition: 0.25s;
-
-            cursor: pointer;
-
-            text-decoration: none;
-
-            display: block;
-        }
-
-
-        .card:hover {
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 12px 30px rgba(18, 60, 112, 0.10);
-
-            border-color:
-                rgba(245, 130, 32, 0.45);
-        }
-
-
-        .icone {
-            width: 48px;
-
-            height: 48px;
-
-            border-radius: 12px;
-
-            background: var(--azul-claro);
-
             display: flex;
-
             align-items: center;
-
-            justify-content: center;
-
-            font-size: 23px;
-
-            margin-bottom: 20px;
+            justify-content: space-between;
+            padding: 0 32px;
+            border-bottom: 1px solid var(--borda);
+            position: sticky;
+            top: 0;
+            z-index: 20;
         }
 
-
-        .card:nth-child(2) .icone,
-        .card:nth-child(5) .icone {
-            background:
-                rgba(245, 130, 32, 0.12);
+        .saudacao-topo h2 {
+            font-size: 18px;
+            color: var(--azul-escuro);
         }
 
-
-        .card h3 {
-            color: var(--azul);
-
-            font-size: 19px;
-
-            margin-bottom: 9px;
-        }
-
-
-        .card p {
+        .saudacao-topo p {
+            font-size: 13px;
             color: var(--cinza);
+            margin-top: 4px;
+        }
 
-            line-height: 1.5;
+        .top-icons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
 
+        .top-icon {
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--borda);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            color: var(--azul);
+            font-size: 18px;
+        }
+
+        /* HERO */
+
+        .hero-wrap {
+            padding: 24px 30px 0;
+        }
+
+        .hero {
+            min-height: 360px;
+            border-radius: 22px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(4, 35, 92, .96) 0%,
+                    rgba(4, 35, 92, .88) 31%,
+                    rgba(4, 35, 92, .28) 58%,
+                    rgba(4, 35, 92, .04) 100%
+                ),
+                url('fachada-ltj.jpeg') center/cover no-repeat;
+            box-shadow: 0 16px 40px rgba(12, 60, 163, .12);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            right: -80px;
+            bottom: -120px;
+            width: 360px;
+            height: 190px;
+            background: var(--laranja);
+            border-radius: 50%;
+            transform: rotate(-10deg);
+            opacity: .95;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            right: -100px;
+            bottom: -70px;
+            width: 430px;
+            height: 120px;
+            background: var(--azul);
+            border-radius: 50%;
+            transform: rotate(-10deg);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 46px;
+            max-width: 560px;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(36px, 4vw, 56px);
+            line-height: 1.05;
+            margin-bottom: 18px;
+        }
+
+        .hero-content h1 span {
+            color: var(--laranja);
+        }
+
+        .hero-content p {
+            font-size: 17px;
+            line-height: 1.6;
+            max-width: 480px;
+        }
+
+        .hero-frase {
+            margin-top: 22px;
+            font-weight: bold;
+        }
+
+        .hero-frase span {
+            color: var(--laranja);
+        }
+
+        /* PRINCIPAL */
+
+        main {
+            padding: 24px 30px 40px;
+        }
+
+        .section-title {
+            margin: 5px 0 18px;
+        }
+
+        .section-title h2 {
+            color: var(--azul-escuro);
+            font-size: 22px;
+        }
+
+        .section-title p {
+            color: var(--cinza);
+            margin-top: 5px;
             font-size: 14px;
         }
 
+        /* CARDS */
 
-        /* =========================
-           DESTAQUE
-        ========================== */
-
-        .destaque-area {
-            background: var(--fundo);
+        .atalhos {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 26px;
         }
 
+        .atalho {
+            background: white;
+            border: 1px solid var(--borda);
+            border-radius: 16px;
+            padding: 22px 18px;
+            text-align: center;
+            color: var(--texto);
+            transition: .22s;
+            min-height: 160px;
+        }
 
-        .destaque {
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--azul),
-                    #1c548f
-                );
+        .atalho:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(4, 39, 95, .10);
+            border-color: rgba(255,122,23,.4);
+        }
 
-            color: white;
-
-            border-radius: 22px;
-
-            padding: 45px;
-
+        .atalho-icon {
+            width: 62px;
+            height: 62px;
+            margin: 0 auto 13px;
+            border-radius: 17px;
             display: flex;
-
-            justify-content: space-between;
-
             align-items: center;
-
-            gap: 35px;
-
-            overflow: hidden;
-
-            position: relative;
-        }
-
-
-        .destaque::after {
-            content: "";
-
-            position: absolute;
-
-            width: 220px;
-
-            height: 220px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(245, 130, 32, 0.18);
-
-            right: -70px;
-
-            top: -80px;
-        }
-
-
-        .destaque-texto {
-            position: relative;
-
-            z-index: 2;
-        }
-
-
-        .destaque h2 {
+            justify-content: center;
+            background: linear-gradient(145deg, #eff5ff, #ffffff);
+            color: var(--azul);
             font-size: 30px;
-
-            margin-bottom: 12px;
+            box-shadow: inset 0 0 0 1px var(--borda);
         }
 
-
-        .destaque p {
-            color: #e6eef8;
-
-            line-height: 1.6;
-
-            max-width: 650px;
-        }
-
-
-        .destaque-laranja {
+        .atalho:nth-child(even) .atalho-icon {
             color: var(--laranja);
         }
 
-
-        /* =========================
-           ANIVERSARIANTES
-        ========================== */
-
-        .aniversariantes {
-            background: white;
+        .atalho h3 {
+            font-size: 16px;
+            color: var(--azul-escuro);
+            margin-bottom: 6px;
         }
 
-
-        .aniversariante-box {
-            border: 2px dashed #d9e1ea;
-
-            border-radius: 18px;
-
-            min-height: 180px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            text-align: center;
-
-            padding: 30px;
-
+        .atalho p {
+            font-size: 12.5px;
             color: var(--cinza);
+            line-height: 1.45;
         }
 
+        /* DASHBOARD */
 
-        .aniversariante-box strong {
-            display: block;
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.25fr;
+            gap: 18px;
+            margin-bottom: 26px;
+        }
 
+        .painel {
+            background: white;
+            border-radius: 17px;
+            border: 1px solid var(--borda);
+            padding: 20px;
+        }
+
+        .painel-topo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 17px;
+        }
+
+        .painel-topo h3 {
+            color: var(--azul-escuro);
+            font-size: 16px;
+        }
+
+        .painel-topo a {
             color: var(--azul);
-
-            font-size: 20px;
-
-            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: bold;
         }
 
+        .pessoa {
+            display: flex;
+            gap: 11px;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #edf0f5;
+        }
 
-        /* =========================
-           RODAPÉ
-        ========================== */
+        .avatar {
+            width: 42px;
+            height: 42px;
+            flex: 0 0 42px;
+            border-radius: 50%;
+            background: var(--laranja-claro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .pessoa strong,
+        .evento-info strong {
+            color: var(--azul-escuro);
+            font-size: 13px;
+        }
+
+        .pessoa small,
+        .evento-info small {
+            display: block;
+            color: var(--cinza);
+            margin-top: 3px;
+            font-size: 11px;
+        }
+
+        .evento {
+            display: grid;
+            grid-template-columns: 58px 1fr;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .data-box {
+            border: 1px solid #ffd8b7;
+            background: #fff8f2;
+            color: var(--laranja);
+            border-radius: 11px;
+            padding: 7px;
+            text-align: center;
+        }
+
+        .data-box strong {
+            font-size: 23px;
+            display: block;
+            line-height: 1;
+        }
+
+        .data-box small {
+            font-weight: bold;
+        }
+
+        .comunicado {
+            padding: 12px 0;
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 7px;
+            border-radius: 7px;
+            background: var(--laranja-claro);
+            color: var(--laranja);
+            font-size: 10px;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .comunicado h4 {
+            color: var(--azul-escuro);
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .comunicado p {
+            color: var(--cinza);
+            line-height: 1.4;
+            font-size: 11.5px;
+        }
+
+        /* VIDA E EMPRESA */
+
+        .vida-empresa {
+            display: grid;
+            grid-template-columns: 1.4fr repeat(3, 1fr);
+            gap: 16px;
+            background: white;
+            border: 1px solid var(--borda);
+            border-radius: 18px;
+            padding: 18px;
+        }
+
+        .vida-box {
+            padding: 15px;
+            border-right: 1px solid var(--borda);
+        }
+
+        .vida-box:last-child {
+            border-right: none;
+        }
+
+        .vida-box h3 {
+            color: var(--azul-escuro);
+            margin-bottom: 7px;
+            font-size: 15px;
+        }
+
+        .vida-box p {
+            color: var(--cinza);
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .vida-destaque h3 {
+            font-size: 18px;
+        }
+
+        /* FOOTER */
 
         footer {
             background: var(--azul-escuro);
+            color: white;
+            padding: 24px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
 
-            color: #dce5f0;
+        footer img {
+            width: 74px;
+            background: white;
+            border-radius: 8px;
+            padding: 5px;
+        }
 
-            text-align: center;
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
 
-            padding: 35px 7%;
-
+        .footer-left strong {
+            display: block;
             font-size: 13px;
-
-            line-height: 1.7;
         }
 
-
-        footer .footer-logo {
-            font-size: 25px;
-
-            font-weight: bold;
-
-            margin-bottom: 10px;
+        .footer-left span {
+            font-size: 11px;
+            opacity: .8;
         }
 
-
-        footer .footer-logo span {
-            color: var(--laranja);
+        .valores {
+            font-size: 11px;
+            opacity: .9;
+            text-align: center;
         }
 
+        /* MOBILE */
 
-        /* =========================
-           CELULAR
-        ========================== */
+        .mobile-menu {
+            display: none;
+        }
 
-        @media (max-width: 900px) {
-
-            header {
-                padding: 16px 5%;
-            }
-
-
-            nav {
-                gap: 12px;
-            }
-
-
-            nav a {
-                font-size: 12px;
-            }
-
-
-            .cards {
+        @media (max-width: 1100px) {
+            .atalhos {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-        }
-
-
-        @media (max-width: 650px) {
-
-            header {
-                flex-direction: column;
-
-                gap: 15px;
-            }
-
-
-            .logo-placeholder {
-                width: 140px;
-
-                height: 45px;
-            }
-
-
-            nav {
-                width: 100%;
-
-                justify-content: center;
-
-                flex-wrap: wrap;
-            }
-
-
-            .hero {
-                padding: 55px 6%;
-            }
-
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-
-            .hero p {
-                font-size: 17px;
-            }
-
-
-            section {
-                padding: 55px 6%;
-            }
-
-
-            .cards {
+            .dashboard {
                 grid-template-columns: 1fr;
             }
 
-
-            .destaque {
-                padding: 30px 25px;
+            .vida-empresa {
+                grid-template-columns: repeat(2, 1fr);
             }
 
+            .vida-box {
+                border-right: none;
+                border-bottom: 1px solid var(--borda);
+            }
+        }
 
-            .destaque h2 {
-                font-size: 25px;
+        @media (max-width: 780px) {
+
+            .app {
+                display: block;
             }
 
-
-            .titulo h2 {
-                font-size: 29px;
+            .sidebar {
+                display: none;
             }
 
+            .topbar {
+                padding: 0 18px;
+            }
+
+            .top-icons {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: inline-flex;
+                width: 42px;
+                height: 42px;
+                align-items: center;
+                justify-content: center;
+                background: var(--azul);
+                color: white;
+                border-radius: 10px;
+                font-size: 20px;
+            }
+
+            .hero-wrap {
+                padding: 15px 14px 0;
+            }
+
+            .hero {
+                min-height: 430px;
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(4,35,92,.88),
+                        rgba(4,35,92,.62)
+                    ),
+                    url('fachada-ltj.jpeg') center/cover no-repeat;
+            }
+
+            .hero-content {
+                padding: 30px 24px;
+            }
+
+            main {
+                padding: 20px 14px 35px;
+            }
+
+            .atalhos {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .vida-empresa {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-left {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .atalhos {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
         }
 
     </style>
-
 </head>
-
 
 <body>
 
+<div class="app">
 
-<!-- =========================
-     CABEÇALHO
-========================== -->
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
 
-
-<header>
-
-
-    <div class="logo-area">
-
-        <div class="logo-placeholder">
-
-            LOGO LTJ
-
+        <div class="sidebar-logo">
+            <img src="logo-ltj.jpeg" alt="Logo LTJ">
         </div>
 
-    </div>
+        <nav class="menu">
+            <a class="ativo" href="#inicio">🏠 Início</a>
+            <a href="assinaturas.html">✍️ Assinaturas</a>
+            <a href="#nosso-time">👥 Nosso Time</a>
+            <a href="#comunicados">📢 Comunicados</a>
+            <a href="#calendario">📅 Calendário</a>
+            <a href="#materiais">📁 Materiais</a>
+            <a href="#sugestoes">💬 Sugestões</a>
+            <a href="#aniversariantes">🎂 Aniversariantes</a>
+            <a href="#vida-empresa">♡ Vida e Empresa</a>
+        </nav>
 
-
-    <nav>
-
-        <a href="#inicio">
-            Início
-        </a>
-
-
-        <a href="#acessos">
-            Acessos
-        </a>
-
-
-        <a href="#destaques">
-            Destaques
-        </a>
-
-
-        <a href="#aniversariantes">
-            Aniversariantes
-        </a>
-
-
-        <a
-            href="assinaturas.html"
-            class="menu-assinaturas"
-        >
-            📧 Assinaturas
-        </a>
-
-    </nav>
-
-
-</header>
-
-
-<!-- =========================
-     INÍCIO
-========================== -->
-
-
-<section
-    class="hero"
-    id="inicio"
->
-
-
-    <div class="hero-content">
-
-
-        <div class="etiqueta">
-
-            PORTAL DO COLABORADOR
-
+        <div class="quote-box">
+            <strong>“</strong>
+            Aqui, cada pessoa importa e cada conquista conta!
         </div>
 
-
-        <h1>
-
-            Bem-vindo à
-            <span>LTJ!</span>
-
-        </h1>
+    </aside>
 
 
-        <p>
+    <div class="conteudo">
 
-            Um espaço criado para conectar,
-            informar e aproximar ainda mais
-            o nosso time.
+        <!-- TOPO -->
+        <header class="topbar">
 
-        </p>
-
-
-        <p class="hero-frase">
-
-            Aqui, cada pessoa faz parte da nossa história.
-
-        </p>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- =========================
-     ACESSOS
-========================== -->
-
-
-<section
-    class="acessos"
-    id="acessos"
->
-
-
-    <div class="titulo">
-
-
-        <div class="titulo-pequeno">
-
-            PARA VOCÊ
-
-        </div>
-
-
-        <h2>
-
-            Acessos rápidos
-
-        </h2>
-
-
-        <p>
-
-            Tudo o que você precisa encontrar
-            no dia a dia.
-
-        </p>
-
-
-    </div>
-
-
-    <div class="cards">
-
-
-        <!-- ASSINATURAS -->
-
-
-        <a
-            href="assinaturas.html"
-            class="card"
-        >
-
-            <div class="icone">
-                📧
+            <div class="saudacao-topo">
+                <h2>Olá, Colaborador! 👋</h2>
+                <p>Seja bem-vindo(a) ao Portal do Colaborador LTJ.</p>
             </div>
 
-
-            <h3>
-
-                Assinaturas de E-mail
-
-            </h3>
-
-
-            <p>
-
-                Acesse sua assinatura oficial
-                da LTJ para utilizar no
-                e-mail corporativo.
-
-            </p>
-
-        </a>
-
-
-        <!-- COMUNICADOS -->
-
-
-        <a
-            href="#comunicados"
-            class="card"
-        >
-
-            <div class="icone">
-                📢
+            <div class="top-icons">
+                <div class="top-icon">🔔</div>
+                <div class="top-icon">📅</div>
+                <div class="top-icon">🔍</div>
             </div>
 
+            <div class="mobile-menu">☰</div>
 
-            <h3>
-
-                Comunicados
-
-            </h3>
+        </header>
 
 
-            <p>
+        <!-- BANNER -->
+        <div class="hero-wrap" id="inicio">
 
-                Informações e avisos importantes
-                para o nosso time.
+            <section class="hero">
 
-            </p>
+                <div class="hero-content">
 
-        </a>
+                    <h1>
+                        Bem-vindo ao<br>
+                        Portal do <span>Colaborador</span> LTJ!
+                    </h1>
+
+                    <p>
+                        Informações, ferramentas e recursos para
+                        facilitar o seu dia a dia.
+                    </p>
+
+                    <p class="hero-frase">
+                        Juntos, conectamos pessoas e geramos
+                        <span>resultados!</span>
+                    </p>
+
+                </div>
+
+            </section>
+
+        </div>
 
 
-        <!-- CALENDÁRIO -->
+        <main>
 
-
-        <a
-            href="#calendario"
-            class="card"
-        >
-
-            <div class="icone">
-                📅
+            <div class="section-title">
+                <h2>Acessos rápidos</h2>
+                <p>Encontre rapidamente os principais recursos do portal.</p>
             </div>
 
+            <!-- ATALHOS -->
+            <section class="atalhos">
 
-            <h3>
+                <a href="assinaturas.html" class="atalho">
+                    <div class="atalho-icon">✍️</div>
+                    <h3>Assinaturas</h3>
+                    <p>Acesse sua assinatura oficial de e-mail.</p>
+                </a>
 
-                Calendário
+                <a href="#nosso-time" class="atalho">
+                    <div class="atalho-icon">👥</div>
+                    <h3>Nosso Time</h3>
+                    <p>Conheça nossa equipe e departamentos.</p>
+                </a>
 
-            </h3>
+                <a href="#comunicados" class="atalho">
+                    <div class="atalho-icon">📢</div>
+                    <h3>Comunicados</h3>
+                    <p>Fique por dentro das novidades e avisos.</p>
+                </a>
+
+                <a href="#calendario" class="atalho">
+                    <div class="atalho-icon">📅</div>
+                    <h3>Calendário</h3>
+                    <p>Consulte eventos, reuniões e datas importantes.</p>
+                </a>
+
+                <a href="#materiais" class="atalho">
+                    <div class="atalho-icon">📁</div>
+                    <h3>Materiais</h3>
+                    <p>Acesse documentos, manuais e arquivos importantes.</p>
+                </a>
+
+                <a href="#sugestoes" class="atalho">
+                    <div class="atalho-icon">💬</div>
+                    <h3>Sugestões</h3>
+                    <p>Envie suas sugestões de forma anônima.</p>
+                </a>
+
+                <a href="#aniversariantes" class="atalho">
+                    <div class="atalho-icon">🎂</div>
+                    <h3>Aniversariantes do Mês</h3>
+                    <p>Vamos celebrar quem faz aniversário!</p>
+                </a>
+
+                <a href="#vida-empresa" class="atalho">
+                    <div class="atalho-icon">♡</div>
+                    <h3>Vida e Empresa</h3>
+                    <p>Saúde, bem-estar e qualidade de vida.</p>
+                </a>
+
+            </section>
 
 
-            <p>
+            <!-- PAINÉIS -->
+            <section class="dashboard">
 
-                Consulte datas, compromissos,
-                ações e acontecimentos da LTJ.
+                <div class="painel" id="aniversariantes">
 
-            </p>
+                    <div class="painel-topo">
+                        <h3>🎁 Aniversariantes do Mês</h3>
+                        <a href="#">Ver todos</a>
+                    </div>
 
-        </a>
+                    <div class="pessoa">
+                        <div class="avatar">🎂</div>
+                        <div>
+                            <strong>Ana Paula</strong>
+                            <small>05 de Maio</small>
+                        </div>
+                    </div>
+
+                    <div class="pessoa">
+                        <div class="avatar">🎉</div>
+                        <div>
+                            <strong>Paulo Rodrigues</strong>
+                            <small>14 de Maio</small>
+                        </div>
+                    </div>
+
+                    <div class="pessoa">
+                        <div class="avatar">🎈</div>
+                        <div>
+                            <strong>Melissa Amaral</strong>
+                            <small>21 de Maio</small>
+                        </div>
+                    </div>
+
+                    <div class="pessoa">
+                        <div class="avatar">🎁</div>
+                        <div>
+                            <strong>Karin Romano</strong>
+                            <small>28 de Maio</small>
+                        </div>
+                    </div>
+
+                </div>
 
 
-        <!-- EVENTOS -->
+                <div class="painel" id="calendario">
+
+                    <div class="painel-topo">
+                        <h3>📅 Próximos Eventos</h3>
+                        <a href="#">Ver calendário</a>
+                    </div>
+
+                    <div class="evento">
+                        <div class="data-box">
+                            <strong>15</strong>
+                            <small>MAI</small>
+                        </div>
+
+                        <div class="evento-info">
+                            <strong>Reunião Geral</strong>
+                            <small>⏰ 04h00</small>
+                            <small>📍 Sala de Reuniões</small>
+                        </div>
+                    </div>
+
+                    <div class="evento">
+                        <div class="data-box">
+                            <strong>20</strong>
+                            <small>MAI</small>
+                        </div>
+
+                        <div class="evento-info">
+                            <strong>Treinamento Comercial</strong>
+                            <small>⏰ 09h00</small>
+                            <small>📍 Auditório</small>
+                        </div>
+                    </div>
+
+                    <div class="evento">
+                        <div class="data-box">
+                            <strong>30</strong>
+                            <small>MAI</small>
+                        </div>
+
+                        <div class="evento-info">
+                            <strong>Café com a Direção</strong>
+                            <small>⏰ 08h30</small>
+                            <small>📍 Refeitório</small>
+                        </div>
+                    </div>
+
+                </div>
 
 
-        <a
-            href="#eventos"
-            class="card"
-        >
+                <div class="painel" id="comunicados">
 
-            <div class="icone">
-                🎉
+                    <div class="painel-topo">
+                        <h3>📢 Últimos Comunicados</h3>
+                        <a href="#">Ver todos</a>
+                    </div>
+
+                    <div class="comunicado">
+                        <span class="tag">Importante</span>
+
+                        <h4>Novo comunicado</h4>
+
+                        <p>
+                            Aqui você poderá inserir os avisos
+                            mais importantes para todos os colaboradores.
+                        </p>
+                    </div>
+
+                    <div class="comunicado">
+                        <span class="tag">Aviso</span>
+
+                        <h4>Atualização de procedimentos</h4>
+
+                        <p>
+                            Utilize esta área para informar
+                            mudanças e orientações internas.
+                        </p>
+                    </div>
+
+                    <div class="comunicado">
+                        <span class="tag">Evento</span>
+
+                        <h4>Próxima ação da LTJ</h4>
+
+                        <p>
+                            Você poderá divulgar eventos,
+                            campanhas e atividades internas.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- VIDA E EMPRESA -->
+            <section class="vida-empresa" id="vida-empresa">
+
+                <div class="vida-box vida-destaque">
+                    <h3>♡ Vida e Empresa</h3>
+                    <p>
+                        Cuidamos de pessoas e construímos um ambiente
+                        melhor todos os dias.
+                    </p>
+                </div>
+
+                <div class="vida-box">
+                    <h3>🪷 Bem-estar</h3>
+                    <p>
+                        Dicas e ações para sua saúde física e mental.
+                    </p>
+                </div>
+
+                <div class="vida-box">
+                    <h3>♡ Qualidade de Vida</h3>
+                    <p>
+                        Informações e benefícios para mais qualidade.
+                    </p>
+                </div>
+
+                <div class="vida-box">
+                    <h3>⭐ Reconhecimento</h3>
+                    <p>
+                        Valorizamos quem faz a diferença todos os dias.
+                    </p>
+                </div>
+
+            </section>
+
+
+            <!-- SEÇÕES FUTURAS -->
+
+            <div id="nosso-time"></div>
+            <div id="materiais"></div>
+            <div id="sugestoes"></div>
+
+        </main>
+
+
+        <footer>
+
+            <div class="footer-left">
+
+                <img src="logo-ltj.jpeg" alt="Logo LTJ">
+
+                <div>
+                    <strong>LTJ Intermediação de Negócios</strong>
+                    <span>Portal do Colaborador</span>
+                </div>
+
             </div>
 
-
-            <h3>
-
-                Eventos & Ações
-
-            </h3>
-
-
-            <p>
-
-                Confira momentos especiais,
-                campanhas e ações internas.
-
-            </p>
-
-        </a>
-
-
-        <!-- NOSSO TIME -->
-
-
-        <a
-            href="#time"
-            class="card"
-        >
-
-            <div class="icone">
-                👥
+            <div class="valores">
+                Ética • Compromisso • Respeito • Excelência • Trabalho em Equipe
             </div>
 
+            <div>♡</div>
 
-            <h3>
-
-                Nosso Time
-
-            </h3>
-
-
-            <p>
-
-                Conheça as pessoas que fazem
-                parte da nossa equipe.
-
-            </p>
-
-        </a>
-
-
-        <!-- MATERIAIS -->
-
-
-        <a
-            href="#materiais"
-            class="card"
-        >
-
-            <div class="icone">
-                📚
-            </div>
-
-
-            <h3>
-
-                Materiais
-
-            </h3>
-
-
-            <p>
-
-                Acesse conteúdos e materiais
-                úteis para sua rotina.
-
-            </p>
-
-        </a>
-
-
-        <!-- SUGESTÕES -->
-
-
-        <a
-            href="#sugestoes"
-            class="card"
-        >
-
-            <div class="icone">
-                💡
-            </div>
-
-
-            <h3>
-
-                Sugestões
-
-            </h3>
-
-
-            <p>
-
-                Um espaço para compartilhar
-                ideias e contribuir com a LTJ.
-
-            </p>
-
-        </a>
-
+        </footer>
 
     </div>
 
-
-</section>
-
-
-<!-- =========================
-     COMUNICADOS
-========================== -->
-
-
-<section
-    class="destaque-area"
-    id="comunicados"
->
-
-
-    <div class="destaque">
-
-
-        <div class="destaque-texto">
-
-
-            <h2>
-
-                📢 Comunicados
-
-            </h2>
-
-
-            <p>
-
-                Este espaço será utilizado para
-                divulgar informações importantes,
-                avisos e novidades para todos
-                os colaboradores.
-
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- =========================
-     CALENDÁRIO
-========================== -->
-
-
-<section
-    class="destaque-area"
-    id="calendario"
->
-
-
-    <div class="destaque">
-
-
-        <div class="destaque-texto">
-
-
-            <h2>
-
-                📅 Calendário LTJ
-
-            </h2>
-
-
-            <p>
-
-                Aqui poderemos reunir datas
-                importantes, reuniões, campanhas,
-                eventos e outras atividades
-                do nosso calendário interno.
-
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- =========================
-     EVENTOS
-========================== -->
-
-
-<section
-    class="destaque-area"
-    id="eventos"
->
-
-
-    <div class="destaque">
-
-
-        <div class="destaque-texto">
-
-
-            <h2>
-
-                🎉 Eventos & Ações
-
-            </h2>
-
-
-            <p>
-
-                Um espaço para registrar e divulgar
-                nossas campanhas, comemorações,
-                ações internas e momentos especiais.
-
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- =========================
-     NOSSO TIME
-========================== -->
-
-
-<section
-    class="aniversariantes"
-    id="time"
->
-
-
-    <div class="titulo">
-
-
-        <div class="titulo-pequeno">
-
-            NOSSO TIME
-
-        </div>
-
-
-        <h2>
-
-            👥 Pessoas que fazem a LTJ
-
-        </h2>
-
-
-        <p>
-
-            Em breve poderemos apresentar
-            aqui todos os colaboradores,
-            suas áreas e funções.
-
-        </p>
-
-
-    </div>
-
-
-    <div class="aniversariante-box">
-
-
-        <div>
-
-
-            <strong>
-
-                Nosso time
-
-            </strong>
-
-
-            <p>
-
-                Em breve teremos uma área
-                especial para apresentar
-                nossos colaboradores.
-
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- =========================
-     MATERIAIS
-========================== -->
-
-
-<section
-    class="destaque-area"
-    id="materiais"
->
-
-
-    <div class="destaque">
-
-
-        <div class="destaque-texto">
-
-
-            <h2>
-
-                📚 Materiais
-
-            </h2>
-
-
-            <p>
-
-                Aqui poderemos disponibilizar
-                documentos, materiais de apoio,
-                modelos e conteúdos úteis
-                para o dia a dia.
-
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- =========================
-     SUGESTÕES
-========================== -->
-
-
-<section
-    class="destaque-area"
-    id="sugestoes"
->
-
-
-    <div class="destaque">
-
-
-        <div class="destaque-texto">
-
-
-            <h2>
-
-                💡 Sugestões
-
-            </h2>
-
-
-            <p>
-
-                Queremos ouvir você.
-                Futuramente este espaço poderá
-                receber sugestões e ideias
-                dos nossos colaboradores.
-
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- =========================
-     ANIVERSARIANTES
-========================== -->
-
-
-<section
-    class="aniversariantes"
-    id="aniversariantes"
->
-
-
-    <div class="titulo">
-
-
-        <div class="titulo-pequeno">
-
-            NOSSO TIME
-
-        </div>
-
-
-        <h2>
-
-            🎂 Aniversariantes do mês
-
-        </h2>
-
-
-        <p>
-
-            Vamos celebrar juntos os momentos
-            especiais das pessoas que fazem
-            parte da nossa história.
-
-        </p>
-
-
-    </div>
-
-
-    <div class="aniversariante-box">
-
-
-        <div>
-
-
-            <strong>
-
-                Em breve
-
-            </strong>
-
-
-            <p>
-
-                Aqui aparecerão os aniversariantes
-                de cada mês.
-
-            </p>
-
-
-        </div>
-
-
-    </div>
-
-
-</section>
-
-
-<!-- =========================
-     RODAPÉ
-========================== -->
-
-
-<footer>
-
-
-    <div class="footer-logo">
-
-        LTJ<span>.</span>
-
-    </div>
-
-
-    <p>
-
-        Portal do Colaborador
-
-    </p>
-
-
-    <p>
-
-        Rua Duque de Caxias, 50 – Vila Leão
-
-    </p>
-
-
-    <p style="margin-top: 15px;">
-
-        © 2026 LTJ Intermediação.
-        Todos os direitos reservados.
-
-    </p>
-
-
-</footer>
-
+</div>
 
 </body>
-
 </html>
