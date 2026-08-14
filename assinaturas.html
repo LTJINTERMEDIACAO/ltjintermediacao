@@ -29,6 +29,10 @@
     --borda:#e4eaf2;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:Arial, Helvetica, sans-serif;
     background:var(--fundo);
@@ -39,17 +43,19 @@ a{
     text-decoration:none;
 }
 
-
 /* =========================================
    CABEÇALHO
 ========================================= */
 
 header{
     background:white;
+
     padding:15px 5%;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     border-bottom:1px solid var(--borda);
 }
 
@@ -88,22 +94,25 @@ header{
     color:var(--laranja);
 }
 
-
 /* =========================================
    HERO
 ========================================= */
 
 .hero{
     margin:22px 5% 0;
+
     border-radius:20px;
+
     padding:45px 30px;
+
     text-align:center;
+
     color:white;
 
     background:
         radial-gradient(
             circle at 80% 20%,
-            rgba(255,116,23,.25),
+            rgba(255,116,23,.27),
             transparent 27%
         ),
         linear-gradient(
@@ -117,11 +126,16 @@ header{
 
 .hero-tag{
     display:inline-block;
+
     padding:7px 13px;
+
     border-radius:30px;
+
     background:rgba(255,255,255,.12);
+
     font-size:10px;
     font-weight:bold;
+
     margin-bottom:15px;
 }
 
@@ -135,13 +149,16 @@ header{
 }
 
 .hero p{
-    max-width:650px;
+    max-width:680px;
+
     margin:auto;
+
     color:#edf4ff;
+
     font-size:14px;
+
     line-height:1.6;
 }
-
 
 /* =========================================
    PASSOS
@@ -149,30 +166,44 @@ header{
 
 .passos{
     max-width:1100px;
+
     margin:22px auto 0;
+
     padding:0 20px;
 
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:12px;
 }
 
 .passo{
     background:white;
+
     border:1px solid var(--borda);
+
     border-radius:14px;
+
     padding:17px;
+
     text-align:center;
+
     color:var(--cinza);
+
     font-size:11px;
+
+    box-shadow:0 5px 15px rgba(6,40,95,.03);
 }
 
 .numero{
     width:30px;
     height:30px;
+
     border-radius:50%;
 
     background:var(--laranja);
+
     color:white;
 
     display:flex;
@@ -190,11 +221,13 @@ header{
 
 .passo strong{
     display:block;
+
     color:var(--azul-escuro);
+
     font-size:12px;
+
     margin-bottom:4px;
 }
-
 
 /* =========================================
    CONTEÚDO
@@ -202,14 +235,19 @@ header{
 
 .conteudo{
     max-width:1100px;
+
     margin:28px auto;
+
     padding:0 20px 70px;
 }
 
 .busca-box{
     background:white;
+
     border:1px solid var(--borda);
+
     border-radius:18px;
+
     padding:26px;
 
     box-shadow:0 7px 20px rgba(6,40,95,.05);
@@ -217,19 +255,22 @@ header{
 
 .busca-box h2{
     color:var(--azul-escuro);
+
     font-size:21px;
+
     margin-bottom:5px;
 }
 
 .busca-box > p{
     color:var(--cinza);
+
     font-size:12px;
+
     margin-bottom:18px;
 }
 
-
 /* =========================================
-   BUSCA
+   CAMPO DE BUSCA
 ========================================= */
 
 .campo-busca{
@@ -238,24 +279,32 @@ header{
 
 .campo-busca span{
     position:absolute;
+
     left:16px;
+
     top:50%;
+
     transform:translateY(-50%);
+
     font-size:19px;
 }
 
 .campo-busca input{
     width:100%;
+
     height:54px;
 
     padding:0 18px 0 49px;
 
     border:1px solid #dce3ed;
+
     border-radius:12px;
 
     outline:none;
 
     font-size:15px;
+
+    transition:.2s;
 }
 
 .campo-busca input:focus{
@@ -265,6 +314,145 @@ header{
         0 0 0 3px rgba(11,84,199,.08);
 }
 
+/* =========================================
+   BOTÃO VER TODOS
+========================================= */
+
+.ver-todos-area{
+    margin-top:13px;
+}
+
+.ver-todos-btn{
+    width:100%;
+
+    border:1px solid #dce3ed;
+
+    border-radius:11px;
+
+    background:#f8faff;
+
+    color:var(--azul-escuro);
+
+    padding:13px 16px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    transition:.2s;
+}
+
+.ver-todos-btn:hover{
+    border-color:var(--azul2);
+
+    background:#f3f7ff;
+}
+
+.seta{
+    transition:.2s;
+}
+
+.seta.aberta{
+    transform:rotate(180deg);
+}
+
+/* =========================================
+   LISTA DE COLABORADORES
+========================================= */
+
+.lista-colaboradores{
+    display:none;
+
+    background:white;
+
+    border:1px solid var(--borda);
+
+    border-radius:12px;
+
+    margin-top:9px;
+
+    max-height:320px;
+
+    overflow-y:auto;
+
+    box-shadow:0 10px 24px rgba(6,40,95,.07);
+}
+
+.lista-colaboradores.aberta{
+    display:block;
+}
+
+.item-colaborador{
+    width:100%;
+
+    background:white;
+
+    border:none;
+
+    border-bottom:1px solid #edf0f5;
+
+    padding:12px 16px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    transition:.15s;
+}
+
+.item-colaborador:last-child{
+    border-bottom:none;
+}
+
+.item-colaborador:hover{
+    background:#f7faff;
+}
+
+.lista-avatar{
+    width:32px;
+    height:32px;
+
+    border-radius:50%;
+
+    background:var(--laranja-claro);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:14px;
+}
+
+.lista-nome strong{
+    display:block;
+
+    color:var(--azul-escuro);
+
+    font-size:12px;
+}
+
+.lista-nome small{
+    display:block;
+
+    color:var(--cinza);
+
+    font-size:9px;
+
+    margin-top:2px;
+}
 
 /* =========================================
    STATUS
@@ -272,7 +460,9 @@ header{
 
 #status-planilha{
     margin-top:12px;
+
     font-size:11px;
+
     color:var(--cinza);
 }
 
@@ -282,15 +472,21 @@ header{
 
 .mensagem{
     padding:35px 20px;
+
     text-align:center;
+
     color:var(--cinza);
+
     font-size:13px;
+
     line-height:1.6;
 }
 
 .erro{
     background:#fff3f3;
+
     border:1px solid #ffd2d2;
+
     color:#a92a2a;
 
     border-radius:12px;
@@ -300,12 +496,12 @@ header{
     margin-top:18px;
 
     font-size:12px;
+
     line-height:1.6;
 }
 
-
 /* =========================================
-   CARD
+   RESULTADO
 ========================================= */
 
 .resultado-card{
@@ -319,12 +515,12 @@ header{
 
     margin-bottom:18px;
 
-    box-shadow:
-        0 7px 20px rgba(6,40,95,.05);
+    box-shadow:0 7px 20px rgba(6,40,95,.05);
 }
 
 .resultado-topo{
     display:flex;
+
     align-items:center;
     justify-content:space-between;
 
@@ -335,7 +531,9 @@ header{
 
 .nome-area{
     display:flex;
+
     align-items:center;
+
     gap:13px;
 }
 
@@ -356,17 +554,21 @@ header{
 
 .nome-area h3{
     color:var(--azul-escuro);
+
     font-size:20px;
+
     margin-bottom:4px;
 }
 
 .nome-area span{
     color:var(--cinza);
+
     font-size:11px;
 }
 
 .status{
     background:#edf4ff;
+
     color:var(--azul2);
 
     padding:7px 11px;
@@ -374,18 +576,21 @@ header{
     border-radius:30px;
 
     font-size:9px;
+
     font-weight:bold;
 }
 
-
 /* =========================================
-   IMAGEM
+   PREVIEW
 ========================================= */
 
 .preview-titulo{
     color:var(--azul-escuro);
+
     font-size:11px;
+
     font-weight:bold;
+
     margin-bottom:9px;
 }
 
@@ -419,10 +624,11 @@ header{
 
 .erro-imagem{
     color:#a92a2a;
+
     font-size:12px;
+
     line-height:1.5;
 }
-
 
 /* =========================================
    BOTÕES
@@ -430,7 +636,9 @@ header{
 
 .acoes{
     display:flex;
+
     flex-wrap:wrap;
+
     gap:10px;
 
     margin-top:18px;
@@ -454,12 +662,6 @@ header{
 
 .botao:hover{
     transform:translateY(-2px);
-}
-
-.botao:disabled{
-    opacity:.45;
-    cursor:not-allowed;
-    transform:none;
 }
 
 .botao-copiar{
@@ -498,7 +700,6 @@ header{
     line-height:1.5;
 }
 
-
 /* =========================================
    RODAPÉ
 ========================================= */
@@ -520,7 +721,6 @@ footer{
     font-size:11px;
 }
 
-
 /* =========================================
    RESPONSIVO
 ========================================= */
@@ -529,7 +729,9 @@ footer{
 
     header{
         flex-direction:column;
+
         gap:13px;
+
         text-align:center;
     }
 
@@ -539,6 +741,7 @@ footer{
 
     .resultado-topo{
         flex-direction:column;
+
         align-items:flex-start;
     }
 
@@ -556,6 +759,10 @@ footer{
 
     .passos{
         grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:32px 20px;
     }
 
     .hero h1{
@@ -626,9 +833,9 @@ footer{
     </h1>
 
     <p>
-        Digite seu nome para localizar sua
-        assinatura oficial e utilizar no
-        UOL Mail Pro.
+        Digite seu nome ou consulte a lista de colaboradores
+        para localizar sua assinatura oficial e utilizar
+        no UOL Mail Pro.
     </p>
 
 </section>
@@ -715,7 +922,8 @@ footer{
         </h2>
 
         <p>
-            Digite pelo menos duas letras do seu nome.
+            Digite pelo menos duas letras do seu nome
+            ou abra a lista completa.
         </p>
 
 
@@ -731,6 +939,39 @@ footer{
             placeholder="Ex.: Amanda"
             autocomplete="off"
             disabled>
+
+        </div>
+
+
+        <!-- VER TODOS -->
+
+        <div class="ver-todos-area">
+
+            <button
+            class="ver-todos-btn"
+            id="botao-ver-todos"
+            onclick="alternarLista()">
+
+                <span>
+                    👥 Ver todos os colaboradores
+                </span>
+
+                <span
+                class="seta"
+                id="seta-lista">
+
+                    ▼
+
+                </span>
+
+            </button>
+
+
+            <div
+            class="lista-colaboradores"
+            id="lista-colaboradores">
+
+            </div>
 
         </div>
 
@@ -766,7 +1007,6 @@ footer{
 </footer>
 
 
-
 <script>
 
 /* =========================================================
@@ -797,7 +1037,7 @@ if(
 
 
 /* =========================================================
-   NORMALIZAR
+   NORMALIZAR TEXTO
 ========================================================= */
 
 function normalizar(texto){
@@ -1058,7 +1298,7 @@ async function carregarColaboradores(){
         ){
 
             throw new Error(
-                'A planilha precisa ter as colunas "Nome" e "Imagem".'
+                'A planilha precisa ter as colunas Nome e Imagem.'
             );
 
         }
@@ -1192,15 +1432,17 @@ async function carregarColaboradores(){
 
             <div class="mensagem">
 
-                Digite seu nome acima
-                para localizar sua assinatura.
+                Digite seu nome ou clique em
+                <strong>
+                    Ver todos os colaboradores
+                </strong>.
 
             </div>
 
         `;
 
 
-        busca.focus();
+        montarListaColaboradores();
 
 
     }
@@ -1228,8 +1470,7 @@ async function carregarColaboradores(){
 
                 <br><br>
 
-                Confira se sua planilha possui
-                estas colunas:
+                Confira se sua planilha possui:
 
                 <br><br>
 
@@ -1239,24 +1480,165 @@ async function carregarColaboradores(){
 
                 </strong>
 
-                <br><br>
-
-                Na coluna
-                <strong>Imagem</strong>,
-                coloque o link completo,
-                começando com:
-
-                <br><br>
-
-                <strong>
-                    https://
-                </strong>
-
             </div>
 
         `;
 
     }
+
+}
+
+
+/* =========================================================
+   MONTAR LISTA DE COLABORADORES
+========================================================= */
+
+function montarListaColaboradores(){
+
+    const lista =
+        document.getElementById(
+            "lista-colaboradores"
+        );
+
+
+    lista.innerHTML =
+        "";
+
+
+    colaboradores.forEach(
+
+        function(colaborador){
+
+            const item =
+                document.createElement(
+                    "button"
+                );
+
+
+            item.className =
+                "item-colaborador";
+
+
+            item.innerHTML = `
+
+                <div class="lista-avatar">
+                    👤
+                </div>
+
+                <div class="lista-nome">
+
+                    <strong>
+                        ${escaparHTML(
+                            colaborador.nome
+                        )}
+                    </strong>
+
+                    <small>
+                        ${escaparHTML(
+                            colaborador.setor
+                            ||
+                            "Colaborador LTJ"
+                        )}
+                    </small>
+
+                </div>
+
+            `;
+
+
+            item.onclick =
+                function(){
+
+                    selecionarColaborador(
+                        colaborador
+                    );
+
+                };
+
+
+            lista.appendChild(
+                item
+            );
+
+        }
+
+    );
+
+}
+
+
+/* =========================================================
+   ABRIR/FECHAR LISTA
+========================================================= */
+
+function alternarLista(){
+
+    const lista =
+        document.getElementById(
+            "lista-colaboradores"
+        );
+
+
+    const seta =
+        document.getElementById(
+            "seta-lista"
+        );
+
+
+    lista.classList.toggle(
+        "aberta"
+    );
+
+
+    seta.classList.toggle(
+        "aberta"
+    );
+
+}
+
+
+/* =========================================================
+   SELECIONAR COLABORADOR DA LISTA
+========================================================= */
+
+function selecionarColaborador(
+    colaborador
+){
+
+    document.getElementById(
+        "busca"
+    ).value =
+        colaborador.nome;
+
+
+    mostrarResultados([
+        colaborador
+    ]);
+
+
+    document.getElementById(
+        "lista-colaboradores"
+    ).classList.remove(
+        "aberta"
+    );
+
+
+    document.getElementById(
+        "seta-lista"
+    ).classList.remove(
+        "aberta"
+    );
+
+
+    document.getElementById(
+        "resultados"
+    ).scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"start"
+
+    });
 
 }
 
@@ -1331,7 +1713,7 @@ document
 
 
 /* =========================================================
-   RESULTADOS
+   MOSTRAR RESULTADOS
 ========================================================= */
 
 function mostrarResultados(lista){
@@ -1456,7 +1838,7 @@ function mostrarResultados(lista){
                     onerror="
                     this.style.display='none';
                     this.parentElement.innerHTML=
-                    '<div class=&quot;erro-imagem&quot;>⚠️ Não foi possível carregar esta imagem.<br><br>Confira o link na coluna Imagem da planilha.</div>';
+                    '<div class=&quot;erro-imagem&quot;>⚠️ Não foi possível carregar esta imagem.<br><br>Confira o link na planilha.</div>';
                     ">
 
                 </div>
@@ -1508,15 +1890,13 @@ function mostrarResultados(lista){
 
                 <div class="ajuda">
 
-                    💡 Se o botão
-                    <strong>
-                        Copiar assinatura
-                    </strong>
-                    não funcionar,
-                    utilize
+                    💡 Caso não seja possível
+                    copiar automaticamente,
+                    clique em
                     <strong>
                         Abrir imagem
-                    </strong>.
+                    </strong>,
+                    copie e cole no UOL Mail Pro.
 
                 </div>
 
@@ -1667,7 +2047,7 @@ async function copiarImagem(
 
 
 /* =========================================================
-   SEGURANÇA DE TEXTO
+   SEGURANÇA DO TEXTO
 ========================================================= */
 
 function escaparHTML(texto){
