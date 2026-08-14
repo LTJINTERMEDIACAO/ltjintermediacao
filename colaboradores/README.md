@@ -1,0 +1,1 @@
+Fotos dos colaboradores LTJ
