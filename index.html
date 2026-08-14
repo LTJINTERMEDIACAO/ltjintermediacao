@@ -42,148 +42,99 @@ a{
     color:inherit;
 }
 
-.portal{
-    min-height:100vh;
-    display:grid;
-    grid-template-columns:230px 1fr;
-}
-
 /* ========================
-   SIDEBAR
+   CABEÇALHO
 ======================== */
 
-.sidebar{
+header{
+    background:white;
+    border-bottom:1px solid var(--borda);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:14px 5%;
+
     position:sticky;
     top:0;
-    height:100vh;
-    overflow-y:auto;
-
-    background:
-        radial-gradient(circle at top left, #0d56c2 0, transparent 33%),
-        linear-gradient(180deg,#03235a 0%,#063889 100%);
-
-    padding:28px 16px 22px;
-
-    color:white;
+    z-index:100;
 }
 
-.logo-sidebar{
+.logo-area{
     display:flex;
-    justify-content:center;
-    margin-bottom:26px;
+    align-items:center;
+    gap:16px;
 }
 
-.logo-sidebar img{
-    width:135px;
-    height:135px;
+.logo-area img{
+    width:120px;
+    height:72px;
     object-fit:contain;
+    background:white;
+}
+
+.logo-texto strong{
     display:block;
-    filter:drop-shadow(0 5px 15px rgba(0,0,0,.15));
+    color:var(--azul-1);
+    font-size:15px;
+}
+
+.logo-texto span{
+    display:block;
+    color:var(--cinza);
+    font-size:11px;
+    margin-top:3px;
 }
 
 .menu{
     display:flex;
-    flex-direction:column;
-    gap:7px;
+    align-items:center;
+    gap:22px;
 }
 
 .menu a{
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    color:white;
-
-    padding:13px 14px;
-
-    border-radius:10px;
-
-    font-size:15px;
-    font-weight:500;
-
+    color:var(--azul-1);
+    font-size:13px;
+    font-weight:600;
     transition:.2s;
 }
 
 .menu a:hover{
-    background:rgba(255,255,255,.08);
-}
-
-.menu a.ativo{
-    background:var(--laranja);
-    box-shadow:0 10px 24px rgba(255,116,23,.22);
-}
-
-.menu-icone{
-    width:23px;
-    display:flex;
-    justify-content:center;
-    font-size:19px;
-}
-
-.frase-menu{
-    margin-top:35px;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(20,90,190,.42),
-            rgba(0,35,90,.42)
-        );
-
-    border-radius:24px;
-
-    padding:28px 18px;
-
-    text-align:center;
-
-    font-size:16px;
-    line-height:1.65;
-
-    min-height:245px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.frase-menu .aspas{
-    font-size:48px;
-    line-height:.7;
     color:var(--laranja);
-    font-family:Georgia,serif;
-    margin-bottom:22px;
+}
+
+.menu-assinaturas{
+    background:var(--laranja);
+    color:white !important;
+
+    padding:11px 16px;
+
+    border-radius:9px;
+}
+
+.menu-assinaturas:hover{
+    background:#e9650a;
 }
 
 /* ========================
-   CONTEÚDO
+   TOPO DE BOAS-VINDAS
 ======================== */
 
-.area{
-    min-width:0;
-}
-
-/* ========================
-   TOPBAR
-======================== */
-
-.topbar{
-    min-height:88px;
-
+.top-info{
     background:white;
 
     display:flex;
     align-items:center;
     justify-content:space-between;
 
-    padding:14px 34px;
-
-    border-bottom:1px solid var(--borda);
+    padding:18px 5% 12px;
 }
 
 .saudacao h2{
     color:var(--azul-1);
-    font-size:21px;
-    margin-bottom:5px;
+    font-size:20px;
+    margin-bottom:4px;
 }
 
 .saudacao p{
@@ -194,68 +145,23 @@ a{
 .top-actions{
     display:flex;
     align-items:center;
-    gap:19px;
-}
-
-.top-action{
-    position:relative;
-    width:40px;
-    height:40px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:22px;
-    color:var(--azul-1);
-}
-
-.bolinha{
-    position:absolute;
-
-    width:18px;
-    height:18px;
-
-    border-radius:50%;
-
-    background:var(--laranja);
-
-    top:-1px;
-    right:-2px;
-
-    color:white;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:9px;
-    font-weight:bold;
-}
-
-.usuario{
-    display:flex;
-    align-items:center;
     gap:10px;
-
-    color:var(--azul-1);
-    font-size:12px;
-    font-weight:bold;
 }
 
-.usuario-icone{
-    width:40px;
-    height:40px;
+.top-icon{
+    width:42px;
+    height:42px;
 
+    border:1px solid var(--borda);
     border-radius:50%;
-
-    background:#eef2f7;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:19px;
+    background:white;
+
+    font-size:18px;
 }
 
 /* ========================
@@ -263,33 +169,32 @@ a{
 ======================== */
 
 .banner-wrap{
-    padding:24px 34px 0;
+    padding:12px 5% 0;
 }
 
 .banner{
-    min-height:300px;
+    min-height:330px;
 
-    border-radius:20px;
-
-    overflow:hidden;
+    border-radius:22px;
 
     position:relative;
+    overflow:hidden;
 
     display:grid;
-    grid-template-columns:1.12fr .95fr .78fr;
+    grid-template-columns:1.15fr .9fr .8fr;
 
-    gap:20px;
+    gap:22px;
 
     align-items:center;
 
-    padding:34px 34px 34px 42px;
+    padding:40px 42px;
 
     background:
-        radial-gradient(circle at 59% 44%,rgba(32,108,220,.28),transparent 28%),
-        radial-gradient(circle at 76% 70%,rgba(255,255,255,.06),transparent 25%),
+        radial-gradient(circle at 60% 42%,rgba(32,108,220,.28),transparent 30%),
+        radial-gradient(circle at 78% 72%,rgba(255,255,255,.07),transparent 28%),
         linear-gradient(110deg,#04235c 0%,#073886 55%,#052d73 100%);
 
-    box-shadow:0 13px 30px rgba(4,40,95,.12);
+    box-shadow:0 14px 32px rgba(4,40,95,.12);
 }
 
 .banner:before{
@@ -297,11 +202,11 @@ a{
 
     position:absolute;
 
-    right:-85px;
-    bottom:-95px;
+    right:-80px;
+    bottom:-100px;
 
     width:470px;
-    height:140px;
+    height:145px;
 
     border-radius:50%;
 
@@ -316,10 +221,10 @@ a{
     position:absolute;
 
     right:-80px;
-    bottom:-68px;
+    bottom:-72px;
 
-    width:510px;
-    height:115px;
+    width:520px;
+    height:120px;
 
     border-radius:50%;
 
@@ -333,10 +238,29 @@ a{
     z-index:3;
 }
 
+.banner-tag{
+    display:inline-block;
+
+    background:rgba(255,255,255,.10);
+
+    border:1px solid rgba(255,255,255,.14);
+
+    color:white;
+
+    padding:7px 12px;
+
+    border-radius:30px;
+
+    font-size:11px;
+    font-weight:bold;
+
+    margin-bottom:18px;
+}
+
 .banner-texto h1{
     font-size:44px;
-    line-height:1.04;
-    margin-bottom:20px;
+    line-height:1.05;
+    margin-bottom:18px;
 }
 
 .banner-texto h1 span{
@@ -347,11 +271,12 @@ a{
     color:#f3f6fb;
     font-size:16px;
     line-height:1.55;
-    max-width:405px;
+    max-width:430px;
 }
 
 .banner-texto .frase{
     margin-top:20px;
+    font-weight:bold;
 }
 
 .banner-texto .frase strong{
@@ -359,11 +284,11 @@ a{
 }
 
 /* ========================
-   GRÁFICO CENTRAL
+   ILUSTRAÇÃO CENTRAL
 ======================== */
 
 .banner-centro{
-    height:225px;
+    height:220px;
 
     position:relative;
 
@@ -375,10 +300,10 @@ a{
 }
 
 .circulo-central{
-    width:154px;
-    height:154px;
+    width:150px;
+    height:150px;
 
-    border:3px solid rgba(255,255,255,.88);
+    border:3px solid rgba(255,255,255,.86);
 
     border-radius:50%;
 
@@ -387,51 +312,48 @@ a{
     justify-content:center;
 
     color:white;
-    font-size:70px;
 
-    position:relative;
+    font-size:68px;
 }
 
 .orbita{
     position:absolute;
 
-    border:2px solid rgba(255,255,255,.85);
+    width:54px;
+    height:54px;
 
     border-radius:50%;
 
-    width:55px;
-    height:55px;
+    border:2px solid white;
 
     background:#07357f;
-
-    color:white;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    font-size:23px;
+    color:white;
 
-    box-shadow:0 5px 12px rgba(0,0,0,.12);
+    font-size:22px;
 }
 
 .orbita-1{
-    top:12px;
-    left:52px;
+    top:8px;
+    left:58px;
 }
 
 .orbita-2{
-    right:42px;
-    top:69px;
+    right:40px;
+    top:70px;
 }
 
 .orbita-3{
-    left:90px;
-    bottom:7px;
+    bottom:5px;
+    left:92px;
 }
 
 /* ========================
-   VALORES NO BANNER
+   CARDS DO BANNER
 ======================== */
 
 .banner-valores{
@@ -446,9 +368,9 @@ a{
 .valor-banner{
     background:white;
 
-    border-radius:12px;
+    border-radius:13px;
 
-    padding:12px 13px;
+    padding:13px;
 
     display:grid;
     grid-template-columns:42px 1fr;
@@ -457,11 +379,11 @@ a{
 
     align-items:center;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    box-shadow:0 6px 16px rgba(0,0,0,.08);
 }
 
 .valor-banner .icone{
-    font-size:28px;
+    font-size:27px;
     text-align:center;
 }
 
@@ -478,20 +400,20 @@ a{
 }
 
 /* ========================
-   MAIN
+   PRINCIPAL
 ======================== */
 
 main{
-    padding:18px 34px 32px;
+    padding:24px 5% 36px;
 }
 
 .titulo-secao{
-    margin-bottom:13px;
+    margin-bottom:14px;
 }
 
 .titulo-secao h2{
     color:var(--azul-1);
-    font-size:21px;
+    font-size:22px;
 }
 
 .titulo-secao p{
@@ -507,20 +429,20 @@ main{
 .atalhos{
     display:grid;
     grid-template-columns:repeat(7,1fr);
-    gap:10px;
-    margin-bottom:18px;
+    gap:12px;
+    margin-bottom:22px;
 }
 
 .atalho{
-    min-height:145px;
+    min-height:150px;
 
     background:white;
 
     border:1px solid var(--borda);
 
-    border-radius:15px;
+    border-radius:16px;
 
-    padding:15px 9px;
+    padding:16px 10px;
 
     text-align:center;
 
@@ -532,10 +454,11 @@ main{
 .atalho:hover{
     transform:translateY(-4px);
     box-shadow:0 12px 25px rgba(5,42,100,.10);
+    border-color:rgba(255,116,23,.35);
 }
 
 .atalho-icone{
-    height:51px;
+    height:52px;
 
     display:flex;
     align-items:center;
@@ -563,13 +486,13 @@ main{
 }
 
 /* ========================
-   PAINÉIS
+   DASHBOARD
 ======================== */
 
 .dashboard{
     display:grid;
     grid-template-columns:1.2fr 1fr 1.35fr;
-    gap:12px;
+    gap:14px;
 }
 
 .painel{
@@ -577,9 +500,9 @@ main{
 
     border:1px solid var(--borda);
 
-    border-radius:15px;
+    border-radius:16px;
 
-    padding:15px;
+    padding:16px;
 
     box-shadow:0 5px 16px rgba(9,42,90,.035);
 }
@@ -588,7 +511,7 @@ main{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    margin-bottom:11px;
+    margin-bottom:12px;
 }
 
 .painel-topo h3{
@@ -601,14 +524,21 @@ main{
     font-size:10px;
 }
 
-/* aniversariantes */
+/* ========================
+   ANIVERSARIANTES
+======================== */
 
 .bloco-titulo{
     padding:8px 10px;
+
     border-radius:8px;
+
     font-size:10px;
+
     font-weight:bold;
+
     margin-top:7px;
+
     margin-bottom:5px;
 }
 
@@ -637,8 +567,6 @@ main{
 
     border-radius:50%;
 
-    background:#edf2f8;
-
     display:flex;
     align-items:center;
     justify-content:center;
@@ -661,13 +589,16 @@ main{
 
 .aniversariante small{
     display:block;
+
     font-size:10px;
+
     margin-top:2px;
+
     color:#46546c;
 }
 
 .parabens{
-    margin-top:9px;
+    margin-top:10px;
 
     background:#f4f7ff;
 
@@ -688,7 +619,9 @@ main{
     color:var(--laranja);
 }
 
-/* eventos */
+/* ========================
+   EVENTOS
+======================== */
 
 .evento{
     display:grid;
@@ -702,23 +635,27 @@ main{
 
 .data{
     border:1px solid #d9e0eb;
+
     border-radius:8px;
 
     text-align:center;
 
     padding:6px 3px;
-
-    color:var(--azul-1);
 }
 
 .data strong{
     display:block;
+
     color:var(--laranja);
+
     font-size:23px;
 }
 
 .data small{
+    color:var(--azul-1);
+
     font-size:11px;
+
     font-weight:bold;
 }
 
@@ -729,26 +666,39 @@ main{
 
 .evento-texto small{
     display:block;
+
     color:#39475d;
+
     font-size:9.5px;
+
     margin-top:3px;
 }
 
 .botao-evento{
     margin-top:10px;
+
     background:var(--laranja-claro);
+
     color:var(--laranja);
+
     border-radius:7px;
+
     padding:9px;
+
     text-align:center;
+
     font-size:10px;
+
     font-weight:bold;
 }
 
-/* comunicados */
+/* ========================
+   COMUNICADOS
+======================== */
 
 .comunicado{
     padding:9px 0;
+
     border-bottom:1px solid #edf0f4;
 }
 
@@ -777,13 +727,17 @@ main{
 
 .comunicado h4{
     color:var(--azul-1);
+
     font-size:11.5px;
+
     margin:5px 0 3px;
 }
 
 .comunicado p{
     color:#3f4b60;
+
     font-size:9.5px;
+
     line-height:1.35;
 }
 
@@ -808,8 +762,6 @@ main{
 ======================== */
 
 footer{
-    min-height:82px;
-
     background:
         linear-gradient(
             90deg,
@@ -827,7 +779,7 @@ footer{
 
     gap:20px;
 
-    padding:15px 34px;
+    padding:18px 5%;
 }
 
 .rodape-logo{
@@ -837,9 +789,15 @@ footer{
 }
 
 .rodape-logo img{
-    width:58px;
-    height:58px;
+    width:75px;
+    height:55px;
     object-fit:contain;
+
+    background:white;
+
+    border-radius:8px;
+
+    padding:4px;
 }
 
 .rodape-logo strong{
@@ -849,8 +807,11 @@ footer{
 
 .rodape-logo span{
     display:block;
+
     margin-top:3px;
+
     font-size:10px;
+
     opacity:.85;
 }
 
@@ -858,22 +819,25 @@ footer{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:15px;
+    gap:14px;
     font-size:10px;
 }
 
 .frase-final{
     text-align:right;
+
     color:var(--laranja);
+
     font-size:22px;
-    font-family:"Brush Script MT",cursive;
+
+    font-family:"Brush Script MT", cursive;
 }
 
 /* ========================
    RESPONSIVO
 ======================== */
 
-@media(max-width:1250px){
+@media(max-width:1200px){
 
     .atalhos{
         grid-template-columns:repeat(4,1fr);
@@ -881,7 +845,15 @@ footer{
 
 }
 
-@media(max-width:1000px){
+@media(max-width:980px){
+
+    .menu{
+        gap:12px;
+    }
+
+    .menu a{
+        font-size:11px;
+    }
 
     .banner{
         grid-template-columns:1fr 1fr;
@@ -897,34 +869,20 @@ footer{
 
 }
 
-@media(max-width:780px){
+@media(max-width:760px){
 
-    .portal{
-        display:block;
-    }
-
-    .sidebar{
-        position:relative;
-        height:auto;
-        min-height:auto;
-    }
-
-    .logo-sidebar img{
-        width:95px;
-        height:95px;
+    header{
+        flex-direction:column;
+        gap:14px;
     }
 
     .menu{
-        display:grid;
-        grid-template-columns:repeat(2,1fr);
+        flex-wrap:wrap;
+        justify-content:center;
     }
 
-    .frase-menu{
-        display:none;
-    }
-
-    .topbar{
-        padding:15px 18px;
+    .top-info{
+        padding-top:14px;
     }
 
     .top-actions{
@@ -932,13 +890,15 @@ footer{
     }
 
     .banner-wrap{
-        padding:15px 14px 0;
+        padding:10px 14px 0;
     }
 
     .banner{
         grid-template-columns:1fr;
-        padding:30px;
-        min-height:390px;
+
+        padding:28px;
+
+        min-height:380px;
     }
 
     .banner-centro{
@@ -946,7 +906,7 @@ footer{
     }
 
     main{
-        padding:18px 14px 30px;
+        padding:20px 14px 30px;
     }
 
     .atalhos{
@@ -955,6 +915,7 @@ footer{
 
     footer{
         grid-template-columns:1fr;
+
         text-align:center;
     }
 
@@ -974,10 +935,6 @@ footer{
 
 @media(max-width:480px){
 
-    .menu{
-        grid-template-columns:1fr;
-    }
-
     .atalhos{
         grid-template-columns:1fr;
     }
@@ -994,76 +951,85 @@ footer{
 
 <body>
 
-<div class="portal">
+<!-- ========================
+     CABEÇALHO
+======================== -->
 
-<aside class="sidebar">
+<header>
 
-    <div class="logo-sidebar">
-        <img src="logo-ltj.jpeg" alt="Logo LTJ">
+    <div class="logo-area">
+
+        <img
+        src="logo-ltj.jpeg"
+        alt="Logo LTJ">
+
+        <div class="logo-texto">
+
+            <strong>
+                LTJ Intermediação de Negócios
+            </strong>
+
+            <span>
+                Portal do Colaborador
+            </span>
+
+        </div>
+
     </div>
+
 
     <nav class="menu">
 
-        <a href="#inicio" class="ativo">
-            <span class="menu-icone">⌂</span>
+        <a href="#inicio">
             Início
         </a>
 
-        <a href="assinaturas.html">
-            <span class="menu-icone">✎</span>
+        <a
+        href="assinaturas.html"
+        class="menu-assinaturas">
             Assinaturas
         </a>
 
         <a href="#nosso-time">
-            <span class="menu-icone">♧</span>
             Nosso Time
         </a>
 
         <a href="#comunicados">
-            <span class="menu-icone">♢</span>
             Comunicados
         </a>
 
         <a href="#calendario">
-            <span class="menu-icone">▣</span>
             Calendário
         </a>
 
         <a href="#materiais">
-            <span class="menu-icone">□</span>
             Materiais
         </a>
 
         <a href="#sugestoes">
-            <span class="menu-icone">◇</span>
             Sugestões
         </a>
 
         <a href="#aniversariantes">
-            <span class="menu-icone">♨</span>
             Aniversariantes
         </a>
 
     </nav>
 
-    <div class="frase-menu">
+</header>
 
-        <div class="aspas">“</div>
 
-        Aqui, cada pessoa importa
-        e cada conquista conta!
+<!-- ========================
+     SAUDAÇÃO
+======================== -->
 
-    </div>
-
-</aside>
-
-<div class="area">
-
-<header class="topbar">
+<section class="top-info">
 
     <div class="saudacao">
 
-        <h2>Olá, Colaborador! 👋</h2>
+        <h2>
+            Olá, Colaborador! 👋
+        </h2>
 
         <p>
             Seja bem-vindo(a) ao Portal do Colaborador LTJ.
@@ -1071,60 +1037,77 @@ footer{
 
     </div>
 
+
     <div class="top-actions">
 
-        <div class="top-action">
+        <div class="top-icon">
             🔔
-            <span class="bolinha">3</span>
         </div>
 
-        <div class="top-action">
-            🗓
+        <div class="top-icon">
+            📅
         </div>
 
-        <div class="top-action">
-            ⌕
-        </div>
-
-        <div class="usuario">
-
-            <div class="usuario-icone">
-                👤
-            </div>
-
-            Olá, Colaborador!
-
-            <span>⌄</span>
-
+        <div class="top-icon">
+            🔍
         </div>
 
     </div>
 
-</header>
+</section>
+
+
+<!-- ========================
+     BANNER
+======================== -->
 
 <div class="banner-wrap" id="inicio">
 
 <section class="banner">
 
+
     <div class="banner-texto">
 
+        <div class="banner-tag">
+            PORTAL DO COLABORADOR
+        </div>
+
         <h1>
+
             Bem-vindo ao<br>
+
             Portal do<br>
-            <span>Colaborador</span> LTJ!
+
+            <span>
+                Colaborador
+            </span>
+
+            LTJ!
+
         </h1>
 
+
         <p>
+
             Informações, ferramentas e recursos
             para facilitar o seu dia a dia.
+
         </p>
 
+
         <p class="frase">
+
             Juntos, conectamos pessoas e geramos
-            <strong>resultados!</strong>
+            <strong>
+                resultados!
+            </strong>
+
         </p>
 
     </div>
+
+
+    <!-- ILUSTRAÇÃO -->
 
     <div class="banner-centro">
 
@@ -1146,7 +1129,11 @@ footer{
 
     </div>
 
+
+    <!-- VALORES -->
+
     <div class="banner-valores">
+
 
         <div class="valor-banner">
 
@@ -1155,11 +1142,19 @@ footer{
             </div>
 
             <div>
-                <h4>Conexão</h4>
-                <p>Mais união e colaboração entre todos nós.</p>
+
+                <h4>
+                    Conexão
+                </h4>
+
+                <p>
+                    Mais união e colaboração entre todos nós.
+                </p>
+
             </div>
 
         </div>
+
 
         <div class="valor-banner">
 
@@ -1168,11 +1163,19 @@ footer{
             </div>
 
             <div>
-                <h4>Foco</h4>
-                <p>Trabalhamos com foco em resultados.</p>
+
+                <h4>
+                    Foco
+                </h4>
+
+                <p>
+                    Trabalhamos com foco em resultados.
+                </p>
+
             </div>
 
         </div>
+
 
         <div class="valor-banner">
 
@@ -1181,23 +1184,40 @@ footer{
             </div>
 
             <div>
-                <h4>Excelência</h4>
-                <p>Compromisso com a qualidade todos os dias.</p>
+
+                <h4>
+                    Excelência
+                </h4>
+
+                <p>
+                    Compromisso com a qualidade todos os dias.
+                </p>
+
             </div>
 
         </div>
 
+
     </div>
+
 
 </section>
 
 </div>
 
+
+<!-- ========================
+     PRINCIPAL
+======================== -->
+
 <main>
+
 
 <div class="titulo-secao">
 
-    <h2>Acessos rápidos</h2>
+    <h2>
+        Acessos rápidos
+    </h2>
 
     <p>
         Encontre rapidamente os principais recursos do portal.
@@ -1205,55 +1225,158 @@ footer{
 
 </div>
 
+
 <section class="atalhos">
 
-    <a href="assinaturas.html" class="atalho">
-        <div class="atalho-icone">✎</div>
-        <h3>Assinaturas</h3>
-        <p>Acesse sua assinatura oficial de e-mail.</p>
-    </a>
 
-    <a href="#nosso-time" class="atalho">
-        <div class="atalho-icone">👥</div>
-        <h3>Nosso Time</h3>
-        <p>Conheça nossa equipe e departamentos.</p>
-    </a>
+<a
+href="assinaturas.html"
+class="atalho">
 
-    <a href="#comunicados" class="atalho">
-        <div class="atalho-icone">📢</div>
-        <h3>Comunicados</h3>
-        <p>Fique por dentro das novidades e avisos.</p>
-    </a>
+    <div class="atalho-icone">
+        ✎
+    </div>
 
-    <a href="#calendario" class="atalho">
-        <div class="atalho-icone">📅</div>
-        <h3>Calendário</h3>
-        <p>Consulte eventos, reuniões e datas.</p>
-    </a>
+    <h3>
+        Assinaturas
+    </h3>
 
-    <a href="#materiais" class="atalho">
-        <div class="atalho-icone">📁</div>
-        <h3>Materiais</h3>
-        <p>Documentos, manuais e arquivos importantes.</p>
-    </a>
+    <p>
+        Acesse sua assinatura oficial de e-mail.
+    </p>
 
-    <a href="#sugestoes" class="atalho">
-        <div class="atalho-icone">💬</div>
-        <h3>Sugestões</h3>
-        <p>Envie suas sugestões de forma anônima.</p>
-    </a>
+</a>
 
-    <a href="#aniversariantes" class="atalho">
-        <div class="atalho-icone">🎂</div>
-        <h3>Aniversariantes</h3>
-        <p>Aniversários de vida e de empresa.</p>
-    </a>
+
+<a
+href="#nosso-time"
+class="atalho">
+
+    <div class="atalho-icone">
+        👥
+    </div>
+
+    <h3>
+        Nosso Time
+    </h3>
+
+    <p>
+        Conheça nossa equipe e departamentos.
+    </p>
+
+</a>
+
+
+<a
+href="#comunicados"
+class="atalho">
+
+    <div class="atalho-icone">
+        📢
+    </div>
+
+    <h3>
+        Comunicados
+    </h3>
+
+    <p>
+        Fique por dentro das novidades e avisos.
+    </p>
+
+</a>
+
+
+<a
+href="#calendario"
+class="atalho">
+
+    <div class="atalho-icone">
+        📅
+    </div>
+
+    <h3>
+        Calendário
+    </h3>
+
+    <p>
+        Consulte eventos, reuniões e datas.
+    </p>
+
+</a>
+
+
+<a
+href="#materiais"
+class="atalho">
+
+    <div class="atalho-icone">
+        📁
+    </div>
+
+    <h3>
+        Materiais
+    </h3>
+
+    <p>
+        Documentos, manuais e arquivos importantes.
+    </p>
+
+</a>
+
+
+<a
+href="#sugestoes"
+class="atalho">
+
+    <div class="atalho-icone">
+        💬
+    </div>
+
+    <h3>
+        Sugestões
+    </h3>
+
+    <p>
+        Envie suas sugestões de forma anônima.
+    </p>
+
+</a>
+
+
+<a
+href="#aniversariantes"
+class="atalho">
+
+    <div class="atalho-icone">
+        🎂
+    </div>
+
+    <h3>
+        Aniversariantes
+    </h3>
+
+    <p>
+        Aniversários de vida e de empresa.
+    </p>
+
+</a>
+
 
 </section>
 
+
+<!-- ========================
+     DASHBOARD
+======================== -->
+
 <section class="dashboard">
 
-<div class="painel" id="aniversariantes">
+
+<!-- ANIVERSARIANTES -->
+
+<div
+class="painel"
+id="aniversariantes">
 
     <div class="painel-topo">
 
@@ -1280,8 +1403,15 @@ footer{
         </div>
 
         <div>
-            <strong>Ana Paula</strong>
-            <small>05 de Maio</small>
+
+            <strong>
+                Ana Paula
+            </strong>
+
+            <small>
+                05 de Maio
+            </small>
+
         </div>
 
     </div>
@@ -1294,8 +1424,15 @@ footer{
         </div>
 
         <div>
-            <strong>Paulo Rodrigues</strong>
-            <small>14 de Maio</small>
+
+            <strong>
+                Paulo Rodrigues
+            </strong>
+
+            <small>
+                14 de Maio
+            </small>
+
         </div>
 
     </div>
@@ -1308,8 +1445,15 @@ footer{
         </div>
 
         <div>
-            <strong>Melissa Amaral</strong>
-            <small>21 de Maio</small>
+
+            <strong>
+                Melissa Amaral
+            </strong>
+
+            <small>
+                21 de Maio
+            </small>
+
         </div>
 
     </div>
@@ -1327,8 +1471,15 @@ footer{
         </div>
 
         <div>
-            <strong>Helen</strong>
-            <small>18 anos de LTJ</small>
+
+            <strong>
+                Helen
+            </strong>
+
+            <small>
+                18 anos de LTJ
+            </small>
+
         </div>
 
     </div>
@@ -1341,8 +1492,15 @@ footer{
         </div>
 
         <div>
-            <strong>Melissa Amaral</strong>
-            <small>15 anos de LTJ</small>
+
+            <strong>
+                Melissa Amaral
+            </strong>
+
+            <small>
+                15 anos de LTJ
+            </small>
+
         </div>
 
     </div>
@@ -1353,16 +1511,27 @@ footer{
         🎉
 
         <div>
+
             Celebramos quem faz parte da nossa história!
+
             <br>
-            <strong>Parabéns! 🧡💙</strong>
+
+            <strong>
+                Parabéns! 🧡💙
+            </strong>
+
         </div>
 
     </div>
 
 </div>
 
-<div class="painel" id="calendario">
+
+<!-- EVENTOS -->
+
+<div
+class="painel"
+id="calendario">
 
     <div class="painel-topo">
 
@@ -1376,68 +1545,108 @@ footer{
 
     </div>
 
-    <div class="evento">
-
-        <div class="data">
-
-            <strong>15</strong>
-            <small>MAI</small>
-
-        </div>
-
-        <div class="evento-texto">
-
-            <strong>Reunião Geral</strong>
-
-            <small>◷ 14h00</small>
-
-            <small>⌖ Sala de Reuniões</small>
-
-        </div>
-
-    </div>
 
     <div class="evento">
 
         <div class="data">
 
-            <strong>20</strong>
-            <small>MAI</small>
+            <strong>
+                15
+            </strong>
+
+            <small>
+                MAI
+            </small>
 
         </div>
 
+
         <div class="evento-texto">
 
-            <strong>Treinamento Comercial</strong>
+            <strong>
+                Reunião Geral
+            </strong>
 
-            <small>◷ 09h00</small>
+            <small>
+                ◷ 14h00
+            </small>
 
-            <small>⌖ Auditório</small>
+            <small>
+                ⌖ Sala de Reuniões
+            </small>
 
         </div>
 
     </div>
+
 
     <div class="evento">
 
         <div class="data">
 
-            <strong>30</strong>
-            <small>MAI</small>
+            <strong>
+                20
+            </strong>
+
+            <small>
+                MAI
+            </small>
 
         </div>
 
+
         <div class="evento-texto">
 
-            <strong>Café com a Direção</strong>
+            <strong>
+                Treinamento Comercial
+            </strong>
 
-            <small>◷ 08h30</small>
+            <small>
+                ◷ 09h00
+            </small>
 
-            <small>⌖ Refeitório</small>
+            <small>
+                ⌖ Auditório
+            </small>
 
         </div>
 
     </div>
+
+
+    <div class="evento">
+
+        <div class="data">
+
+            <strong>
+                30
+            </strong>
+
+            <small>
+                MAI
+            </small>
+
+        </div>
+
+
+        <div class="evento-texto">
+
+            <strong>
+                Café com a Direção
+            </strong>
+
+            <small>
+                ◷ 08h30
+            </small>
+
+            <small>
+                ⌖ Refeitório
+            </small>
+
+        </div>
+
+    </div>
+
 
     <div class="botao-evento">
         ☆ Participe e faça a diferença!
@@ -1445,7 +1654,12 @@ footer{
 
 </div>
 
-<div class="painel" id="comunicados">
+
+<!-- COMUNICADOS -->
+
+<div
+class="painel"
+id="comunicados">
 
     <div class="painel-topo">
 
@@ -1458,6 +1672,7 @@ footer{
         </a>
 
     </div>
+
 
     <div class="comunicado">
 
@@ -1473,16 +1688,21 @@ footer{
 
         </div>
 
+
         <h4>
             Novo comunicado
         </h4>
 
+
         <p>
+
             Utilize esta área para avisos e informações
             importantes destinadas aos colaboradores.
+
         </p>
 
     </div>
+
 
     <div class="comunicado">
 
@@ -1498,16 +1718,21 @@ footer{
 
         </div>
 
+
         <h4>
             Atualização de Procedimentos
         </h4>
 
+
         <p>
+
             Confira as atualizações nos procedimentos
             internos do setor.
+
         </p>
 
     </div>
+
 
     <div class="comunicado">
 
@@ -1523,66 +1748,94 @@ footer{
 
         </div>
 
+
         <h4>
             Próxima ação LTJ
         </h4>
 
+
         <p>
-            Campanhas, ações e eventos internos
-            também podem aparecer aqui.
+
+            Campanhas, ações e eventos internos também
+            podem aparecer aqui.
+
         </p>
 
     </div>
 
+
     <div class="botao-comunicados">
+
         Acompanhar todos os comunicados
+
     </div>
 
 </div>
 
+
 </section>
+
 
 <div id="nosso-time"></div>
 <div id="materiais"></div>
 <div id="sugestoes"></div>
 
+
 </main>
+
+
+<!-- ========================
+     RODAPÉ
+======================== -->
 
 <footer>
 
-    <div class="rodape-logo">
 
-        <img
-        src="logo-ltj.jpeg"
-        alt="Logo LTJ">
+<div class="rodape-logo">
 
-        <div>
-            <strong>LTJ Intermediação de Negócios</strong>
-            <span>Portal do Colaborador</span>
-        </div>
+    <img
+    src="logo-ltj.jpeg"
+    alt="Logo LTJ">
 
-    </div>
+    <div>
 
-    <div class="valores">
+        <strong>
+            LTJ Intermediação de Negócios
+        </strong>
 
-        <span>♢ Ética</span>
-        <span>🤝 Compromisso</span>
-        <span>♡ Respeito</span>
-        <span>☆ Excelência</span>
-        <span>👥 Trabalho em Equipe</span>
+        <span>
+            Portal do Colaborador
+        </span>
 
     </div>
 
-    <div class="frase-final">
-        Somos todos LTJ!
-    </div>
+</div>
+
+
+<div class="valores">
+
+    <span>♢ Ética</span>
+
+    <span>🤝 Compromisso</span>
+
+    <span>♡ Respeito</span>
+
+    <span>☆ Excelência</span>
+
+    <span>👥 Trabalho em Equipe</span>
+
+</div>
+
+
+<div class="frase-final">
+
+    Somos todos LTJ!
+
+</div>
+
 
 </footer>
 
-</div>
-
-</div>
 
 </body>
-
 </html>
