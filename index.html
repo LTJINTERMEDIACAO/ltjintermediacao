@@ -1,39 +1,34 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Portal do Colaborador | LTJ</title>
 
+<meta name="theme-color" content="#063b91">
+
 <style>
 
-/* =========================================================
-   CONFIGURAÇÕES GERAIS
-========================================================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+:root{
+    --azul:#063b91;
+    --azul-escuro:#032b6b;
+    --laranja:#f58220;
+    --laranja-claro:#fff3e8;
+    --branco:#ffffff;
+    --cinza:#f5f7fa;
+    --cinza2:#e9edf3;
+    --texto:#243044;
+    --texto-claro:#687386;
+    --verde:#2ca66f;
+    --sombra:0 10px 35px rgba(0,40,100,.10);
+    --radius:18px;
 }
 
-:root{
-    --azul:#0640a1;
-    --azul2:#0b54c7;
-    --azul-escuro:#03275f;
-    --azul-profundo:#021d4b;
-
-    --laranja:#ff7417;
-    --laranja-claro:#fff0e3;
-
-    --branco:#ffffff;
-    --fundo:#f5f7fb;
-    --cinza:#667085;
-    --texto:#0c285a;
-    --borda:#e4eaf2;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
@@ -42,2257 +37,2330 @@ html{
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:var(--fundo);
+    background:var(--cinza);
     color:var(--texto);
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
-}
+/* =========================
+   LOGIN
+========================= */
 
-
-/* =========================================================
-   CABEÇALHO
-========================================================= */
-
-.header{
-    background:white;
-    min-height:108px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    padding:14px 4.5%;
-
-    border-bottom:1px solid var(--borda);
-
-    position:sticky;
-    top:0;
-    z-index:100;
-}
-
-
-/* LOGO */
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:18px;
-}
-
-.brand img{
-    width:105px;
-    height:75px;
-    object-fit:contain;
-}
-
-.brand-text strong{
-    display:block;
-    color:var(--azul-escuro);
-    font-size:18px;
-    margin-bottom:4px;
-}
-
-.brand-text span{
-    color:#58677d;
-    font-size:13px;
-}
-
-
-/* MENU */
-
-.menu{
+.login-screen{
+    min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:30px;
-}
-
-.menu a{
-    position:relative;
-
-    color:var(--azul-escuro);
-
-    font-size:13px;
-    font-weight:600;
-
-    padding:10px 0;
-
-    transition:.2s;
-}
-
-.menu a:hover{
-    color:var(--laranja);
-}
-
-.menu a.ativo{
-    background:var(--laranja);
-    color:white;
-
-    padding:11px 18px;
-
-    border-radius:9px;
-}
-
-.menu a.ativo:hover{
-    color:white;
-}
-
-
-/* AÇÕES DIREITA */
-
-.header-actions{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.action-circle{
-    position:relative;
-
-    width:45px;
-    height:45px;
-
-    border:1px solid var(--borda);
-
-    border-radius:50%;
-
-    background:white;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    color:var(--azul-escuro);
-
-    font-size:20px;
-
-    box-shadow:0 3px 10px rgba(3,39,95,.05);
-}
-
-.notification-number{
-    position:absolute;
-
-    width:19px;
-    height:19px;
-
-    top:-3px;
-    right:-2px;
-
-    background:var(--laranja);
-
-    color:white;
-
-    font-size:10px;
-    font-weight:bold;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-
-/* =========================================================
-   BANNER
-========================================================= */
-
-.hero-wrapper{
-    padding:18px 4.5% 0;
-}
-
-.hero{
-    min-height:360px;
-
-    position:relative;
-    overflow:hidden;
-
-    border-radius:20px;
-
-    display:grid;
-    grid-template-columns:1.05fr 1fr .85fr;
-
-    align-items:center;
-
-    gap:25px;
-
-    padding:32px 48px;
-
+    padding:25px;
     background:
-        radial-gradient(
-            circle at 55% 48%,
-            rgba(15,99,225,.35),
-            transparent 30%
-        ),
-        linear-gradient(
-            115deg,
-            #03265f 0%,
-            #073b91 55%,
-            #0845a7 100%
-        );
-
-    box-shadow:0 15px 36px rgba(3,39,95,.14);
+        radial-gradient(circle at 10% 20%,rgba(245,130,32,.12),transparent 30%),
+        radial-gradient(circle at 90% 80%,rgba(6,59,145,.12),transparent 35%),
+        #f5f7fa;
 }
 
-
-/* ONDAS DE BAIXO */
-
-.hero::before{
-    content:"";
-
-    position:absolute;
-
-    width:600px;
-    height:155px;
-
-    border-radius:50%;
-
-    right:-80px;
-    bottom:-105px;
-
-    background:var(--laranja);
-
-    transform:rotate(-6deg);
-
-    z-index:1;
-}
-
-.hero::after{
-    content:"";
-
-    position:absolute;
-
-    width:650px;
-    height:130px;
-
-    border-radius:50%;
-
-    right:-90px;
-    bottom:-76px;
-
-    background:#0b56c7;
-
-    transform:rotate(-6deg);
-
-    z-index:2;
-}
-
-
-/* TEXTO DO BANNER */
-
-.hero-text{
-    position:relative;
-    z-index:5;
-    color:white;
-}
-
-.hero-label{
-    display:inline-block;
-
-    background:#0b54c7;
-
-    border:1px solid rgba(255,255,255,.12);
-
-    border-radius:30px;
-
-    padding:8px 15px;
-
-    margin-bottom:22px;
-
-    color:white;
-
-    font-size:11px;
-    font-weight:bold;
-}
-
-.hero-text h1{
-    font-size:43px;
-    line-height:1.08;
-
-    max-width:520px;
-
-    margin-bottom:20px;
-}
-
-.hero-text h1 span{
-    color:var(--laranja);
-}
-
-.orange-line{
-    width:45px;
-    height:3px;
-
-    background:var(--laranja);
-
-    border-radius:3px;
-
-    margin:4px 0 22px;
-}
-
-.hero-description{
-    color:#f3f6fb;
-
-    font-size:16px;
-    line-height:1.55;
-
-    max-width:420px;
-}
-
-.hero-phrase{
-    margin-top:20px;
-
-    color:white;
-
-    font-size:16px;
-    line-height:1.5;
-
-    font-weight:bold;
-}
-
-.hero-phrase span{
-    color:var(--laranja);
-}
-
-
-/* =========================================================
-   GRÁFICO CENTRAL
-========================================================= */
-
-.hero-center{
-    position:relative;
-
-    z-index:5;
-
-    height:280px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.orbit-big{
-    position:absolute;
-
-    width:220px;
-    height:220px;
-
-    border:2px solid rgba(255,255,255,.85);
-
-    border-radius:50%;
-}
-
-.orbit-middle{
-    position:absolute;
-
-    width:175px;
-    height:175px;
-
-    border:1px solid rgba(255,255,255,.55);
-
-    border-radius:50%;
-}
-
-.orbit-small{
-    position:absolute;
-
-    width:130px;
-    height:130px;
-
-    border:1px solid rgba(255,255,255,.25);
-
-    border-radius:50%;
-}
-
-
-/* TEXTO CENTRO */
-
-.center-message{
-    position:relative;
-    z-index:5;
-
+.login-card{
+    width:100%;
+    max-width:440px;
+    background:white;
+    padding:42px;
+    border-radius:25px;
+    box-shadow:var(--sombra);
     text-align:center;
-
-    color:white;
-
-    font-size:18px;
-    font-weight:bold;
-
-    line-height:1.45;
 }
 
-
-/* ICONES ORBITAIS */
-
-.orbit-icon{
-    position:absolute;
-
-    width:70px;
-    height:70px;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:31px;
-
-    border:2px solid white;
-
-    color:white;
-
-    z-index:7;
-
-    box-shadow:0 7px 18px rgba(0,0,0,.12);
-}
-
-.orbit-icon.top{
-    top:8px;
-
-    background:var(--laranja);
-}
-
-.orbit-icon.left{
-    left:38px;
-    bottom:44px;
-
-    background:#0a3f98;
-}
-
-.orbit-icon.right{
-    right:34px;
-    bottom:44px;
-
-    background:#0a3f98;
-}
-
-
-/* DETALHES DE FUNDO */
-
-.background-circle{
-    position:absolute;
-
-    width:70px;
-    height:70px;
-
-    border-radius:50%;
-
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.bg-one{
-    left:5px;
-    bottom:25px;
-}
-
-.bg-two{
-    right:7px;
-    top:20px;
-}
-
-
-/* =========================================================
-   CARDS DIREITA DO BANNER
-========================================================= */
-
-.hero-values{
-    position:relative;
-
-    z-index:5;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:13px;
-}
-
-.hero-value{
-    background:white;
-
-    min-height:78px;
-
-    border-radius:14px;
-
-    padding:12px 16px;
-
-    display:grid;
-    grid-template-columns:58px 1fr;
-
-    align-items:center;
-
-    gap:13px;
-
-    box-shadow:0 7px 19px rgba(0,0,0,.09);
-}
-
-.value-icon{
-    width:52px;
-    height:52px;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:26px;
-
-    background:var(--laranja);
-    color:white;
-}
-
-.hero-value:nth-child(2) .value-icon{
-    background:var(--azul2);
-}
-
-.hero-value h3{
-    color:var(--azul-escuro);
-
-    font-size:16px;
-
-    margin-bottom:4px;
-}
-
-.hero-value p{
-    color:#475469;
-
-    font-size:11px;
-    line-height:1.35;
-}
-
-
-/* =========================================================
-   MAIN
-========================================================= */
-
-main{
-    padding:25px 4.5% 0;
-}
-
-
-/* TITULO */
-
-.section-title{
-    margin-bottom:16px;
-}
-
-.section-title h2{
-    color:var(--azul-escuro);
-    font-size:22px;
-}
-
-.section-line{
-    width:40px;
-    height:3px;
-
-    background:var(--laranja);
-
-    border-radius:2px;
-
-    margin-top:10px;
-}
-
-
-/* =========================================================
-   ACESSOS RÁPIDOS
-========================================================= */
-
-.shortcuts{
-    display:grid;
-
-    grid-template-columns:repeat(7,1fr);
-
-    gap:12px;
-
+.login-logo{
+    width:150px;
+    max-height:120px;
+    object-fit:contain;
     margin-bottom:20px;
 }
 
-.shortcut{
-    min-height:145px;
-
-    background:white;
-
-    border:1px solid var(--borda);
-
-    border-radius:13px;
-
-    padding:16px 10px;
-
-    text-align:center;
-
-    box-shadow:0 7px 18px rgba(6,40,95,.05);
-
-    transition:.22s;
+.login-card h1{
+    color:var(--azul);
+    margin:8px 0;
+    font-size:30px;
 }
 
-.shortcut:hover{
-    transform:translateY(-5px);
-
-    box-shadow:0 14px 28px rgba(6,40,95,.11);
-
-    border-color:rgba(255,116,23,.45);
+.login-card p{
+    color:var(--texto-claro);
+    line-height:1.6;
+    margin-bottom:25px;
 }
 
-.shortcut-icon{
-    height:54px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:34px;
-
-    color:var(--azul2);
-
-    margin-bottom:7px;
-}
-
-.shortcut:nth-child(even) .shortcut-icon{
+.eyebrow{
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1.5px;
     color:var(--laranja);
 }
 
-.shortcut h3{
-    color:var(--azul-escuro);
-
-    font-size:13px;
-
-    margin-bottom:7px;
+.login-form{
+    text-align:left;
 }
 
-.shortcut p{
-    color:#526074;
-
-    font-size:10px;
-    line-height:1.4;
-}
-
-
-/* =========================================================
-   DASHBOARD
-========================================================= */
-
-.dashboard{
-    display:grid;
-
-    grid-template-columns:1.15fr 1fr 1.35fr;
-
-    gap:14px;
-
-    margin-bottom:20px;
-}
-
-.panel{
-    background:white;
-
-    border:1px solid var(--borda);
-
-    border-radius:16px;
-
-    padding:16px;
-
-    box-shadow:0 6px 18px rgba(6,40,95,.04);
-}
-
-.panel-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    margin-bottom:12px;
-}
-
-.panel-title{
-    display:flex;
-    align-items:center;
-
-    gap:8px;
-}
-
-.panel-title-icon{
-    width:28px;
-    height:28px;
-
-    border-radius:50%;
-
-    background:var(--azul2);
-
-    color:white;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:13px;
-}
-
-.panel-header h3{
-    color:var(--azul-escuro);
-
+.login-card label{
+    display:block;
+    margin:14px 0 7px;
     font-size:14px;
-}
-
-.panel-header a{
-    color:var(--azul2);
-
-    font-size:10px;
-
-    text-decoration:underline;
-}
-
-
-/* =========================================================
-   ANIVERSARIANTES
-========================================================= */
-
-.birthday-columns{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-
-    gap:14px;
-}
-
-.birthday-category{
-    padding:7px 10px;
-
-    border-radius:8px;
-
-    font-size:10px;
-
     font-weight:bold;
-
-    margin-bottom:8px;
-
-    text-align:center;
 }
 
-.category-life{
-    background:var(--laranja-claro);
-    color:var(--laranja);
+.login-card input{
+    width:100%;
+    padding:14px;
+    border:1px solid var(--cinza2);
+    border-radius:10px;
+    font-size:15px;
+    outline:none;
 }
 
-.category-company{
-    background:#edf4ff;
-    color:var(--azul2);
+.login-card input:focus{
+    border-color:var(--azul);
 }
 
-.birthday-person{
-    display:flex;
-    align-items:center;
-
-    gap:9px;
-
-    padding:7px 4px;
+.password-box{
+    position:relative;
 }
 
-.person-circle{
-    width:34px;
-    height:34px;
+.password-box button{
+    position:absolute;
+    right:8px;
+    top:7px;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    padding:8px;
+}
 
-    min-width:34px;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
+.login-btn{
+    width:100%;
+    margin-top:20px;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:var(--azul);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
     font-size:15px;
 }
 
-.life-circle{
+.login-btn:hover{
+    background:var(--azul-escuro);
+}
+
+.login-error{
+    color:#d64545 !important;
+    font-size:13px !important;
+    margin-top:12px !important;
+    min-height:18px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.hidden{
+    display:none !important;
+}
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:white;
+    border-bottom:1px solid #edf0f4;
+}
+
+.topbar-content{
+    max-width:1250px;
+    margin:auto;
+    padding:12px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:var(--azul);
+}
+
+.logo-area img{
+    width:65px;
+    height:55px;
+    object-fit:contain;
+}
+
+.logo-area strong{
+    display:block;
+    font-size:17px;
+}
+
+.logo-area small{
+    color:var(--texto-claro);
+}
+
+.menu{
+    display:flex;
+    gap:5px;
+    flex-wrap:wrap;
+}
+
+.menu a{
+    text-decoration:none;
+    color:var(--texto);
+    font-size:14px;
+    padding:10px 13px;
+    border-radius:9px;
+}
+
+.menu a:hover,
+.menu a.active{
     background:var(--laranja-claro);
     color:var(--laranja);
 }
 
-.company-circle{
-    background:#e8f0ff;
-    color:var(--azul2);
-}
-
-.birthday-person strong{
-    display:block;
-
-    color:var(--azul-escuro);
-
-    font-size:11px;
-}
-
-.birthday-person small{
-    display:block;
-
-    color:#536075;
-
-    font-size:9px;
-
-    margin-top:3px;
-}
-
-.birthday-footer{
-    margin-top:10px;
-
-    background:#f0f5ff;
-
+.logout{
+    border:1px solid #dfe4eb;
+    background:white;
+    padding:10px 15px;
     border-radius:9px;
-
-    padding:10px 14px;
-
-    display:flex;
-    align-items:center;
-
-    gap:12px;
-
-    color:var(--azul-escuro);
-
-    font-size:10px;
+    cursor:pointer;
+    color:var(--texto);
 }
 
-.birthday-footer .party{
-    font-size:25px;
+/* =========================
+   GERAL
+========================= */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 25px;
 }
 
-.birthday-footer strong{
-    display:block;
-
-    font-size:12px;
-
-    color:var(--azul2);
-
-    margin-top:3px;
+section{
+    padding:75px 0;
 }
 
+.hero{
+    background:white;
+}
 
-/* =========================================================
-   EVENTOS
-========================================================= */
-
-.event{
+.hero-grid{
     display:grid;
+    grid-template-columns:1.3fr .7fr;
+    gap:50px;
+    align-items:center;
+}
 
-    grid-template-columns:58px 1fr;
+.hero h1{
+    color:var(--azul);
+    font-size:48px;
+    margin:12px 0;
+}
 
+.hero h1 span{
+    color:var(--laranja);
+}
+
+.hero-text{
+    color:var(--texto-claro);
+    font-size:18px;
+    line-height:1.7;
+    max-width:650px;
+}
+
+.buttons{
+    display:flex;
     gap:12px;
+    margin-top:25px;
+    flex-wrap:wrap;
+}
 
-    padding:9px 0;
+.btn{
+    display:inline-block;
+    border:none;
+    text-decoration:none;
+    cursor:pointer;
+    padding:13px 20px;
+    border-radius:10px;
+    font-weight:bold;
+}
 
-    border-bottom:1px solid #edf0f5;
+.btn-primary{
+    background:var(--azul);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:var(--azul-escuro);
+}
+
+.btn-orange{
+    background:var(--laranja);
+    color:white;
+}
+
+.btn-outline{
+    background:white;
+    color:var(--azul);
+    border:1px solid #dce2ea;
+}
+
+.hero-card{
+    background:white;
+    border-radius:22px;
+    padding:25px;
+    box-shadow:var(--sombra);
+    border-top:5px solid var(--laranja);
+}
+
+.hero-card h3{
+    color:var(--azul);
+    margin-bottom:18px;
+}
+
+.next-event{
+    display:flex;
+    gap:15px;
+    padding:14px 0;
+    border-bottom:1px solid #edf0f4;
 }
 
 .event-date{
-    border:1px solid #e0e5ed;
-
-    border-radius:8px;
-
+    background:var(--laranja-claro);
+    color:var(--laranja);
+    border-radius:10px;
+    padding:10px;
     text-align:center;
-
-    padding:6px;
+    min-width:60px;
 }
 
 .event-date strong{
     display:block;
-
-    color:var(--laranja);
-
-    font-size:23px;
-
-    line-height:1;
-}
-
-.event-date span{
-    display:block;
-
-    color:var(--azul-escuro);
-
-    font-size:10px;
-
-    font-weight:bold;
-
-    margin-top:3px;
+    font-size:20px;
 }
 
 .event-info strong{
-    color:var(--azul-escuro);
-
-    font-size:12px;
+    display:block;
+    margin-bottom:5px;
 }
 
 .event-info small{
-    display:block;
-
-    color:#526075;
-
-    font-size:9px;
-
-    margin-top:4px;
+    color:var(--texto-claro);
 }
 
-.event-footer{
-    margin-top:10px;
+/* =========================
+   TITULOS
+========================= */
 
-    background:var(--laranja);
-
-    color:white;
-
-    padding:9px;
-
-    text-align:center;
-
-    border-radius:7px;
-
-    font-size:10px;
-
-    font-weight:bold;
+.section-title{
+    margin-bottom:35px;
 }
 
+.section-title h2{
+    font-size:34px;
+    color:var(--azul);
+    margin:8px 0;
+}
 
-/* =========================================================
-   COMUNICADOS
-========================================================= */
+.section-title p{
+    color:var(--texto-claro);
+}
 
-.notice{
+/* =========================
+   CARDS
+========================= */
+
+.quick{
     display:grid;
-
-    grid-template-columns:75px 1fr 60px;
-
-    gap:11px;
-
-    align-items:start;
-
-    padding:10px 0;
-
-    border-bottom:1px solid #edf0f5;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
 }
 
-.notice-label{
-    display:inline-block;
-
-    background:var(--laranja);
-
-    color:white;
-
-    border-radius:5px;
-
-    padding:5px 7px;
-
-    font-size:8px;
-
-    font-weight:bold;
-
-    text-align:center;
+.quick-card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,40,100,.06);
+    text-decoration:none;
+    color:var(--texto);
+    transition:.2s;
 }
 
-.notice:nth-child(3) .notice-label{
-    background:var(--azul2);
+.quick-card:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--sombra);
 }
 
-.notice-content strong{
-    color:var(--azul-escuro);
-
-    font-size:11px;
-
+.quick-icon{
+    font-size:30px;
+    margin-bottom:18px;
     display:block;
-
-    margin-bottom:3px;
 }
 
-.notice-content p{
-    color:#536075;
-
-    font-size:9px;
-
-    line-height:1.35;
+.quick-card strong{
+    display:block;
+    color:var(--azul);
+    margin-bottom:8px;
 }
 
-.notice-time{
-    text-align:right;
-
-    color:#667085;
-
-    font-size:9px;
+.quick-card small{
+    color:var(--texto-claro);
+    line-height:1.5;
 }
 
-.notice-footer{
-    margin-top:10px;
+/* =========================
+   CALENDARIO
+========================= */
 
-    background:var(--azul2);
-
-    color:white;
-
-    padding:9px;
-
-    border-radius:7px;
-
-    text-align:center;
-
-    font-size:10px;
-}
-
-
-/* =========================================================
-   RODAPÉ
-========================================================= */
-
-footer{
-    margin-top:16px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #02245b,
-            #0645a3
-        );
-
-    color:white;
-
-    min-height:95px;
-
-    padding:14px 4.5%;
-
+.calendar-layout{
     display:grid;
-
-    grid-template-columns:1.1fr 2fr 1fr;
-
-    align-items:center;
-
-    gap:20px;
+    grid-template-columns:1.5fr .8fr;
+    gap:25px;
 }
 
-.footer-brand{
+.calendar-card,
+.events-card{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:var(--sombra);
+}
+
+.calendar-header{
     display:flex;
+    justify-content:space-between;
     align-items:center;
-
-    gap:14px;
+    margin-bottom:20px;
 }
 
-.footer-brand img{
-    width:78px;
-    height:65px;
-
-    object-fit:contain;
+.calendar-header h3{
+    color:var(--azul);
+    text-transform:capitalize;
 }
 
-.footer-brand strong{
-    display:block;
-
-    font-size:13px;
+.calendar-header button{
+    border:none;
+    background:var(--laranja-claro);
+    color:var(--laranja);
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:20px;
 }
 
-.footer-brand span{
-    display:block;
-
-    font-size:10px;
-
-    margin-top:4px;
-
-    opacity:.85;
-}
-
-.footer-values{
-    display:flex;
-
-    justify-content:center;
-
-    gap:22px;
-
-    flex-wrap:wrap;
-
-    font-size:11px;
-}
-
-.footer-values span{
-    display:flex;
-    align-items:center;
-
+.weekdays,
+.calendar-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
     gap:6px;
 }
 
-.footer-orange{
+.weekdays div{
+    text-align:center;
+    font-size:11px;
+    font-weight:bold;
+    color:var(--texto-claro);
+    padding:8px 0;
+}
+
+.day{
+    min-height:70px;
+    border-radius:10px;
+    background:#fafbfc;
+    padding:8px;
+    font-size:13px;
+    cursor:pointer;
+}
+
+.day:hover{
+    background:var(--laranja-claro);
+}
+
+.day.today{
+    border:2px solid var(--laranja);
+}
+
+.day.has-event{
+    background:#eef4ff;
+}
+
+.day-number{
+    font-weight:bold;
+    color:var(--azul);
+}
+
+.day-event{
+    margin-top:6px;
+    font-size:10px;
     color:var(--laranja);
+    font-weight:bold;
 }
 
-.footer-phrase{
-    color:var(--laranja);
-
-    text-align:right;
-
-    font-size:27px;
-
-    font-family:"Brush Script MT", cursive;
-
-    transform:rotate(-2deg);
+.events-card h3{
+    color:var(--azul);
+    margin-bottom:20px;
 }
 
-
-/* =========================================================
-   RESPONSIVIDADE
-========================================================= */
-
-@media(max-width:1280px){
-
-    .menu{
-        gap:17px;
-    }
-
-    .shortcuts{
-        grid-template-columns:repeat(4,1fr);
-    }
-
+.event-item{
+    padding:15px 0;
+    border-bottom:1px solid #edf0f4;
 }
 
+.event-item strong{
+    display:block;
+    margin-bottom:5px;
+}
 
-@media(max-width:1050px){
+.event-item small{
+    color:var(--texto-claro);
+}
 
-    .header{
-        flex-wrap:wrap;
-        gap:14px;
-    }
+/* =========================
+   ASSINATURAS
+========================= */
 
-    .menu{
-        order:3;
-        width:100%;
-        justify-content:center;
-        flex-wrap:wrap;
-    }
+.alt{
+    background:#f0f4fa;
+}
 
-    .hero{
-        grid-template-columns:1fr 1fr;
-    }
+.search{
+    width:100%;
+    max-width:400px;
+    padding:15px;
+    border:1px solid #dfe4eb;
+    border-radius:12px;
+    font-size:15px;
+    margin-bottom:25px;
+}
 
-    .hero-values{
-        display:none;
-    }
+.instructions{
+    background:white;
+    border-left:5px solid var(--laranja);
+    padding:18px;
+    border-radius:10px;
+    margin-bottom:30px;
+    color:var(--texto-claro);
+}
 
-    .dashboard{
+.signature-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.signature-card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,40,100,.06);
+}
+
+.signature-card h3{
+    color:var(--azul);
+    margin-bottom:4px;
+}
+
+.signature-card small{
+    color:var(--texto-claro);
+}
+
+.signature-image{
+    margin-top:20px;
+    min-height:140px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    border:1px dashed #d9dee7;
+    border-radius:12px;
+    padding:20px;
+}
+
+.signature-image img{
+    max-width:100%;
+    max-height:180px;
+    object-fit:contain;
+    cursor:grab;
+}
+
+.signature-image img:active{
+    cursor:grabbing;
+}
+
+.signature-tip{
+    margin-top:12px;
+    color:var(--texto-claro);
+    font-size:12px;
+}
+
+.signature-buttons{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+}
+
+.signature-buttons a,
+.signature-buttons button{
+    padding:9px 12px;
+    border-radius:8px;
+    border:1px solid #dfe4eb;
+    background:white;
+    color:var(--azul);
+    text-decoration:none;
+    cursor:pointer;
+    font-size:12px;
+}
+
+/* =========================
+   INFORMACOES
+========================= */
+
+.info-box{
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:var(--sombra);
+    text-align:center;
+}
+
+.info-box .big{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.info-box h3{
+    color:var(--azul);
+    margin-bottom:10px;
+}
+
+.info-box p{
+    color:var(--texto-claro);
+    max-width:650px;
+    margin:auto;
+    line-height:1.6;
+}
+
+/* =========================
+   SUGESTOES
+========================= */
+
+.suggestion{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.suggestion-card{
+    background:white;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:var(--sombra);
+}
+
+.suggestion-card h2{
+    color:var(--azul);
+    font-size:32px;
+    margin:10px 0;
+}
+
+.suggestion-card p{
+    color:var(--texto-claro);
+    line-height:1.7;
+}
+
+.suggestion-list{
+    margin-top:20px;
+    line-height:2;
+}
+
+footer{
+    background:var(--azul-escuro);
+    color:white;
+    padding:30px 0;
+}
+
+.footer{
+    max-width:1200px;
+    margin:auto;
+    padding:0 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.footer img{
+    width:70px;
+    background:white;
+    border-radius:8px;
+    padding:4px;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:var(--azul);
+    color:white;
+    padding:15px 20px;
+    border-radius:10px;
+    box-shadow:var(--sombra);
+    display:none;
+    z-index:500;
+}
+
+.toast.show{
+    display:block;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:900px){
+
+    .hero-grid,
+    .calendar-layout,
+    .suggestion{
         grid-template-columns:1fr;
     }
 
-}
-
-
-@media(max-width:760px){
-
-    .header{
-        position:relative;
-
-        flex-direction:column;
-
-        text-align:center;
-    }
-
-    .brand{
-        flex-direction:column;
-
-        gap:5px;
-    }
-
-    .header-actions{
-        display:none;
-    }
-
-    .menu{
-        gap:10px;
-    }
-
-    .hero-wrapper{
-        padding:12px 14px 0;
-    }
-
-    .hero{
-        grid-template-columns:1fr;
-
-        min-height:410px;
-
-        padding:30px 24px;
-    }
-
-    .hero-center{
-        display:none;
-    }
-
-    main{
-        padding:20px 14px 0;
-    }
-
-    .shortcuts{
+    .quick{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .birthday-columns{
+    .signature-grid{
         grid-template-columns:1fr;
     }
 
-    footer{
-        grid-template-columns:1fr;
-
-        text-align:center;
+    .menu{
+        display:none;
     }
 
-    .footer-brand{
-        justify-content:center;
-    }
-
-    .footer-phrase{
-        text-align:center;
+    .hero h1{
+        font-size:38px;
     }
 
 }
 
+@media(max-width:600px){
 
-@media(max-width:480px){
+    .topbar-content{
+        padding:10px 15px;
+    }
 
-    .shortcuts{
+    .logo-area strong{
+        font-size:14px;
+    }
+
+    .logo-area small{
+        font-size:11px;
+    }
+
+    section{
+        padding:50px 0;
+    }
+
+    .container{
+        padding:0 16px;
+    }
+
+    .quick{
         grid-template-columns:1fr;
     }
 
-    .hero-text h1{
-        font-size:35px;
+    .calendar-card{
+        padding:12px;
+    }
+
+    .day{
+        min-height:55px;
+        padding:5px;
+    }
+
+    .day-event{
+        display:none;
+    }
+
+    .footer{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
     }
 
 }
 
 </style>
-
 </head>
-
 
 <body>
 
+<!-- =========================
+     LOGIN
+========================= -->
 
-<!-- =========================================================
-     CABEÇALHO
-========================================================= -->
+<div id="loginScreen" class="login-screen">
 
-<header class="header">
+    <div class="login-card">
 
-    <div class="brand">
+        <img src="logo-ltj.jpeg"
+             class="login-logo"
+             alt="Logo LTJ">
 
-        <img
-        src="logo-ltj.jpeg"
-        alt="Logo LTJ">
+        <span class="eyebrow">
+            PORTAL DO COLABORADOR
+        </span>
 
-        <div class="brand-text">
+        <h1>Bem-vindo à LTJ</h1>
 
-            <strong>
-                LTJ Intermediação de Negócios
-            </strong>
+        <p>
+            Um espaço exclusivo para facilitar
+            o dia a dia dos nossos colaboradores.
+        </p>
 
-            <span>
-                Portal do Colaborador
-            </span>
+        <form id="loginForm">
 
-        </div>
+            <label>Usuário</label>
+
+            <input
+                id="username"
+                type="text"
+                placeholder="Digite seu usuário"
+                required
+            >
+
+            <label>Senha</label>
+
+            <div class="password-box">
+
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="Digite sua senha"
+                    required
+                >
+
+                <button
+                    type="button"
+                    onclick="mostrarSenha()">
+                    👁️
+                </button>
+
+            </div>
+
+            <button class="login-btn">
+                Entrar no Portal
+            </button>
+
+            <p id="loginError"
+               class="login-error">
+            </p>
+
+        </form>
 
     </div>
 
+</div>
 
-    <nav class="menu">
 
-        <a
-        href="#inicio"
-        class="ativo">
-            Início
+<!-- =========================
+     PORTAL
+========================= -->
+
+<div id="portal" class="hidden">
+
+<header class="topbar">
+
+    <div class="topbar-content">
+
+        <a href="#inicio"
+           class="logo-area">
+
+            <img src="logo-ltj.jpeg"
+                 alt="LTJ">
+
+            <div>
+                <strong>Portal LTJ</strong>
+                <small>Colaboradores</small>
+            </div>
+
         </a>
 
-        <a href="assinaturas.html">
-            Assinaturas
-        </a>
+        <nav class="menu">
 
-        <a href="#nosso-time">
-            Nosso Time
-        </a>
+            <a href="#inicio">Início</a>
 
-        <a href="#comunicados">
-            Comunicados
-        </a>
+            <a href="#agenda">Agenda</a>
 
-        <a href="#calendario">
-            Calendário
-        </a>
+            <a href="#assinaturas">Assinaturas</a>
 
-        <a href="#materiais">
-            Materiais
-        </a>
+            <a href="#informacoes">Equipe</a>
 
-        <a href="#sugestoes">
-            Sugestões
-        </a>
+            <a href="#sugestoes">Sugestões</a>
 
-        <a href="#aniversariantes">
-            Aniversariantes
-        </a>
+        </nav>
 
-    </nav>
-
-
-    <div class="header-actions">
-
-        <div class="action-circle">
-
-            🔔
-
-            <span class="notification-number">
-                3
-            </span>
-
-        </div>
-
-
-        <a
-        href="#calendario"
-        class="action-circle">
-            📅
-        </a>
-
-
-        <div class="action-circle">
-            🔍
-        </div>
+        <button
+            class="logout"
+            onclick="logout()">
+            Sair
+        </button>
 
     </div>
 
 </header>
 
 
+<!-- =========================
+     INICIO
+========================= -->
 
-<!-- =========================================================
-     BANNER
-========================================================= -->
+<section id="inicio" class="hero">
 
-<div
-class="hero-wrapper"
-id="inicio">
+<div class="container hero-grid">
 
-<section class="hero">
+    <div>
 
-
-    <!-- TEXTO -->
-
-    <div class="hero-text">
-
-        <div class="hero-label">
-            PORTAL DO COLABORADOR
-        </div>
-
+        <span class="eyebrow">
+            FINANCIANDO SONHOS • CUIDANDO DE PESSOAS
+        </span>
 
         <h1>
-
-            Bem-vindo ao Portal do
-            <span>Colaborador</span> LTJ!
-
+            Olá, <span>time LTJ!</span>
         </h1>
 
-
-        <div class="orange-line"></div>
-
-
-        <p class="hero-description">
-
-            Informações, ferramentas e recursos
-            para facilitar o seu dia a dia.
-
+        <p class="hero-text">
+            Bem-vindo ao Portal do Colaborador.
+            Aqui você encontra sua assinatura de e-mail,
+            aniversários, eventos, informações da equipe
+            e pode deixar sugestões para a empresa.
         </p>
 
+        <div class="buttons">
 
-        <p class="hero-phrase">
+            <a
+                href="#assinaturas"
+                class="btn btn-primary">
+                ✉️ Minha assinatura
+            </a>
 
-            Juntos, conectamos pessoas
-            <br>
-
-            e geramos
-            <span>resultados!</span>
-
-        </p>
-
-    </div>
-
-
-
-    <!-- CENTRO GRÁFICO -->
-
-    <div class="hero-center">
-
-
-        <div class="background-circle bg-one"></div>
-
-        <div class="background-circle bg-two"></div>
-
-
-        <div class="orbit-big"></div>
-
-        <div class="orbit-middle"></div>
-
-        <div class="orbit-small"></div>
-
-
-        <div class="orbit-icon top">
-            👥
-        </div>
-
-
-        <div class="orbit-icon left">
-            🤝
-        </div>
-
-
-        <div class="orbit-icon right">
-            📈
-        </div>
-
-
-        <div class="center-message">
-
-            PESSOAS
-            <br>
-
-            CONEXÃO
-            <br>
-
-            RESULTADOS
+            <a
+                href="#agenda"
+                class="btn btn-outline">
+                📅 Ver agenda
+            </a>
 
         </div>
 
     </div>
 
 
+    <div class="hero-card">
 
-    <!-- VALORES -->
+        <h3>📢 Próximos acontecimentos</h3>
 
-    <div class="hero-values">
-
-
-        <div class="hero-value">
-
-            <div class="value-icon">
-                👥
-            </div>
-
-            <div>
-
-                <h3>
-                    Conexão
-                </h3>
-
-                <p>
-                    Mais união e colaboração
-                    entre todos nós.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-value">
-
-            <div class="value-icon">
-                🎯
-            </div>
-
-            <div>
-
-                <h3>
-                    Foco
-                </h3>
-
-                <p>
-                    Trabalhamos com foco
-                    em resultados.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-value">
-
-            <div class="value-icon">
-                ☆
-            </div>
-
-            <div>
-
-                <h3>
-                    Excelência
-                </h3>
-
-                <p>
-                    Compromisso com a qualidade
-                    todos os dias.
-                </p>
-
-            </div>
-
-        </div>
-
+        <div id="nextEvents"></div>
 
     </div>
-
-
-</section>
 
 </div>
 
+</section>
 
 
-<!-- =========================================================
-     PRINCIPAL
-========================================================= -->
+<!-- =========================
+     ACESSO RAPIDO
+========================= -->
 
-<main>
+<section>
 
+<div class="container">
 
 <div class="section-title">
 
-    <h2>
-        Acessos rápidos
-    </h2>
+<span class="eyebrow">
+ACESSO RÁPIDO
+</span>
 
-    <div class="section-line"></div>
+<h2>
+O que você precisa?
+</h2>
+
+<p>
+Tudo em um só lugar.
+</p>
 
 </div>
 
 
+<div class="quick">
 
-<!-- =========================================================
-     ACESSOS RÁPIDOS
-========================================================= -->
+<a href="#assinaturas"
+   class="quick-card">
 
-<section class="shortcuts">
+<span class="quick-icon">✉️</span>
 
+<strong>
+Assinaturas de e-mail
+</strong>
 
-<a
-href="assinaturas.html"
-class="shortcut">
-
-    <div class="shortcut-icon">
-        ✎
-    </div>
-
-    <h3>
-        Assinaturas
-    </h3>
-
-    <p>
-        Acesse sua assinatura oficial de e-mail.
-    </p>
+<small>
+Encontre sua assinatura e arraste
+a imagem para o UOL Mail Pro.
+</small>
 
 </a>
 
 
+<a href="#agenda"
+   class="quick-card">
 
-<a
-href="#nosso-time"
-class="shortcut">
+<span class="quick-icon">🎂</span>
 
-    <div class="shortcut-icon">
-        👥
-    </div>
+<strong>
+Aniversários e eventos
+</strong>
 
-    <h3>
-        Nosso Time
-    </h3>
-
-    <p>
-        Conheça nossa equipe e departamentos.
-    </p>
+<small>
+Consulte o calendário da LTJ.
+</small>
 
 </a>
 
 
+<a href="#informacoes"
+   class="quick-card">
 
-<a
-href="#comunicados"
-class="shortcut">
+<span class="quick-icon">👥</span>
 
-    <div class="shortcut-icon">
-        📢
-    </div>
+<strong>
+Informações da equipe
+</strong>
 
-    <h3>
-        Comunicados
-    </h3>
-
-    <p>
-        Fique por dentro das novidades e avisos.
-    </p>
+<small>
+Consulte as informações
+dos colaboradores.
+</small>
 
 </a>
 
 
+<a href="#sugestoes"
+   class="quick-card">
 
-<a
-href="#calendario"
-class="shortcut">
+<span class="quick-icon">💡</span>
 
-    <div class="shortcut-icon">
-        📅
-    </div>
+<strong>
+Sugestões anônimas
+</strong>
 
-    <h3>
-        Calendário
-    </h3>
-
-    <p>
-        Consulte eventos, reuniões e datas.
-    </p>
+<small>
+Envie uma ideia ou sugestão
+para a empresa.
+</small>
 
 </a>
 
+</div>
 
-
-<a
-href="#materiais"
-class="shortcut">
-
-    <div class="shortcut-icon">
-        📁
-    </div>
-
-    <h3>
-        Materiais
-    </h3>
-
-    <p>
-        Documentos, manuais e arquivos importantes.
-    </p>
-
-</a>
-
-
-
-<a
-href="#sugestoes"
-class="shortcut">
-
-    <div class="shortcut-icon">
-        💬
-    </div>
-
-    <h3>
-        Sugestões
-    </h3>
-
-    <p>
-        Envie suas sugestões de forma anônima.
-    </p>
-
-</a>
-
-
-
-<a
-href="#aniversariantes"
-class="shortcut">
-
-    <div class="shortcut-icon">
-        🎂
-    </div>
-
-    <h3>
-        Aniversariantes
-    </h3>
-
-    <p>
-        Aniversários de vida e de empresa.
-    </p>
-
-</a>
-
+</div>
 
 </section>
 
 
+<!-- =========================
+     AGENDA
+========================= -->
 
-<!-- =========================================================
-     DASHBOARD
-========================================================= -->
+<section id="agenda">
 
-<section class="dashboard">
+<div class="container">
 
+<div class="section-title">
 
+<span class="eyebrow">
+AGENDA LTJ
+</span>
 
-<!-- =========================================================
-     ANIVERSARIANTES
-========================================================= -->
+<h2>
+Aniversários & Eventos
+</h2>
 
-<div
-class="panel"
-id="aniversariantes">
-
-
-    <div class="panel-header">
-
-
-        <div class="panel-title">
-
-            <div class="panel-title-icon">
-                🎁
-            </div>
-
-            <h3>
-                Aniversariantes do Mês
-            </h3>
-
-        </div>
-
-
-        <a href="#">
-            Ver todos
-        </a>
-
-
-    </div>
-
-
-
-    <div class="birthday-columns">
-
-
-        <!-- VIDA -->
-
-        <div>
-
-
-            <div class="birthday-category category-life">
-                🎂 ANIVERSÁRIOS DE VIDA
-            </div>
-
-
-            <div class="birthday-person">
-
-                <div class="person-circle life-circle">
-                    👤
-                </div>
-
-                <div>
-
-                    <strong>
-                        Ana Paula
-                    </strong>
-
-                    <small>
-                        05 de Maio
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="birthday-person">
-
-                <div class="person-circle life-circle">
-                    👤
-                </div>
-
-                <div>
-
-                    <strong>
-                        Paulo Rodrigues
-                    </strong>
-
-                    <small>
-                        14 de Maio
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="birthday-person">
-
-                <div class="person-circle life-circle">
-                    👤
-                </div>
-
-                <div>
-
-                    <strong>
-                        Melissa Amaral
-                    </strong>
-
-                    <small>
-                        21 de Maio
-                    </small>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- EMPRESA -->
-
-        <div>
-
-
-            <div class="birthday-category category-company">
-                🏆 ANIVERSÁRIOS DE EMPRESA
-            </div>
-
-
-            <div class="birthday-person">
-
-                <div class="person-circle company-circle">
-                    👤
-                </div>
-
-                <div>
-
-                    <strong>
-                        Helen
-                    </strong>
-
-                    <small>
-                        18 anos de LTJ
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="birthday-person">
-
-                <div class="person-circle company-circle">
-                    👤
-                </div>
-
-                <div>
-
-                    <strong>
-                        Melissa Amaral
-                    </strong>
-
-                    <small>
-                        15 anos de LTJ
-                    </small>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-
-    <div class="birthday-footer">
-
-        <span class="party">
-            🎉
-        </span>
-
-        <div>
-
-            Celebramos quem faz parte
-            da nossa história!
-
-            <strong>
-                Parabéns! 🧡 💙
-            </strong>
-
-        </div>
-
-    </div>
-
+<p>
+Acompanhe os aniversários e acontecimentos
+da empresa.
+</p>
 
 </div>
 
 
+<div class="calendar-layout">
 
-<!-- =========================================================
-     EVENTOS
-========================================================= -->
+<div class="calendar-card">
 
-<div
-class="panel"
-id="calendario">
+<div class="calendar-header">
 
+<button onclick="mesAnterior()">‹</button>
 
-    <div class="panel-header">
+<h3 id="mesAno"></h3>
 
-
-        <div class="panel-title">
-
-            <div class="panel-title-icon">
-                📅
-            </div>
-
-            <h3>
-                Próximos Eventos
-            </h3>
-
-        </div>
-
-
-        <a href="#">
-            Ver calendário
-        </a>
-
-
-    </div>
-
-
-
-    <div class="event">
-
-
-        <div class="event-date">
-
-            <strong>
-                15
-            </strong>
-
-            <span>
-                MAI
-            </span>
-
-        </div>
-
-
-        <div class="event-info">
-
-            <strong>
-                Reunião Geral
-            </strong>
-
-            <small>
-                🕘 14h00
-            </small>
-
-            <small>
-                📍 Sala de Reuniões
-            </small>
-
-        </div>
-
-
-    </div>
-
-
-
-    <div class="event">
-
-
-        <div class="event-date">
-
-            <strong>
-                20
-            </strong>
-
-            <span>
-                MAI
-            </span>
-
-        </div>
-
-
-        <div class="event-info">
-
-            <strong>
-                Treinamento Comercial
-            </strong>
-
-            <small>
-                🕘 09h00
-            </small>
-
-            <small>
-                📍 Auditório
-            </small>
-
-        </div>
-
-
-    </div>
-
-
-
-    <div class="event">
-
-
-        <div class="event-date">
-
-            <strong>
-                30
-            </strong>
-
-            <span>
-                MAI
-            </span>
-
-        </div>
-
-
-        <div class="event-info">
-
-            <strong>
-                Café com a Direção
-            </strong>
-
-            <small>
-                🕘 08h30
-            </small>
-
-            <small>
-                📍 Refeitório
-            </small>
-
-        </div>
-
-
-    </div>
-
-
-
-    <div class="event-footer">
-
-        ☆ Participe e faça a diferença!
-
-    </div>
-
+<button onclick="mesProximo()">›</button>
 
 </div>
 
 
+<div class="weekdays">
 
-<!-- =========================================================
-     COMUNICADOS
-========================================================= -->
-
-<div
-class="panel"
-id="comunicados">
-
-
-    <div class="panel-header">
-
-
-        <div class="panel-title">
-
-            <div class="panel-title-icon">
-                📢
-            </div>
-
-            <h3>
-                Últimos Comunicados
-            </h3>
-
-        </div>
-
-
-        <a href="#">
-            Ver todos
-        </a>
-
-
-    </div>
-
-
-
-    <div class="notice">
-
-        <div class="notice-label">
-            Importante
-        </div>
-
-
-        <div class="notice-content">
-
-            <strong>
-                Novo comunicado
-            </strong>
-
-            <p>
-
-                Utilize esta área para avisos
-                e informações importantes
-                destinadas aos colaboradores.
-
-            </p>
-
-        </div>
-
-
-        <div class="notice-time">
-            Hoje
-        </div>
-
-    </div>
-
-
-
-    <div class="notice">
-
-        <div class="notice-label">
-            Aviso
-        </div>
-
-
-        <div class="notice-content">
-
-            <strong>
-                Atualização de Procedimentos
-            </strong>
-
-            <p>
-
-                Confira as atualizações
-                nos procedimentos internos
-                do setor.
-
-            </p>
-
-        </div>
-
-
-        <div class="notice-time">
-            Ontem
-        </div>
-
-    </div>
-
-
-
-    <div class="notice">
-
-        <div class="notice-label">
-            Evento
-        </div>
-
-
-        <div class="notice-content">
-
-            <strong>
-                Próxima ação LTJ
-            </strong>
-
-            <p>
-
-                Campanhas, ações e eventos internos
-                também podem aparecer aqui.
-
-            </p>
-
-        </div>
-
-
-        <div class="notice-time">
-            2 dias atrás
-        </div>
-
-    </div>
-
-
-
-    <div class="notice-footer">
-
-        Acompanhar todos os comunicados
-
-    </div>
-
+<div>DOM</div>
+<div>SEG</div>
+<div>TER</div>
+<div>QUA</div>
+<div>QUI</div>
+<div>SEX</div>
+<div>SÁB</div>
 
 </div>
 
+
+<div id="calendar"
+     class="calendar-grid">
+</div>
+
+</div>
+
+
+<div class="events-card">
+
+<h3>
+📌 Próximos eventos
+</h3>
+
+<div id="eventList"></div>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
+<!-- =========================
+     ASSINATURAS
+========================= -->
 
-<!-- ÂNCORAS PARA FUTURAS PÁGINAS/SEÇÕES -->
+<section id="assinaturas"
+         class="alt">
 
-<div id="nosso-time"></div>
+<div class="container">
 
-<div id="materiais"></div>
+<div class="section-title">
 
-<div id="sugestoes"></div>
+<span class="eyebrow">
+ASSINATURAS DE E-MAIL
+</span>
+
+<h2>
+Encontre sua assinatura
+</h2>
+
+<p>
+Procure seu nome e arraste a imagem
+diretamente para o campo de assinatura
+do UOL Mail Pro.
+</p>
+
+</div>
 
 
-</main>
+<input
+    id="signatureSearch"
+    class="search"
+    type="search"
+    placeholder="🔎 Digite o nome do colaborador..."
+>
 
 
+<div class="instructions">
 
-<!-- =========================================================
-     RODAPÉ
-========================================================= -->
+<strong>
+Como colocar no UOL Mail Pro:
+</strong>
+
+<br><br>
+
+1️⃣ Procure seu nome abaixo.<br>
+2️⃣ Clique e segure a imagem da assinatura.<br>
+3️⃣ Arraste a imagem para o campo de assinatura do UOL Mail.<br>
+4️⃣ Solte a imagem no campo de assinatura.
+
+</div>
+
+
+<div
+    id="signatureGrid"
+    class="signature-grid">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     INFORMACOES
+========================= -->
+
+<section id="informacoes">
+
+<div class="container">
+
+<div class="section-title">
+
+<span class="eyebrow">
+EQUIPE LTJ
+</span>
+
+<h2>
+Informações dos colaboradores
+</h2>
+
+<p>
+Tenha acesso rápido às informações
+da nossa equipe.
+</p>
+
+</div>
+
+
+<div class="info-box">
+
+<div class="big">
+👥
+</div>
+
+<h3>
+Informações da equipe
+</h3>
+
+<p>
+Esta área será conectada à sua planilha.
+Quando você atualizar a planilha,
+as informações poderão ser atualizadas
+no portal automaticamente.
+</p>
+
+<br>
+
+<a
+    id="planilhaLink"
+    href="#"
+    target="_blank"
+    class="btn btn-primary">
+
+    Abrir planilha
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SUGESTOES
+========================= -->
+
+<section id="sugestoes"
+         class="alt">
+
+<div class="container suggestion">
+
+<div>
+
+<span class="eyebrow">
+ESPAÇO ABERTO
+</span>
+
+<h2 style="color:#063b91;font-size:35px;margin:10px 0 15px;">
+Sua opinião ajuda a LTJ a melhorar.
+</h2>
+
+<p style="color:#687386;line-height:1.7;">
+
+Tem uma ideia?
+Uma sugestão?
+Um ponto que podemos melhorar?
+
+Este espaço foi criado para você.
+
+</p>
+
+<div class="suggestion-list">
+
+✓ Envio anônimo<br>
+✓ Espaço para ideias<br>
+✓ Pode ser acessado pelo celular<br>
+✓ Sua opinião é importante
+
+</div>
+
+</div>
+
+
+<div class="suggestion-card">
+
+<h3 style="color:#063b91;margin-bottom:15px;">
+💡 Sugestão anônima
+</h3>
+
+<p>
+Clique abaixo para enviar sua sugestão.
+O formulário poderá ser configurado
+para não solicitar nome ou e-mail.
+</p>
+
+<br>
+
+<a
+    id="formLink"
+    href="#"
+    target="_blank"
+    class="btn btn-orange">
+
+    Enviar sugestão
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
+<div class="footer">
 
-    <div class="footer-brand">
+<img src="logo-ltj.jpeg"
+     alt="LTJ">
 
-        <img
-        src="logo-ltj.jpeg"
-        alt="Logo LTJ">
+<div>
 
+<strong>
+LTJ Intermediação de Negócios
+</strong>
 
-        <div>
+<br>
 
-            <strong>
-                LTJ Intermediação de Negócios
-            </strong>
+<small>
+Correspondente autorizado Banco Omni
+</small>
 
-            <span>
-                Portal do Colaborador
-            </span>
+</div>
 
-        </div>
+<div>
+Portal do Colaborador LTJ
+</div>
 
-    </div>
-
-
-
-    <div class="footer-values">
-
-        <span>
-            <b class="footer-orange">◇</b>
-            Ética
-        </span>
-
-        <span>
-            <b class="footer-orange">🤝</b>
-            Compromisso
-        </span>
-
-        <span>
-            <b class="footer-orange">♡</b>
-            Respeito
-        </span>
-
-        <span>
-            <b class="footer-orange">☆</b>
-            Excelência
-        </span>
-
-        <span>
-            <b class="footer-orange">👥</b>
-            Trabalho em Equipe
-        </span>
-
-    </div>
-
-
-
-    <div class="footer-phrase">
-
-        Somos todos LTJ!
-
-    </div>
-
+</div>
 
 </footer>
 
+</div>
+
+
+<div id="toast"
+     class="toast">
+</div>
+
+
+<script>
+
+/* =====================================
+   CONFIGURAÇÕES
+===================================== */
+
+/*
+   ALTERE AQUI OS LINKS:
+
+   1. LINK DA PLANILHA
+   2. LINK DO GOOGLE FORMS
+*/
+
+const LINK_PLANILHA =
+"https://docs.google.com/spreadsheets/";
+
+const LINK_FORMULARIO =
+"https://docs.google.com/forms/";
+
+
+/*
+   LOGIN
+
+   Você pode alterar usuário e senha aqui.
+*/
+
+const USUARIO =
+"colaborador";
+
+const SENHA =
+"ltj2026";
+
+
+/* =====================================
+   LOGIN
+===================================== */
+
+document
+.getElementById("loginForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    const usuario =
+        document.getElementById("username").value;
+
+    const senha =
+        document.getElementById("password").value;
+
+    if(
+        usuario === USUARIO &&
+        senha === SENHA
+    ){
+
+        document
+        .getElementById("loginScreen")
+        .classList.add("hidden");
+
+        document
+        .getElementById("portal")
+        .classList.remove("hidden");
+
+        localStorage.setItem(
+            "ltjLogin",
+            "true"
+        );
+
+        window.scrollTo(0,0);
+
+    }else{
+
+        document
+        .getElementById("loginError")
+        .innerText =
+        "Usuário ou senha incorretos.";
+
+    }
+
+});
+
+
+function logout(){
+
+    localStorage.removeItem(
+        "ltjLogin"
+    );
+
+    location.reload();
+
+}
+
+
+function mostrarSenha(){
+
+    const campo =
+        document.getElementById("password");
+
+    campo.type =
+        campo.type === "password"
+        ? "text"
+        : "password";
+
+}
+
+
+/* =====================================
+   LINKS
+===================================== */
+
+document
+.getElementById("planilhaLink")
+.href = LINK_PLANILHA;
+
+document
+.getElementById("formLink")
+.href = LINK_FORMULARIO;
+
+
+/* =====================================
+   ASSINATURAS
+===================================== */
+
+/*
+   IMPORTANTE:
+
+   As imagens precisam estar no GitHub.
+
+   Crie uma pasta chamada:
+
+   assinaturas
+
+   e coloque as imagens dentro dela.
+
+   Exemplo:
+
+   assinaturas/ana-paula.jpg.jpg
+*/
+
+
+const assinaturas = [
+
+    {
+        nome:"Ana Paula Rissato",
+        imagem:"assinaturas/08-ana-paula-rissato.png"
+    },
+
+    {
+        nome:"Amanda Prado",
+        imagem:"assinaturas/05-amanda-prado.png"
+    },
+
+    {
+        nome:"Amanda Silva",
+        imagem:"assinaturas/06-amanda-silva.png"
+    },
+
+    {
+        nome:"Andressa Andrade",
+        imagem:"assinaturas/10-andressa-andrade.png"
+    },
+
+    {
+        nome:"Andressa Andrade",
+        imagem:"assinaturas/11-andressa-andrade.png"
+    },
+
+    {
+        nome:"Andréia Souza",
+        imagem:"assinaturas/09-andreia-souza.png"
+    },
+
+    {
+        nome:"Ariane Araujo",
+        imagem:"assinaturas/12-ariane-araujo.png"
+    },
+
+    {
+        nome:"Bianca Nogueira",
+        imagem:"assinaturas/13-bianca-nogueira.png"
+    },
+
+    {
+        nome:"Camila Gomes",
+        imagem:"assinaturas/14-camila-gomes.png"
+    },
+
+    {
+        nome:"Carmen Abreu",
+        imagem:"assinaturas/15-carmen-abreu.png"
+    },
+
+    {
+        nome:"Caroline Morais",
+        imagem:"assinaturas/16-caroline-morais.png"
+    },
+
+    {
+        nome:"Cibele Guedes",
+        imagem:"assinaturas/17-cibele-guedes.png"
+    },
+
+    {
+        nome:"Cintia Ferreira",
+        imagem:"assinaturas/18-cintia-ferreira.png"
+    },
+
+    {
+        nome:"Denilze Souza",
+        imagem:"assinaturas/19-denilze-souza.png"
+    },
+
+    {
+        nome:"Dirce Rodrigues",
+        imagem:"assinaturas/20-dirce-rodrigues.png"
+    },
+
+    {
+        nome:"Eder Costa",
+        imagem:"assinaturas/21-eder-costa.png"
+    },
+
+    {
+        nome:"Elaine Silva",
+        imagem:"assinaturas/22-elaine-silva.png"
+    },
+
+    {
+        nome:"Elaine Sanches",
+        imagem:"assinaturas/23-elaine-sanches.png"
+    },
+
+    {
+        nome:"Emylie Santos",
+        imagem:"assinaturas/24-emylie-santos.png"
+    },
+
+    {
+        nome:"Frederico Sousa",
+        imagem:"assinaturas/25-frederico-sousa.png"
+    },
+
+    {
+        nome:"Frederico Sousa",
+        imagem:"assinaturas/26-frederico-sousa.png"
+    },
+
+    {
+        nome:"Helen Padilha",
+        imagem:"assinaturas/27-helen-padilha.png"
+    },
+
+    {
+        nome:"Heloisa Prado",
+        imagem:"assinaturas/29-heloisa-prado.png"
+    },
+
+    {
+        nome:"Helen Padilha",
+        imagem:"assinaturas/28-helen-padilha.png"
+    },
+
+    {
+        nome:"Isabella Franci",
+        imagem:"assinaturas/30-isabella-franci.png"
+    },
+
+    {
+        nome:"Izabela Ramos",
+        imagem:"assinaturas/31-izabela-ramos.png"
+    },
+
+    {
+        nome:"Jessica Mendes",
+        imagem:"assinaturas/32-jessica-mendes.png"
+    },
+
+    {
+        nome:"Jessica Rafaela Vidal",
+        imagem:"assinaturas/33-jessica-rafaela-vidal.png"
+    },
+
+    {
+        nome:"Julia Moura",
+        imagem:"assinaturas/34-julia-moura.png"
+    },
+
+    {
+        nome:"Julia Moura",
+        imagem:"assinaturas/35-julia-moura.png"
+    },
+
+    {
+        nome:"Karin Romano",
+        imagem:"assinaturas/36-karin-romano.png"
+    },
+
+    {
+        nome:"Katia Coutinho",
+        imagem:"assinaturas/37-katia-coutinho.png"
+    },
+
+    {
+        nome:"Keren Santos",
+        imagem:"assinaturas/38-keren-santos.png"
+    },
+
+    {
+        nome:"Kettllyn Neves",
+        imagem:"assinaturas/39-ketllyn-neves.png"
+    },
+
+    {
+        nome:"Larissa Santos",
+        imagem:"assinaturas/40-larissa-santos.png"
+    },
+
+    {
+        nome:"Liliam Oliveira",
+        imagem:"assinaturas/41-liliam-oliveira.png"
+    },
+
+    {
+        nome:"Marcelle Goncalves",
+        imagem:"assinaturas/42-marcelle-goncalves.png"
+    },
+
+    {
+        nome:"Marcio Martins",
+        imagem:"assinaturas/43-marcio-martins.png"
+    },
+
+    {
+        nome:"Marcio Martins",
+        imagem:"assinaturas/44-marcio-martins.png"
+    },
+
+    {
+        nome:"Maria Julia",
+        imagem:"assinaturas/45-maria-julia.png"
+    },
+
+    {
+        nome:"Maria Santos",
+        imagem:"assinaturas/46-maria-santos.png"
+    },
+
+    {
+        nome:"Mayara Moura",
+        imagem:"assinaturas/47-mayara-moura.png"
+    },
+
+    {
+        nome:"Melissa Amaral",
+        imagem:"assinaturas/48-melissa-amaral.png"
+    },
+
+    {
+        nome:"Michele Mota",
+        imagem:"assinaturas/49-michele-mota.png"
+    },
+
+    {
+        nome:"Nedra Jorge",
+        imagem:"assinaturas/50-nedra-jorge.png"
+    },
+
+    {
+        nome:"Paulo Rodrigues",
+        imagem:"assinaturas/51-paulo-rodrigues.png"
+    },
+
+    {
+        nome:"Paulo Roberto",
+        imagem:"assinaturas/52-paulo-roberto.png"
+    },
+
+    {
+        nome:"Ranile Silva",
+        imagem:"assinaturas/53-ranile-silva.png"
+    },
+
+    {
+        nome:"Renata Lopes",
+        imagem:"assinaturas/54-renata-lopes.png"
+    },
+
+    {
+        nome:"Taiane Couto",
+        imagem:"assinaturas/55-taiane-couto.png"
+    },
+
+    {
+        nome:"Tamires Reis",
+        imagem:"assinaturas/56-tamires-reis.png"
+    },
+
+    {
+        nome:"Tatiane Oliveira",
+        imagem:"assinaturas/57-tatiane-oliveira.png"
+    },
+
+    {
+        nome:"Tatiane Oliveira",
+        imagem:"assinaturas/58-tatiane-oliveira.png"
+    },
+
+    {
+        nome:"Vitoria Pereira",
+        imagem:"assinaturas/59-vitoria-pereira.png"
+    },
+
+    {
+        nome:"Yolanda Xavier",
+        imagem:"assinaturas/60-yolanda-xavier.png"
+    },
+
+    {
+        nome:"Recursos Humanos",
+        imagem:"assinaturas/61-recursos-humanos.png"
+    },
+
+    {
+        nome:"Recursos Humanos",
+        imagem:"assinaturas/62-recursos-humanos.png"
+    }
+
+];
+
+
+/* =====================================
+   MOSTRAR ASSINATURAS
+===================================== */
+
+function mostrarAssinaturas(filtro=""){
+
+    const grid =
+        document.getElementById(
+            "signatureGrid"
+        );
+
+    grid.innerHTML="";
+
+    const resultado =
+        assinaturas.filter(item =>
+            item.nome
+            .toLowerCase()
+            .includes(
+                filtro.toLowerCase()
+            )
+        );
+
+    resultado.forEach(item=>{
+
+        const card =
+            document.createElement("div");
+
+        card.className =
+            "signature-card";
+
+        card.innerHTML = `
+
+            <h3>${item.nome}</h3>
+
+            <small>
+                Assinatura de e-mail
+            </small>
+
+            <div class="signature-image">
+
+                <img
+                    src="${item.imagem}"
+                    alt="Assinatura de ${item.nome}"
+                    draggable="true"
+                >
+
+            </div>
+
+            <div class="signature-tip">
+
+                🖱️ Clique e arraste a imagem
+                para o UOL Mail Pro.
+
+            </div>
+
+            <div class="signature-buttons">
+
+                <a
+                    href="${item.imagem}"
+                    target="_blank">
+                    Abrir imagem
+                </a>
+
+                <button
+                    onclick="copiarLink('${item.imagem}')">
+                    Copiar link
+                </button>
+
+            </div>
+
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+document
+.getElementById("signatureSearch")
+.addEventListener(
+    "input",
+    function(){
+
+        mostrarAssinaturas(
+            this.value
+        );
+
+    }
+);
+
+
+function copiarLink(link){
+
+    const url =
+        new URL(
+            link,
+            window.location.href
+        ).href;
+
+    navigator.clipboard
+    .writeText(url)
+    .then(()=>{
+
+        mostrarToast(
+            "Link da assinatura copiado!"
+        );
+
+    });
+
+}
+
+
+mostrarAssinaturas();
+
+
+/* =====================================
+   CALENDARIO
+===================================== */
+
+let dataCalendario =
+    new Date();
+
+
+/*
+   COLOQUE OS ANIVERSÁRIOS AQUI.
+
+   Exemplo:
+
+   data:"08-20"
+
+   significa 20 de agosto.
+*/
+
+const aniversarios = [
+
+    {
+        nome:"Cibele Guedes",
+        data:"08-20"
+    },
+
+    {
+        nome:"João da Silva",
+        data:"09-03"
+    }
+
+];
+
+
+/*
+   COLOQUE OS EVENTOS DA EMPRESA AQUI.
+*/
+
+const eventos = [
+
+    {
+        nome:"Evento LTJ",
+        data:"08-20",
+        descricao:"Evento interno da empresa"
+    },
+
+    {
+        nome:"Reunião Geral",
+        data:"08-25",
+        descricao:"Reunião com os colaboradores"
+    }
+
+];
+
+
+function renderCalendario(){
+
+    const ano =
+        dataCalendario.getFullYear();
+
+    const mes =
+        dataCalendario.getMonth();
+
+    const primeiro =
+        new Date(
+            ano,
+            mes,
+            1
+        );
+
+    const ultimo =
+        new Date(
+            ano,
+            mes+1,
+            0
+        );
+
+    const nomeMes =
+        dataCalendario.toLocaleDateString(
+            "pt-BR",
+            {
+                month:"long",
+                year:"numeric"
+            }
+        );
+
+    document
+    .getElementById("mesAno")
+    .innerText =
+        nomeMes;
+
+
+    const calendar =
+        document.getElementById(
+            "calendar"
+        );
+
+    calendar.innerHTML="";
+
+
+    for(
+        let i=0;
+        i<primeiro.getDay();
+        i++
+    ){
+
+        const vazio =
+            document.createElement("div");
+
+        calendar.appendChild(vazio);
+
+    }
+
+
+    for(
+        let dia=1;
+        dia<=ultimo.getDate();
+        dia++
+    ){
+
+        const div =
+            document.createElement("div");
+
+        div.className="day";
+
+
+        const data =
+            ${String(mes+1).padStart(2,"0")}-${String(dia).padStart(2,"0")};
+
+
+        const hoje =
+            new Date();
+
+
+        if(
+            dia === hoje.getDate() &&
+            mes === hoje.getMonth() &&
+            ano === hoje.getFullYear()
+        ){
+
+            div.classList.add(
+                "today"
+            );
+
+        }
+
+
+        let conteudo =
+            <div class="day-number">${dia}</div>;
+
+
+        aniversarios
+        .filter(a=>a.data===data)
+        .forEach(a=>{
+
+            div.classList.add(
+                "has-event"
+            );
+
+            conteudo +=
+                `<div class="day-event">
+                🎂 ${a.nome}
+                </div>`;
+
+        });
+
+
+        eventos
+        .filter(e=>e.data===data)
+        .forEach(e=>{
+
+            div.classList.add(
+                "has-event"
+            );
+
+            conteudo +=
+                `<div class="day-event">
+                📅 ${e.nome}
+                </div>`;
+
+        });
+
+
+        div.innerHTML =
+            conteudo;
+
+        calendar.appendChild(div);
+
+    }
+
+}
+
+
+function mesAnterior(){
+
+    dataCalendario.setMonth(
+        dataCalendario.getMonth()-1
+    );
+
+    renderCalendario();
+
+}
+
+
+function mesProximo(){
+
+    dataCalendario.setMonth(
+        dataCalendario.getMonth()+1
+    );
+
+    renderCalendario();
+
+}
+
+
+renderCalendario();
+
+
+/* =====================================
+   PRÓXIMOS EVENTOS
+===================================== */
+
+function renderEventos(){
+
+    const lista =
+        document.getElementById(
+            "eventList"
+        );
+
+    const proximo =
+        eventos.slice(0,5);
+
+    lista.innerHTML="";
+
+    proximo.forEach(evento=>{
+
+        const item =
+            document.createElement("div");
+
+        item.className=
+            "event-item";
+
+        item.innerHTML=`
+
+            <strong>
+                📅 ${evento.nome}
+            </strong>
+
+            <small>
+                ${evento.data}
+            </small>
+
+            <br>
+
+            <small>
+                ${evento.descricao}
+            </small>
+
+        `;
+
+        lista.appendChild(item);
+
+    });
+
+}
+
+
+renderEventos();
+
+
+/* =====================================
+   DESTAQUES INICIAIS
+===================================== */
+
+function renderNextEvents(){
+
+    const area =
+        document.getElementById(
+            "nextEvents"
+        );
+
+    area.innerHTML="";
+
+    eventos
+    .slice(0,3)
+    .forEach(evento=>{
+
+        area.innerHTML += `
+
+            <div class="next-event">
+
+                <div class="event-date">
+
+                    <strong>
+                        ${evento.data.split("-")[1]}
+                    </strong>
+
+                    <small>
+                        ${evento.data.split("-")[0]}
+                    </small>
+
+                </div>
+
+                <div class="event-info">
+
+                    <strong>
+                        ${evento.nome}
+                    </strong>
+
+                    <small>
+                        ${evento.descricao}
+                    </small>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+renderNextEvents();
+
+
+/* =====================================
+   NOTIFICACAO DE ANIVERSARIO
+===================================== */
+
+function verificarAniversario(){
+
+    const hoje =
+        new Date();
+
+    const data =
+        `${String(
+            hoje.getMonth()+1
+        ).padStart(2,"0")}-${String(
+            hoje.getDate()
+        ).padStart(2,"0")}`;
+
+
+    const aniversariantes =
+        aniversarios.filter(
+            a=>a.data===data
+        );
+
+
+    if(
+        aniversariantes.length
+    ){
+
+        const nomes =
+            aniversariantes
+            .map(a=>a.nome)
+            .join(", ");
+
+
+        mostrarToast(
+            🎂 Hoje é aniversário de ${nomes}!
+        );
+
+    }
+
+}
+
+
+verificarAniversario();
+
+
+/* =====================================
+   TOAST
+===================================== */
+
+function mostrarToast(texto){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+    toast.innerText =
+        texto;
+
+    toast.classList.add(
+        "show"
+    );
+
+    setTimeout(()=>{
+
+        toast.classList.remove(
+            "show"
+        );
+
+    },5000);
+
+}
+
+
+/* =====================================
+   LOGIN AUTOMÁTICO
+===================================== */
+
+if(
+    localStorage.getItem(
+        "ltjLogin"
+    ) === "true"
+){
+
+    document
+    .getElementById("loginScreen")
+    .classList.add("hidden");
+
+    document
+    .getElementById("portal")
+    .classList.remove("hidden");
+
+}
+
+</script>
 
 </body>
 </html>
