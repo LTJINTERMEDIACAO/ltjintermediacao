@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosso Time | LTJ</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --azul:#0640a1;
+    --azul2:#0b54c7;
+    --azul-escuro:#03275f;
+    --laranja:#ff7417;
+    --fundo:#f5f7fb;
+    --cinza:#667085;
+    --borda:#e4eaf2;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--fundo);
+    color:var(--azul-escuro);
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* CABEÇALHO */
+
+header{
+    background:white;
+    padding:15px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid var(--borda);
+}
+
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-area img{
+    width:95px;
+    height:70px;
+    object-fit:contain;
+}
+
+.logo-area strong{
+    display:block;
+    font-size:16px;
+}
+
+.logo-area span{
+    display:block;
+    color:var(--cinza);
+    font-size:11px;
+    margin-top:3px;
+}
+
+.voltar{
+    font-size:13px;
+    font-weight:bold;
+    color:var(--azul-escuro);
+}
+
+.voltar:hover{
+    color:var(--laranja);
+}
+
+/* HERO */
+
+.hero{
+    margin:22px 5% 0;
+    padding:42px 30px;
+    border-radius:20px;
+    text-align:center;
+    color:white;
+    background:
+        radial-gradient(circle at 80% 20%,rgba(255,116,23,.25),transparent 25%),
+        linear-gradient(135deg,#03275f,#0b54c7);
+}
+
+.hero h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.hero h1 span{
+    color:var(--laranja);
+}
+
+.hero p{
+    color:#edf4ff;
+    font-size:14px;
+}
+
+/* CONTEÚDO */
+
+main{
+    max-width:1200px;
+    margin:28px auto;
+    padding:0 20px 60px;
+}
+
+.busca-box{
+    background:white;
+    border:1px solid var(--borda);
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:22px;
+}
+
+.campo-busca{
+    position:relative;
+}
+
+.campo-busca span{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.campo-busca input{
+    width:100%;
+    height:50px;
+    padding:0 15px 0 45px;
+    border:1px solid #dce3ed;
+    border-radius:10px;
+    outline:none;
+    font-size:14px;
+}
+
+.campo-busca input:focus{
+    border-color:var(--azul2);
+    box-shadow:0 0 0 3px rgba(11,84,199,.08);
+}
+
+/* GRID */
+
+#lista-time{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+/* CARD */
+
+.card{
+    background:white;
+    border:1px solid var(--borda);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(6,40,95,.05);
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 28px rgba(6,40,95,.10);
+}
+
+.foto{
+    width:100%;
+    aspect-ratio:1 / 1;
+    background:#edf2f8;
+    overflow:hidden;
+}
+
+.foto img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.card-info{
+    padding:18px;
+    text-align:center;
+}
+
+.card-info h3{
+    font-size:17px;
+    margin-bottom:5px;
+    color:var(--azul-escuro);
+}
+
+.setor{
+    color:var(--laranja);
+    font-size:11px;
+    font-weight:bold;
+    margin-bottom:13px;
+}
+
+.email{
+    display:inline-block;
+    color:var(--azul2);
+    font-size:11px;
+    word-break:break-word;
+}
+
+.mensagem{
+    grid-column:1/-1;
+    text-align:center;
+    padding:40px 20px;
+    color:var(--cinza);
+}
+
+/* FOOTER */
+
+footer{
+    background:linear-gradient(90deg,#02245b,#0645a3);
+    color:white;
+    text-align:center;
+    padding:20px;
+    font-size:11px;
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1000px){
+    #lista-time{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:760px){
+    header{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    #lista-time{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:480px){
+    #lista-time{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+
+        <img src="logo-ltj.jpeg" alt="Logo LTJ">
+
+        <div>
+            <strong>LTJ Intermediação de Negócios</strong>
+            <span>Nosso Time</span>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="voltar">
+        ← Voltar ao Portal
+    </a>
+
+</header>
+
+<section class="hero">
+
+    <h1>
+        Nosso <span>Time</span>
+    </h1>
+
+    <p>
+        Conheça as pessoas que fazem parte da LTJ.
+    </p>
+
+</section>
+
+<main>
+
+    <div class="busca-box">
+
+        <div class="campo-busca">
+
+            <span>🔎</span>
+
+            <input
+                type="text"
+                id="busca"
+                placeholder="Busque por nome..."
+                autocomplete="off"
+            >
+
+        </div>
+
+    </div>
+
+    <div id="lista-time">
+
+        <div class="mensagem">
+            Carregando colaboradores...
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    LTJ Intermediação de Negócios • Portal do Colaborador
+</footer>
+
+<script>
+
+/* COLE AQUI O LINK CSV DA SUA PLANILHA PUBLICADA */
+
+const URL_PLANILHA =
+"COLE_AQUI_O_LINK_CSV_DA_PLANILHA";
+
+let colaboradores = [];
+
+function normalizar(texto){
+    return String(texto || "")
+        .trim()
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"");
+}
+
+function lerCSV(texto){
+
+    const linhas = [];
+    let linha = [];
+    let campo = "";
+    let dentroAspas = false;
+
+    for(let i=0;i<texto.length;i++){
+
+        const c = texto[i];
+        const prox = texto[i+1];
+
+        if(c === '"'){
+
+            if(dentroAspas && prox === '"'){
+                campo += '"';
+                i++;
+            }else{
+                dentroAspas = !dentroAspas;
+            }
+
+        }else if(c === "," && !dentroAspas){
+
+            linha.push(campo);
+            campo = "";
+
+        }else if((c === "\n" || c === "\r") && !dentroAspas){
+
+            if(c === "\r" && prox === "\n"){
+                i++;
+            }
+
+            linha.push(campo);
+            campo = "";
+
+            if(linha.some(v => String(v).trim() !== "")){
+                linhas.push(linha);
+            }
+
+            linha = [];
+
+        }else{
+
+            campo += c;
+
+        }
+    }
+
+    linha.push(campo);
+
+    if(linha.some(v => String(v).trim() !== "")){
+        linhas.push(linha);
+    }
+
+    return linhas;
+}
+
+async function carregarTime(){
+
+    const area = document.getElementById("lista-time");
+
+    try{
+
+        const resposta =
+            await fetch(URL_PLANILHA + "&cache=" + Date.now());
+
+        if(!resposta.ok){
+            throw new Error("Erro ao acessar a planilha");
+        }
+
+        const csv = await resposta.text();
+        const linhas = lerCSV(csv);
+
+        const cabecalho = linhas[0].map(normalizar);
+
+        const iNome = cabecalho.indexOf("nome");
+        const iSetor = cabecalho.indexOf("setor");
+        const iEmail = cabecalho.indexOf("email");
+        const iFoto = cabecalho.indexOf("foto");
+        const iAtivo = cabecalho.indexOf("ativo");
+
+        colaboradores = [];
+
+        for(let i=1;i<linhas.length;i++){
+
+            const linha = linhas[i];
+
+            const nome = String(linha[iNome] || "").trim();
+            const setor = String(linha[iSetor] || "").trim();
+            const email = String(linha[iEmail] || "").trim();
+            const foto = String(linha[iFoto] || "").trim();
+
+            const ativo =
+                iAtivo >= 0
+                ? normalizar(linha[iAtivo])
+                : "sim";
+
+            if(!nome){
+                continue;
+            }
+
+            const estaAtivo =
+                ativo === "" ||
+                ativo === "sim" ||
+                ativo === "ativo" ||
+                ativo === "true" ||
+                ativo === "1";
+
+            if(!estaAtivo){
+                continue;
+            }
+
+            colaboradores.push({
+                nome,
+                setor,
+                email,
+                foto
+            });
+        }
+
+        colaboradores.sort((a,b) =>
+            a.nome.localeCompare(b.nome,"pt-BR")
+        );
+
+        mostrarTime(colaboradores);
+
+    }catch(erro){
+
+        area.innerHTML = `
+            <div class="mensagem">
+                Não foi possível carregar os colaboradores.
+            </div>
+        `;
+    }
+}
+
+function mostrarTime(lista){
+
+    const area =
+        document.getElementById("lista-time");
+
+    if(lista.length === 0){
+
+        area.innerHTML = `
+            <div class="mensagem">
+                Nenhum colaborador encontrado.
+            </div>
+        `;
+
+        return;
+    }
+
+    area.innerHTML = "";
+
+    lista.forEach(function(pessoa){
+
+        const card =
+            document.createElement("div");
+
+        card.className = "card";
+
+        card.innerHTML = `
+
+            <div class="foto">
+
+                ${
+                    pessoa.foto
+                    ? `<img src="${pessoa.foto}" alt="${pessoa.nome}">`
+                    : ""
+                }
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>
+                    ${pessoa.nome}
+                </h3>
+
+                <div class="setor">
+                    ${pessoa.setor || ""}
+                </div>
+
+                ${
+                    pessoa.email
+                    ? `
+                    <a
+                    href="mailto:${pessoa.email}"
+                    class="email">
+                        ✉ ${pessoa.email}
+                    </a>
+                    `
+                    : ""
+                }
+
+            </div>
+
+        `;
+
+        area.appendChild(card);
+
+    });
+}
+
+document
+.getElementById("busca")
+.addEventListener("input",function(){
+
+    const termo = normalizar(this.value);
+
+    const filtrados =
+        colaboradores.filter(function(pessoa){
+
+            return normalizar(pessoa.nome)
+                .includes(termo);
+
+        });
+
+    mostrarTime(filtrados);
+
+});
+
+carregarTime();
+
+</script>
+
+</body>
+</html>
