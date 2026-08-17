@@ -1,21 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Assinaturas | Portal LTJ</title>
 <style>
-:root{--azul:#0640a1;--azul2:#0b54c7;--azul-escuro:#03275f;--laranja:#ff7417;--branco:#fff;--fundo:#f5f7fb;--cinza:#667085;--borda:#e4eaf2}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--fundo);color:var(--azul-escuro)}a{text-decoration:none;color:inherit}.header{background:#fff;min-height:95px;display:flex;align-items:center;justify-content:space-between;padding:12px 4.5%;border-bottom:1px solid var(--borda);position:sticky;top:0;z-index:10}.brand{display:flex;align-items:center;gap:15px}.brand img{width:95px;height:68px;object-fit:contain}.brand strong{display:block}.brand span{font-size:12px;color:#58677d}.back{background:var(--laranja);color:#fff;padding:10px 15px;border-radius:9px;font-size:12px;font-weight:bold}.wrap{padding:28px 4.5% 50px}.title h1{margin:0;font-size:28px}.title p{color:var(--cinza);font-size:13px}.line{width:42px;height:3px;background:var(--laranja);margin:12px 0 20px}.search{width:100%;max-width:520px;height:46px;border:1px solid var(--borda);border-radius:10px;padding:0 14px;outline:none;margin-bottom:18px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}.card{background:#fff;border:1px solid var(--borda);border-radius:15px;padding:16px;box-shadow:0 6px 18px rgba(6,40,95,.05)}.cardtop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.card h3{margin:0 0 5px;font-size:15px}.meta{font-size:10px;color:var(--cinza)}.badge{background:#edf4ff;color:var(--azul2);font-size:9px;font-weight:bold;padding:7px 9px;border-radius:20px;white-space:nowrap}.imgbox{margin-top:12px;border:1px dashed #dce2eb;border-radius:10px;padding:10px;min-height:150px;display:flex;align-items:center;justify-content:center}.imgbox img{width:100%;max-height:190px;object-fit:contain;cursor:grab}.actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.actions a,.actions button{border:1px solid var(--borda);background:#fff;color:var(--azul2);padding:8px 10px;border-radius:8px;font-size:10px;cursor:pointer}.note{background:#fff0e3;color:#7b3a00;border-radius:9px;padding:10px 13px;font-size:10px;line-height:1.5;margin-bottom:18px}.empty{background:#fff;padding:20px;border-radius:12px;color:var(--cinza)}@media(max-width:800px){.grid{grid-template-columns:1fr}.header{gap:12px}.brand span{display:none}}
-</style></head>
+:root{--azul:#0640a1;--azul2:#0b54c7;--azul-escuro:#03275f;--laranja:#ff7417;--branco:#fff;--fundo:#f5f7fb;--cinza:#667085;--borda:#e4eaf2}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--fundo);color:var(--azul-escuro)}
+a{text-decoration:none;color:inherit}
+.header{background:#fff;min-height:95px;display:flex;align-items:center;justify-content:space-between;padding:12px 4.5%;border-bottom:1px solid var(--borda);position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:center;gap:15px}.brand img{width:95px;height:68px;object-fit:contain}.brand strong{display:block}.brand span{font-size:12px;color:#58677d}
+.back{background:var(--laranja);color:#fff;padding:10px 15px;border-radius:9px;font-size:12px;font-weight:bold}
+.wrap{padding:28px 4.5% 50px}.title h1{margin:0;font-size:28px}.title p{color:var(--cinza);font-size:13px}.line{width:42px;height:3px;background:var(--laranja);margin:12px 0 20px}
+.search{width:100%;max-width:520px;height:46px;border:1px solid var(--borda);border-radius:10px;padding:0 14px;outline:none;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.card{background:#fff;border:1px solid var(--borda);border-radius:15px;padding:16px;box-shadow:0 6px 18px rgba(6,40,95,.05)}
+.cardtop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.card h3{margin:0 0 5px;font-size:15px}.meta{font-size:10px;color:var(--cinza)}
+.badge{background:#edf4ff;color:var(--azul2);font-size:9px;font-weight:bold;padding:7px 9px;border-radius:20px;white-space:nowrap}
+.imgbox{margin-top:12px;border:1px dashed #dce2eb;border-radius:10px;padding:10px;min-height:150px;display:flex;align-items:center;justify-content:center}
+.imgbox img{width:100%;max-height:190px;object-fit:contain}
+.actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.actions a,.actions button{border:1px solid var(--borda);background:#fff;color:var(--azul2);padding:8px 10px;border-radius:8px;font-size:10px;cursor:pointer}
+.note{background:#fff0e3;color:#7b3a00;border-radius:9px;padding:10px 13px;font-size:10px;line-height:1.5;margin-bottom:18px}
+.empty{background:#fff;padding:20px;border-radius:12px;color:var(--cinza)}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.header{gap:12px}.brand span{display:none}}
+</style>
+</head>
 <body>
-<header class="header"><div class="brand"><img src="logo-ltj.jpeg"><div><strong>LTJ Intermediação de Negócios</strong><span>Assinaturas oficiais</span></div></div><a class="back" href="index.html">← Voltar ao Portal</a></header>
-<main class="wrap"><div class="title"><h1>Assinaturas de e-mail</h1><div class="line"></div><p>Encontre seu nome e use a assinatura correspondente à sua unidade.</p></div><div class="note">As assinaturas são controladas pela mesma base de colaboradores. Se o campo <b>Ativo</b> estiver como <b>NÃO</b>, o acesso deixa de aparecer nesta página.</div><input id="search" class="search" type="search" placeholder="Buscar por nome, setor ou unidade..."><section id="grid" class="grid"><div class="empty">Carregando assinaturas...</div></section></main>
+<header class="header">
+  <div class="brand">
+    <img src="logo-ltj.png" alt="LTJ">
+    <div><strong>LTJ Intermediação de Negócios</strong><span>Assinaturas oficiais</span></div>
+  </div>
+  <a class="back" href="index.html">← Voltar ao Portal</a>
+</header>
+
+<main class="wrap">
+  <div class="title">
+    <h1>Assinaturas de e-mail</h1>
+    <div class="line"></div>
+    <p>Encontre seu nome e use a assinatura correspondente à sua unidade.</p>
+  </div>
+  <div class="note">
+    Esta página é atualizada pela aba <b>E-MAIL</b> da planilha. Linhas com <b>Ativo = NÃO</b> não aparecem.
+  </div>
+  <input id="search" class="search" type="search" placeholder="Buscar por nome, setor ou unidade...">
+  <section id="grid" class="grid"><div class="empty">Carregando assinaturas...</div></section>
+</main>
+
 <script>
-const PLANILHA_CSV = "https://docs.google.com/spreadsheets/d/1gRv9T8sq3aJUA30Y9GnqWsMBIr1_C84afXoyCZXjh8w/gviz/tq?tqx=out:csv&sheet=COLABORADORES"; const BASE_LOCAL="dados/colaboradores.csv"; let dados=[];
-function csv(t){const l=[];let r=[],c='',q=false;for(let i=0;i<t.length;i++){let x=t[i],n=t[i+1];if(x==='"'&&q&&n==='"'){c+='"';i++;continue}if(x==='"'){q=!q;continue}if(x===','&&!q){r.push(c);c='';continue}if((x==='\n'||x==='\r')&&!q){if(x==='\r'&&n==='\n')i++;r.push(c);c='';if(r.some(v=>v!==''))l.push(r);r=[];continue}c+=x}if(c||r.length){r.push(c);l.push(r)}if(!l.length)return[];const h=l[0].map(x=>x.replace(/^\uFEFF/,'').trim());return l.slice(1).map(v=>Object.fromEntries(h.map((k,i)=>[k,(v[i]||'').trim()]))) }
+const PLANILHA_ASSINATURAS =
+  "https://docs.google.com/spreadsheets/d/1gRv9T8sq3aJUA30Y9GnqWsMBIr1_C84afXoyCZXjh8w/gviz/tq?tqx=out:csv&sheet=E-MAIL";
+
+let dados=[];
+
+function csv(t){
+  const l=[];let r=[],c='',q=false;
+  for(let i=0;i<t.length;i++){
+    const x=t[i],n=t[i+1];
+    if(x==='"'&&q&&n==='"'){c+='"';i++;continue}
+    if(x==='"'){q=!q;continue}
+    if(x===','&&!q){r.push(c);c='';continue}
+    if((x==='\n'||x==='\r')&&!q){
+      if(x==='\r'&&n==='\n')i++;
+      r.push(c);c='';
+      if(r.some(v=>v!==''))l.push(r);
+      r=[];continue
+    }
+    c+=x
+  }
+  if(c||r.length){r.push(c);l.push(r)}
+  if(!l.length)return[];
+  const h=l[0].map(x=>x.replace(/^\uFEFF/,'').trim());
+  return l.slice(1).map(v=>Object.fromEntries(h.map((k,i)=>[k,(v[i]||'').trim()])))
+}
+
 const norm=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 const esc=s=>String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-async function load(){try{const r=await fetch(PLANILHA_CSV||BASE_LOCAL,{cache:'no-store'});dados=csv(await r.text()).filter(x=>(x.Ativo||'SIM').toUpperCase()!=='NÃO');render()}catch(e){document.getElementById('grid').innerHTML='<div class="empty">Não foi possível carregar a base.</div>'}}
-function entries(){const out=[];dados.forEach(x=>{if((x.Sorocaba||'').toUpperCase()==='SIM'&&x['Assinatura Sorocaba'])out.push({...x,unidade:'Sorocaba',imagem:x['Assinatura Sorocaba']});if((x.Indaiatuba||'').toUpperCase()==='SIM'&&x['Assinatura Indaiatuba'])out.push({...x,unidade:'Indaiatuba',imagem:x['Assinatura Indaiatuba']})});return out}
-function render(q=''){const g=document.getElementById('grid'),f=norm(q);const a=entries().filter(x=>norm(x.Nome).includes(f)||norm(x.Setor).includes(f)||norm(x.unidade).includes(f));g.innerHTML='';if(!a.length){g.innerHTML='<div class="empty">Nenhuma assinatura encontrada.</div>';return}a.forEach(x=>{const el=document.createElement('article');el.className='card';el.innerHTML=`<div class="cardtop"><div><h3>${esc(x.Nome)}</h3><div class="meta">${esc(x.Setor||'')}</div></div><div class="badge">Agente ${esc(x.unidade)}</div></div><div class="imgbox"><img src="${esc(x.imagem)}" draggable="true" alt="Assinatura ${esc(x.Nome)} - ${esc(x.unidade)}"></div><div class="actions"><a href="${esc(x.imagem)}" target="_blank">Abrir imagem</a><button data-copy="${esc(x.imagem)}">Copiar link</button></div>`;g.appendChild(el)})}
-document.getElementById('search').addEventListener('input',e=>render(e.target.value));document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const u=new URL(b.dataset.copy,location.href).href;navigator.clipboard?navigator.clipboard.writeText(u).then(()=>{b.textContent='Link copiado!';setTimeout(()=>b.textContent='Copiar link',1800)}):prompt('Copie o link:',u)});load();
-</script></body></html>
+
+function preparar(){
+  const ativos=dados.filter(x=>(x.Ativo||'SIM').toUpperCase()!=='NÃO' && x.Imagem);
+  const contagem={};
+  ativos.forEach(x=>{
+    const chave=norm(x.Nome);
+    contagem[chave]=(contagem[chave]||0)+1;
+  });
+
+  return ativos.map(x=>{
+    const duplicado=contagem[norm(x.Nome)]>1;
+    let unidade='';
+    if(duplicado){
+      const arq=(x.Arquivo||x.Imagem||'').toLowerCase();
+      unidade=/-2(\.|$)/.test(arq) ? 'Indaiatuba' : 'Sorocaba';
+    }
+    return {...x,unidade};
+  });
+}
+
+async function load(){
+  try{
+    const r=await fetch(PLANILHA_ASSINATURAS+"&_="+Date.now(),{cache:'no-store'});
+    if(!r.ok)throw new Error("Falha ao carregar");
+    dados=csv(await r.text());
+    render();
+  }catch(e){
+    console.error(e);
+    document.getElementById('grid').innerHTML='<div class="empty">Não foi possível carregar as assinaturas.</div>';
+  }
+}
+
+function render(q=''){
+  const g=document.getElementById('grid'),f=norm(q);
+  const a=preparar().filter(x=>
+    norm(x.Nome).includes(f) ||
+    norm(x.Setor).includes(f) ||
+    norm(x.unidade).includes(f)
+  );
+
+  g.innerHTML='';
+  if(!a.length){
+    g.innerHTML='<div class="empty">Nenhuma assinatura encontrada.</div>';
+    return;
+  }
+
+  a.sort((x,y)=>(x.Nome||'').localeCompare(y.Nome||'','pt-BR')).forEach(x=>{
+    const el=document.createElement('article');
+    el.className='card';
+    const badge=x.unidade ? `<div class="badge">Agente ${esc(x.unidade)}</div>` : `<div class="badge">Assinatura oficial</div>`;
+    el.innerHTML=`
+      <div class="cardtop">
+        <div>
+          <h3>${esc(x.Nome)}</h3>
+          <div class="meta">${esc(x.Setor||'')}</div>
+        </div>
+        ${badge}
+      </div>
+      <div class="imgbox">
+        <img src="${esc(x.Imagem)}" alt="Assinatura ${esc(x.Nome)}">
+      </div>
+      <div class="actions">
+        <a href="${esc(x.Imagem)}" target="_blank">Abrir imagem</a>
+        <button data-copy="${esc(x.Imagem)}">Copiar link</button>
+      </div>`;
+    g.appendChild(el);
+  });
+}
+
+document.getElementById('search').addEventListener('input',e=>render(e.target.value));
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-copy]');
+  if(!b)return;
+  navigator.clipboard.writeText(b.dataset.copy).then(()=>{
+    b.textContent='Link copiado!';
+    setTimeout(()=>b.textContent='Copiar link',1800);
+  });
+});
+load();
+</script>
+</body>
+</html>
