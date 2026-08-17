@@ -2694,6 +2694,19 @@ function escapeHtml(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':
 /* =============================================
    NOTIFICAÇÕES PUSH - ONESIGNAL
 ============================================= */
+async function registrarTagColaboradorLTJ(){
+ if(!window.LTJ_OneSignal)return false;
+ try{
+   const permitido=window.LTJ_OneSignal.Notifications.permission;
+   const inscrito=window.LTJ_OneSignal.User.PushSubscription.optedIn;
+   if(permitido && inscrito){
+     await window.LTJ_OneSignal.User.addTag("ltj_colaborador","sim");
+     console.log("Tag OneSignal registrada: ltj_colaborador=sim");
+     return true;
+   }
+ }catch(e){console.warn("Não foi possível registrar a tag LTJ:",e);}
+ return false;
+}
 async function atualizarBotaoPush(){
  const btn=document.getElementById("push-enable-button");
  if(!btn||!window.LTJ_OneSignal)return;
@@ -2708,16 +2721,18 @@ async function ativarPushLTJ(){
  if(!window.LTJ_OneSignal){alert("O sistema de notificações ainda está carregando. Tente novamente em alguns segundos.");return;}
  try{
    await window.LTJ_OneSignal.Notifications.requestPermission();
+   if(window.LTJ_OneSignal.Notifications.permission){await registrarTagColaboradorLTJ();}
    await atualizarBotaoPush();
    alert(window.LTJ_OneSignal.Notifications.permission?
      "Notificações ativadas neste dispositivo.":
      "As notificações não foram autorizadas. Você pode permiti-las nas configurações do navegador.");
  }catch(e){console.error(e);alert("Não foi possível ativar as notificações neste dispositivo.");}
 }
-function iniciarPushLTJ(){
+async function iniciarPushLTJ(){
  const btn=document.getElementById("push-enable-button");
  if(btn)btn.addEventListener("click",ativarPushLTJ);
- atualizarBotaoPush();
+ await registrarTagColaboradorLTJ();
+ await atualizarBotaoPush();
 }
 document.addEventListener("ltj-onesignal-ready",iniciarPushLTJ);
 
