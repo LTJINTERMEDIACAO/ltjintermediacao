@@ -49,113 +49,136 @@ a{text-decoration:none;color:inherit}
 </main>
 
 <script>
-const PLANILHA_ASSINATURAS =
-  "https://docs.google.com/spreadsheets/d/1gRv9T8sq3aJUA30Y9GnqWsMBIr1_C84afXoyCZXjh8w/gviz/tq?tqx=out:csv&sheet=E-MAIL";
+const SHEET_ID = "1gRv9T8sq3aJUA30Y9GnqWsMBIr1_C84afXoyCZXjh8w";
+const SHEET_NAME = "E-MAIL";
+let dados = [];
 
-let dados=[];
+const norm = s => String(s || "")
+  .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+  .toLowerCase().trim();
 
-function csv(t){
-  const l=[];let r=[],c='',q=false;
-  for(let i=0;i<t.length;i++){
-    const x=t[i],n=t[i+1];
-    if(x==='"'&&q&&n==='"'){c+='"';i++;continue}
-    if(x==='"'){q=!q;continue}
-    if(x===','&&!q){r.push(c);c='';continue}
-    if((x==='\n'||x==='\r')&&!q){
-      if(x==='\r'&&n==='\n')i++;
-      r.push(c);c='';
-      if(r.some(v=>v!==''))l.push(r);
-      r=[];continue
-    }
-    c+=x
-  }
-  if(c||r.length){r.push(c);l.push(r)}
-  if(!l.length)return[];
-  const h=l[0].map(x=>x.replace(/^\uFEFF/,'').trim());
-  return l.slice(1).map(v=>Object.fromEntries(h.map((k,i)=>[k,(v[i]||'').trim()])))
+const esc = s => String(s || "").replace(/[&<>'"]/g,c=>({
+  "&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"
+}[c]));
+
+function celula(c){
+  if(!c) return "";
+  if(c.f !== undefined && c.f !== null) return String(c.f);
+  if(c.v !== undefined && c.v !== null) return String(c.v);
+  return "";
 }
 
-const norm=s=>(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-const esc=s=>String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
-
-function preparar(){
-  const ativos=dados.filter(x=>(x.Ativo||'SIM').toUpperCase()!=='NÃO' && x.Imagem);
-  const contagem={};
-  ativos.forEach(x=>{
-    const chave=norm(x.Nome);
-    contagem[chave]=(contagem[chave]||0)+1;
-  });
-
-  return ativos.map(x=>{
-    const duplicado=contagem[norm(x.Nome)]>1;
-    let unidade='';
-    if(duplicado){
-      const arq=(x.Arquivo||x.Imagem||'').toLowerCase();
-      unidade=/-2(\.|$)/.test(arq) ? 'Indaiatuba' : 'Sorocaba';
-    }
-    return {...x,unidade};
-  });
-}
-
-async function load(){
+window.receberAssinaturasLTJ = function(resp){
   try{
-    const r=await fetch(PLANILHA_ASSINATURAS+"&_="+Date.now(),{cache:'no-store'});
-    if(!r.ok)throw new Error("Falha ao carregar");
-    dados=csv(await r.text());
+    if(!resp || !resp.table) throw new Error("Resposta inválida");
+    const headers = resp.table.cols.map(c => String(c.label || c.id || "").trim());
+    dados = resp.table.rows.map(row => {
+      const obj = {};
+      headers.forEach((h,i)=> obj[h] = celula(row.c ? row.c[i] : null));
+      return obj;
+    });
     render();
   }catch(e){
     console.error(e);
-    document.getElementById('grid').innerHTML='<div class="empty">Não foi possível carregar as assinaturas.</div>';
+    document.getElementById("grid").innerHTML =
+      '<div class="empty">Não foi possível carregar as assinaturas da planilha.</div>';
   }
+};
+
+function carregar(){
+  const query = encodeURIComponent("select A,B,C,D,E,F");
+  const s = document.createElement("script");
+  s.src =
+    "https://docs.google.com/spreadsheets/d/" + SHEET_ID +
+    "/gviz/tq?sheet=" + encodeURIComponent(SHEET_NAME) +
+    "&tqx=responseHandler:receberAssinaturasLTJ" +
+    "&tq=" + query +
+    "&_=" + Date.now();
+  s.onerror = () => {
+    document.getElementById("grid").innerHTML =
+      '<div class="empty">Não foi possível acessar a planilha de assinaturas.</div>';
+  };
+  document.head.appendChild(s);
 }
 
-function render(q=''){
-  const g=document.getElementById('grid'),f=norm(q);
-  const a=preparar().filter(x=>
-    norm(x.Nome).includes(f) ||
-    norm(x.Setor).includes(f) ||
-    norm(x.unidade).includes(f)
+function preparar(){
+  const ativos = dados.filter(x =>
+    norm(x.Ativo) !== "nao" &&
+    norm(x.Ativo) !== "não" &&
+    String(x.Imagem || "").trim()
   );
 
-  g.innerHTML='';
+  const contagem = {};
+  ativos.forEach(x => {
+    const k = norm(x.Nome);
+    contagem[k] = (contagem[k] || 0) + 1;
+  });
+
+  return ativos.map(x => {
+    const duplicado = contagem[norm(x.Nome)] > 1;
+    let unidade = "";
+    if(duplicado){
+      const arq = norm(x.Arquivo || x.Imagem);
+      unidade = arq.includes("-2") ? "Indaiatuba" : "Sorocaba";
+    }
+    return {...x, unidade};
+  });
+}
+
+function render(q=""){
+  const g = document.getElementById("grid");
+  const f = norm(q);
+
+  const a = preparar()
+    .filter(x =>
+      norm(x.Nome).includes(f) ||
+      norm(x.Setor).includes(f) ||
+      norm(x.unidade).includes(f)
+    )
+    .sort((x,y)=>String(x.Nome||"").localeCompare(String(y.Nome||""),"pt-BR"));
+
+  g.innerHTML = "";
+
   if(!a.length){
-    g.innerHTML='<div class="empty">Nenhuma assinatura encontrada.</div>';
+    g.innerHTML = '<div class="empty">Nenhuma assinatura encontrada.</div>';
     return;
   }
 
-  a.sort((x,y)=>(x.Nome||'').localeCompare(y.Nome||'','pt-BR')).forEach(x=>{
-    const el=document.createElement('article');
-    el.className='card';
-    const badge=x.unidade ? `<div class="badge">Agente ${esc(x.unidade)}</div>` : `<div class="badge">Assinatura oficial</div>`;
-    el.innerHTML=`
+  a.forEach(x => {
+    const el = document.createElement("article");
+    el.className = "card";
+    const badge = x.unidade ? `Agente ${esc(x.unidade)}` : "Assinatura oficial";
+
+    el.innerHTML = `
       <div class="cardtop">
         <div>
           <h3>${esc(x.Nome)}</h3>
-          <div class="meta">${esc(x.Setor||'')}</div>
+          <div class="meta">${esc(x.Setor || "")}</div>
         </div>
-        ${badge}
+        <div class="badge">${badge}</div>
       </div>
       <div class="imgbox">
-        <img src="${esc(x.Imagem)}" alt="Assinatura ${esc(x.Nome)}">
+        <img src="${esc(x.Imagem)}" alt="Assinatura ${esc(x.Nome)}" loading="lazy">
       </div>
       <div class="actions">
-        <a href="${esc(x.Imagem)}" target="_blank">Abrir imagem</a>
+        <a href="${esc(x.Imagem)}" target="_blank" rel="noopener">Abrir imagem</a>
         <button data-copy="${esc(x.Imagem)}">Copiar link</button>
       </div>`;
     g.appendChild(el);
   });
 }
 
-document.getElementById('search').addEventListener('input',e=>render(e.target.value));
-document.addEventListener('click',e=>{
-  const b=e.target.closest('[data-copy]');
+document.getElementById("search").addEventListener("input",e=>render(e.target.value));
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-copy]");
   if(!b)return;
   navigator.clipboard.writeText(b.dataset.copy).then(()=>{
-    b.textContent='Link copiado!';
-    setTimeout(()=>b.textContent='Copiar link',1800);
+    b.textContent="Link copiado!";
+    setTimeout(()=>b.textContent="Copiar link",1500);
   });
 });
-load();
+
+carregar();
 </script>
 </body>
 </html>
