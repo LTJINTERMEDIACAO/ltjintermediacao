@@ -1590,10 +1590,12 @@ footer{
     color:var(--texto);
 }
 .team-search:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(11,84,199,.08)}
-.team-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;max-height:390px;overflow:auto;padding-right:3px}
-.team-card{border:1px solid var(--borda);border-radius:11px;padding:12px;background:#fbfcfe}
-.team-card strong{display:block;color:var(--azul-escuro);font-size:12px;margin-bottom:7px}
-.team-contact{display:flex;gap:7px;align-items:flex-start;color:#536075;font-size:10px;line-height:1.45;margin-top:5px;word-break:break-word}
+.team-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-height:430px;overflow:auto;padding-right:3px}
+.team-card{border:1px solid var(--borda);border-radius:12px;padding:11px;background:#fbfcfe;display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:center}
+.team-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;background:#edf2f8;border:2px solid #fff;box-shadow:0 0 0 1px #dfe6ef}
+.team-photo-fallback{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#edf4ff;color:var(--azul2);font-weight:bold;font-size:15px}
+.team-info strong{display:block;color:var(--azul-escuro);font-size:12px;margin-bottom:7px}
+.team-contact{display:flex;gap:7px;align-items:flex-start;color:#536075;font-size:9px;line-height:1.4;margin-top:5px;word-break:break-word}
 .team-empty{grid-column:1/-1;color:#667085;font-size:11px;padding:16px;text-align:center;background:#f7f9fc;border-radius:9px}
 .sync-note{margin-top:10px;padding:9px 11px;border-radius:8px;background:#edf4ff;color:var(--azul-escuro);font-size:9px;line-height:1.5}
 .suggestion-form label{display:block;color:var(--azul-escuro);font-size:11px;font-weight:bold;margin:10px 0 6px}
@@ -2420,7 +2422,7 @@ OneSignalDeferred.push(async function(OneSignal){
         </div>
 
         <div class="sync-note">
-            🔄 Esta área pode ser sincronizada com a planilha de colaboradores. Somente nome, e-mail corporativo e telefone são exibidos aqui.
+            🔄 Fotos, nomes e informações dos colaboradores são carregados automaticamente.
         </div>
     </div>
 
@@ -2626,6 +2628,8 @@ const BASE_LOCAL_COLABORADORES = "dados/colaboradores.csv";
 
 let colaboradoresPortal = [];
 
+const BASE_INTERNA_COLABORADORES = [{"Nome": "Amanda Prado", "Email": "amanda.prado@ltjintermediacao.com.br", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Amanda%20Prado.jpg", "Ativo": "SIM", "Arquivo": "Amanda Prado.jpg"}, {"Nome": "Amanda Silva", "Email": "amanda.silva@ltjintermediacao.com.br", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Amanda%20Silva.jpeg", "Ativo": "SIM", "Arquivo": "Amanda Silva.jpeg"}, {"Nome": "Ana Apolinario", "Email": "ana.apolinario@ltjintermediacao.com.br", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Ana%20Apolinario.jpg", "Ativo": "SIM", "Arquivo": "Ana Apolinario.jpg"}, {"Nome": "Ana Paula Rissato", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Ana%20Paula%20Rissato.jpeg", "Ativo": "SIM", "Arquivo": "Ana Paula Rissato.jpeg"}, {"Nome": "Andreia Daiane De Souza Silva", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Andreia%20Daiane%20de%20Souza%20Silva.jpeg", "Ativo": "SIM", "Arquivo": "Andreia Daiane de Souza Silva.jpeg"}, {"Nome": "Andressa Andrade", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Andressa%20Andrade.jpg", "Ativo": "SIM", "Arquivo": "Andressa Andrade.jpg"}, {"Nome": "Ariane Araujo", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Ariane%20Araujo.jpeg", "Ativo": "SIM", "Arquivo": "Ariane Araujo.jpeg"}, {"Nome": "Bianca", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Bianca.jpeg", "Ativo": "SIM", "Arquivo": "Bianca.jpeg"}, {"Nome": "Camila Gomes", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Camila%20Gomes.jpeg", "Ativo": "SIM", "Arquivo": "Camila Gomes.jpeg"}, {"Nome": "Caroline Morais", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Caroline%20Morais.jpeg", "Ativo": "SIM", "Arquivo": "Caroline Morais.jpeg"}, {"Nome": "Cibele", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Cibele.jpeg", "Ativo": "SIM", "Arquivo": "Cibele.jpeg"}, {"Nome": "Cintia Ferreira", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Cintia%20Ferreira.jpeg", "Ativo": "SIM", "Arquivo": "Cintia Ferreira.jpeg"}, {"Nome": "Dayane Ruiz", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Dayane%20Ruiz.jpeg", "Ativo": "SIM", "Arquivo": "Dayane Ruiz.jpeg"}, {"Nome": "Débora", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/D%C3%A9bora.jpeg", "Ativo": "SIM", "Arquivo": "Débora.jpeg"}, {"Nome": "Denilze", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/denilze.jpeg", "Ativo": "SIM", "Arquivo": "denilze.jpeg"}, {"Nome": "Dirce Rodrigues", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Dirce%20Rodrigues.jpg", "Ativo": "SIM", "Arquivo": "Dirce Rodrigues.jpg"}, {"Nome": "Eder", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Eder.jpeg", "Ativo": "SIM", "Arquivo": "Eder.jpeg"}, {"Nome": "Elaine Sanches", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Elaine%20Sanches.jpg", "Ativo": "SIM", "Arquivo": "Elaine Sanches.jpg"}, {"Nome": "Elaine Silva", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Elaine%20Silva.jpeg", "Ativo": "SIM", "Arquivo": "Elaine Silva.jpeg"}, {"Nome": "Emylie", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Emylie.jpeg", "Ativo": "SIM", "Arquivo": "Emylie.jpeg"}, {"Nome": "Frederico Sousa", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Frederico%20Sousa.jpg", "Ativo": "SIM", "Arquivo": "Frederico Sousa.jpg"}, {"Nome": "Gabriela Oliveira", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Gabriela%20Oliveira.jpg", "Ativo": "SIM", "Arquivo": "Gabriela Oliveira.jpg"}, {"Nome": "Helen Padilha", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Helen%20Padilha.jpg", "Ativo": "SIM", "Arquivo": "Helen Padilha.jpg"}, {"Nome": "Heloisa", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Heloisa.jpeg", "Ativo": "SIM", "Arquivo": "Heloisa.jpeg"}, {"Nome": "Isabella", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Isabella.jpeg", "Ativo": "SIM", "Arquivo": "Isabella.jpeg"}, {"Nome": "Izabela", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Izabela.jpeg", "Ativo": "SIM", "Arquivo": "Izabela.jpeg"}, {"Nome": "Jéssica Mendes", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/J%C3%A9ssica%20Mendes.jpeg", "Ativo": "SIM", "Arquivo": "Jéssica Mendes.jpeg"}, {"Nome": "Jéssica Vidal", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/J%C3%A9ssica%20Vidal.jpg", "Ativo": "SIM", "Arquivo": "Jéssica Vidal.jpg"}, {"Nome": "Jorge Balduino", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Jorge%20Balduino.jpg", "Ativo": "SIM", "Arquivo": "Jorge Balduino.jpg"}, {"Nome": "Julia Cruz", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Julia%20Cruz.jpeg", "Ativo": "SIM", "Arquivo": "Julia Cruz.jpeg"}, {"Nome": "Karin Romano", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Karin%20Romano.jpg", "Ativo": "SIM", "Arquivo": "Karin Romano.jpg"}, {"Nome": "Katia Coutinho", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Katia%20Coutinho.jpeg", "Ativo": "SIM", "Arquivo": "Katia Coutinho.jpeg"}, {"Nome": "Keren Hapuque", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Keren%20Hapuque.jpg", "Ativo": "SIM", "Arquivo": "Keren Hapuque.jpg"}, {"Nome": "Keren", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Keren.jpeg", "Ativo": "SIM", "Arquivo": "Keren.jpeg"}, {"Nome": "Ketllyn", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Ketllyn.jpeg", "Ativo": "SIM", "Arquivo": "Ketllyn.jpeg"}, {"Nome": "Larissa Santos", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Larissa%20Santos.jpg", "Ativo": "SIM", "Arquivo": "Larissa Santos.jpg"}, {"Nome": "Leticia Fenato", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Leticia%20Fenato.jpeg", "Ativo": "SIM", "Arquivo": "Leticia Fenato.jpeg"}, {"Nome": "Liliam", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Liliam.jpeg", "Ativo": "SIM", "Arquivo": "Liliam.jpeg"}, {"Nome": "Lilian Tavares", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Lilian%20Tavares.jpeg", "Ativo": "SIM", "Arquivo": "Lilian Tavares.jpeg"}, {"Nome": "Luciana", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Luciana.jpg", "Ativo": "SIM", "Arquivo": "Luciana.jpg"}, {"Nome": "Maeda Mendes", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Maeda%20Mendes.jpeg", "Ativo": "SIM", "Arquivo": "Maeda Mendes.jpeg"}, {"Nome": "Marcelle Gonçalves", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Marcelle%20Gon%C3%A7alves.jpeg", "Ativo": "SIM", "Arquivo": "Marcelle Gonçalves.jpeg"}, {"Nome": "Marcio Martins", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Marcio%20Martins.jpg", "Ativo": "SIM", "Arquivo": "Marcio Martins.jpg"}, {"Nome": "Maria Júlia", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Maria%20J%C3%BAlia%20%282%29.jpeg", "Ativo": "SIM", "Arquivo": "Maria Júlia (2).jpeg"}, {"Nome": "Maria Lúcia", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Maria%20L%C3%BAcia.jpeg", "Ativo": "SIM", "Arquivo": "Maria Lúcia.jpeg"}, {"Nome": "Mayara Moura", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Mayara%20Moura.jpeg", "Ativo": "SIM", "Arquivo": "Mayara Moura.jpeg"}, {"Nome": "Melissa Amaral", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Melissa%20Amaral.jpg", "Ativo": "SIM", "Arquivo": "Melissa Amaral.jpg"}, {"Nome": "Michele Mota", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Michele%20Mota.jpg", "Ativo": "SIM", "Arquivo": "Michele Mota.jpg"}, {"Nome": "Nedra", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Nedra.jpeg", "Ativo": "SIM", "Arquivo": "Nedra.jpeg"}, {"Nome": "Noemi Santos", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Noemi%20Santos.jpeg", "Ativo": "SIM", "Arquivo": "Noemi Santos.jpeg"}, {"Nome": "Paulo Roberto", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Paulo%20Roberto.jpeg", "Ativo": "SIM", "Arquivo": "Paulo Roberto.jpeg"}, {"Nome": "Paulo Rodrigues", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Paulo%20Rodrigues.jpg", "Ativo": "SIM", "Arquivo": "Paulo Rodrigues.jpg"}, {"Nome": "Ranile Silva", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Ranile%20Silva.jpg", "Ativo": "SIM", "Arquivo": "Ranile Silva.jpg"}, {"Nome": "Renata", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Renata.jpeg", "Ativo": "SIM", "Arquivo": "Renata.jpeg"}, {"Nome": "Silvana Crepaldi", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Silvana%20Crepaldi.jpg", "Ativo": "SIM", "Arquivo": "Silvana Crepaldi.jpg"}, {"Nome": "Silvia", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Silvia.jpeg", "Ativo": "SIM", "Arquivo": "Silvia.jpeg"}, {"Nome": "Suelen Oliveira", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Suelen%20Oliveira.jpeg", "Ativo": "SIM", "Arquivo": "Suelen Oliveira.jpeg"}, {"Nome": "Tamires Reis", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Tamires%20Reis.jpg", "Ativo": "SIM", "Arquivo": "Tamires Reis.jpg"}, {"Nome": "Tatiane", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Tatiane.jpeg", "Ativo": "SIM", "Arquivo": "Tatiane.jpeg"}, {"Nome": "Vitória", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Vit%C3%B3ria.jpeg", "Ativo": "SIM", "Arquivo": "Vitória.jpeg"}, {"Nome": "Yolanda Xavier", "Email": "", "Foto": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/colaboradores/Yolanda%20Xavier.jpg", "Ativo": "SIM", "Arquivo": "Yolanda Xavier.jpg"}];
+
 function parseCSV(texto){
     const linhas=[];
     let linha=[],campo="",aspas=false;
@@ -2649,16 +2653,43 @@ function parseCSV(texto){
 }
 
 async function carregarColaboradores(){
-    const origem = PLANILHA_CSV || BASE_LOCAL_COLABORADORES;
+    /*
+       Primeiro mostra a base interna de segurança.
+       Assim as fotos e informações aparecem mesmo se o Google Sheets
+       bloquear a leitura direta pelo navegador.
+    */
+    colaboradoresPortal = BASE_INTERNA_COLABORADORES
+        .filter(x=>(x.Ativo||'SIM').toUpperCase()!=='NÃO');
+
+    renderColaboradores();
+
+    /*
+       Depois tenta atualizar pela planilha.
+       Se funcionar, substitui a base interna pela versão mais recente.
+       Se falhar, mantém a base interna visível sem quebrar o portal.
+    */
     try{
-        const r=await fetch(origem,{cache:'no-store'});
+        const origem = PLANILHA_CSV || BASE_LOCAL_COLABORADORES;
+        const r = await fetch(origem,{cache:'no-store'});
         if(!r.ok) throw new Error('Falha ao carregar a base');
-        const dados=parseCSV(await r.text());
-        colaboradoresPortal=dados.filter(x=>(x.Ativo||'SIM').toUpperCase()!=='NÃO');
-        renderColaboradores();
+
+        const dados = parseCSV(await r.text());
+
+        const validos = dados.filter(x=>
+            (x.Ativo||'SIM').toUpperCase()!=='NÃO' &&
+            (x.Nome||'').trim()
+        );
+
+        if(validos.length){
+            colaboradoresPortal = validos;
+            renderColaboradores(
+                document.getElementById('team-search')
+                    ? document.getElementById('team-search').value
+                    : ''
+            );
+        }
     }catch(e){
-        const lista=document.getElementById('team-list');
-        if(lista) lista.innerHTML='<div class="team-empty">Não foi possível carregar a base de colaboradores.</div>';
+        console.warn('Usando base interna de colaboradores:',e);
     }
 }
 
@@ -2666,24 +2697,87 @@ function normalizarBusca(s){
     return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
 }
 
+function iniciaisColaborador(nome){
+    const partes=String(nome||'').trim().split(/\s+/).filter(Boolean);
+    if(!partes.length) return 'LTJ';
+    return ((partes[0]||'').charAt(0)+(partes[1]||'').charAt(0)).toUpperCase();
+}
+
 function renderColaboradores(filtro=''){
     const lista=document.getElementById('team-list');
     const contador=document.getElementById('team-count');
+
     if(!lista) return;
+
     const q=normalizarBusca(filtro);
-    const dados=colaboradoresPortal.filter(x=>normalizarBusca(x.Nome).includes(q));
+
+    const dados=colaboradoresPortal.filter(x=>
+        normalizarBusca(x.Nome).includes(q)
+    );
+
     lista.innerHTML='';
-    if(contador) contador.textContent=dados.length+' colaborador(es)';
-    if(!dados.length){lista.innerHTML='<div class="team-empty">Nenhum colaborador encontrado.</div>';return}
-    dados.sort((a,b)=>(a.Nome||'').localeCompare(b.Nome||'','pt-BR')).forEach(x=>{
-        const card=document.createElement('div');card.className='team-card';
-        const email=x['E-mail corporativo']||'';
-        const tel=x.Telefone||'';
-        card.innerHTML=`<strong>${escapeHtml(x.Nome||'')}</strong>
-            <div class="team-contact">✉️ <span>${email?escapeHtml(email):'E-mail corporativo a preencher'}</span></div>
-            <div class="team-contact">📱 <span>${tel?escapeHtml(tel):'Telefone a preencher'}</span></div>`;
-        lista.appendChild(card);
-    });
+
+    if(contador){
+        contador.textContent=dados.length+' colaborador(es)';
+    }
+
+    if(!dados.length){
+        lista.innerHTML='<div class="team-empty">Nenhum colaborador encontrado.</div>';
+        return;
+    }
+
+    dados
+        .sort((a,b)=>(a.Nome||'').localeCompare(b.Nome||'','pt-BR'))
+        .forEach(x=>{
+
+            const card=document.createElement('div');
+            card.className='team-card';
+
+            const foto=x.Foto||'';
+            const email=x.Email || x['E-mail corporativo'] || '';
+            const tel=x.Telefone||'';
+
+            const avatar=document.createElement('div');
+
+            if(foto){
+                const img=document.createElement('img');
+                img.className='team-photo';
+                img.src=foto;
+                img.alt=x.Nome||'Colaborador';
+                img.loading='lazy';
+
+                img.addEventListener('error',()=>{
+                    avatar.innerHTML=`<div class="team-photo-fallback">${escapeHtml(iniciaisColaborador(x.Nome))}</div>`;
+                },{once:true});
+
+                avatar.appendChild(img);
+
+            }else{
+                avatar.innerHTML=`<div class="team-photo-fallback">${escapeHtml(iniciaisColaborador(x.Nome))}</div>`;
+            }
+
+            const info=document.createElement('div');
+            info.className='team-info';
+
+            info.innerHTML=`
+                <strong>${escapeHtml(x.Nome||'')}</strong>
+
+                <div class="team-contact">
+                    ✉️
+                    <span>${email?escapeHtml(email):'E-mail corporativo a preencher'}</span>
+                </div>
+
+                <div class="team-contact">
+                    📱
+                    <span>${tel?escapeHtml(tel):'Telefone a preencher'}</span>
+                </div>
+            `;
+
+            card.appendChild(avatar);
+            card.appendChild(info);
+
+            lista.appendChild(card);
+        });
 }
 
 function escapeHtml(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
