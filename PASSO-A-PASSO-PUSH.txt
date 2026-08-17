@@ -1,0 +1,26 @@
+PORTAL LTJ — PUSH
+
+ANTES DE SUBIR:
+No OneSignal, confira Configurações > Push & In-App > Web > Service Workers.
+Como o portal fica em /ltjintermediacao/, use:
+Path to service worker files: /ltjintermediacao/
+Main filename: OneSignalSDKWorker.js
+Updater filename: OneSignalSDKWorker.js
+Scope: /ltjintermediacao/
+
+Depois envie TODO o conteúdo deste pacote para a raiz do repositório.
+Confira se abre:
+https://ltjintermediacao.github.io/ltjintermediacao/OneSignalSDKWorker.js
+
+No portal, clique 📣 e depois Permitir.
+No OneSignal, Público/Audience > Subscriptions deve mostrar o dispositivo como Subscribed.
+
+AUTOMAÇÃO DO CALENDÁRIO:
+1. OneSignal > Configurações > Keys & IDs: copie a App API Key.
+2. NÃO coloque essa chave no GitHub nem no index.
+3. Google Sheets > Extensões > Apps Script.
+4. Adicione apps-script-push-calendario.gs.
+5. Apps Script > Configurações do projeto > Propriedades do script.
+6. Crie ONESIGNAL_API_KEY com sua App API Key.
+7. Execute criarGatilhoDiario() uma vez e autorize.
+8. Eventos com Ativo=SIM e Notificar no dia=SIM serão enviados no dia marcado, por volta das 8h.

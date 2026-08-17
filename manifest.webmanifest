@@ -1,0 +1,23 @@
+{
+  "name": "Portal LTJ",
+  "short_name": "LTJ",
+  "start_url": "/ltjintermediacao/",
+  "scope": "/ltjintermediacao/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0640A1",
+  "icons": [
+    {
+      "src": "logo-ltj.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "logo-ltj.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

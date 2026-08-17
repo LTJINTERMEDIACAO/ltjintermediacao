@@ -49,7 +49,6 @@ a{
     color:inherit;
 }
 
-
 /* =========================================================
    TELA DE LOGIN
 ========================================================= */
@@ -80,137 +79,199 @@ a{
 
 #tela-login::before{
     content:"";
+
     position:absolute;
+
     width:700px;
     height:190px;
+
     right:-150px;
     bottom:-120px;
+
     border-radius:50%;
+
     background:#ff7417;
+
     transform:rotate(-8deg);
 }
 
 #tela-login::after{
     content:"";
+
     position:absolute;
+
     width:750px;
     height:160px;
+
     right:-160px;
     bottom:-88px;
+
     border-radius:50%;
+
     background:#0b56c7;
+
     transform:rotate(-8deg);
 }
 
 .login-box{
     position:relative;
     z-index:2;
+
     width:100%;
     max-width:430px;
+
     background:white;
+
     padding:38px 40px;
+
     border-radius:22px;
+
     box-shadow:0 30px 70px rgba(0,0,0,.25);
+
     text-align:center;
 }
 
 .login-logo{
     width:130px;
     height:95px;
+
     object-fit:contain;
+
     margin-bottom:12px;
 }
 
 .login-tag{
     display:inline-block;
+
     background:#edf4ff;
+
     color:var(--azul2);
+
     padding:6px 12px;
+
     border-radius:30px;
+
     font-size:9px;
     font-weight:bold;
+
     margin-bottom:12px;
 }
 
 .login-box h1{
     color:var(--azul-escuro);
+
     font-size:26px;
+
     margin-bottom:8px;
 }
 
 .login-subtitulo{
     color:#667085;
+
     font-size:13px;
+
     line-height:1.5;
 }
 
 .login-linha{
     width:42px;
     height:3px;
+
     background:#ff7417;
+
     border-radius:5px;
+
     margin:18px auto 24px;
 }
 
 .login-box label{
     display:block;
+
     text-align:left;
+
     color:var(--azul-escuro);
+
     font-size:12px;
     font-weight:bold;
+
     margin-bottom:7px;
 }
 
 .login-box input{
     width:100%;
     height:48px;
+
     padding:0 15px;
+
     border:1px solid #dfe5ee;
+
     border-radius:9px;
+
     outline:none;
+
     font-size:14px;
+
     margin-bottom:12px;
+
     transition:.2s;
 }
 
 .login-box input:focus{
     border-color:var(--azul2);
+
     box-shadow:0 0 0 3px rgba(11,84,199,.08);
 }
 
 .login-box button{
     width:100%;
     height:48px;
+
     border:none;
     border-radius:9px;
+
     background:var(--laranja);
+
     color:white;
+
     font-size:14px;
     font-weight:bold;
+
     cursor:pointer;
+
     transition:.2s;
 }
 
 .login-box button:hover{
     background:#e9650a;
+
     transform:translateY(-1px);
 }
 
 #erro-login{
     display:none;
+
     background:#fff0f0;
+
     color:#c62828;
+
     border-radius:7px;
+
     padding:9px;
+
     margin-top:12px;
+
     font-size:11px;
 }
 
 .login-rodape{
     margin-top:22px;
+
     padding-top:17px;
+
     border-top:1px solid #edf0f5;
+
     color:#7a8495;
+
     font-size:10px;
 }
 
@@ -254,8 +315,11 @@ body.portal-bloqueado{
 
 .brand-text strong{
     display:block;
+
     color:var(--azul-escuro);
+
     font-size:18px;
+
     margin-bottom:4px;
 }
 
@@ -265,22 +329,24 @@ body.portal-bloqueado{
 }
 
 
-/* =========================================================
-   MENU
-========================================================= */
+/* MENU */
 
 .menu{
     display:flex;
     align-items:center;
     justify-content:center;
+
     gap:27px;
 }
 
 .menu a{
     color:var(--azul-escuro);
+
     font-size:13px;
     font-weight:600;
+
     padding:10px 0;
+
     transition:.2s;
 }
 
@@ -290,8 +356,11 @@ body.portal-bloqueado{
 
 .menu a.ativo{
     background:var(--laranja);
+
     color:white;
+
     padding:11px 18px;
+
     border-radius:9px;
 }
 
@@ -300,22 +369,25 @@ body.portal-bloqueado{
 }
 
 
-/* =========================================================
-   BOTÕES SUPERIORES
-========================================================= */
+/* BOTÕES SUPERIORES */
 
 .header-actions{
     display:flex;
     align-items:center;
+
     gap:10px;
 }
 
 .action-circle{
     position:relative;
+
     width:43px;
     height:43px;
+
     border:1px solid var(--borda);
+
     border-radius:50%;
+
     background:white;
 
     display:flex;
@@ -323,23 +395,31 @@ body.portal-bloqueado{
     justify-content:center;
 
     font-size:19px;
+
     cursor:pointer;
+
     transition:.2s;
 }
 
 .action-circle:hover{
     background:#f7f9fc;
+
     transform:translateY(-2px);
 }
 
 .notification-number{
     position:absolute;
+
     width:18px;
     height:18px;
+
     top:-3px;
     right:-2px;
+
     background:var(--laranja);
+
     color:white;
+
     border-radius:50%;
 
     display:flex;
@@ -350,6 +430,141 @@ body.portal-bloqueado{
     font-weight:bold;
 }
 
+
+
+/* =========================================================
+   NOTIFICAÇÕES
+========================================================= */
+
+.header-actions{
+    position:relative;
+}
+
+.notification-button{
+    font-family:inherit;
+}
+
+.notification-number[hidden]{
+    display:none;
+}
+
+.notification-panel{
+    position:absolute;
+    top:56px;
+    right:0;
+    width:340px;
+    max-height:430px;
+    overflow:auto;
+    z-index:500;
+
+    background:white;
+    border:1px solid var(--borda);
+    border-radius:14px;
+    box-shadow:0 18px 45px rgba(3,39,95,.18);
+
+    padding:12px;
+}
+
+.notification-panel[hidden]{
+    display:none;
+}
+
+.notification-panel-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+
+    padding:4px 3px 10px;
+    border-bottom:1px solid #edf0f5;
+}
+
+.notification-panel-header strong{
+    color:var(--azul-escuro);
+    font-size:13px;
+}
+
+.notification-mark-all{
+    border:none;
+    background:transparent;
+    color:var(--azul2);
+    font-size:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.notification-list{
+    display:flex;
+    flex-direction:column;
+}
+
+.notification-item{
+    width:100%;
+    border:none;
+    border-bottom:1px solid #edf0f5;
+    background:white;
+    padding:11px 8px;
+    text-align:left;
+    cursor:pointer;
+
+    display:grid;
+    grid-template-columns:8px 1fr;
+    gap:9px;
+}
+
+.notification-item:hover{
+    background:#f7f9fc;
+}
+
+.notification-dot{
+    width:7px;
+    height:7px;
+    margin-top:5px;
+    border-radius:50%;
+    background:var(--laranja);
+}
+
+.notification-item.lida .notification-dot{
+    background:#d7dde7;
+}
+
+.notification-item-title{
+    display:block;
+    color:var(--azul-escuro);
+    font-size:11px;
+    line-height:1.35;
+    margin-bottom:4px;
+}
+
+.notification-item.lida .notification-item-title{
+    font-weight:normal;
+}
+
+.notification-item:not(.lida) .notification-item-title{
+    font-weight:bold;
+}
+
+.notification-item-meta{
+    color:#667085;
+    font-size:9px;
+}
+
+.notification-empty{
+    padding:18px 8px;
+    text-align:center;
+    color:#667085;
+    font-size:10px;
+}
+
+@media(max-width:760px){
+    .notification-panel{
+        position:fixed;
+        top:110px;
+        right:14px;
+        left:14px;
+        width:auto;
+    }
+}
 
 /* =========================================================
    BANNER
@@ -368,10 +583,13 @@ body.portal-bloqueado{
     border-radius:20px;
 
     display:grid;
+
     grid-template-columns:1.05fr 1fr .85fr;
+
     align-items:center;
 
     gap:25px;
+
     padding:32px 48px;
 
     background:
@@ -392,49 +610,70 @@ body.portal-bloqueado{
 
 .hero::before{
     content:"";
+
     position:absolute;
+
     width:600px;
     height:155px;
+
     border-radius:50%;
+
     right:-80px;
     bottom:-105px;
+
     background:var(--laranja);
+
     transform:rotate(-6deg);
+
     z-index:1;
 }
 
 .hero::after{
     content:"";
+
     position:absolute;
+
     width:650px;
     height:130px;
+
     border-radius:50%;
+
     right:-90px;
     bottom:-76px;
+
     background:#0b56c7;
+
     transform:rotate(-6deg);
+
     z-index:2;
 }
 
 
-/* =========================================================
-   TEXTO DO BANNER
-========================================================= */
+/* TEXTO DO BANNER */
 
 .hero-text{
     position:relative;
+
     z-index:5;
+
     color:white;
 }
 
 .hero-label{
     display:inline-block;
+
     background:#0b54c7;
+
     border:1px solid rgba(255,255,255,.12);
+
     border-radius:30px;
+
     padding:8px 15px;
+
     margin-bottom:22px;
+
     color:white;
+
     font-size:11px;
     font-weight:bold;
 }
@@ -442,7 +681,9 @@ body.portal-bloqueado{
 .hero-text h1{
     font-size:43px;
     line-height:1.08;
+
     max-width:520px;
+
     margin-bottom:20px;
 }
 
@@ -453,23 +694,31 @@ body.portal-bloqueado{
 .orange-line{
     width:45px;
     height:3px;
+
     background:var(--laranja);
+
     border-radius:3px;
+
     margin:4px 0 22px;
 }
 
 .hero-description{
     color:#f3f6fb;
+
     font-size:16px;
     line-height:1.55;
+
     max-width:420px;
 }
 
 .hero-phrase{
     margin-top:20px;
+
     color:white;
+
     font-size:16px;
     line-height:1.5;
+
     font-weight:bold;
 }
 
@@ -484,7 +733,9 @@ body.portal-bloqueado{
 
 .hero-center{
     position:relative;
+
     z-index:5;
+
     height:280px;
 
     display:flex;
@@ -494,42 +745,58 @@ body.portal-bloqueado{
 
 .orbit-big{
     position:absolute;
+
     width:220px;
     height:220px;
+
     border:2px solid rgba(255,255,255,.85);
+
     border-radius:50%;
 }
 
 .orbit-middle{
     position:absolute;
+
     width:175px;
     height:175px;
+
     border:1px solid rgba(255,255,255,.55);
+
     border-radius:50%;
 }
 
 .orbit-small{
     position:absolute;
+
     width:130px;
     height:130px;
+
     border:1px solid rgba(255,255,255,.25);
+
     border-radius:50%;
 }
 
 .center-message{
     position:relative;
+
     z-index:5;
+
     text-align:center;
+
     color:white;
+
     font-size:17px;
     font-weight:bold;
+
     line-height:1.5;
 }
 
 .orbit-icon{
     position:absolute;
+
     width:68px;
     height:68px;
+
     border-radius:50%;
 
     display:flex;
@@ -537,8 +804,11 @@ body.portal-bloqueado{
     justify-content:center;
 
     font-size:29px;
+
     border:2px solid white;
+
     color:white;
+
     z-index:7;
 
     box-shadow:0 7px 18px rgba(0,0,0,.12);
@@ -546,18 +816,21 @@ body.portal-bloqueado{
 
 .orbit-icon.top{
     top:8px;
+
     background:var(--laranja);
 }
 
 .orbit-icon.left{
     left:38px;
     bottom:44px;
+
     background:#0a3f98;
 }
 
 .orbit-icon.right{
     right:34px;
     bottom:44px;
+
     background:#0a3f98;
 }
 
@@ -568,21 +841,28 @@ body.portal-bloqueado{
 
 .hero-values{
     position:relative;
+
     z-index:5;
 
     display:flex;
     flex-direction:column;
+
     gap:13px;
 }
 
 .hero-value{
     background:white;
+
     min-height:78px;
+
     border-radius:14px;
+
     padding:12px 16px;
 
     display:grid;
+
     grid-template-columns:58px 1fr;
+
     align-items:center;
 
     gap:13px;
@@ -593,6 +873,7 @@ body.portal-bloqueado{
 .value-icon{
     width:52px;
     height:52px;
+
     border-radius:50%;
 
     display:flex;
@@ -600,7 +881,9 @@ body.portal-bloqueado{
     justify-content:center;
 
     font-size:25px;
+
     background:var(--laranja);
+
     color:white;
 }
 
@@ -610,13 +893,17 @@ body.portal-bloqueado{
 
 .hero-value h3{
     color:var(--azul-escuro);
+
     font-size:16px;
+
     margin-bottom:4px;
 }
 
 .hero-value p{
     color:#475469;
+
     font-size:11px;
+
     line-height:1.35;
 }
 
@@ -635,14 +922,18 @@ main{
 
 .section-title h2{
     color:var(--azul-escuro);
+
     font-size:22px;
 }
 
 .section-line{
     width:40px;
     height:3px;
+
     background:var(--laranja);
+
     border-radius:2px;
+
     margin-top:10px;
 }
 
@@ -653,25 +944,37 @@ main{
 
 .shortcuts{
     display:grid;
+
     grid-template-columns:repeat(7,1fr);
+
     gap:12px;
+
     margin-bottom:20px;
 }
 
 .shortcut{
     min-height:145px;
+
     background:white;
+
     border:1px solid var(--borda);
+
     border-radius:13px;
+
     padding:16px 10px;
+
     text-align:center;
+
     box-shadow:0 7px 18px rgba(6,40,95,.05);
+
     transition:.22s;
 }
 
 .shortcut:hover{
     transform:translateY(-5px);
+
     box-shadow:0 14px 28px rgba(6,40,95,.11);
+
     border-color:rgba(255,116,23,.45);
 }
 
@@ -683,19 +986,25 @@ main{
     justify-content:center;
 
     font-size:34px;
+
     color:var(--azul2);
+
     margin-bottom:7px;
 }
 
 .shortcut h3{
     color:var(--azul-escuro);
+
     font-size:13px;
+
     margin-bottom:7px;
 }
 
 .shortcut p{
     color:#526074;
+
     font-size:10px;
+
     line-height:1.4;
 }
 
@@ -706,16 +1015,23 @@ main{
 
 .dashboard{
     display:grid;
+
     grid-template-columns:1.15fr 1fr 1.35fr;
+
     gap:14px;
+
     margin-bottom:20px;
 }
 
 .panel{
     background:white;
+
     border:1px solid var(--borda);
+
     border-radius:16px;
+
     padding:16px;
+
     box-shadow:0 6px 18px rgba(6,40,95,.04);
 }
 
@@ -723,20 +1039,26 @@ main{
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     margin-bottom:12px;
 }
 
 .panel-title{
     display:flex;
+
     align-items:center;
+
     gap:8px;
 }
 
 .panel-title-icon{
     width:28px;
     height:28px;
+
     border-radius:50%;
+
     background:var(--azul2);
+
     color:white;
 
     display:flex;
@@ -748,11 +1070,13 @@ main{
 
 .panel-header h3{
     color:var(--azul-escuro);
+
     font-size:14px;
 }
 
 .panel-header a{
     color:var(--azul2);
+
     font-size:10px;
 }
 
@@ -763,40 +1087,54 @@ main{
 
 .birthday-columns{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:14px;
 }
 
 .birthday-category{
     padding:7px 10px;
+
     border-radius:8px;
+
     font-size:10px;
+
     font-weight:bold;
+
     margin-bottom:8px;
+
     text-align:center;
 }
 
 .category-life{
     background:var(--laranja-claro);
+
     color:var(--laranja);
 }
 
 .category-company{
     background:#edf4ff;
+
     color:var(--azul2);
 }
 
 .birthday-person{
     display:flex;
+
     align-items:center;
+
     gap:9px;
+
     padding:7px 4px;
 }
 
 .person-circle{
     width:34px;
     height:34px;
+
     min-width:34px;
+
     border-radius:50%;
 
     display:flex;
@@ -816,36 +1154,49 @@ main{
 
 .birthday-person strong{
     display:block;
+
     color:var(--azul-escuro);
+
     font-size:11px;
 }
 
 .birthday-person small{
     display:block;
+
     color:#536075;
+
     font-size:9px;
+
     margin-top:3px;
 }
 
 .birthday-footer{
     margin-top:10px;
+
     background:#f0f5ff;
+
     border-radius:9px;
+
     padding:10px 14px;
 
     display:flex;
+
     align-items:center;
 
     gap:12px;
 
     color:var(--azul-escuro);
+
     font-size:10px;
 }
 
 .birthday-footer strong{
     display:block;
+
     color:var(--laranja);
+
     margin-top:3px;
+
     font-size:12px;
 }
 
@@ -856,51 +1207,73 @@ main{
 
 .event{
     display:grid;
+
     grid-template-columns:58px 1fr;
+
     gap:12px;
+
     padding:9px 0;
+
     border-bottom:1px solid #edf0f5;
 }
 
 .event-date{
     border:1px solid #e0e5ed;
+
     border-radius:8px;
+
     text-align:center;
+
     padding:6px;
 }
 
 .event-date strong{
     display:block;
+
     color:var(--laranja);
+
     font-size:23px;
 }
 
 .event-date span{
     color:var(--azul-escuro);
+
     font-size:10px;
+
     font-weight:bold;
 }
 
 .event-info strong{
     color:var(--azul-escuro);
+
     font-size:12px;
 }
 
 .event-info small{
     display:block;
+
     color:#526075;
+
     font-size:9px;
+
     margin-top:4px;
 }
 
 .event-footer{
     margin-top:10px;
+
     background:var(--laranja);
+
     color:white;
+
     padding:9px;
+
     text-align:center;
+
     border-radius:7px;
+
     font-size:10px;
+
     font-weight:bold;
 }
 
@@ -911,48 +1284,71 @@ main{
 
 .notice{
     display:grid;
+
     grid-template-columns:75px 1fr 60px;
+
     gap:11px;
+
     padding:10px 0;
+
     border-bottom:1px solid #edf0f5;
 }
 
 .notice-label{
     background:var(--laranja);
+
     color:white;
+
     border-radius:5px;
+
     padding:5px 7px;
+
     font-size:8px;
+
     font-weight:bold;
+
     text-align:center;
 }
 
 .notice-content strong{
     display:block;
+
     color:var(--azul-escuro);
+
     font-size:11px;
+
     margin-bottom:3px;
 }
 
 .notice-content p{
     color:#536075;
+
     font-size:9px;
+
     line-height:1.35;
 }
 
 .notice-time{
     text-align:right;
+
     color:#667085;
+
     font-size:9px;
 }
 
 .notice-footer{
     margin-top:10px;
+
     background:var(--azul2);
+
     color:white;
+
     padding:9px;
+
     border-radius:7px;
+
     text-align:center;
+
     font-size:10px;
 }
 
@@ -971,11 +1367,15 @@ footer{
     );
 
     color:white;
+
     min-height:95px;
+
     padding:14px 4.5%;
 
     display:grid;
+
     grid-template-columns:1.1fr 2fr 1fr;
+
     align-items:center;
 
     gap:20px;
@@ -983,43 +1383,60 @@ footer{
 
 .footer-brand{
     display:flex;
+
     align-items:center;
+
     gap:14px;
 }
 
 .footer-brand img{
     width:78px;
     height:65px;
+
     object-fit:contain;
+
     background:white;
+
     border-radius:8px;
+
     padding:3px;
 }
 
 .footer-brand strong{
     display:block;
+
     font-size:13px;
 }
 
 .footer-brand span{
     display:block;
+
     font-size:10px;
+
     margin-top:4px;
+
     opacity:.85;
 }
 
 .footer-values{
     display:flex;
+
     justify-content:center;
+
     gap:22px;
+
     flex-wrap:wrap;
+
     font-size:11px;
 }
 
 .footer-phrase{
     color:var(--laranja);
+
     text-align:right;
+
     font-size:27px;
+
     font-family:"Brush Script MT",cursive;
 }
 
@@ -1044,12 +1461,15 @@ footer{
 
     .header{
         flex-wrap:wrap;
+
         gap:14px;
     }
 
     .menu{
         order:3;
+
         width:100%;
+
         flex-wrap:wrap;
     }
 
@@ -1071,7 +1491,9 @@ footer{
 
     .header{
         position:relative;
+
         flex-direction:column;
+
         text-align:center;
     }
 
@@ -1089,7 +1511,9 @@ footer{
 
     .hero{
         grid-template-columns:1fr;
+
         min-height:410px;
+
         padding:30px 24px;
     }
 
@@ -1111,6 +1535,7 @@ footer{
 
     footer{
         grid-template-columns:1fr;
+
         text-align:center;
     }
 
@@ -1140,7 +1565,65 @@ footer{
 
 }
 
+
+/* =========================================================
+   NOSSO TIME + SUGESTÕES (INTEGRAÇÃO DINÂMICA)
+========================================================= */
+.portal-extra{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:1.45fr 1fr;
+    gap:14px;
+}
+.team-toolbar{
+    display:flex;
+    gap:10px;
+    margin-bottom:12px;
+}
+.team-search{
+    width:100%;
+    height:42px;
+    padding:0 13px;
+    border:1px solid var(--borda);
+    border-radius:9px;
+    outline:none;
+    color:var(--texto);
+}
+.team-search:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(11,84,199,.08)}
+.team-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;max-height:390px;overflow:auto;padding-right:3px}
+.team-card{border:1px solid var(--borda);border-radius:11px;padding:12px;background:#fbfcfe}
+.team-card strong{display:block;color:var(--azul-escuro);font-size:12px;margin-bottom:7px}
+.team-contact{display:flex;gap:7px;align-items:flex-start;color:#536075;font-size:10px;line-height:1.45;margin-top:5px;word-break:break-word}
+.team-empty{grid-column:1/-1;color:#667085;font-size:11px;padding:16px;text-align:center;background:#f7f9fc;border-radius:9px}
+.sync-note{margin-top:10px;padding:9px 11px;border-radius:8px;background:#edf4ff;color:var(--azul-escuro);font-size:9px;line-height:1.5}
+.suggestion-form label{display:block;color:var(--azul-escuro);font-size:11px;font-weight:bold;margin:10px 0 6px}
+.suggestion-form textarea{width:100%;min-height:145px;resize:vertical;padding:12px;border:1px solid var(--borda);border-radius:9px;outline:none;font-family:inherit}
+.suggestion-form textarea:focus{border-color:var(--azul2);box-shadow:0 0 0 3px rgba(11,84,199,.08)}
+.suggestion-form button{width:100%;height:43px;border:0;border-radius:9px;background:var(--laranja);color:white;font-weight:bold;cursor:pointer;margin-top:10px}
+.suggestion-form button:hover{background:#e9650a}
+.suggestion-status{min-height:17px;margin-top:9px;font-size:10px;color:#667085;line-height:1.4}
+@media(max-width:1050px){.portal-extra{grid-template-columns:1fr}}
+@media(max-width:760px){.team-list{grid-template-columns:1fr}}
+
 </style>
+
+
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0640A1">
+<link rel="apple-touch-icon" href="logo-ltj.png">
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+window.OneSignalDeferred=window.OneSignalDeferred||[];
+OneSignalDeferred.push(async function(OneSignal){
+ await OneSignal.init({
+   appId:"e7edffbe-6a42-4019-ae38-9879feca5b46",
+   serviceWorkerPath:"/ltjintermediacao/OneSignalSDKWorker.js",
+   serviceWorkerParam:{scope:"/ltjintermediacao/"}
+ });
+ window.LTJ_OneSignal=OneSignal;
+ document.dispatchEvent(new Event("ltj-onesignal-ready"));
+});
+</script>
 
 </head>
 
@@ -1234,7 +1717,7 @@ footer{
 
     <nav class="menu">
 
-        <a href="index.html" class="ativo">
+        <a href="#inicio" class="ativo">
             Início
         </a>
 
@@ -1242,7 +1725,7 @@ footer{
             Assinaturas
         </a>
 
-        <a href="nosso-time.html">
+        <a href="#nosso-time">
             Nosso Time
         </a>
 
@@ -1271,14 +1754,33 @@ footer{
 
     <div class="header-actions">
 
-        <div class="action-circle">
-
+        <button type="button"
+                class="action-circle notification-button"
+                id="notification-button"
+                aria-label="Notificações"
+                aria-expanded="false">
             🔔
+            <span class="notification-number"
+                  id="notification-number"
+                  hidden>0</span>
+        </button>
 
-            <span class="notification-number">
-                3
-            </span>
+        <button type="button" class="action-circle" id="push-enable-button"
+                aria-label="Ativar notificações no dispositivo" title="Ativar notificações">📣</button>
 
+        <div class="notification-panel"
+             id="notification-panel"
+             hidden>
+            <div class="notification-panel-header">
+                <strong>Notificações</strong>
+                <button type="button"
+                        class="notification-mark-all"
+                        id="notification-mark-all">
+                    Marcar todas como lidas
+                </button>
+            </div>
+            <div class="notification-list"
+                 id="notification-list"></div>
         </div>
 
         <a href="#calendario" class="action-circle">
@@ -1321,14 +1823,10 @@ footer{
         </p>
 
         <p class="hero-phrase">
-
             Juntos, conectamos pessoas
-
             <br>
-
             e geramos
             <span>resultados!</span>
-
         </p>
 
     </div>
@@ -1337,46 +1835,33 @@ footer{
     <div class="hero-center">
 
         <div class="orbit-big"></div>
-
         <div class="orbit-middle"></div>
-
         <div class="orbit-small"></div>
-
 
         <div class="orbit-icon top">
             👥
         </div>
 
-
         <div class="orbit-icon left">
             🤝
         </div>
-
 
         <div class="orbit-icon right">
             📈
         </div>
 
-
         <div class="center-message">
-
             PESSOAS
-
             <br>
-
             CONEXÃO
-
             <br>
-
             RESULTADOS
-
         </div>
 
     </div>
 
 
     <div class="hero-values">
-
 
         <div class="hero-value">
 
@@ -1385,15 +1870,10 @@ footer{
             </div>
 
             <div>
-
-                <h3>
-                    Conexão
-                </h3>
-
+                <h3>Conexão</h3>
                 <p>
                     Mais união e colaboração entre todos nós.
                 </p>
-
             </div>
 
         </div>
@@ -1406,15 +1886,10 @@ footer{
             </div>
 
             <div>
-
-                <h3>
-                    Foco
-                </h3>
-
+                <h3>Foco</h3>
                 <p>
                     Trabalhamos com foco em resultados.
                 </p>
-
             </div>
 
         </div>
@@ -1427,15 +1902,10 @@ footer{
             </div>
 
             <div>
-
-                <h3>
-                    Excelência
-                </h3>
-
+                <h3>Excelência</h3>
                 <p>
                     Compromisso com a qualidade todos os dias.
                 </p>
-
             </div>
 
         </div>
@@ -1453,7 +1923,6 @@ footer{
 
 <main>
 
-
 <div class="section-title">
 
     <h2>
@@ -1467,18 +1936,11 @@ footer{
 
 <section class="shortcuts">
 
-
-    <!-- ASSINATURAS -->
-
     <a href="assinaturas.html" class="shortcut">
 
-        <div class="shortcut-icon">
-            ✎
-        </div>
+        <div class="shortcut-icon">✎</div>
 
-        <h3>
-            Assinaturas
-        </h3>
+        <h3>Assinaturas</h3>
 
         <p>
             Acesse sua assinatura oficial de e-mail.
@@ -1487,17 +1949,11 @@ footer{
     </a>
 
 
-    <!-- NOSSO TIME -->
+    <a href="#nosso-time" class="shortcut">
 
-    <a href="nosso-time.html" class="shortcut">
+        <div class="shortcut-icon">👥</div>
 
-        <div class="shortcut-icon">
-            👥
-        </div>
-
-        <h3>
-            Nosso Time
-        </h3>
+        <h3>Nosso Time</h3>
 
         <p>
             Conheça nossa equipe e departamentos.
@@ -1506,17 +1962,11 @@ footer{
     </a>
 
 
-    <!-- COMUNICADOS -->
-
     <a href="#comunicados" class="shortcut">
 
-        <div class="shortcut-icon">
-            📢
-        </div>
+        <div class="shortcut-icon">📢</div>
 
-        <h3>
-            Comunicados
-        </h3>
+        <h3>Comunicados</h3>
 
         <p>
             Fique por dentro das novidades e avisos.
@@ -1525,17 +1975,11 @@ footer{
     </a>
 
 
-    <!-- CALENDÁRIO -->
-
     <a href="#calendario" class="shortcut">
 
-        <div class="shortcut-icon">
-            📅
-        </div>
+        <div class="shortcut-icon">📅</div>
 
-        <h3>
-            Calendário
-        </h3>
+        <h3>Calendário</h3>
 
         <p>
             Consulte eventos, reuniões e datas.
@@ -1544,17 +1988,11 @@ footer{
     </a>
 
 
-    <!-- MATERIAIS -->
-
     <a href="#materiais" class="shortcut">
 
-        <div class="shortcut-icon">
-            📁
-        </div>
+        <div class="shortcut-icon">📁</div>
 
-        <h3>
-            Materiais
-        </h3>
+        <h3>Materiais</h3>
 
         <p>
             Documentos, manuais e arquivos importantes.
@@ -1563,17 +2001,11 @@ footer{
     </a>
 
 
-    <!-- SUGESTÕES -->
-
     <a href="#sugestoes" class="shortcut">
 
-        <div class="shortcut-icon">
-            💬
-        </div>
+        <div class="shortcut-icon">💬</div>
 
-        <h3>
-            Sugestões
-        </h3>
+        <h3>Sugestões</h3>
 
         <p>
             Envie suas sugestões de forma anônima.
@@ -1582,24 +2014,17 @@ footer{
     </a>
 
 
-    <!-- ANIVERSARIANTES -->
-
     <a href="#aniversariantes" class="shortcut">
 
-        <div class="shortcut-icon">
-            🎂
-        </div>
+        <div class="shortcut-icon">🎂</div>
 
-        <h3>
-            Aniversariantes
-        </h3>
+        <h3>Aniversariantes</h3>
 
         <p>
             Aniversários de vida e de empresa.
         </p>
 
     </a>
-
 
 </section>
 
@@ -1611,9 +2036,7 @@ footer{
 <section class="dashboard">
 
 
-<!-- =========================================================
-     ANIVERSARIANTES
-========================================================= -->
+<!-- ANIVERSARIANTES -->
 
 <div class="panel" id="aniversariantes">
 
@@ -1641,14 +2064,10 @@ footer{
     <div class="birthday-columns">
 
 
-        <!-- ANIVERSÁRIOS DE VIDA -->
-
         <div>
 
             <div class="birthday-category category-life">
-
                 🎂 ANIVERSÁRIOS DE VIDA
-
             </div>
 
 
@@ -1659,15 +2078,8 @@ footer{
                 </div>
 
                 <div>
-
-                    <strong>
-                        Ana Paula
-                    </strong>
-
-                    <small>
-                        05 de Maio
-                    </small>
-
+                    <strong>Ana Paula</strong>
+                    <small>05 de Maio</small>
                 </div>
 
             </div>
@@ -1680,15 +2092,8 @@ footer{
                 </div>
 
                 <div>
-
-                    <strong>
-                        Paulo Rodrigues
-                    </strong>
-
-                    <small>
-                        14 de Maio
-                    </small>
-
+                    <strong>Paulo Rodrigues</strong>
+                    <small>14 de Maio</small>
                 </div>
 
             </div>
@@ -1701,15 +2106,8 @@ footer{
                 </div>
 
                 <div>
-
-                    <strong>
-                        Melissa Amaral
-                    </strong>
-
-                    <small>
-                        21 de Maio
-                    </small>
-
+                    <strong>Melissa Amaral</strong>
+                    <small>21 de Maio</small>
                 </div>
 
             </div>
@@ -1717,14 +2115,10 @@ footer{
         </div>
 
 
-        <!-- ANIVERSÁRIOS DE EMPRESA -->
-
         <div>
 
             <div class="birthday-category category-company">
-
                 🏆 ANIVERSÁRIOS DE EMPRESA
-
             </div>
 
 
@@ -1735,15 +2129,8 @@ footer{
                 </div>
 
                 <div>
-
-                    <strong>
-                        Helen
-                    </strong>
-
-                    <small>
-                        18 anos de LTJ
-                    </small>
-
+                    <strong>Helen</strong>
+                    <small>18 anos de LTJ</small>
                 </div>
 
             </div>
@@ -1756,15 +2143,8 @@ footer{
                 </div>
 
                 <div>
-
-                    <strong>
-                        Melissa Amaral
-                    </strong>
-
-                    <small>
-                        15 anos de LTJ
-                    </small>
-
+                    <strong>Melissa Amaral</strong>
+                    <small>15 anos de LTJ</small>
                 </div>
 
             </div>
@@ -1793,9 +2173,7 @@ footer{
 </div>
 
 
-<!-- =========================================================
-     EVENTOS
-========================================================= -->
+<!-- EVENTOS -->
 
 <div class="panel" id="calendario">
 
@@ -1823,17 +2201,9 @@ footer{
     <div class="event">
 
         <div class="event-date">
-
-            <strong>
-                15
-            </strong>
-
-            <span>
-                MAI
-            </span>
-
+            <strong>15</strong>
+            <span>MAI</span>
         </div>
-
 
         <div class="event-info">
 
@@ -1857,17 +2227,9 @@ footer{
     <div class="event">
 
         <div class="event-date">
-
-            <strong>
-                20
-            </strong>
-
-            <span>
-                MAI
-            </span>
-
+            <strong>20</strong>
+            <span>MAI</span>
         </div>
-
 
         <div class="event-info">
 
@@ -1891,17 +2253,9 @@ footer{
     <div class="event">
 
         <div class="event-date">
-
-            <strong>
-                30
-            </strong>
-
-            <span>
-                MAI
-            </span>
-
+            <strong>30</strong>
+            <span>MAI</span>
         </div>
-
 
         <div class="event-info">
 
@@ -1923,17 +2277,13 @@ footer{
 
 
     <div class="event-footer">
-
         ☆ Participe e faça a diferença!
-
     </div>
 
 </div>
 
 
-<!-- =========================================================
-     COMUNICADOS
-========================================================= -->
+<!-- COMUNICADOS -->
 
 <div class="panel" id="comunicados">
 
@@ -2037,23 +2387,72 @@ footer{
 
 
     <div class="notice-footer">
-
         Acompanhar todos os comunicados
-
     </div>
 
 </div>
 
-
 </section>
 
 
-<!-- ÁREAS QUE SERÃO DESENVOLVIDAS DEPOIS -->
+
+
+<!-- =========================================================
+     NOSSO TIME / INFORMAÇÕES DOS COLABORADORES
+========================================================= -->
+<section class="portal-extra">
+
+    <div class="panel" id="nosso-time">
+        <div class="panel-header">
+            <div class="panel-title">
+                <div class="panel-title-icon">👥</div>
+                <h3>Informações dos Colaboradores</h3>
+            </div>
+            <span id="team-count" style="font-size:9px;color:#667085"></span>
+        </div>
+
+        <div class="team-toolbar">
+            <input id="team-search" class="team-search" type="search" placeholder="Buscar colaborador..." autocomplete="off">
+        </div>
+
+        <div id="team-list" class="team-list">
+            <div class="team-empty">Carregando informações...</div>
+        </div>
+
+        <div class="sync-note">
+            🔄 Esta área pode ser sincronizada com a planilha de colaboradores. Somente nome, e-mail corporativo e telefone são exibidos aqui.
+        </div>
+    </div>
+
+    <div class="panel" id="sugestoes">
+        <div class="panel-header">
+            <div class="panel-title">
+                <div class="panel-title-icon">💬</div>
+                <h3>Sugestão Anônima</h3>
+            </div>
+        </div>
+
+        <form id="suggestion-form" class="suggestion-form">
+            <p style="color:#536075;font-size:10px;line-height:1.5">
+                Envie uma ideia, melhoria ou observação. O formulário não solicita nome do colaborador.
+            </p>
+            <label for="suggestion-type">Tipo</label>
+            <select id="suggestion-type" required style="width:100%;height:46px;border:1px solid #dfe5ee;border-radius:9px;padding:0 12px;margin-bottom:12px;background:#fff;color:#0c285a;">
+                <option value="Sugestão">Sugestão</option>
+                <option value="Dúvida">Dúvida</option>
+                <option value="Melhoria">Melhoria</option>
+                <option value="Outro">Outro</option>
+            </select>
+            <label for="suggestion-text">Mensagem</label>
+            <textarea id="suggestion-text" maxlength="1500" required placeholder="Digite sua dúvida ou sugestão aqui..."></textarea>
+            <button type="submit">Enviar anonimamente</button>
+            <div id="suggestion-status" class="suggestion-status"></div>
+        </form>
+    </div>
+
+</section>
 
 <div id="materiais"></div>
-
-<div id="sugestoes"></div>
-
 
 </main>
 
@@ -2063,7 +2462,6 @@ footer{
 ========================================================= -->
 
 <footer>
-
 
     <div class="footer-brand">
 
@@ -2088,35 +2486,22 @@ footer{
 
     <div class="footer-values">
 
-        <span>
-            ◇ Ética
-        </span>
+        <span>◇ Ética</span>
 
-        <span>
-            🤝 Compromisso
-        </span>
+        <span>🤝 Compromisso</span>
 
-        <span>
-            ♡ Respeito
-        </span>
+        <span>♡ Respeito</span>
 
-        <span>
-            ☆ Excelência
-        </span>
+        <span>☆ Excelência</span>
 
-        <span>
-            👥 Trabalho em Equipe
-        </span>
+        <span>👥 Trabalho em Equipe</span>
 
     </div>
 
 
     <div class="footer-phrase">
-
         Somos todos LTJ!
-
     </div>
-
 
 </footer>
 
@@ -2125,14 +2510,15 @@ footer{
      SISTEMA DE SENHA
 ========================================================= -->
 
+<script src="config.js"></script>
 <script>
 
-/* =========================================================
+/* =============================================
    SENHA DO PORTAL
 
    PARA TROCAR A SENHA:
-   altere somente LTJ2026 abaixo.
-========================================================= */
+   altere apenas LTJ2026 abaixo.
+============================================= */
 
 const SENHA_PORTAL = "LTJ2026";
 
@@ -2177,9 +2563,9 @@ function entrarPortal(){
 }
 
 
-/* =========================================================
+/* =============================================
    VERIFICA SE O COLABORADOR JÁ ENTROU
-========================================================= */
+============================================= */
 
 window.addEventListener(
     "DOMContentLoaded",
@@ -2213,9 +2599,402 @@ window.addEventListener(
     }
 );
 
+
+/* =============================================
+   INTEGRAÇÃO COM PLANILHA + SUGESTÕES
+
+   Para atualização automática via Google Sheets:
+   1) importe colaboradores-ltj.xlsx no Google Sheets;
+   2) disponibilize a aba "Controle Site" em CSV;
+   3) cole a URL CSV em PLANILHA_CSV abaixo.
+
+   Enquanto a URL estiver vazia, o portal usa
+   dados/colaboradores.csv como base local.
+============================================= */
+const PLANILHA_CSV =
+    (window.LTJ_CONFIG && window.LTJ_CONFIG.PLANILHA_CSV) ||
+    "https://docs.google.com/spreadsheets/d/1gRv9T8sq3aJUA30Y9GnqWsMBIr1_C84afXoyCZXjh8w/gviz/tq?tqx=out:csv&sheet=COLABORADORES";
+
+const SUGESTOES_WEB_APP_URL =
+    (window.LTJ_CONFIG && window.LTJ_CONFIG.SUGESTOES_WEB_APP_URL) || "";
+
+const CALENDARIO_CSV =
+    (window.LTJ_CONFIG && window.LTJ_CONFIG.CALENDARIO_CSV) ||
+    "https://docs.google.com/spreadsheets/d/1gRv9T8sq3aJUA30Y9GnqWsMBIr1_C84afXoyCZXjh8w/gviz/tq?tqx=out:csv&sheet=CALENDARIO";
+
+const BASE_LOCAL_COLABORADORES = "dados/colaboradores.csv";
+
+let colaboradoresPortal = [];
+
+function parseCSV(texto){
+    const linhas=[];
+    let linha=[],campo="",aspas=false;
+    for(let i=0;i<texto.length;i++){
+        const c=texto[i],prox=texto[i+1];
+        if(c==='"' && aspas && prox==='"'){campo+='"';i++;continue;}
+        if(c==='"'){aspas=!aspas;continue;}
+        if(c===',' && !aspas){linha.push(campo);campo="";continue;}
+        if((c==='\n' || c==='\r') && !aspas){
+            if(c==='\r' && prox==='\n') i++;
+            linha.push(campo);campo="";
+            if(linha.some(v=>v!=="")) linhas.push(linha);
+            linha=[];continue;
+        }
+        campo+=c;
+    }
+    if(campo || linha.length){linha.push(campo);linhas.push(linha)}
+    if(!linhas.length) return [];
+    const cab=linhas[0].map(x=>x.replace(/^\uFEFF/,"").trim());
+    return linhas.slice(1).map(vals=>Object.fromEntries(cab.map((h,i)=>[h,(vals[i]||"").trim()])));
+}
+
+async function carregarColaboradores(){
+    const origem = PLANILHA_CSV || BASE_LOCAL_COLABORADORES;
+    try{
+        const r=await fetch(origem,{cache:'no-store'});
+        if(!r.ok) throw new Error('Falha ao carregar a base');
+        const dados=parseCSV(await r.text());
+        colaboradoresPortal=dados.filter(x=>(x.Ativo||'SIM').toUpperCase()!=='NÃO');
+        renderColaboradores();
+    }catch(e){
+        const lista=document.getElementById('team-list');
+        if(lista) lista.innerHTML='<div class="team-empty">Não foi possível carregar a base de colaboradores.</div>';
+    }
+}
+
+function normalizarBusca(s){
+    return (s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+}
+
+function renderColaboradores(filtro=''){
+    const lista=document.getElementById('team-list');
+    const contador=document.getElementById('team-count');
+    if(!lista) return;
+    const q=normalizarBusca(filtro);
+    const dados=colaboradoresPortal.filter(x=>normalizarBusca(x.Nome).includes(q));
+    lista.innerHTML='';
+    if(contador) contador.textContent=dados.length+' colaborador(es)';
+    if(!dados.length){lista.innerHTML='<div class="team-empty">Nenhum colaborador encontrado.</div>';return}
+    dados.sort((a,b)=>(a.Nome||'').localeCompare(b.Nome||'','pt-BR')).forEach(x=>{
+        const card=document.createElement('div');card.className='team-card';
+        const email=x['E-mail corporativo']||'';
+        const tel=x.Telefone||'';
+        card.innerHTML=`<strong>${escapeHtml(x.Nome||'')}</strong>
+            <div class="team-contact">✉️ <span>${email?escapeHtml(email):'E-mail corporativo a preencher'}</span></div>
+            <div class="team-contact">📱 <span>${tel?escapeHtml(tel):'Telefone a preencher'}</span></div>`;
+        lista.appendChild(card);
+    });
+}
+
+function escapeHtml(s){return String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+
+
+
+
+/* =============================================
+   NOTIFICAÇÕES PUSH - ONESIGNAL
+============================================= */
+async function atualizarBotaoPush(){
+ const btn=document.getElementById("push-enable-button");
+ if(!btn||!window.LTJ_OneSignal)return;
+ try{
+   const permitido=window.LTJ_OneSignal.Notifications.permission;
+   const inscrito=window.LTJ_OneSignal.User.PushSubscription.optedIn;
+   btn.textContent=(permitido&&inscrito)?"🔔":"📣";
+   btn.title=(permitido&&inscrito)?"Notificações do dispositivo ativadas":"Ativar notificações no dispositivo";
+ }catch(e){console.warn(e);}
+}
+async function ativarPushLTJ(){
+ if(!window.LTJ_OneSignal){alert("O sistema de notificações ainda está carregando. Tente novamente em alguns segundos.");return;}
+ try{
+   await window.LTJ_OneSignal.Notifications.requestPermission();
+   await atualizarBotaoPush();
+   alert(window.LTJ_OneSignal.Notifications.permission?
+     "Notificações ativadas neste dispositivo.":
+     "As notificações não foram autorizadas. Você pode permiti-las nas configurações do navegador.");
+ }catch(e){console.error(e);alert("Não foi possível ativar as notificações neste dispositivo.");}
+}
+function iniciarPushLTJ(){
+ const btn=document.getElementById("push-enable-button");
+ if(btn)btn.addEventListener("click",ativarPushLTJ);
+ atualizarBotaoPush();
+}
+document.addEventListener("ltj-onesignal-ready",iniciarPushLTJ);
+
+/* =============================================
+   CALENDÁRIO CONECTADO À PLANILHA
+============================================= */
+let eventosPortal = [];
+
+function parseDataBR(valor){
+    const s = String(valor || "").trim();
+    if(!s) return null;
+    let m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    if(m) return new Date(Number(m[3]), Number(m[2])-1, Number(m[1]));
+    m = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+    if(m) return new Date(Number(m[1]), Number(m[2])-1, Number(m[3]));
+    const d = new Date(s);
+    return isNaN(d) ? null : new Date(d.getFullYear(),d.getMonth(),d.getDate());
+}
+
+function mesmaData(a,b){
+    return a && b &&
+        a.getFullYear()===b.getFullYear() &&
+        a.getMonth()===b.getMonth() &&
+        a.getDate()===b.getDate();
+}
+
+function formatarDataEvento(d){
+    return d ? d.toLocaleDateString("pt-BR",{day:"2-digit",month:"2-digit",year:"numeric"}) : "";
+}
+
+async function carregarEventosPortal(){
+    try{
+        const res = await fetch(CALENDARIO_CSV + "&_=" + Date.now(), {cache:"no-store"});
+        if(!res.ok) throw new Error("Calendário indisponível");
+        const csv = await res.text();
+        const linhas = parseCSV(csv);
+        if(linhas.length < 2) return;
+
+        const cab = linhas[0].map(normalizeHeader);
+        const idx = nome => cab.indexOf(normalizeHeader(nome));
+
+        eventosPortal = linhas.slice(1).map((r,i)=>({
+            id:"evento-"+i+"-"+hashNotificacao(r.join("|")),
+            data:parseDataBR(r[idx("Data")]),
+            titulo:(r[idx("Evento")]||"").trim(),
+            horario:(r[idx("Horário")]||"").trim(),
+            local:(r[idx("Local")]||"").trim(),
+            categoria:(r[idx("Categoria")]||"Evento").trim(),
+            ativo:(r[idx("Ativo")]||"SIM").trim().toUpperCase(),
+            notificar:(r[idx("Notificar no dia")]||"SIM").trim().toUpperCase()
+        })).filter(e=>e.data && e.titulo && e.ativo!=="NÃO");
+
+        renderizarEventosCalendario();
+        atualizarPainelNotificacoes();
+    }catch(e){
+        console.warn("Não foi possível atualizar o calendário:",e);
+    }
+}
+
+function renderizarEventosCalendario(){
+    const painel = document.querySelector("#calendar-section .calendar-side");
+    if(!painel) return;
+
+    let bloco = document.getElementById("eventos-planilha");
+    if(!bloco){
+        bloco = document.createElement("div");
+        bloco.id = "eventos-planilha";
+        bloco.style.marginTop = "14px";
+        painel.appendChild(bloco);
+    }
+
+    const hoje = new Date();
+    const proximos = eventosPortal
+        .filter(e=>e.data >= new Date(hoje.getFullYear(),hoje.getMonth(),hoje.getDate()))
+        .sort((a,b)=>a.data-b.data)
+        .slice(0,8);
+
+    bloco.innerHTML = proximos.length
+      ? '<h4 style="margin:0 0 8px;color:#0c285a">Próximos eventos</h4>' +
+        proximos.map(e=>`
+          <div style="padding:9px 0;border-bottom:1px solid #edf0f5;font-size:10px">
+            <strong style="color:#0c285a">${escapeHtml(e.titulo)}</strong><br>
+            <span>${escapeHtml(formatarDataEvento(e.data))}${e.horario ? " • "+escapeHtml(e.horario) : ""}${e.local ? " • "+escapeHtml(e.local) : ""}</span>
+          </div>`).join("")
+      : '<div style="font-size:10px;color:#667085">Nenhum próximo evento cadastrado.</div>';
+}
+
+function notificacoesEventosHoje(){
+    const hoje = new Date();
+    return eventosPortal
+      .filter(e=>e.notificar!=="NÃO" && mesmaData(e.data,hoje))
+      .map(e=>({
+        id:e.id,
+        titulo:"Evento de hoje: "+e.titulo,
+        categoria:e.categoria || "Calendário",
+        tempo:[e.horario,e.local].filter(Boolean).join(" • "),
+        tipo:"evento"
+      }));
+}
+
+
+/* =============================================
+   SISTEMA DE NOTIFICAÇÕES DOS COMUNICADOS
+
+   - Cada comunicado em #comunicados vira uma notificação.
+   - O navegador guarda quais já foram lidas.
+   - Se um novo comunicado for incluído ou o texto for alterado,
+     ele volta a aparecer como não lido.
+============================================= */
+
+const CHAVE_NOTIFICACOES_LIDAS = "ltjNotificacoesLidasV1";
+
+function hashNotificacao(texto){
+    let h = 2166136261;
+    for(let i=0;i<texto.length;i++){
+        h ^= texto.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+    }
+    return (h >>> 0).toString(36);
+}
+
+function obterNotificacoesLidas(){
+    try{
+        const dados = JSON.parse(localStorage.getItem(CHAVE_NOTIFICACOES_LIDAS) || "[]");
+        return new Set(Array.isArray(dados) ? dados : []);
+    }catch(e){
+        return new Set();
+    }
+}
+
+function salvarNotificacoesLidas(set){
+    localStorage.setItem(CHAVE_NOTIFICACOES_LIDAS, JSON.stringify([...set]));
+}
+
+function coletarNotificacoes(){
+    const comunicados = [...document.querySelectorAll("#comunicados .notice")].map((el,indice)=>{
+        const titulo = (el.querySelector(".notice-content strong")?.textContent || "Comunicado").trim();
+        const mensagem = (el.querySelector(".notice-content p")?.textContent || "").replace(/\s+/g," ").trim();
+        const categoria = (el.querySelector(".notice-label")?.textContent || "Comunicado").trim();
+        const tempo = (el.querySelector(".notice-time")?.textContent || "").trim();
+        const id = "aviso-" + hashNotificacao([titulo,mensagem,categoria,tempo].join("|"));
+        el.dataset.notificationId = id;
+        if(!el.id) el.id = "comunicado-" + (indice + 1);
+        return {id,titulo,mensagem,categoria,tempo,el,tipo:"comunicado"};
+    });
+    return comunicados.concat(notificacoesEventosHoje());
+}
+
+function atualizarPainelNotificacoes(){
+    const badge = document.getElementById("notification-number");
+    const lista = document.getElementById("notification-list");
+    if(!badge || !lista) return;
+
+    const notificacoes = coletarNotificacoes();
+    const lidas = obterNotificacoesLidas();
+
+    // Remove IDs antigos que já não existem mais no portal.
+    const idsAtuais = new Set(notificacoes.map(n=>n.id));
+    const lidasAtuais = new Set([...lidas].filter(id=>idsAtuais.has(id)));
+    if(lidasAtuais.size !== lidas.size) salvarNotificacoesLidas(lidasAtuais);
+
+    const naoLidas = notificacoes.filter(n=>!lidasAtuais.has(n.id)).length;
+    badge.textContent = naoLidas > 99 ? "99+" : String(naoLidas);
+    badge.hidden = naoLidas === 0;
+
+    lista.innerHTML = "";
+    if(!notificacoes.length){
+        lista.innerHTML = '<div class="notification-empty">Nenhum comunicado disponível.</div>';
+        return;
+    }
+
+    notificacoes.forEach(n=>{
+        const lida = lidasAtuais.has(n.id);
+        const botao = document.createElement("button");
+        botao.type = "button";
+        botao.className = "notification-item" + (lida ? " lida" : "");
+        botao.dataset.notificationId = n.id;
+        botao.innerHTML = `
+            <span class="notification-dot"></span>
+            <span>
+                <span class="notification-item-title">${escapeHtml(n.titulo)}</span>
+                <span class="notification-item-meta">${escapeHtml(n.categoria)}${n.tempo ? " • " + escapeHtml(n.tempo) : ""}</span>
+            </span>
+        `;
+        botao.addEventListener("click",()=>{
+            const novasLidas = obterNotificacoesLidas();
+            novasLidas.add(n.id);
+            salvarNotificacoesLidas(novasLidas);
+            atualizarPainelNotificacoes();
+            fecharPainelNotificacoes();
+            if(n.el){
+                n.el.scrollIntoView({behavior:"smooth",block:"center"});
+            }else if(n.tipo==="evento"){
+                document.getElementById("calendar-section")?.scrollIntoView({behavior:"smooth",block:"start"});
+            }
+        });
+        lista.appendChild(botao);
+    });
+}
+
+function abrirPainelNotificacoes(){
+    const painel = document.getElementById("notification-panel");
+    const botao = document.getElementById("notification-button");
+    if(!painel || !botao) return;
+    atualizarPainelNotificacoes();
+    painel.hidden = false;
+    botao.setAttribute("aria-expanded","true");
+}
+
+function fecharPainelNotificacoes(){
+    const painel = document.getElementById("notification-panel");
+    const botao = document.getElementById("notification-button");
+    if(!painel || !botao) return;
+    painel.hidden = true;
+    botao.setAttribute("aria-expanded","false");
+}
+
+function iniciarNotificacoes(){
+    const botao = document.getElementById("notification-button");
+    const painel = document.getElementById("notification-panel");
+    const marcarTodas = document.getElementById("notification-mark-all");
+    if(!botao || !painel) return;
+
+    atualizarPainelNotificacoes();
+
+    botao.addEventListener("click",(e)=>{
+        e.stopPropagation();
+        painel.hidden ? abrirPainelNotificacoes() : fecharPainelNotificacoes();
+    });
+
+    if(marcarTodas){
+        marcarTodas.addEventListener("click",(e)=>{
+            e.stopPropagation();
+            const todas = coletarNotificacoes().map(n=>n.id);
+            salvarNotificacoesLidas(new Set(todas));
+            atualizarPainelNotificacoes();
+        });
+    }
+
+    painel.addEventListener("click",e=>e.stopPropagation());
+    document.addEventListener("click",fecharPainelNotificacoes);
+    document.addEventListener("keydown",e=>{
+        if(e.key === "Escape") fecharPainelNotificacoes();
+    });
+}
+
+
+document.addEventListener('DOMContentLoaded',()=>{
+    iniciarNotificacoes();
+    carregarColaboradores();
+    carregarEventosPortal();
+    const busca=document.getElementById('team-search');
+    if(busca) busca.addEventListener('input',e=>renderColaboradores(e.target.value));
+
+    const form=document.getElementById('suggestion-form');
+    if(form) form.addEventListener('submit',async e=>{
+        e.preventDefault();
+        const status=document.getElementById('suggestion-status');
+        const texto=document.getElementById('suggestion-text').value.trim();
+        if(!texto) return;
+        if(!SUGESTOES_WEB_APP_URL){
+            status.textContent='Para receber as sugestões, falta apenas conectar a URL do Google Apps Script fornecido junto com o portal.';
+            return;
+        }
+        status.textContent='Enviando...';
+        try{
+            await fetch(SUGESTOES_WEB_APP_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({tipo:document.getElementById('suggestion-type').value,mensagem:texto})});
+            document.getElementById('suggestion-text').value='';
+            status.textContent='✓ Sugestão enviada. Obrigado por contribuir!';
+        }catch(err){
+            status.textContent='Não foi possível enviar agora. Tente novamente.';
+        }
+    });
+});
+
 </script>
 
 
 </body>
-
 </html>
