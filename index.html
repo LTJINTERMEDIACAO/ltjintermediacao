@@ -2698,13 +2698,22 @@ async function registrarTagColaboradorLTJ(){
  if(!window.LTJ_OneSignal)return false;
  try{
    const permitido=window.LTJ_OneSignal.Notifications.permission;
-   const inscrito=window.LTJ_OneSignal.User.PushSubscription.optedIn;
+   let inscrito=window.LTJ_OneSignal.User.PushSubscription.optedIn;
+
+   // Se o navegador já tem permissão, mas a inscrição foi removida
+   // no painel do OneSignal, recria a assinatura automaticamente.
+   if(permitido && !inscrito){
+     await window.LTJ_OneSignal.User.PushSubscription.optIn();
+     await new Promise(resolve=>setTimeout(resolve,800));
+     inscrito=window.LTJ_OneSignal.User.PushSubscription.optedIn;
+   }
+
    if(permitido && inscrito){
      await window.LTJ_OneSignal.User.addTag("ltj_colaborador","sim");
      console.log("Tag OneSignal registrada: ltj_colaborador=sim");
      return true;
    }
- }catch(e){console.warn("Não foi possível registrar a tag LTJ:",e);}
+ }catch(e){console.warn("Não foi possível registrar/recriar a inscrição LTJ:",e);}
  return false;
 }
 async function atualizarBotaoPush(){
