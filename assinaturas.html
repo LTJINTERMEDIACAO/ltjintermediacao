@@ -16,7 +16,7 @@ a{text-decoration:none;color:inherit}
 .wrap{padding:28px 4.5% 50px} .title h1{margin:0;font-size:28px} .title p{color:var(--cinza);font-size:13px}
 .line{width:42px;height:3px;background:var(--laranja);margin:12px 0 20px}
 .note{background:#fff0e3;color:#7b3a00;border-radius:9px;padding:10px 13px;font-size:10px;line-height:1.5;margin-bottom:18px}
-.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:18px}
 .stat{background:#fff;border:1px solid var(--borda);border-radius:14px;padding:15px 16px;box-shadow:0 6px 18px rgba(6,40,95,.04)}
 .stat strong{display:block;font-size:23px;margin-bottom:6px} .stat span{font-size:10px;color:var(--cinza)}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:13px}
@@ -46,11 +46,8 @@ a{text-decoration:none;color:inherit}
 
 <main class="wrap">
   <div class="title"><h1>Assinaturas de e-mail</h1><div class="line"></div><p>Encontre seu nome e use a assinatura correspondente à sua unidade.</p></div>
-  <div class="note">A página possui uma base interna de segurança e, quando a API do portal estiver configurada, atualiza automaticamente pela planilha <b>E-MAIL</b>.</div>
-
   <section class="summary">
     <div class="stat"><strong id="nTotal">0</strong><span>Assinaturas disponíveis</span></div>
-    <div class="stat"><strong id="nPessoas">0</strong><span>Colaboradores com assinatura</span></div>
     <div class="stat"><strong id="nSorocaba">0</strong><span>Agente Sorocaba</span></div>
     <div class="stat"><strong id="nIndaiatuba">0</strong><span>Agente Indaiatuba</span></div>
   </section>
@@ -59,7 +56,7 @@ a{text-decoration:none;color:inherit}
     <button class="filter active" data-filtro="todos">Todos</button>
     <button class="filter" data-filtro="sorocaba">Sorocaba</button>
     <button class="filter" data-filtro="indaiatuba">Indaiatuba</button>
-    <button class="filter" data-filtro="duas">Com 2 assinaturas</button>
+    
   </div>
 
   <input id="busca" class="search" placeholder="Buscar por nome, setor ou unidade...">
@@ -82,8 +79,7 @@ function preparar(lista){
   ativos.forEach(x=>{const k=norm(x.Nome);cont[k]=(cont[k]||0)+1});
   return ativos.map(x=>{
     const duas=cont[norm(x.Nome)]>1;
-    let unidade="";
-    if(duas) unidade=norm(x.Arquivo).includes("-2")?"Indaiatuba":"Sorocaba";
+    const unidade=norm(x.Arquivo).includes("-2")?"Indaiatuba":"Sorocaba";
     return {...x,duas,unidade};
   });
 }
@@ -91,7 +87,6 @@ function preparar(lista){
 function render(){
   const base=preparar(dados);
   document.getElementById("nTotal").textContent=base.length;
-  document.getElementById("nPessoas").textContent=new Set(base.map(x=>norm(x.Nome))).size;
   document.getElementById("nSorocaba").textContent=base.filter(x=>x.unidade==="Sorocaba").length;
   document.getElementById("nIndaiatuba").textContent=base.filter(x=>x.unidade==="Indaiatuba").length;
 
@@ -99,7 +94,6 @@ function render(){
   let lista=base.filter(x=>{
     if(filtroAtual==="sorocaba" && x.unidade!=="Sorocaba") return false;
     if(filtroAtual==="indaiatuba" && x.unidade!=="Indaiatuba") return false;
-    if(filtroAtual==="duas" && !x.duas) return false;
     return norm(x.Nome).includes(q)||norm(x.Setor).includes(q)||norm(x.unidade).includes(q);
   }).sort((a,b)=>String(a.Nome).localeCompare(String(b.Nome),"pt-BR"));
 
