@@ -3,279 +3,1284 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>Assinaturas | Portal LTJ</title>
+
 <style>
-:root{--azul:#0640a1;--azul2:#0b54c7;--azul-escuro:#03275f;--laranja:#ff7417;--branco:#fff;--fundo:#f5f7fb;--cinza:#667085;--borda:#e4eaf2}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--fundo);color:var(--azul-escuro)}
-a{text-decoration:none;color:inherit}
-.header{background:#fff;min-height:95px;display:flex;align-items:center;justify-content:space-between;padding:12px 4.5%;border-bottom:1px solid var(--borda);position:sticky;top:0;z-index:10}
-.brand{display:flex;align-items:center;gap:15px}.brand img{width:95px;height:68px;object-fit:contain}.brand strong{display:block}.brand span{font-size:12px;color:#58677d}
-.back{background:var(--laranja);color:#fff;padding:10px 15px;border-radius:9px;font-size:12px;font-weight:bold}
-.wrap{padding:28px 4.5% 50px}.title h1{margin:0;font-size:28px}.title p{color:var(--cinza);font-size:13px}.line{width:42px;height:3px;background:var(--laranja);margin:12px 0 20px}
-.search{width:100%;max-width:520px;height:46px;border:1px solid var(--borda);border-radius:10px;padding:0 14px;outline:none;margin-bottom:18px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.card{background:#fff;border:1px solid var(--borda);border-radius:15px;padding:16px;box-shadow:0 6px 18px rgba(6,40,95,.05)}
-.cardtop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.card h3{margin:0 0 5px;font-size:15px}.meta{font-size:10px;color:var(--cinza)}
-.badge{background:#edf4ff;color:var(--azul2);font-size:9px;font-weight:bold;padding:7px 9px;border-radius:20px;white-space:nowrap}
-.imgbox{margin-top:12px;border:1px dashed #dce2eb;border-radius:10px;padding:10px;min-height:150px;display:flex;align-items:center;justify-content:center}
-.imgbox img{width:100%;max-height:190px;object-fit:contain}
-.actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.actions a,.actions button{border:1px solid var(--borda);background:#fff;color:var(--azul2);padding:8px 10px;border-radius:8px;font-size:10px;cursor:pointer}
-.note{background:#fff0e3;color:#7b3a00;border-radius:9px;padding:10px 13px;font-size:10px;line-height:1.5;margin-bottom:18px}
-.empty{background:#fff;padding:20px;border-radius:12px;color:var(--cinza)}
+
+:root{
+    --azul:#0640a1;
+    --azul2:#0b54c7;
+    --azul-escuro:#03275f;
+    --laranja:#ff7417;
+    --branco:#ffffff;
+    --fundo:#f5f7fb;
+    --cinza:#667085;
+    --borda:#e4eaf2;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--fundo);
+    color:var(--azul-escuro);
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* =========================================================
+   CABEÇALHO
+========================================================= */
+
+.header{
+    background:white;
+    min-height:95px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:12px 4.5%;
+
+    border-bottom:1px solid var(--borda);
+
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.brand img{
+    width:95px;
+    height:68px;
+    object-fit:contain;
+}
+
+.brand strong{
+    display:block;
+}
+
+.brand span{
+    font-size:12px;
+    color:#58677d;
+}
+
+.back{
+    background:var(--laranja);
+    color:white;
+
+    padding:10px 15px;
+
+    border-radius:9px;
+
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.wrap{
+    padding:28px 4.5% 50px;
+}
+
+.title h1{
+    margin:0;
+    font-size:28px;
+}
+
+.title p{
+    color:var(--cinza);
+    font-size:13px;
+}
+
+.line{
+    width:42px;
+    height:3px;
+
+    background:var(--laranja);
+
+    margin:12px 0 20px;
+}
+
+.note{
+    background:#fff0e3;
+    color:#7b3a00;
+
+    border-radius:9px;
+
+    padding:10px 13px;
+
+    font-size:10px;
+    line-height:1.5;
+
+    margin-bottom:18px;
+}
+
+/* =========================================================
+   RESUMO
+========================================================= */
 
 .summary-grid{
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:12px;
-  margin:0 0 18px;
-}
-.summary-card{
-  background:#fff;
-  border:1px solid var(--borda);
-  border-radius:14px;
-  padding:14px 16px;
-  box-shadow:0 6px 18px rgba(6,40,95,.04);
-}
-.summary-card strong{
-  display:block;
-  font-size:22px;
-  color:var(--azul-escuro);
-  line-height:1;
-  margin-bottom:6px;
-}
-.summary-card span{
-  font-size:10px;
-  color:var(--cinza);
-}
-.filters{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin:0 0 16px;
-}
-.filter-btn{
-  border:1px solid var(--borda);
-  background:#fff;
-  color:var(--azul2);
-  padding:8px 11px;
-  border-radius:999px;
-  font-size:10px;
-  font-weight:bold;
-  cursor:pointer;
-}
-.filter-btn.active{
-  background:var(--azul);
-  color:#fff;
-  border-color:var(--azul);
-}
-.result-line{
-  font-size:10px;
-  color:var(--cinza);
-  margin:0 0 10px;
-}
-.dual-note{
-  margin-top:7px;
-  font-size:9px;
-  color:#7a4b00;
-  background:#fff4e8;
-  display:inline-block;
-  padding:5px 7px;
-  border-radius:7px;
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+
+    gap:12px;
+
+    margin-bottom:18px;
 }
 
-@media(max-width:800px){.grid{grid-template-columns:1fr}.header{gap:12px}.brand span{display:none}}
+.summary-card{
+    background:white;
+
+    border:1px solid var(--borda);
+    border-radius:14px;
+
+    padding:15px 16px;
+
+    box-shadow:0 6px 18px rgba(6,40,95,.04);
+}
+
+.summary-card strong{
+    display:block;
+
+    font-size:23px;
+
+    line-height:1;
+
+    margin-bottom:6px;
+
+    color:var(--azul-escuro);
+}
+
+.summary-card span{
+    font-size:10px;
+    color:var(--cinza);
+}
+
+/* =========================================================
+   FILTROS E BUSCA
+========================================================= */
+
+.filters{
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-bottom:13px;
+}
+
+.filter-btn{
+    border:1px solid var(--borda);
+
+    background:white;
+    color:var(--azul2);
+
+    padding:8px 12px;
+
+    border-radius:999px;
+
+    font-size:10px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.filter-btn:hover{
+    border-color:var(--azul2);
+}
+
+.filter-btn.active{
+    background:var(--azul);
+    color:white;
+    border-color:var(--azul);
+}
+
+.search{
+    width:100%;
+    max-width:520px;
+
+    height:46px;
+
+    border:1px solid var(--borda);
+    border-radius:10px;
+
+    padding:0 14px;
+
+    outline:none;
+
+    margin-bottom:8px;
+}
+
+.search:focus{
+    border-color:var(--azul2);
+}
+
+.result-line{
+    font-size:10px;
+    color:var(--cinza);
+
+    margin-bottom:18px;
+}
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+
+    gap:15px;
+}
+
+.card{
+    background:white;
+
+    border:1px solid var(--borda);
+    border-radius:15px;
+
+    padding:16px;
+
+    box-shadow:0 6px 18px rgba(6,40,95,.05);
+}
+
+.cardtop{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+.card h3{
+    margin:0 0 5px;
+
+    font-size:15px;
+}
+
+.meta{
+    font-size:10px;
+    color:var(--cinza);
+}
+
+.badge{
+    background:#edf4ff;
+    color:var(--azul2);
+
+    font-size:9px;
+    font-weight:bold;
+
+    padding:7px 9px;
+
+    border-radius:20px;
+
+    white-space:nowrap;
+}
+
+.dual-note{
+    display:inline-block;
+
+    margin-top:7px;
+
+    background:#fff4e8;
+    color:#7a4b00;
+
+    padding:5px 7px;
+
+    border-radius:7px;
+
+    font-size:9px;
+}
+
+.imgbox{
+    margin-top:12px;
+
+    border:1px dashed #dce2eb;
+    border-radius:10px;
+
+    padding:10px;
+
+    min-height:150px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.imgbox img{
+    width:100%;
+    max-height:210px;
+
+    object-fit:contain;
+}
+
+.actions{
+    display:flex;
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-top:10px;
+}
+
+.actions a,
+.actions button{
+    border:1px solid var(--borda);
+
+    background:white;
+    color:var(--azul2);
+
+    padding:8px 10px;
+
+    border-radius:8px;
+
+    font-size:10px;
+
+    cursor:pointer;
+}
+
+.actions a:hover,
+.actions button:hover{
+    background:#f5f8fd;
+}
+
+/* =========================================================
+   ESTADOS
+========================================================= */
+
+.empty,
+.error{
+    background:white;
+
+    padding:20px;
+
+    border-radius:12px;
+}
+
+.empty{
+    color:var(--cinza);
+}
+
+.error{
+    color:#9b1c1c;
+
+    border:1px solid #ffd6d2;
+
+    background:#fff1f0;
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+
+@media(max-width:900px){
+
+    .summary-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+
+}
+
+@media(max-width:800px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .brand span{
+        display:none;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .summary-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .header{
+        padding-left:14px;
+        padding-right:14px;
+    }
+
+    .back{
+        font-size:10px;
+    }
+
+}
+
 </style>
+
 </head>
+
 <body>
+
 <header class="header">
-  <div class="brand">
-    <img src="logo-ltj.png" alt="LTJ">
-    <div><strong>LTJ Intermediação de Negócios</strong><span>Assinaturas oficiais</span></div>
-  </div>
-  <a class="back" href="index.html">← Voltar ao Portal</a>
+
+    <div class="brand">
+
+        <img src="logo-ltj.png" alt="LTJ">
+
+        <div>
+
+            <strong>
+                LTJ Intermediação de Negócios
+            </strong>
+
+            <span>
+                Assinaturas oficiais
+            </span>
+
+        </div>
+
+    </div>
+
+    <a class="back" href="index.html">
+        ← Voltar ao Portal
+    </a>
+
 </header>
 
+
 <main class="wrap">
-  <div class="title">
-    <h1>Assinaturas de e-mail</h1>
-    <div class="line"></div>
-    <p>Encontre seu nome e use a assinatura correspondente à sua unidade.</p>
-  </div>
-  <div class="note">
-    Esta página é atualizada pela aba <b>E-MAIL</b> da planilha. Linhas com <b>Ativo = NÃO</b> não aparecem.
-  </div>
-  <input id="search" class="search" type="search" placeholder="Buscar por nome, setor ou unidade...">
-  <section id="grid" class="grid"><div class="empty">Carregando assinaturas...</div></section>
+
+    <div class="title">
+
+        <h1>
+            Assinaturas de e-mail
+        </h1>
+
+        <div class="line"></div>
+
+        <p>
+            Encontre seu nome e use a assinatura correspondente à sua unidade.
+        </p>
+
+    </div>
+
+
+    <div class="note">
+        Esta página é atualizada automaticamente pela aba
+        <b>E-MAIL</b> da planilha de assinaturas.
+        Linhas com <b>Ativo = NÃO</b> não aparecem no portal.
+    </div>
+
+
+    <!-- RESUMO -->
+
+    <section class="summary-grid">
+
+        <div class="summary-card">
+            <strong id="count-total">0</strong>
+            <span>Assinaturas disponíveis</span>
+        </div>
+
+        <div class="summary-card">
+            <strong id="count-people">0</strong>
+            <span>Colaboradores com assinatura</span>
+        </div>
+
+        <div class="summary-card">
+            <strong id="count-sorocaba">0</strong>
+            <span>Agente Sorocaba</span>
+        </div>
+
+        <div class="summary-card">
+            <strong id="count-indaiatuba">0</strong>
+            <span>Agente Indaiatuba</span>
+        </div>
+
+    </section>
+
+
+    <!-- FILTROS -->
+
+    <div class="filters" id="filters">
+
+        <button
+            type="button"
+            class="filter-btn active"
+            data-filter="todos">
+            Todos
+        </button>
+
+        <button
+            type="button"
+            class="filter-btn"
+            data-filter="sorocaba">
+            Sorocaba
+        </button>
+
+        <button
+            type="button"
+            class="filter-btn"
+            data-filter="indaiatuba">
+            Indaiatuba
+        </button>
+
+        <button
+            type="button"
+            class="filter-btn"
+            data-filter="duplicados">
+            Com 2 assinaturas
+        </button>
+
+    </div>
+
+
+    <input
+        id="search"
+        class="search"
+        type="search"
+        placeholder="Buscar por nome, setor ou unidade..."
+    >
+
+
+    <div
+        id="result-line"
+        class="result-line">
+        Carregando assinaturas...
+    </div>
+
+
+    <section
+        id="grid"
+        class="grid">
+
+        <div class="empty">
+            Carregando assinaturas...
+        </div>
+
+    </section>
+
 </main>
 
+
 <script>
-const SHEET_ID = "1gRv9T8sq3aJUA30Y9GnqWsMBIr1_C84afXoyCZXjh8w";
-const SHEET_NAME = "E-MAIL";
+
+/* =========================================================
+   CONFIGURAÇÃO DA PLANILHA
+========================================================= */
+
+const SHEET_ID =
+    "1gRv9T8sq3aJUA30Y9GnqWsMBIr1_C84afXoyCZXjh8w";
+
+const SHEET_NAME =
+    "E-MAIL";
+
 let dados = [];
-let filtroAtual = "todos";
 
-const norm = s => String(s || "")
-  .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
-  .toLowerCase().trim();
+let filtroAtual =
+    "todos";
 
-const esc = s => String(s || "").replace(/[&<>'"]/g,c=>({
-  "&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"
-}[c]));
 
-function celula(c){
-  if(!c) return "";
-  if(c.f !== undefined && c.f !== null) return String(c.f);
-  if(c.v !== undefined && c.v !== null) return String(c.v);
-  return "";
+/* =========================================================
+   UTILITÁRIOS
+========================================================= */
+
+function norm(valor){
+
+    return String(valor || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .toLowerCase()
+        .trim();
+
 }
 
-window.receberAssinaturasLTJ = function(resp){
-  try{
-    if(!resp || !resp.table) throw new Error("Resposta inválida");
-    const headers = resp.table.cols.map(c => String(c.label || c.id || "").trim());
-    dados = resp.table.rows.map(row => {
-      const obj = {};
-      headers.forEach((h,i)=> obj[h] = celula(row.c ? row.c[i] : null));
-      return obj;
-    });
-    render();
-  }catch(e){
-    console.error(e);
-    document.getElementById("grid").innerHTML =
-      '<div class="empty">Não foi possível carregar as assinaturas da planilha.</div>';
-  }
+
+function esc(valor){
+
+    return String(valor || "")
+        .replace(
+            /[&<>'"]/g,
+            caractere => ({
+                "&":"&amp;",
+                "<":"&lt;",
+                ">":"&gt;",
+                "'":"&#39;",
+                '"':"&quot;"
+            }[caractere])
+        );
+
+}
+
+
+function valorCelula(celula){
+
+    if(!celula){
+        return "";
+    }
+
+    if(
+        celula.f !== undefined &&
+        celula.f !== null
+    ){
+        return String(celula.f);
+    }
+
+    if(
+        celula.v !== undefined &&
+        celula.v !== null
+    ){
+        return String(celula.v);
+    }
+
+    return "";
+
+}
+
+
+/* =========================================================
+   RECEBE OS DADOS DO GOOGLE SHEETS
+
+   Usa JSONP do Google Visualization.
+   Isso evita bloqueio de CORS no GitHub Pages.
+========================================================= */
+
+window.receberAssinaturasLTJ =
+function(resposta){
+
+    try{
+
+        if(
+            !resposta ||
+            !resposta.table
+        ){
+
+            throw new Error(
+                "Resposta inválida do Google Sheets."
+            );
+
+        }
+
+
+        const cabecalhos =
+            resposta.table.cols.map(
+                coluna =>
+                    String(
+                        coluna.label ||
+                        coluna.id ||
+                        ""
+                    ).trim()
+            );
+
+
+        dados =
+            resposta.table.rows.map(
+                linha => {
+
+                    const objeto = {};
+
+                    cabecalhos.forEach(
+                        (cabecalho,indice) => {
+
+                            objeto[cabecalho] =
+                                valorCelula(
+                                    linha.c
+                                        ? linha.c[indice]
+                                        : null
+                                );
+
+                        }
+                    );
+
+                    return objeto;
+
+                }
+            );
+
+
+        render();
+
+    }
+    catch(erro){
+
+        console.error(erro);
+
+        document
+            .getElementById("result-line")
+            .textContent =
+                "Erro ao carregar a planilha.";
+
+        document
+            .getElementById("grid")
+            .innerHTML =
+                '<div class="error">' +
+                'Não foi possível carregar as assinaturas da planilha.' +
+                '</div>';
+
+    }
+
 };
 
+
+/* =========================================================
+   CARREGA A PLANILHA
+========================================================= */
+
 function carregar(){
-  const query = encodeURIComponent("select A,B,C,D,E,F");
-  const s = document.createElement("script");
-  s.src =
-    "https://docs.google.com/spreadsheets/d/" + SHEET_ID +
-    "/gviz/tq?sheet=" + encodeURIComponent(SHEET_NAME) +
-    "&tqx=responseHandler:receberAssinaturasLTJ" +
-    "&tq=" + query +
-    "&_=" + Date.now();
-  s.onerror = () => {
-    document.getElementById("grid").innerHTML =
-      '<div class="empty">Não foi possível acessar a planilha de assinaturas.</div>';
-  };
-  document.head.appendChild(s);
+
+    const consulta =
+        encodeURIComponent(
+            "select A,B,C,D,E,F"
+        );
+
+
+    const script =
+        document.createElement(
+            "script"
+        );
+
+
+    script.src =
+        "https://docs.google.com/spreadsheets/d/" +
+        SHEET_ID +
+        "/gviz/tq?sheet=" +
+        encodeURIComponent(SHEET_NAME) +
+        "&tqx=responseHandler:receberAssinaturasLTJ" +
+        "&tq=" +
+        consulta +
+        "&_=" +
+        Date.now();
+
+
+    script.onerror =
+        function(){
+
+            document
+                .getElementById("result-line")
+                .textContent =
+                    "Erro ao acessar a planilha.";
+
+            document
+                .getElementById("grid")
+                .innerHTML =
+                    '<div class="error">' +
+                    'Não foi possível acessar a planilha de assinaturas.' +
+                    '</div>';
+
+        };
+
+
+    document
+        .head
+        .appendChild(script);
+
 }
+
+
+/* =========================================================
+   PREPARA AS ASSINATURAS
+========================================================= */
 
 function preparar(){
-  const ativos = dados.filter(x =>
-    norm(x.Ativo) !== "nao" &&
-    norm(x.Ativo) !== "não" &&
-    String(x.Imagem || "").trim()
-  );
 
-  const contagem = {};
-  ativos.forEach(x => {
-    const k = norm(x.Nome);
-    contagem[k] = (contagem[k] || 0) + 1;
-  });
+    const ativas =
+        dados.filter(
+            item => {
 
-  return ativos.map(x => {
-    const duplicado = contagem[norm(x.Nome)] > 1;
-    let unidade = "";
-    if(duplicado){
-      const arq = norm(x.Arquivo || x.Imagem);
-      unidade = arq.includes("-2") ? "Indaiatuba" : "Sorocaba";
-    }
-    return {...x, unidade};
-  });
+                const ativo =
+                    norm(item.Ativo);
+
+                const possuiImagem =
+                    String(
+                        item.Imagem || ""
+                    ).trim();
+
+
+                return (
+                    ativo !== "nao" &&
+                    possuiImagem
+                );
+
+            }
+        );
+
+
+    const quantidadePorNome = {};
+
+
+    ativas.forEach(
+        item => {
+
+            const chave =
+                norm(item.Nome);
+
+            quantidadePorNome[chave] =
+                (
+                    quantidadePorNome[chave] ||
+                    0
+                ) + 1;
+
+        }
+    );
+
+
+    return ativas.map(
+        item => {
+
+            const chave =
+                norm(item.Nome);
+
+
+            const possuiDuas =
+                quantidadePorNome[chave] > 1;
+
+
+            let unidade = "";
+
+
+            if(possuiDuas){
+
+                const arquivo =
+                    norm(
+                        item.Arquivo ||
+                        item.Imagem
+                    );
+
+
+                unidade =
+                    arquivo.includes("-2")
+                        ? "Indaiatuba"
+                        : "Sorocaba";
+
+            }
+
+
+            return {
+                ...item,
+                unidade,
+                possuiDuas
+            };
+
+        }
+    );
+
 }
 
+
+/* =========================================================
+   CONTADORES
+========================================================= */
 
 function atualizarResumo(lista){
-  const pessoas = new Set(lista.map(x=>norm(x.Nome)).filter(Boolean));
-  const sorocaba = lista.filter(x=>x.unidade==="Sorocaba").length;
-  const indaiatuba = lista.filter(x=>x.unidade==="Indaiatuba").length;
 
-  document.getElementById("count-total").textContent = lista.length;
-  document.getElementById("count-people").textContent = pessoas.size;
-  document.getElementById("count-sorocaba").textContent = sorocaba;
-  document.getElementById("count-indaiatuba").textContent = indaiatuba;
+    const pessoas =
+        new Set(
+            lista
+                .map(
+                    item =>
+                        norm(item.Nome)
+                )
+                .filter(Boolean)
+        );
+
+
+    const sorocaba =
+        lista.filter(
+            item =>
+                item.unidade ===
+                "Sorocaba"
+        ).length;
+
+
+    const indaiatuba =
+        lista.filter(
+            item =>
+                item.unidade ===
+                "Indaiatuba"
+        ).length;
+
+
+    document
+        .getElementById("count-total")
+        .textContent =
+            lista.length;
+
+
+    document
+        .getElementById("count-people")
+        .textContent =
+            pessoas.size;
+
+
+    document
+        .getElementById("count-sorocaba")
+        .textContent =
+            sorocaba;
+
+
+    document
+        .getElementById("count-indaiatuba")
+        .textContent =
+            indaiatuba;
+
 }
 
-function passaFiltro(x){
-  if(filtroAtual==="sorocaba") return x.unidade==="Sorocaba";
-  if(filtroAtual==="indaiatuba") return x.unidade==="Indaiatuba";
-  if(filtroAtual==="duplicados") return preparar().filter(y=>norm(y.Nome)===norm(x.Nome)).length>1;
-  return true;
+
+/* =========================================================
+   FILTRO
+========================================================= */
+
+function passaFiltro(item){
+
+    if(
+        filtroAtual ===
+        "sorocaba"
+    ){
+
+        return (
+            item.unidade ===
+            "Sorocaba"
+        );
+
+    }
+
+
+    if(
+        filtroAtual ===
+        "indaiatuba"
+    ){
+
+        return (
+            item.unidade ===
+            "Indaiatuba"
+        );
+
+    }
+
+
+    if(
+        filtroAtual ===
+        "duplicados"
+    ){
+
+        return item.possuiDuas;
+
+    }
+
+
+    return true;
+
 }
 
-function render(q=""){
-  const g = document.getElementById("grid");
-  const f = norm(q);
 
-  const base = preparar();
-  atualizarResumo(base);
+/* =========================================================
+   RENDER
+========================================================= */
 
-  const a = base
-    .filter(passaFiltro)
-    .filter(x =>
-      norm(x.Nome).includes(f) ||
-      norm(x.Setor).includes(f) ||
-      norm(x.unidade).includes(f)
-    )
-    .sort((x,y)=>String(x.Nome||"").localeCompare(String(y.Nome||""),"pt-BR"));
+function render(){
 
-  g.innerHTML = "";
+    const grid =
+        document.getElementById(
+            "grid"
+        );
 
-  document.getElementById("result-line").textContent = `${a.length} assinatura${a.length===1?"":"s"} exibida${a.length===1?"":"s"}`;
 
-  if(!a.length){
-    g.innerHTML = '<div class="empty">Nenhuma assinatura encontrada.</div>';
-    return;
-  }
+    const busca =
+        norm(
+            document
+                .getElementById("search")
+                .value
+        );
 
-  a.forEach(x => {
-    const el = document.createElement("article");
-    el.className = "card";
-    const badge = x.unidade ? `Agente ${esc(x.unidade)}` : "Assinatura oficial";
-    const possuiDuas = preparar().filter(y=>norm(y.Nome)===norm(x.Nome)).length>1;
 
-    el.innerHTML = `
-      <div class="cardtop">
-        <div>
-          <h3>${esc(x.Nome)}</h3>
-          <div class="meta">${esc(x.Setor || "")}</div>
-          ${possuiDuas ? '<div class="dual-note">2 assinaturas disponíveis</div>' : ""}
-        </div>
-        <div class="badge">${badge}</div>
-      </div>
-      <div class="imgbox">
-        <img src="${esc(x.Imagem)}" alt="Assinatura ${esc(x.Nome)}" loading="lazy">
-      </div>
-      <div class="actions">
-        <a href="${esc(x.Imagem)}" target="_blank" rel="noopener">Abrir imagem</a>
-        <button data-copy="${esc(x.Imagem)}">Copiar link</button>
-      </div>`;
-    g.appendChild(el);
-  });
+    const base =
+        preparar();
+
+
+    atualizarResumo(
+        base
+    );
+
+
+    const exibidas =
+        base
+            .filter(
+                passaFiltro
+            )
+            .filter(
+                item => {
+
+                    return (
+                        norm(item.Nome)
+                            .includes(busca)
+                        ||
+                        norm(item.Setor)
+                            .includes(busca)
+                        ||
+                        norm(item.unidade)
+                            .includes(busca)
+                    );
+
+                }
+            )
+            .sort(
+                (a,b) =>
+                    String(
+                        a.Nome || ""
+                    ).localeCompare(
+                        String(
+                            b.Nome || ""
+                        ),
+                        "pt-BR"
+                    )
+            );
+
+
+    document
+        .getElementById("result-line")
+        .textContent =
+            exibidas.length +
+            (
+                exibidas.length === 1
+                    ? " assinatura exibida"
+                    : " assinaturas exibidas"
+            );
+
+
+    grid.innerHTML = "";
+
+
+    if(
+        !exibidas.length
+    ){
+
+        grid.innerHTML =
+            '<div class="empty">' +
+            'Nenhuma assinatura encontrada.' +
+            '</div>';
+
+        return;
+
+    }
+
+
+    exibidas.forEach(
+        item => {
+
+            const card =
+                document.createElement(
+                    "article"
+                );
+
+
+            card.className =
+                "card";
+
+
+            const etiqueta =
+                item.unidade
+                    ? "Agente " +
+                      esc(item.unidade)
+                    : "Assinatura oficial";
+
+
+            card.innerHTML = `
+
+                <div class="cardtop">
+
+                    <div>
+
+                        <h3>
+                            ${esc(item.Nome)}
+                        </h3>
+
+                        <div class="meta">
+                            ${esc(item.Setor)}
+                        </div>
+
+                        ${
+                            item.possuiDuas
+                            ?
+                            '<div class="dual-note">' +
+                            '2 assinaturas disponíveis' +
+                            '</div>'
+                            :
+                            ''
+                        }
+
+                    </div>
+
+                    <div class="badge">
+                        ${etiqueta}
+                    </div>
+
+                </div>
+
+
+                <div class="imgbox">
+
+                    <img
+                        src="${esc(item.Imagem)}"
+                        alt="Assinatura de ${esc(item.Nome)}"
+                        loading="lazy"
+                    >
+
+                </div>
+
+
+                <div class="actions">
+
+                    <a
+                        href="${esc(item.Imagem)}"
+                        target="_blank"
+                        rel="noopener">
+                        Abrir imagem
+                    </a>
+
+
+                    <button
+                        type="button"
+                        data-copy="${esc(item.Imagem)}">
+                        Copiar link
+                    </button>
+
+                </div>
+
+            `;
+
+
+            grid.appendChild(
+                card
+            );
+
+        }
+    );
+
 }
 
-document.getElementById("search").addEventListener("input",e=>render(e.target.value));
 
-document.getElementById("filters").addEventListener("click",e=>{
-  const btn=e.target.closest("[data-filter]");
-  if(!btn)return;
-  filtroAtual=btn.dataset.filter;
-  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active",b===btn));
-  render(document.getElementById("search").value);
-});
-document.addEventListener("click",e=>{
-  const b=e.target.closest("[data-copy]");
-  if(!b)return;
-  navigator.clipboard.writeText(b.dataset.copy).then(()=>{
-    b.textContent="Link copiado!";
-    setTimeout(()=>b.textContent="Copiar link",1500);
-  });
-});
+/* =========================================================
+   EVENTOS
+========================================================= */
+
+document
+    .getElementById("search")
+    .addEventListener(
+        "input",
+        render
+    );
+
+
+document
+    .getElementById("filters")
+    .addEventListener(
+        "click",
+        evento => {
+
+            const botao =
+                evento
+                    .target
+                    .closest(
+                        "[data-filter]"
+                    );
+
+
+            if(!botao){
+                return;
+            }
+
+
+            filtroAtual =
+                botao.dataset.filter;
+
+
+            document
+                .querySelectorAll(
+                    ".filter-btn"
+                )
+                .forEach(
+                    item => {
+
+                        item
+                            .classList
+                            .toggle(
+                                "active",
+                                item === botao
+                            );
+
+                    }
+                );
+
+
+            render();
+
+        }
+    );
+
+
+document
+    .addEventListener(
+        "click",
+        evento => {
+
+            const botao =
+                evento
+                    .target
+                    .closest(
+                        "[data-copy]"
+                    );
+
+
+            if(!botao){
+                return;
+            }
+
+
+            navigator
+                .clipboard
+                .writeText(
+                    botao.dataset.copy
+                )
+                .then(
+                    () => {
+
+                        botao.textContent =
+                            "Link copiado!";
+
+
+                        setTimeout(
+                            () => {
+
+                                botao.textContent =
+                                    "Copiar link";
+
+                            },
+                            1500
+                        );
+
+                    }
+                );
+
+        }
+    );
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+========================================================= */
 
 carregar();
+
 </script>
+
 </body>
 </html>
