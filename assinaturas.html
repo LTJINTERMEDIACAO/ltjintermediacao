@@ -23,6 +23,67 @@ a{text-decoration:none;color:inherit}
 .actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.actions a,.actions button{border:1px solid var(--borda);background:#fff;color:var(--azul2);padding:8px 10px;border-radius:8px;font-size:10px;cursor:pointer}
 .note{background:#fff0e3;color:#7b3a00;border-radius:9px;padding:10px 13px;font-size:10px;line-height:1.5;margin-bottom:18px}
 .empty{background:#fff;padding:20px;border-radius:12px;color:var(--cinza)}
+
+.summary-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  margin:0 0 18px;
+}
+.summary-card{
+  background:#fff;
+  border:1px solid var(--borda);
+  border-radius:14px;
+  padding:14px 16px;
+  box-shadow:0 6px 18px rgba(6,40,95,.04);
+}
+.summary-card strong{
+  display:block;
+  font-size:22px;
+  color:var(--azul-escuro);
+  line-height:1;
+  margin-bottom:6px;
+}
+.summary-card span{
+  font-size:10px;
+  color:var(--cinza);
+}
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:0 0 16px;
+}
+.filter-btn{
+  border:1px solid var(--borda);
+  background:#fff;
+  color:var(--azul2);
+  padding:8px 11px;
+  border-radius:999px;
+  font-size:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.filter-btn.active{
+  background:var(--azul);
+  color:#fff;
+  border-color:var(--azul);
+}
+.result-line{
+  font-size:10px;
+  color:var(--cinza);
+  margin:0 0 10px;
+}
+.dual-note{
+  margin-top:7px;
+  font-size:9px;
+  color:#7a4b00;
+  background:#fff4e8;
+  display:inline-block;
+  padding:5px 7px;
+  border-radius:7px;
+}
+
 @media(max-width:800px){.grid{grid-template-columns:1fr}.header{gap:12px}.brand span{display:none}}
 </style>
 </head>
@@ -52,6 +113,7 @@ a{text-decoration:none;color:inherit}
 const SHEET_ID = "1gRv9T8sq3aJUA30Y9GnqWsMBIr1_C84afXoyCZXjh8w";
 const SHEET_NAME = "E-MAIL";
 let dados = [];
+let filtroAtual = "todos";
 
 const norm = s => String(s || "")
   .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
@@ -125,11 +187,34 @@ function preparar(){
   });
 }
 
+
+function atualizarResumo(lista){
+  const pessoas = new Set(lista.map(x=>norm(x.Nome)).filter(Boolean));
+  const sorocaba = lista.filter(x=>x.unidade==="Sorocaba").length;
+  const indaiatuba = lista.filter(x=>x.unidade==="Indaiatuba").length;
+
+  document.getElementById("count-total").textContent = lista.length;
+  document.getElementById("count-people").textContent = pessoas.size;
+  document.getElementById("count-sorocaba").textContent = sorocaba;
+  document.getElementById("count-indaiatuba").textContent = indaiatuba;
+}
+
+function passaFiltro(x){
+  if(filtroAtual==="sorocaba") return x.unidade==="Sorocaba";
+  if(filtroAtual==="indaiatuba") return x.unidade==="Indaiatuba";
+  if(filtroAtual==="duplicados") return preparar().filter(y=>norm(y.Nome)===norm(x.Nome)).length>1;
+  return true;
+}
+
 function render(q=""){
   const g = document.getElementById("grid");
   const f = norm(q);
 
-  const a = preparar()
+  const base = preparar();
+  atualizarResumo(base);
+
+  const a = base
+    .filter(passaFiltro)
     .filter(x =>
       norm(x.Nome).includes(f) ||
       norm(x.Setor).includes(f) ||
@@ -138,6 +223,8 @@ function render(q=""){
     .sort((x,y)=>String(x.Nome||"").localeCompare(String(y.Nome||""),"pt-BR"));
 
   g.innerHTML = "";
+
+  document.getElementById("result-line").textContent = `${a.length} assinatura${a.length===1?"":"s"} exibida${a.length===1?"":"s"}`;
 
   if(!a.length){
     g.innerHTML = '<div class="empty">Nenhuma assinatura encontrada.</div>';
@@ -148,12 +235,14 @@ function render(q=""){
     const el = document.createElement("article");
     el.className = "card";
     const badge = x.unidade ? `Agente ${esc(x.unidade)}` : "Assinatura oficial";
+    const possuiDuas = preparar().filter(y=>norm(y.Nome)===norm(x.Nome)).length>1;
 
     el.innerHTML = `
       <div class="cardtop">
         <div>
           <h3>${esc(x.Nome)}</h3>
           <div class="meta">${esc(x.Setor || "")}</div>
+          ${possuiDuas ? '<div class="dual-note">2 assinaturas disponíveis</div>' : ""}
         </div>
         <div class="badge">${badge}</div>
       </div>
@@ -169,6 +258,14 @@ function render(q=""){
 }
 
 document.getElementById("search").addEventListener("input",e=>render(e.target.value));
+
+document.getElementById("filters").addEventListener("click",e=>{
+  const btn=e.target.closest("[data-filter]");
+  if(!btn)return;
+  filtroAtual=btn.dataset.filter;
+  document.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active",b===btn));
+  render(document.getElementById("search").value);
+});
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-copy]");
   if(!b)return;
