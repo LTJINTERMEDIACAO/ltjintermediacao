@@ -5,180 +5,146 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Assinaturas | Portal LTJ</title>
 <style>
-:root{--azul:#0640a1;--azul2:#0b54c7;--azul-escuro:#03275f;--laranja:#ff7417;--branco:#fff;--fundo:#f5f7fb;--cinza:#667085;--borda:#e4eaf2}
+:root{--azul:#0640a1;--azul2:#0b54c7;--azul-escuro:#03275f;--laranja:#ff7417;--fundo:#f5f7fb;--cinza:#667085;--borda:#e4eaf2}
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--fundo);color:var(--azul-escuro)}
 a{text-decoration:none;color:inherit}
 .header{background:#fff;min-height:95px;display:flex;align-items:center;justify-content:space-between;padding:12px 4.5%;border-bottom:1px solid var(--borda);position:sticky;top:0;z-index:10}
-.brand{display:flex;align-items:center;gap:15px}.brand img{width:95px;height:68px;object-fit:contain}.brand strong{display:block}.brand span{font-size:12px;color:#58677d}
+.brand{display:flex;align-items:center;gap:15px} .brand img{width:95px;height:68px;object-fit:contain}
+.brand strong{display:block} .brand span{font-size:12px;color:#58677d}
 .back{background:var(--laranja);color:#fff;padding:10px 15px;border-radius:9px;font-size:12px;font-weight:bold}
-.wrap{padding:28px 4.5% 50px}.title h1{margin:0;font-size:28px}.title p{color:var(--cinza);font-size:13px}.line{width:42px;height:3px;background:var(--laranja);margin:12px 0 20px}
-.search{width:100%;max-width:520px;height:46px;border:1px solid var(--borda);border-radius:10px;padding:0 14px;outline:none;margin-bottom:18px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.card{background:#fff;border:1px solid var(--borda);border-radius:15px;padding:16px;box-shadow:0 6px 18px rgba(6,40,95,.05)}
-.cardtop{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.card h3{margin:0 0 5px;font-size:15px}.meta{font-size:10px;color:var(--cinza)}
-.badge{background:#edf4ff;color:var(--azul2);font-size:9px;font-weight:bold;padding:7px 9px;border-radius:20px;white-space:nowrap}
-.imgbox{margin-top:12px;border:1px dashed #dce2eb;border-radius:10px;padding:10px;min-height:150px;display:flex;align-items:center;justify-content:center}
-.imgbox img{width:100%;max-height:190px;object-fit:contain}
-.actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}.actions a,.actions button{border:1px solid var(--borda);background:#fff;color:var(--azul2);padding:8px 10px;border-radius:8px;font-size:10px;cursor:pointer}
+.wrap{padding:28px 4.5% 50px} .title h1{margin:0;font-size:28px} .title p{color:var(--cinza);font-size:13px}
+.line{width:42px;height:3px;background:var(--laranja);margin:12px 0 20px}
 .note{background:#fff0e3;color:#7b3a00;border-radius:9px;padding:10px 13px;font-size:10px;line-height:1.5;margin-bottom:18px}
+.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.stat{background:#fff;border:1px solid var(--borda);border-radius:14px;padding:15px 16px;box-shadow:0 6px 18px rgba(6,40,95,.04)}
+.stat strong{display:block;font-size:23px;margin-bottom:6px} .stat span{font-size:10px;color:var(--cinza)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:13px}
+.filter{border:1px solid var(--borda);background:#fff;color:var(--azul2);padding:8px 12px;border-radius:999px;font-size:10px;font-weight:bold;cursor:pointer}
+.filter.active{background:var(--azul);color:#fff;border-color:var(--azul)}
+.search{width:100%;max-width:520px;height:46px;border:1px solid var(--borda);border-radius:10px;padding:0 14px;outline:none;margin-bottom:8px}
+.result{font-size:10px;color:var(--cinza);margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.card{background:#fff;border:1px solid var(--borda);border-radius:15px;padding:16px;box-shadow:0 6px 18px rgba(6,40,95,.05)}
+.cardtop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.card h3{margin:0 0 5px;font-size:15px} .meta{font-size:10px;color:var(--cinza)}
+.badge{background:#edf4ff;color:var(--azul2);font-size:9px;font-weight:bold;padding:7px 9px;border-radius:20px;white-space:nowrap}
+.dual{display:inline-block;margin-top:7px;background:#fff4e8;color:#7a4b00;padding:5px 7px;border-radius:7px;font-size:9px}
+.imgbox{margin-top:12px;border:1px dashed #dce2eb;border-radius:10px;padding:10px;min-height:150px;display:flex;align-items:center;justify-content:center}
+.imgbox img{width:100%;max-height:210px;object-fit:contain}
+.actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap} .actions a,.actions button{border:1px solid var(--borda);background:#fff;color:var(--azul2);padding:8px 10px;border-radius:8px;font-size:10px;cursor:pointer}
 .empty{background:#fff;padding:20px;border-radius:12px;color:var(--cinza)}
-@media(max-width:800px){.grid{grid-template-columns:1fr}.header{gap:12px}.brand span{display:none}}
+@media(max-width:900px){.summary{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.brand span{display:none}}
 </style>
 </head>
 <body>
 <header class="header">
-  <div class="brand">
-    <img src="logo-ltj.png" alt="LTJ">
-    <div><strong>LTJ Intermediação de Negócios</strong><span>Assinaturas oficiais</span></div>
-  </div>
+  <div class="brand"><img src="logo-ltj.png" alt="LTJ"><div><strong>LTJ Intermediação de Negócios</strong><span>Assinaturas oficiais</span></div></div>
   <a class="back" href="index.html">← Voltar ao Portal</a>
 </header>
 
 <main class="wrap">
-  <div class="title">
-    <h1>Assinaturas de e-mail</h1>
-    <div class="line"></div>
-    <p>Encontre seu nome e use a assinatura correspondente à sua unidade.</p>
+  <div class="title"><h1>Assinaturas de e-mail</h1><div class="line"></div><p>Encontre seu nome e use a assinatura correspondente à sua unidade.</p></div>
+  <div class="note">A página possui uma base interna de segurança e, quando a API do portal estiver configurada, atualiza automaticamente pela planilha <b>E-MAIL</b>.</div>
+
+  <section class="summary">
+    <div class="stat"><strong id="nTotal">0</strong><span>Assinaturas disponíveis</span></div>
+    <div class="stat"><strong id="nPessoas">0</strong><span>Colaboradores com assinatura</span></div>
+    <div class="stat"><strong id="nSorocaba">0</strong><span>Agente Sorocaba</span></div>
+    <div class="stat"><strong id="nIndaiatuba">0</strong><span>Agente Indaiatuba</span></div>
+  </section>
+
+  <div class="filters">
+    <button class="filter active" data-filtro="todos">Todos</button>
+    <button class="filter" data-filtro="sorocaba">Sorocaba</button>
+    <button class="filter" data-filtro="indaiatuba">Indaiatuba</button>
+    <button class="filter" data-filtro="duas">Com 2 assinaturas</button>
   </div>
-  <div class="note">
-    Esta página é atualizada pela aba <b>E-MAIL</b> da planilha. Linhas com <b>Ativo = NÃO</b> não aparecem.
-  </div>
-  <input id="search" class="search" type="search" placeholder="Buscar por nome, setor ou unidade...">
-  <section id="grid" class="grid"><div class="empty">Carregando assinaturas...</div></section>
+
+  <input id="busca" class="search" placeholder="Buscar por nome, setor ou unidade...">
+  <div class="result" id="resultado"></div>
+  <section class="grid" id="grid"></section>
 </main>
 
+<script src="config.js"></script>
 <script>
-const SHEET_ID = "1gRv9T8sq3aJUA30Y9GnqWsMBIr1_C84afXoyCZXjh8w";
-const SHEET_NAME = "E-MAIL";
-let dados = [];
+const BASE_INTERNA = [{"Nome": "Amanda Prado", "Setor": "Canal Direto", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/amanda-prado.png", "Ativo": "SIM", "Arquivo": "amanda-prado.png", "Observação": ""}, {"Nome": "Amanda Silva", "Setor": "Mesa de Negocios", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/amanda-silva.png", "Ativo": "SIM", "Arquivo": "amanda-silva.png", "Observação": ""}, {"Nome": "Ana Carolina Fernandes", "Setor": "Comercial", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/ana-carolina-fernandes.png", "Ativo": "SIM", "Arquivo": "ana-carolina-fernandes.png", "Observação": ""}, {"Nome": "Ana Paula Rissato", "Setor": "Comercial", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/ana-paula-rissato.png", "Ativo": "SIM", "Arquivo": "ana-paula-rissato.png", "Observação": ""}, {"Nome": "Andreia Souza", "Setor": "Cadastro", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/andreia-souza.png", "Ativo": "SIM", "Arquivo": "andreia-souza.png", "Observação": ""}, {"Nome": "Andressa Andrade", "Setor": "Gestora ", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/andressa-andrade-2.png", "Ativo": "SIM", "Arquivo": "andressa-andrade-2.png", "Observação": "Variante -2. Deixei como NÃO para não aparecer duplicado na busca. Se esta for a versão correta, mude esta linha para SIM e a outra versão para NÃO."}, {"Nome": "Andressa Andrade", "Setor": "Gestora ", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/andressa-andrade.png", "Ativo": "SIM", "Arquivo": "andressa-andrade.png", "Observação": ""}, {"Nome": "Ariane Araujo", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/ariane-araujo.png", "Ativo": "SIM", "Arquivo": "ariane-araujo.png", "Observação": ""}, {"Nome": "Bianca Nogueira", "Setor": "Juridico", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/bianca-nogueira.png", "Ativo": "SIM", "Arquivo": "bianca-nogueira.png", "Observação": ""}, {"Nome": "Camila Gomes", "Setor": "Admnistrativo", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/camila-gomes.png", "Ativo": "SIM", "Arquivo": "camila-gomes.png", "Observação": ""}, {"Nome": "Carmen Abreu", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/carmen-abreu.png", "Ativo": "SIM", "Arquivo": "carmen-abreu.png", "Observação": ""}, {"Nome": "Caroline Morais", "Setor": "Mesa de Negocios", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/caroline-morais.png", "Ativo": "SIM", "Arquivo": "caroline-morais.png", "Observação": ""}, {"Nome": "Cibele Guedes", "Setor": "Admnistrativo", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/cibele-guedes.png", "Ativo": "SIM", "Arquivo": "cibele-guedes.png", "Observação": ""}, {"Nome": "Cintia Ferreira", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/cintia-ferreira.png", "Ativo": "SIM", "Arquivo": "cintia-ferreira.png", "Observação": ""}, {"Nome": "Denilze Souza", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/denilze-souza.png", "Ativo": "SIM", "Arquivo": "denilze-souza.png", "Observação": ""}, {"Nome": "Dirce Rodrigues", "Setor": "Cadastro", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/dirce-rodrigues.png", "Ativo": "SIM", "Arquivo": "dirce-rodrigues.png", "Observação": ""}, {"Nome": "Eder Costa", "Setor": "Comercial", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/eder-costa.png", "Ativo": "SIM", "Arquivo": "eder-costa.png", "Observação": ""}, {"Nome": "Elaine Sanches", "Setor": "Cadastro", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/elaine-sanches.png", "Ativo": "SIM", "Arquivo": "elaine-sanches.png", "Observação": ""}, {"Nome": "Elaine Silva", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/elaine-silva.png", "Ativo": "SIM", "Arquivo": "elaine-silva.png", "Observação": ""}, {"Nome": "Emylie Santos", "Setor": "Mesa de Negocios", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/emylie-santos.png", "Ativo": "SIM", "Arquivo": "emylie-santos.png", "Observação": ""}, {"Nome": "Frederico Sousa", "Setor": "Gestor", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/frederico-sousa-2.png", "Ativo": "SIM", "Arquivo": "frederico-sousa-2.png", "Observação": "Variante -2. Deixei como NÃO para não aparecer duplicado na busca. Se esta for a versão correta, mude esta linha para SIM e a outra versão para NÃO."}, {"Nome": "Frederico Sousa", "Setor": "Gestor", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/frederico-sousa.png", "Ativo": "SIM", "Arquivo": "frederico-sousa.png", "Observação": ""}, {"Nome": "Helen Padilha", "Setor": "Gestor", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/helen-padilha-2.png", "Ativo": "SIM", "Arquivo": "helen-padilha-2.png", "Observação": "Variante -2. Deixei como NÃO para não aparecer duplicado na busca. Se esta for a versão correta, mude esta linha para SIM e a outra versão para NÃO."}, {"Nome": "Helen Padilha", "Setor": "Gestor", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/helen-padilha.png", "Ativo": "SIM", "Arquivo": "helen-padilha.png", "Observação": ""}, {"Nome": "Heloisa Prado", "Setor": "Patrimonio", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/heloisa-prado.png", "Ativo": "SIM", "Arquivo": "heloisa-prado.png", "Observação": ""}, {"Nome": "Isabella Franci", "Setor": "Cadastro", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/isabella-franci.png", "Ativo": "SIM", "Arquivo": "isabella-franci.png", "Observação": ""}, {"Nome": "Izabela Ramos", "Setor": "Cadastro", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/izabela-ramos.png", "Ativo": "SIM", "Arquivo": "izabela-ramos.png", "Observação": ""}, {"Nome": "Jessica Mendes", "Setor": "Mesa de Negocios", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/jessica-mendes.png", "Ativo": "SIM", "Arquivo": "jessica-mendes.png", "Observação": ""}, {"Nome": "Jessica Rafaela Vidal", "Setor": "Canal Direto", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/jessica-rafaela-vidal.png", "Ativo": "SIM", "Arquivo": "jessica-rafaela-vidal.png", "Observação": ""}, {"Nome": "Jorge Balduino", "Setor": "Diretor", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/jorge-balduino-2.png", "Ativo": "SIM", "Arquivo": "jorge-balduino-2.png", "Observação": "Variante -2. Deixei como NÃO para não aparecer duplicado na busca. Se esta for a versão correta, mude esta linha para SIM e a outra versão para NÃO."}, {"Nome": "Jorge Balduino", "Setor": "Diretor", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/jorge-balduino.png", "Ativo": "SIM", "Arquivo": "jorge-balduino.png", "Observação": ""}, {"Nome": "Julia Moura", "Setor": "Gestora ", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/julia-moura-2.png", "Ativo": "SIM", "Arquivo": "julia-moura-2.png", "Observação": "Variante -2. Deixei como NÃO para não aparecer duplicado na busca. Se esta for a versão correta, mude esta linha para SIM e a outra versão para NÃO."}, {"Nome": "Julia Moura", "Setor": "Gestora", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/julia-moura.png", "Ativo": "SIM", "Arquivo": "julia-moura.png", "Observação": ""}, {"Nome": "Karin Romano", "Setor": "Comercial", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/karin-romano.png", "Ativo": "SIM", "Arquivo": "karin-romano.png", "Observação": ""}, {"Nome": "Katia Coutinho", "Setor": "Mesa de Negocios", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/katia-coutinho.png", "Ativo": "SIM", "Arquivo": "katia-coutinho.png", "Observação": ""}, {"Nome": "Keren Santos", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/keren-santos.png", "Ativo": "SIM", "Arquivo": "keren-santos.png", "Observação": ""}, {"Nome": "Ketllyn Neves", "Setor": "Mesa de Negocios", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/ketllyn-neves.png", "Ativo": "SIM", "Arquivo": "ketllyn-neves.png", "Observação": ""}, {"Nome": "Larissa Santos", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/larissa-santos.png", "Ativo": "SIM", "Arquivo": "larissa-santos.png", "Observação": ""}, {"Nome": "Liliam Oliveira", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/liliam-oliveira.png", "Ativo": "SIM", "Arquivo": "liliam-oliveira.png", "Observação": ""}, {"Nome": "Luciana Balduino", "Setor": "Diretora", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/luciana-balduino-2.png", "Ativo": "SIM", "Arquivo": "luciana-balduino-2.png", "Observação": "Variante -2. Deixei como NÃO para não aparecer duplicado na busca. Se esta for a versão correta, mude esta linha para SIM e a outra versão para NÃO."}, {"Nome": "Luciana Balduino", "Setor": "Diretora", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/luciana-balduino.png", "Ativo": "SIM", "Arquivo": "luciana-balduino.png", "Observação": ""}, {"Nome": "Marcelle Goncalves", "Setor": "Juridico", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/marcelle-goncalves.png", "Ativo": "SIM", "Arquivo": "marcelle-goncalves.png", "Observação": ""}, {"Nome": "Marcio Martins", "Setor": "Gestor", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/marcio-martins-2.png", "Ativo": "SIM", "Arquivo": "marcio-martins-2.png", "Observação": "Variante -2. Deixei como NÃO para não aparecer duplicado na busca. Se esta for a versão correta, mude esta linha para SIM e a outra versão para NÃO."}, {"Nome": "Marcio Martins", "Setor": "Gestor", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/marcio-martins.png", "Ativo": "SIM", "Arquivo": "marcio-martins.png", "Observação": ""}, {"Nome": "Maria Julia", "Setor": "Juridico", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/maria-julia.png", "Ativo": "SIM", "Arquivo": "maria-julia.png", "Observação": ""}, {"Nome": "Maria Santos", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/maria-santos.png", "Ativo": "SIM", "Arquivo": "maria-santos.png", "Observação": ""}, {"Nome": "Mayara Moura", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/mayara-moura.png", "Ativo": "SIM", "Arquivo": "mayara-moura.png", "Observação": ""}, {"Nome": "Melissa Amaral", "Setor": "Comercial", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/melissa-amaral.png", "Ativo": "SIM", "Arquivo": "melissa-amaral.png", "Observação": ""}, {"Nome": "Michele Mota", "Setor": "Canal Direto", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/michele-mota.png", "Ativo": "SIM", "Arquivo": "michele-mota.png", "Observação": ""}, {"Nome": "Nedra Jorge", "Setor": "Comercial", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/nedra-jorge.png", "Ativo": "SIM", "Arquivo": "nedra-jorge.png", "Observação": ""}, {"Nome": "Paulo Roberto", "Setor": "Comercial", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/paulo-roberto.png", "Ativo": "SIM", "Arquivo": "paulo-roberto.png", "Observação": ""}, {"Nome": "Paulo Rodrigues", "Setor": "Comercial", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/paulo-rodrigues.png", "Ativo": "SIM", "Arquivo": "paulo-rodrigues.png", "Observação": ""}, {"Nome": "Ranile Silva", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/ranile-silva.png", "Ativo": "SIM", "Arquivo": "ranile-silva.png", "Observação": ""}, {"Nome": "Recursos Humanos", "Setor": "Admnistrativo", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/recursos-humanos-2.png", "Ativo": "SIM", "Arquivo": "recursos-humanos-2.png", "Observação": "Variante -2. Deixei como NÃO para não aparecer duplicado na busca. Se esta for a versão correta, mude esta linha para SIM e a outra versão para NÃO."}, {"Nome": "Recursos Humanos", "Setor": "Admnistrativo", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/recursos-humanos.png", "Ativo": "SIM", "Arquivo": "recursos-humanos.png", "Observação": ""}, {"Nome": "Renata Lopes", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/renata-lopes.png", "Ativo": "SIM", "Arquivo": "renata-lopes.png", "Observação": ""}, {"Nome": "Taiane Couto", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/taiane-couto.png", "Ativo": "SIM", "Arquivo": "taiane-couto.png", "Observação": ""}, {"Nome": "Tamires Reis", "Setor": "Formalização", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/tamires-reis.png", "Ativo": "SIM", "Arquivo": "tamires-reis.png", "Observação": ""}, {"Nome": "Tatiane Oliveira", "Setor": "Gestora", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/tatiane-oliveira-2.png", "Ativo": "SIM", "Arquivo": "tatiane-oliveira-2.png", "Observação": "Variante -2. Deixei como NÃO para não aparecer duplicado na busca. Se esta for a versão correta, mude esta linha para SIM e a outra versão para NÃO."}, {"Nome": "Tatiane Oliveira", "Setor": "Gestora", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/tatiane-oliveira.png", "Ativo": "SIM", "Arquivo": "tatiane-oliveira.png", "Observação": ""}, {"Nome": "Vitoria Pereira", "Setor": "Admnistrativo", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/vitoria-pereira.png", "Ativo": "SIM", "Arquivo": "vitoria-pereira.png", "Observação": ""}, {"Nome": "Yolanda Xavier", "Setor": "Cobrança", "Imagem": "https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/yolanda-xavier.png", "Ativo": "SIM", "Arquivo": "yolanda-xavier.png", "Observação": ""}];
+let dados = BASE_INTERNA.slice();
+let filtroAtual = "todos";
 
-const norm = s => String(s || "")
-  .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
-  .toLowerCase().trim();
+function norm(v){return String(v||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().trim()}
+function esc(v){return String(v||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 
-const esc = s => String(s || "").replace(/[&<>'"]/g,c=>({
-  "&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"
-}[c]));
-
-function celula(c){
-  if(!c) return "";
-  if(c.f !== undefined && c.f !== null) return String(c.f);
-  if(c.v !== undefined && c.v !== null) return String(c.v);
-  return "";
+function preparar(lista){
+  const ativos=lista.filter(x=>norm(x.Ativo)!=="nao" && String(x.Imagem||"").trim());
+  const cont={};
+  ativos.forEach(x=>{const k=norm(x.Nome);cont[k]=(cont[k]||0)+1});
+  return ativos.map(x=>{
+    const duas=cont[norm(x.Nome)]>1;
+    let unidade="";
+    if(duas) unidade=norm(x.Arquivo).includes("-2")?"Indaiatuba":"Sorocaba";
+    return {...x,duas,unidade};
+  });
 }
 
-window.receberAssinaturasLTJ = function(resp){
-  try{
-    if(!resp || !resp.table) throw new Error("Resposta inválida");
-    const headers = resp.table.cols.map(c => String(c.label || c.id || "").trim());
-    dados = resp.table.rows.map(row => {
-      const obj = {};
-      headers.forEach((h,i)=> obj[h] = celula(row.c ? row.c[i] : null));
-      return obj;
-    });
+function render(){
+  const base=preparar(dados);
+  document.getElementById("nTotal").textContent=base.length;
+  document.getElementById("nPessoas").textContent=new Set(base.map(x=>norm(x.Nome))).size;
+  document.getElementById("nSorocaba").textContent=base.filter(x=>x.unidade==="Sorocaba").length;
+  document.getElementById("nIndaiatuba").textContent=base.filter(x=>x.unidade==="Indaiatuba").length;
+
+  const q=norm(document.getElementById("busca").value);
+  let lista=base.filter(x=>{
+    if(filtroAtual==="sorocaba" && x.unidade!=="Sorocaba") return false;
+    if(filtroAtual==="indaiatuba" && x.unidade!=="Indaiatuba") return false;
+    if(filtroAtual==="duas" && !x.duas) return false;
+    return norm(x.Nome).includes(q)||norm(x.Setor).includes(q)||norm(x.unidade).includes(q);
+  }).sort((a,b)=>String(a.Nome).localeCompare(String(b.Nome),"pt-BR"));
+
+  document.getElementById("resultado").textContent=lista.length+" assinatura"+(lista.length===1?"":"s")+" exibida"+(lista.length===1?"":"s");
+  const g=document.getElementById("grid");
+  if(!lista.length){g.innerHTML='<div class="empty">Nenhuma assinatura encontrada.</div>';return}
+  g.innerHTML=lista.map(x=>`
+    <article class="card">
+      <div class="cardtop">
+        <div><h3>${esc(x.Nome)}</h3><div class="meta">${esc(x.Setor)}</div>${x.duas?'<div class="dual">2 assinaturas disponíveis</div>':""}</div>
+        <div class="badge">${x.unidade?"Agente "+esc(x.unidade):"Assinatura oficial"}</div>
+      </div>
+      <div class="imgbox"><img src="${esc(x.Imagem)}" alt="Assinatura ${esc(x.Nome)}" loading="lazy"></div>
+      <div class="actions"><a href="${esc(x.Imagem)}" target="_blank">Abrir imagem</a><button data-copy="${esc(x.Imagem)}">Copiar link</button></div>
+    </article>`).join("");
+}
+
+window.receberAssinaturasAPI=function(resp){
+  if(resp && resp.ok && Array.isArray(resp.assinaturas)){
+    dados=resp.assinaturas;
     render();
-  }catch(e){
-    console.error(e);
-    document.getElementById("grid").innerHTML =
-      '<div class="empty">Não foi possível carregar as assinaturas da planilha.</div>';
   }
 };
 
-function carregar(){
-  const query = encodeURIComponent("select A,B,C,D,E,F");
-  const s = document.createElement("script");
-  s.src =
-    "https://docs.google.com/spreadsheets/d/" + SHEET_ID +
-    "/gviz/tq?sheet=" + encodeURIComponent(SHEET_NAME) +
-    "&tqx=responseHandler:receberAssinaturasLTJ" +
-    "&tq=" + query +
-    "&_=" + Date.now();
-  s.onerror = () => {
-    document.getElementById("grid").innerHTML =
-      '<div class="empty">Não foi possível acessar a planilha de assinaturas.</div>';
-  };
+function tentarAtualizarDaAPI(){
+  const api=(window.LTJ_CONFIG && window.LTJ_CONFIG.ASSINATURAS_API_URL)||"";
+  if(!api)return;
+  const s=document.createElement("script");
+  s.src=api+(api.includes("?")?"&":"?")+"acao=assinaturas&callback=receberAssinaturasAPI&_="+Date.now();
   document.head.appendChild(s);
 }
 
-function preparar(){
-  const ativos = dados.filter(x =>
-    norm(x.Ativo) !== "nao" &&
-    norm(x.Ativo) !== "não" &&
-    String(x.Imagem || "").trim()
-  );
-
-  const contagem = {};
-  ativos.forEach(x => {
-    const k = norm(x.Nome);
-    contagem[k] = (contagem[k] || 0) + 1;
-  });
-
-  return ativos.map(x => {
-    const duplicado = contagem[norm(x.Nome)] > 1;
-    let unidade = "";
-    if(duplicado){
-      const arq = norm(x.Arquivo || x.Imagem);
-      unidade = arq.includes("-2") ? "Indaiatuba" : "Sorocaba";
-    }
-    return {...x, unidade};
-  });
-}
-
-function render(q=""){
-  const g = document.getElementById("grid");
-  const f = norm(q);
-
-  const a = preparar()
-    .filter(x =>
-      norm(x.Nome).includes(f) ||
-      norm(x.Setor).includes(f) ||
-      norm(x.unidade).includes(f)
-    )
-    .sort((x,y)=>String(x.Nome||"").localeCompare(String(y.Nome||""),"pt-BR"));
-
-  g.innerHTML = "";
-
-  if(!a.length){
-    g.innerHTML = '<div class="empty">Nenhuma assinatura encontrada.</div>';
-    return;
-  }
-
-  a.forEach(x => {
-    const el = document.createElement("article");
-    el.className = "card";
-    const badge = x.unidade ? `Agente ${esc(x.unidade)}` : "Assinatura oficial";
-
-    el.innerHTML = `
-      <div class="cardtop">
-        <div>
-          <h3>${esc(x.Nome)}</h3>
-          <div class="meta">${esc(x.Setor || "")}</div>
-        </div>
-        <div class="badge">${badge}</div>
-      </div>
-      <div class="imgbox">
-        <img src="${esc(x.Imagem)}" alt="Assinatura ${esc(x.Nome)}" loading="lazy">
-      </div>
-      <div class="actions">
-        <a href="${esc(x.Imagem)}" target="_blank" rel="noopener">Abrir imagem</a>
-        <button data-copy="${esc(x.Imagem)}">Copiar link</button>
-      </div>`;
-    g.appendChild(el);
-  });
-}
-
-document.getElementById("search").addEventListener("input",e=>render(e.target.value));
+document.getElementById("busca").addEventListener("input",render);
+document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{
+  filtroAtual=btn.dataset.filtro;
+  document.querySelectorAll(".filter").forEach(b=>b.classList.toggle("active",b===btn));
+  render();
+}));
 document.addEventListener("click",e=>{
-  const b=e.target.closest("[data-copy]");
-  if(!b)return;
-  navigator.clipboard.writeText(b.dataset.copy).then(()=>{
-    b.textContent="Link copiado!";
-    setTimeout(()=>b.textContent="Copiar link",1500);
-  });
+  const b=e.target.closest("[data-copy]"); if(!b)return;
+  navigator.clipboard.writeText(b.dataset.copy).then(()=>{b.textContent="Link copiado!";setTimeout(()=>b.textContent="Copiar link",1500)})
 });
 
-carregar();
+render();
+tentarAtualizarDaAPI();
 </script>
 </body>
 </html>
