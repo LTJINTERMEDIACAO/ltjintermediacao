@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>Assinaturas | Portal LTJ</title>
 
 <style>
@@ -13,19 +14,24 @@
   --laranja:#ff7417;
   --fundo:#f5f7fb;
   --cinza:#667085;
-  --borda:#e4eaf2
+  --borda:#e4eaf2;
 }
 
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   background:var(--fundo);
-  color:var(--azul-escuro)
+  color:var(--azul-escuro);
 }
 
-a{text-decoration:none;color:inherit}
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
 .header{
   background:#fff;
@@ -37,26 +43,28 @@ a{text-decoration:none;color:inherit}
   border-bottom:1px solid var(--borda);
   position:sticky;
   top:0;
-  z-index:10
+  z-index:10;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:15px
+  gap:15px;
 }
 
 .brand img{
   width:95px;
   height:68px;
-  object-fit:contain
+  object-fit:contain;
 }
 
-.brand strong{display:block}
+.brand strong{
+  display:block;
+}
 
 .brand span{
   font-size:12px;
-  color:#58677d
+  color:#58677d;
 }
 
 .back{
@@ -65,35 +73,35 @@ a{text-decoration:none;color:inherit}
   padding:10px 15px;
   border-radius:9px;
   font-size:12px;
-  font-weight:bold
+  font-weight:bold;
 }
 
 .wrap{
-  padding:28px 4.5% 50px
+  padding:28px 4.5% 50px;
 }
 
 .title h1{
   margin:0;
-  font-size:28px
+  font-size:28px;
 }
 
 .title p{
   color:var(--cinza);
-  font-size:13px
+  font-size:13px;
 }
 
 .line{
   width:42px;
   height:3px;
   background:var(--laranja);
-  margin:12px 0 20px
+  margin:12px 0 20px;
 }
 
 .summary{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:12px;
-  margin-bottom:18px
+  margin-bottom:18px;
 }
 
 .stat{
@@ -101,25 +109,25 @@ a{text-decoration:none;color:inherit}
   border:1px solid var(--borda);
   border-radius:14px;
   padding:15px 16px;
-  box-shadow:0 6px 18px rgba(6,40,95,.04)
+  box-shadow:0 6px 18px rgba(6,40,95,.04);
 }
 
 .stat strong{
   display:block;
   font-size:23px;
-  margin-bottom:6px
+  margin-bottom:6px;
 }
 
 .stat span{
   font-size:10px;
-  color:var(--cinza)
+  color:var(--cinza);
 }
 
 .filters{
   display:flex;
   flex-wrap:wrap;
   gap:8px;
-  margin-bottom:13px
+  margin-bottom:13px;
 }
 
 .filter{
@@ -130,13 +138,13 @@ a{text-decoration:none;color:inherit}
   border-radius:999px;
   font-size:10px;
   font-weight:bold;
-  cursor:pointer
+  cursor:pointer;
 }
 
 .filter.active{
   background:var(--azul);
   color:#fff;
-  border-color:var(--azul)
+  border-color:var(--azul);
 }
 
 .search{
@@ -147,19 +155,19 @@ a{text-decoration:none;color:inherit}
   border-radius:10px;
   padding:0 14px;
   outline:none;
-  margin-bottom:8px
+  margin-bottom:8px;
 }
 
 .result{
   font-size:10px;
   color:var(--cinza);
-  margin-bottom:18px
+  margin-bottom:18px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:15px
+  gap:15px;
 }
 
 .card{
@@ -167,24 +175,24 @@ a{text-decoration:none;color:inherit}
   border:1px solid var(--borda);
   border-radius:15px;
   padding:16px;
-  box-shadow:0 6px 18px rgba(6,40,95,.05)
+  box-shadow:0 6px 18px rgba(6,40,95,.05);
 }
 
 .cardtop{
   display:flex;
   justify-content:space-between;
   gap:10px;
-  align-items:flex-start
+  align-items:flex-start;
 }
 
 .card h3{
   margin:0 0 5px;
-  font-size:15px
+  font-size:15px;
 }
 
 .meta{
   font-size:10px;
-  color:var(--cinza)
+  color:var(--cinza);
 }
 
 .badge{
@@ -194,7 +202,7 @@ a{text-decoration:none;color:inherit}
   font-weight:bold;
   padding:7px 9px;
   border-radius:20px;
-  white-space:nowrap
+  white-space:nowrap;
 }
 
 .dual{
@@ -204,7 +212,7 @@ a{text-decoration:none;color:inherit}
   color:#7a4b00;
   padding:5px 7px;
   border-radius:7px;
-  font-size:9px
+  font-size:9px;
 }
 
 .imgbox{
@@ -215,20 +223,20 @@ a{text-decoration:none;color:inherit}
   min-height:150px;
   display:flex;
   align-items:center;
-  justify-content:center
+  justify-content:center;
 }
 
 .imgbox img{
   width:100%;
   max-height:210px;
-  object-fit:contain
+  object-fit:contain;
 }
 
 .actions{
   display:flex;
   gap:8px;
   margin-top:10px;
-  flex-wrap:wrap
+  flex-wrap:wrap;
 }
 
 .actions a,
@@ -239,23 +247,30 @@ a{text-decoration:none;color:inherit}
   padding:8px 10px;
   border-radius:8px;
   font-size:10px;
-  cursor:pointer
+  cursor:pointer;
 }
 
 .empty{
   background:#fff;
   padding:20px;
   border-radius:12px;
-  color:var(--cinza)
+  color:var(--cinza);
 }
 
 @media(max-width:900px){
-  .summary{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .summary{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
 }
 
 @media(max-width:800px){
-  .grid{grid-template-columns:1fr}
-  .brand span{display:none}
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .brand span{
+    display:none;
+  }
 }
 </style>
 </head>
@@ -263,27 +278,40 @@ a{text-decoration:none;color:inherit}
 <body>
 
 <header class="header">
+
   <div class="brand">
+
     <img src="logo-ltj.png" alt="LTJ">
 
     <div>
       <strong>LTJ Intermediação de Negócios</strong>
       <span>Assinaturas oficiais</span>
     </div>
+
   </div>
 
-  <a class="back" href="index.html">← Voltar ao Portal</a>
+  <a class="back" href="index.html">
+    ← Voltar ao Portal
+  </a>
+
 </header>
 
 <main class="wrap">
 
   <div class="title">
+
     <h1>Assinaturas de e-mail</h1>
+
     <div class="line"></div>
-    <p>Encontre seu nome e use a assinatura correspondente à sua unidade.</p>
+
+    <p>
+      Encontre seu nome e use a assinatura correspondente à sua unidade.
+    </p>
+
   </div>
 
   <section class="summary">
+
     <div class="stat">
       <strong id="nTotal">0</strong>
       <span>Assinaturas disponíveis</span>
@@ -298,12 +326,23 @@ a{text-decoration:none;color:inherit}
       <strong id="nIndaiatuba">0</strong>
       <span>Agente Indaiatuba</span>
     </div>
+
   </section>
 
   <div class="filters">
-    <button class="filter active" data-filtro="todos">Todos</button>
-    <button class="filter" data-filtro="sorocaba">Sorocaba</button>
-    <button class="filter" data-filtro="indaiatuba">Indaiatuba</button>
+
+    <button class="filter active" data-filtro="todos">
+      Todos
+    </button>
+
+    <button class="filter" data-filtro="sorocaba">
+      Sorocaba
+    </button>
+
+    <button class="filter" data-filtro="indaiatuba">
+      Indaiatuba
+    </button>
+
   </div>
 
   <input
@@ -367,17 +406,17 @@ const BASE_INTERNA = [
 {
   Nome:"Andressa Andrade",
   Setor:"Gestora",
-  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/andressa-andrade-2.png",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/andressa-andrade.png",
   Ativo:"SIM",
-  Arquivo:"andressa-andrade-2.png"
+  Arquivo:"andressa-andrade.png"
 },
 
 {
   Nome:"Andressa Andrade",
   Setor:"Gestora",
-  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/andressa-andrade.png",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/andressa-andrade-2.png",
   Ativo:"SIM",
-  Arquivo:"andressa-andrade.png"
+  Arquivo:"andressa-andrade-2.png"
 },
 
 {
@@ -421,6 +460,14 @@ const BASE_INTERNA = [
 },
 
 {
+  Nome:"Caroline Morais",
+  Setor:"Mesa de Negocios",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/caroline-morais-2.png",
+  Ativo:"SIM",
+  Arquivo:"caroline-morais-2.png"
+},
+
+{
   Nome:"Cibele Guedes",
   Setor:"Administrativo",
   Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/cibele-guedes.png",
@@ -461,6 +508,14 @@ const BASE_INTERNA = [
 },
 
 {
+  Nome:"Eder Costa",
+  Setor:"Comercial",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/eder-costa-2.png",
+  Ativo:"SIM",
+  Arquivo:"eder-costa-2.png"
+},
+
+{
   Nome:"Elaine Sanches",
   Setor:"Cadastro",
   Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/elaine-sanches.png",
@@ -487,17 +542,17 @@ const BASE_INTERNA = [
 {
   Nome:"Frederico Sousa",
   Setor:"Gestor",
-  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/frederico-sousa-2.png",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/frederico-sousa.png",
   Ativo:"SIM",
-  Arquivo:"frederico-sousa-2.png"
+  Arquivo:"frederico-sousa.png"
 },
 
 {
   Nome:"Frederico Sousa",
   Setor:"Gestor",
-  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/frederico-sousa.png",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/frederico-sousa-2.png",
   Ativo:"SIM",
-  Arquivo:"frederico-sousa.png"
+  Arquivo:"frederico-sousa-2.png"
 },
 
 {
@@ -515,14 +570,6 @@ const BASE_INTERNA = [
   Ativo:"SIM",
   Arquivo:"gabriela-oliveira-2.png"
 },
-  
-{
-  Nome:"Helen Padilha",
-  Setor:"Gestor",
-  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/helen-padilha-2.png",
-  Ativo:"SIM",
-  Arquivo:"helen-padilha-2.png"
-},
 
 {
   Nome:"Helen Padilha",
@@ -530,6 +577,14 @@ const BASE_INTERNA = [
   Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/helen-padilha.png",
   Ativo:"SIM",
   Arquivo:"helen-padilha.png"
+},
+
+{
+  Nome:"Helen Padilha",
+  Setor:"Gestor",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/helen-padilha-2.png",
+  Ativo:"SIM",
+  Arquivo:"helen-padilha-2.png"
 },
 
 {
@@ -575,25 +630,17 @@ const BASE_INTERNA = [
 {
   Nome:"Jorge Balduino",
   Setor:"Diretor",
-  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/jorge-balduino-2.png",
-  Ativo:"SIM",
-  Arquivo:"jorge-balduino-2.png"
-},
-
-{
-  Nome:"Jorge Balduino",
-  Setor:"Diretor",
   Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/jorge-balduino.png",
   Ativo:"SIM",
   Arquivo:"jorge-balduino.png"
 },
 
 {
-  Nome:"Julia Moura",
-  Setor:"Gestora",
-  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/julia-moura-2.png",
+  Nome:"Jorge Balduino",
+  Setor:"Diretor",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/jorge-balduino-2.png",
   Ativo:"SIM",
-  Arquivo:"julia-moura-2.png"
+  Arquivo:"jorge-balduino-2.png"
 },
 
 {
@@ -602,6 +649,14 @@ const BASE_INTERNA = [
   Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/julia-moura.png",
   Ativo:"SIM",
   Arquivo:"julia-moura.png"
+},
+
+{
+  Nome:"Julia Moura",
+  Setor:"Gestora",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/julia-moura-2.png",
+  Ativo:"SIM",
+  Arquivo:"julia-moura-2.png"
 },
 
 {
@@ -637,6 +692,14 @@ const BASE_INTERNA = [
 },
 
 {
+  Nome:"Ketllyn Neves",
+  Setor:"Mesa de Negocios",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/ketllyn-neves-2.png",
+  Ativo:"SIM",
+  Arquivo:"ketllyn-neves-2.png"
+},
+
+{
   Nome:"Larissa Santos",
   Setor:"Cobrança",
   Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/larissa-santos.png",
@@ -652,20 +715,20 @@ const BASE_INTERNA = [
   Arquivo:"liliam-oliveira.png"
 },
 
-  {
-  Nome:"Luciana Balduino",
-  Setor:"Diretora",
-  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/luciana-balduino-2.png",
-  Ativo:"SIM",
-  Arquivo:"luciana-balduino-2.png"
-},
-
 {
   Nome:"Luciana Balduino",
   Setor:"Diretora",
   Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/luciana-balduino.png",
   Ativo:"SIM",
   Arquivo:"luciana-balduino.png"
+},
+
+{
+  Nome:"Luciana Balduino",
+  Setor:"Diretora",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/luciana-balduino-2.png",
+  Ativo:"SIM",
+  Arquivo:"luciana-balduino-2.png"
 },
 
 {
@@ -679,17 +742,17 @@ const BASE_INTERNA = [
 {
   Nome:"Marcio Martins",
   Setor:"Gestor",
-  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/marcio-martins-2.png",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/marcio-martins.png",
   Ativo:"SIM",
-  Arquivo:"marcio-martins-2.png"
+  Arquivo:"marcio-martins.png"
 },
 
 {
   Nome:"Marcio Martins",
   Setor:"Gestor",
-  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/marcio-martins.png",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/marcio-martins-2.png",
   Ativo:"SIM",
-  Arquivo:"marcio-martins.png"
+  Arquivo:"marcio-martins-2.png"
 },
 
 {
@@ -757,6 +820,14 @@ const BASE_INTERNA = [
 },
 
 {
+  Nome:"Paulo Rodrigues",
+  Setor:"Comercial",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/paulo-rodrigues-2.png",
+  Ativo:"SIM",
+  Arquivo:"paulo-rodrigues-2.png"
+},
+
+{
   Nome:"Ranile Silva",
   Setor:"Cobrança",
   Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/ranile-silva.png",
@@ -767,17 +838,17 @@ const BASE_INTERNA = [
 {
   Nome:"Recursos Humanos",
   Setor:"Administrativo",
-  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/recursos-humanos-2.png",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/recursos-humanos.png",
   Ativo:"SIM",
-  Arquivo:"recursos-humanos-2.png"
+  Arquivo:"recursos-humanos.png"
 },
 
 {
   Nome:"Recursos Humanos",
   Setor:"Administrativo",
-  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/recursos-humanos.png",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/recursos-humanos-2.png",
   Ativo:"SIM",
-  Arquivo:"recursos-humanos.png"
+  Arquivo:"recursos-humanos-2.png"
 },
 
 {
@@ -805,11 +876,11 @@ const BASE_INTERNA = [
 },
 
 {
-  Nome:"Tatiane Oliveira",
-  Setor:"Gestora",
-  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/tatiane-oliveira-2.png",
+  Nome:"Tamires Reis",
+  Setor:"Formalização",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/tamires-reis-2.png",
   Ativo:"SIM",
-  Arquivo:"tatiane-oliveira-2.png"
+  Arquivo:"tamires-reis-2.png"
 },
 
 {
@@ -818,6 +889,14 @@ const BASE_INTERNA = [
   Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/tatiane-oliveira.png",
   Ativo:"SIM",
   Arquivo:"tatiane-oliveira.png"
+},
+
+{
+  Nome:"Tatiane Oliveira",
+  Setor:"Gestora",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/tatiane-oliveira-2.png",
+  Ativo:"SIM",
+  Arquivo:"tatiane-oliveira-2.png"
 },
 
 {
@@ -834,53 +913,86 @@ const BASE_INTERNA = [
   Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/yolanda-xavier.png",
   Ativo:"SIM",
   Arquivo:"yolanda-xavier.png"
+},
+
+{
+  Nome:"Yolanda Xavier",
+  Setor:"Cobrança",
+  Imagem:"https://raw.githubusercontent.com/LTJINTERMEDIACAO/ltjintermediacao/main/assinaturas/yolanda-xavier-2.png",
+  Ativo:"SIM",
+  Arquivo:"yolanda-xavier-2.png"
 }
 
 ];
 
 let dados = BASE_INTERNA.slice();
+
 let filtroAtual = "todos";
 
 function norm(v){
+
   return String(v||"")
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g,"")
     .toLowerCase()
     .trim();
+
 }
 
 function esc(v){
-  return String(v||"").replace(/[&<>"']/g,c=>({
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#39;"
-  }[c]));
+
+  return String(v||"").replace(
+    /[&<>"']/g,
+    c=>({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#39;"
+    }[c])
+  );
+
 }
 
 function preparar(lista){
 
-  const ativos=lista.filter(x=>
-    norm(x.Ativo)!=="nao" &&
-    String(x.Imagem||"").trim()
-  );
+  const ativos=
+    lista.filter(x=>
+
+      norm(x.Ativo)!=="nao" &&
+      String(x.Imagem||"").trim()
+
+    );
 
   const cont={};
 
   ativos.forEach(x=>{
+
     const k=norm(x.Nome);
+
     cont[k]=(cont[k]||0)+1;
+
   });
 
   return ativos.map(x=>{
 
-    const duas=cont[norm(x.Nome)]>1;
+    const duas=
+      cont[norm(x.Nome)]>1;
+
+    /*
+      REGRA DAS UNIDADES:
+
+      arquivo normal:
+      Sorocaba
+
+      arquivo terminado em -2:
+      Indaiatuba
+    */
 
     const unidade=
       norm(x.Arquivo).includes("-2")
-      ? "Indaiatuba"
-      : "Sorocaba";
+        ? "Indaiatuba"
+        : "Sorocaba";
 
     return {
       ...x,
@@ -889,185 +1001,245 @@ function preparar(lista){
     };
 
   });
+
 }
 
 function render(){
 
-  const base=preparar(dados);
+  const base=
+    preparar(dados);
 
-  document.getElementById("nTotal").textContent=
-    base.length;
+  document
+    .getElementById("nTotal")
+    .textContent=
+      base.length;
 
-  document.getElementById("nSorocaba").textContent=
-    base.filter(x=>x.unidade==="Sorocaba").length;
+  document
+    .getElementById("nSorocaba")
+    .textContent=
+      base.filter(
+        x=>x.unidade==="Sorocaba"
+      ).length;
 
-  document.getElementById("nIndaiatuba").textContent=
-    base.filter(x=>x.unidade==="Indaiatuba").length;
+  document
+    .getElementById("nIndaiatuba")
+    .textContent=
+      base.filter(
+        x=>x.unidade==="Indaiatuba"
+      ).length;
 
-  const q=norm(
-    document.getElementById("busca").value
-  );
-
-  let lista=base.filter(x=>{
-
-    if(
-      filtroAtual==="sorocaba" &&
-      x.unidade!=="Sorocaba"
-    ){
-      return false;
-    }
-
-    if(
-      filtroAtual==="indaiatuba" &&
-      x.unidade!=="Indaiatuba"
-    ){
-      return false;
-    }
-
-    return (
-      norm(x.Nome).includes(q) ||
-      norm(x.Setor).includes(q) ||
-      norm(x.unidade).includes(q)
+  const q=
+    norm(
+      document
+        .getElementById("busca")
+        .value
     );
 
-  }).sort((a,b)=>
-    String(a.Nome).localeCompare(
-      String(b.Nome),
-      "pt-BR"
-    )
-  );
+  let lista=
+    base.filter(x=>{
 
-  document.getElementById("resultado").textContent=
-    lista.length+
-    " assinatura"+
-    (lista.length===1?"":"s")+
-    " exibida"+
-    (lista.length===1?"":"s");
+      if(
+        filtroAtual==="sorocaba" &&
+        x.unidade!=="Sorocaba"
+      ){
+        return false;
+      }
 
-  const g=document.getElementById("grid");
+      if(
+        filtroAtual==="indaiatuba" &&
+        x.unidade!=="Indaiatuba"
+      ){
+        return false;
+      }
+
+      return (
+
+        norm(x.Nome).includes(q) ||
+
+        norm(x.Setor).includes(q) ||
+
+        norm(x.unidade).includes(q)
+
+      );
+
+    })
+    .sort(
+      (a,b)=>
+        String(a.Nome)
+          .localeCompare(
+            String(b.Nome),
+            "pt-BR"
+          )
+    );
+
+  document
+    .getElementById("resultado")
+    .textContent=
+
+      lista.length +
+
+      " assinatura" +
+
+      (lista.length===1?"":"s") +
+
+      " exibida" +
+
+      (lista.length===1?"":"s");
+
+  const g=
+    document.getElementById("grid");
 
   if(!lista.length){
 
     g.innerHTML=
-      '<div class="empty">Nenhuma assinatura encontrada.</div>';
+      '<div class="empty">' +
+      'Nenhuma assinatura encontrada.' +
+      '</div>';
 
     return;
+
   }
 
-  g.innerHTML=lista.map(x=>`
+  g.innerHTML=
+    lista.map(x=>`
 
-    <article class="card">
+      <article class="card">
 
-      <div class="cardtop">
+        <div class="cardtop">
 
-        <div>
+          <div>
 
-          <h3>${esc(x.Nome)}</h3>
+            <h3>
+              ${esc(x.Nome)}
+            </h3>
 
-          <div class="meta">
-            ${esc(x.Setor)}
+            <div class="meta">
+              ${esc(x.Setor)}
+            </div>
+
+            ${
+              x.duas
+                ? '<div class="dual">2 assinaturas disponíveis</div>'
+                : ""
+            }
+
           </div>
 
-          ${
-            x.duas
-            ? '<div class="dual">2 assinaturas disponíveis</div>'
-            : ""
-          }
+          <div class="badge">
+
+            Agente ${esc(x.unidade)}
+
+          </div>
 
         </div>
 
-        <div class="badge">
-          Agente ${esc(x.unidade)}
+        <div class="imgbox">
+
+          <img
+            src="${esc(x.Imagem)}"
+            alt="Assinatura ${esc(x.Nome)}"
+            loading="lazy"
+          >
+
         </div>
 
-      </div>
+        <div class="actions">
 
-      <div class="imgbox">
+          <a
+            href="${esc(x.Imagem)}"
+            target="_blank"
+            rel="noopener"
+          >
+            Abrir imagem
+          </a>
 
-        <img
-          src="${esc(x.Imagem)}"
-          alt="Assinatura ${esc(x.Nome)}"
-          loading="lazy"
-        >
+          <button
+            type="button"
+            data-copy="${esc(x.Imagem)}"
+          >
+            Copiar link
+          </button>
 
-      </div>
+        </div>
 
-      <div class="actions">
+      </article>
 
-        <a
-          href="${esc(x.Imagem)}"
-          target="_blank"
-        >
-          Abrir imagem
-        </a>
-
-        <button
-          data-copy="${esc(x.Imagem)}"
-        >
-          Copiar link
-        </button>
-
-      </div>
-
-    </article>
-
-  `).join("");
+    `).join("");
 
 }
 
-/*
-IMPORTANTE:
-Nesta versão NÃO chamamos a API antiga.
-Assim ela não consegue substituir Daiane Sousa
-pelos dados antigos.
-*/
-
 document
   .getElementById("busca")
-  .addEventListener("input",render);
+  .addEventListener(
+    "input",
+    render
+  );
 
 document
   .querySelectorAll(".filter")
   .forEach(btn=>
-    btn.addEventListener("click",()=>{
 
-      filtroAtual=btn.dataset.filtro;
+    btn.addEventListener(
+      "click",
+      ()=>{
 
-      document
-        .querySelectorAll(".filter")
-        .forEach(b=>
-          b.classList.toggle(
-            "active",
-            b===btn
-          )
-        );
+        filtroAtual=
+          btn.dataset.filtro;
 
-      render();
+        document
+          .querySelectorAll(".filter")
+          .forEach(b=>
 
-    })
+            b.classList.toggle(
+              "active",
+              b===btn
+            )
+
+          );
+
+        render();
+
+      }
+    )
+
   );
 
-document.addEventListener("click",e=>{
+document.addEventListener(
+  "click",
+  e=>{
 
-  const b=e.target.closest("[data-copy]");
+    const b=
+      e.target.closest(
+        "[data-copy]"
+      );
 
-  if(!b){
-    return;
+    if(!b){
+      return;
+    }
+
+    navigator.clipboard
+      .writeText(
+        b.dataset.copy
+      )
+      .then(()=>{
+
+        b.textContent=
+          "Link copiado!";
+
+        setTimeout(
+          ()=>{
+
+            b.textContent=
+              "Copiar link";
+
+          },
+          1500
+        );
+
+      });
+
   }
-
-  navigator.clipboard
-    .writeText(b.dataset.copy)
-    .then(()=>{
-
-      b.textContent="Link copiado!";
-
-      setTimeout(()=>{
-        b.textContent="Copiar link";
-      },1500);
-
-    });
-
-});
+);
 
 render();
 
